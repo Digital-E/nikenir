@@ -23,14 +23,14 @@ function MyApp({ Component, pageProps, router }) {
 
     // Credits
 
-    console.clear();
+//     console.clear();
 
-    console.log(`
-${credits}
-samuelbassett.xyz
-Design + Development
-https://samuelbassett.xyz
-    `)
+//     console.log(`
+// ${credits}
+// samuelbassett.xyz
+// Design + Development
+// https://samuelbassett.xyz
+//     `)
 
   },[])
 
@@ -60,7 +60,7 @@ https://samuelbassett.xyz
 
   return (
     <StateProvider>
-      {/* <Header data={pageProps.data?.menuData} /> */}
+      <Header />
       {/* <CookieConsent
         buttonText={pageProps.data?.menuData.cookieaccept}
         declineButtonText={pageProps.data?.menuData.cookierefuse}
