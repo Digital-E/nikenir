@@ -7,6 +7,7 @@ const Container = styled(motion.div)`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 170px;
     height: 170px;
     margin: 0 15px;
@@ -49,23 +50,22 @@ const Background = styled.div`
     }
 `
 
-let gaugeTimeout = null;
-
 export default function Component({ data, index, allItems, hasClicked, hasInteracted }) {
     let lock = useRef(false);
     let [gauge, setGauge] = useState(0);
+    let gaugeTimeout = useRef(null);
 
     const controls = useAnimationControls();
 
     let gaugeIncrement = (e) => {
-        clearTimeout(gaugeTimeout)
+        clearTimeout(gaugeTimeout.current)
         setGauge(gauge + 10)
 
         if(gauge === 100) {
             hasClicked(e, index); 
         }
 
-        gaugeTimeout = setTimeout(() => {
+        gaugeTimeout.current = setTimeout(() => {
             if(gauge < 100) {
                 setGauge(0)
             }

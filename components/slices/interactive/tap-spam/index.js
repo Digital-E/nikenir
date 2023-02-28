@@ -13,15 +13,22 @@ const Container = styled.div`
 
     .text-one > span:nth-child(2) {
         opacity: 0;
+        // transition: opacity var(--transition-in);
+    }
+
+    .text-one > span:nth-child(1) {
+        // transition: opacity var(--transition-in) 0.3s;
     }
 
     &.clicked .text-one > span:nth-child(1) {
         opacity: 0;
+        // transition: opacity var(--transition-in);
     }
 
     &.clicked .text-one > span:nth-child(2) {
         opacity: 1;
         cursor: pointer;
+        // transition: opacity var(--transition-in) 0.3s;
     }
 `
 
