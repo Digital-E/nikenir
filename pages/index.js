@@ -5,7 +5,8 @@ import Notification from '../components/notification'
 import Layout from '../components/layout'
 
 // Interactive
-import CrossCards from '../components/slices/interactive/cross-cards'
+// import CrossCards from '../components/slices/interactive/cross-cards'
+import TapSpam from '../components/slices/interactive/tap-spam'
 
 
 // Slices
@@ -21,7 +22,7 @@ export default function Home() {
   return (
     <Layout title={`Nike Impact Report`} content={`Nike Impact Report`}>
       <Container>
-      <CrossCards />
+      <TapSpam />
       <PraiseTickers />
       {/* <Notification /> */}
       </Container>
