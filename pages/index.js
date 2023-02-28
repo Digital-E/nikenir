@@ -5,7 +5,11 @@ import Notification from '../components/notification'
 import Layout from '../components/layout'
 
 // Interactive
-import CrossCards from '../components/interactive/cross-cards'
+import CrossCards from '../components/slices/interactive/cross-cards'
+
+
+// Slices
+import PraiseTickers from '../components/slices/praise-tickers'
 
 const Container = styled.div`
   height: 200vh;
@@ -18,6 +22,7 @@ export default function Home() {
     <Layout title={`Nike Impact Report`} content={`Nike Impact Report`}>
       <Container>
       <CrossCards />
+      <PraiseTickers />
       {/* <Notification /> */}
       </Container>
     </Layout>

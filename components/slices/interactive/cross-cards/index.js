@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { unmountComponentAtNode } from 'react-dom'
 import styled from 'styled-components'
 
 import Card from './card'
@@ -58,7 +57,7 @@ const TextTwo = styled.div`
     transition: opacity var(--transition-in);
 `
 
-let cards = [
+let data = [
     {
         title: 'Reduce your footprint',
         img: 'images/cross-cards/shoebox 1.png',
@@ -87,7 +86,7 @@ let cards = [
 
 export default function Component() {
     let [hasInteracted, setHasInteracted] = useState(false)
-    let [allItems, setAllItems] = useState(cards)
+    let [allItems, setAllItems] = useState(data)
 
 
 
@@ -116,7 +115,7 @@ export default function Component() {
             </Text>
             <InnerContainer className='inner-container'>
                 {
-                    cards.map((item, index) => <Card data={item} index={index} allItems={allItems} hasClicked={(index) => hasClicked(index)} hasInteracted={hasInteracted} />)
+                    data.map((item, index) => <Card data={item} index={index} allItems={allItems} hasClicked={(index) => hasClicked(index)} hasInteracted={hasInteracted} />)
                 }
             </InnerContainer>
             <TextTwo className='text-two palatino'>You picked</TextTwo>
