@@ -75,24 +75,106 @@ export default function Component() {
     let [hasInteracted, setHasInteracted] = useState(false)
     let [allItems, setAllItems] = useState(data)
 
-
-    // useEffect(() => {
-    //     if(hasInteracted) {
-    //         confetti({
-    //             particleCount: 100,
-    //             spread: 70,
-    //             origin: { x: 0, y: 0.1 },
-    //           });
-    //     }
-    // }, [hasInteracted])
-
     let triggerConfetti = (e) => {
-        
+        // confetti({
+        //     particleCount: 100,
+        //     spread: 70,
+        //     origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
+        // });
         confetti({
+            spread: 360,
+            ticks: 200,
+            gravity: 1,
+            decay: 0.94,
+            startVelocity: 30,
             particleCount: 100,
-            spread: 70,
+            scalar: 3,
             origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
-        });        
+            shapes: ["image"],
+            shapeOptions: {
+              image: [{
+                  src: "https://particles.js.org/images/fruits/apple.png",
+                  width: 32,
+                  height: 32
+                },
+                {
+                  src: "https://particles.js.org/images/fruits/avocado.png",
+                  width: 32,
+                  height: 32
+                },
+                {
+                  src: "https://particles.js.org/images/fruits/banana.png",
+                  width: 32,
+                  height: 32
+                },
+                {
+                  src: "https://particles.js.org/images/fruits/berries.png",
+                  width: 32,
+                  height: 32
+                },
+                {
+                  src: "https://particles.js.org/images/fruits/cherry.png",
+                  width: 32,
+                  height: 32
+                },
+                {
+                  src: "https://particles.js.org/images/fruits/grapes.png",
+                  width: 32,
+                  height: 32
+                },
+                {
+                  src: "https://particles.js.org/images/fruits/lemon.png",
+                  width: 32,
+                  height: 32
+                },
+                {
+                  src: "https://particles.js.org/images/fruits/orange.png",
+                  width: 32,
+                  height: 32
+                },
+                {
+                  src: "https://particles.js.org/images/fruits/peach.png",
+                  width: 32,
+                  height: 32
+                },
+                {
+                  src: "https://particles.js.org/images/fruits/pear.png",
+                  width: 32,
+                  height: 32
+                },
+                {
+                  src: "https://particles.js.org/images/fruits/pepper.png",
+                  width: 32,
+                  height: 32
+                },
+                {
+                  src: "https://particles.js.org/images/fruits/plum.png",
+                  width: 32,
+                  height: 32
+                },
+                {
+                  src: "https://particles.js.org/images/fruits/star.png",
+                  width: 32,
+                  height: 32
+                },
+                {
+                  src: "https://particles.js.org/images/fruits/strawberry.png",
+                  width: 32,
+                  height: 32
+                },
+                {
+                  src: "https://particles.js.org/images/fruits/watermelon.png",
+                  width: 32,
+                  height: 32
+                },
+                {
+                  src: "https://particles.js.org/images/fruits/watermelon_slice.png",
+                  width: 32,
+                  height: 32
+                }
+              ]
+            },
+          });        
     }
 
     let hasClicked = (e, index) => {
