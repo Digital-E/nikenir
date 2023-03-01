@@ -1,5 +1,6 @@
 import '../styles/normalize.css';
 import '../styles/globals.css'
+import '../styles/flickity.css'
 
 import { useEffect } from 'react'
 import { motion, AnimatePresence } from "framer-motion"

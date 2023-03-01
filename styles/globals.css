@@ -38,6 +38,10 @@
   --transition-in: 0.3s;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 html {
   background: url('/images/gradients/PLANET_GRAIDENT_02 2.png');
 }
@@ -48,7 +52,6 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -56,6 +59,13 @@ body {
 
 .margin {
   margin: 0 15px;
+}
+
+
+.tap-spam-sticker {
+  position: fixed;
+  width: 150px;
+  pointer-events: none;
 }
 
 a {
@@ -74,7 +84,7 @@ img {
 }
 
 .max-width {
-  max-width: 360px;
+  max-width: 390px;
 }
 
 h1,
@@ -90,8 +100,8 @@ ul {
 }
 
 button {
-  padding: 0.5rem 1rem;
-  font-weight: bold;
+  border: none;
+  /* -webkit-appearance: none; */
 }
 
 h1, h2, h3, h4, h5, h6, p, span, a {

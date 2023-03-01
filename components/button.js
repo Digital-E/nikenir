@@ -1,0 +1,47 @@
+import { useEffect, useState, useContext } from 'react'
+import { motion, useAnimationControls } from 'framer-motion'
+import styled from 'styled-components'
+
+
+const Container = styled(motion.button)`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 30px;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    cursor: pointer;
+    user-select: none;
+`;
+
+
+
+const Component = ({ children }) => {
+    const controls = useAnimationControls();
+
+    let click = (e) => {
+        controls.start({ scale: 1.1 })
+        setTimeout(() => {
+            controls.start({ scale: 1.02 })
+        }, 50)
+    }
+
+    return (
+        <Container 
+            className='helvetica'
+            onClick={(e) => {click(e)}} 
+            transition={{ type: "spring", stiffness: 200, damping: 10 }}
+            whileHover={{scale: 1.02}}
+            animate={controls}
+        >
+            {children}
+        </Container>
+    )
+}
+
+export default Component
+

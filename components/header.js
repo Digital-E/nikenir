@@ -89,7 +89,6 @@ export default function Header({}) {
   const { scrollYProgress } = useScroll()
 
   let setProgress = (latest) => {
-    console.log(totalLength - latest * totalLength)
     progressBarRef.current.style.strokeDashoffset = totalLength - latest * totalLength;
   }
 

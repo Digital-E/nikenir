@@ -7,17 +7,17 @@ import Layout from '../components/layout'
 // Interactive
 import CrossCards from '../components/slices/interactive/cross-cards'
 import TapSpam from '../components/slices/interactive/tap-spam'
+import TapSpamTwo from '../components/slices/interactive/tap-spam-two'
+import TapSpamThree from '../components/slices/interactive/tap-spam-three'
 import Drag from '../components/slices/interactive/drag'
 import Like from '../components/slices/interactive/like'
 
 
-// Slices
+// Components
 import PraiseTickers from '../components/slices/praise-tickers'
+import CharacterCarousel from '../components/slices/character-carousel'
 
-const Container = styled.div`
-  height: 200vh;
-`
-
+const Container = styled.div``
 
 
 export default function Home() {
@@ -25,7 +25,10 @@ export default function Home() {
     <Layout title={`Nike Impact Report`} content={`Nike Impact Report`}>
       <Container>
       {/* <CrossCards /> */}
-      <TapSpam />
+      <CharacterCarousel />
+      {/* <TapSpam /> */}
+      {/* <TapSpamTwo /> */}
+      <TapSpamThree />
       <Drag />
       <Like />
       <PraiseTickers />

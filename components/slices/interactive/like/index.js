@@ -94,7 +94,7 @@ export default function Component() {
             gravity: 1,
             decay: 0.94,
             startVelocity: 30,
-            particleCount: 100,
+            count: 100,
             scalar: 3,
             origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
             shapes: ["image"],
