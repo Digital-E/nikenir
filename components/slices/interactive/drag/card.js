@@ -39,8 +39,8 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
 
     return (
         <Container
-            onMouseEnter={() => mouseOver(index)}
-            onMouseLeave={() => mouseOver(null)}
+            onPointerEnter={() => mouseOver(index)}
+            onPointerLeave={() => mouseOver(null)}
         >
             <Title>{data.title}</Title>
         </Container>

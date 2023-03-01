@@ -175,6 +175,7 @@ export default function Component() {
             <DragElement
               ref={dragElementRef}
               onClick={(e) => {clicked(e)}}
+              onPointerDown={(e) => e.target.releasePointerCapture(e.pointerId)}
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
               whileHover={{scale: 1.1 }}
               whileTap={{ scale: 2 }}

@@ -6,6 +6,8 @@ const Container = styled.div`
     position: relative;
 `
 
+const InnerContainer = styled.div``
+
 const Text = styled.div`
     text-align: center;
 `
@@ -30,8 +32,10 @@ export default function Component() {
     return (
         <Container className='max-width'>
             <Ticker data={data} />
-            <Text><span className='large-headline'>{data.message}</span></Text>
-            <Image><img src={data.img}/></Image>
+            <InnerContainer>
+                <Text><span className='large-headline'>{data.message}</span></Text>
+                <Image><img src={data.img}/></Image>
+            </InnerContainer>
             <Ticker data={data} secondary={true}/>
         </Container>
     )

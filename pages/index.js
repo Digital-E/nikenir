@@ -8,6 +8,7 @@ import Layout from '../components/layout'
 import CrossCards from '../components/slices/interactive/cross-cards'
 import TapSpam from '../components/slices/interactive/tap-spam'
 import Drag from '../components/slices/interactive/drag'
+import Like from '../components/slices/interactive/like'
 
 
 // Slices
@@ -23,9 +24,10 @@ export default function Home() {
   return (
     <Layout title={`Nike Impact Report`} content={`Nike Impact Report`}>
       <Container>
-      <CrossCards />
+      {/* <CrossCards /> */}
       <TapSpam />
       <Drag />
+      <Like />
       <PraiseTickers />
       {/* <Notification /> */}
       </Container>

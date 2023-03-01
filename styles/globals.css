@@ -54,7 +54,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-body {
+.margin {
   margin: 0 15px;
 }
 
