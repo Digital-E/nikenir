@@ -4,6 +4,7 @@ import Ticker from './ticker'
 
 const Container = styled.div`
     position: relative;
+    overflow: hidden;
 `
 
 const InnerContainer = styled.div``

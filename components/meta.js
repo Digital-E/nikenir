@@ -4,7 +4,7 @@ import {SITE_NAME} from '../lib/constants'
 export default function Meta({ title, content }) {
   return (
     <Head>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"></meta>
       <link
         rel="apple-touch-icon"
         sizes="180x180"

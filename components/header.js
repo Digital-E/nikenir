@@ -21,6 +21,7 @@ let Container = styled.header`
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 20px;
+  z-index: 998;
 `
 
 const Arrow = styled.div`

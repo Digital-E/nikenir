@@ -5,7 +5,6 @@ import { motion, useAnimationControls, useDragControls } from "framer-motion"
 import Card from './card'
 
 const Container = styled.div`
-    width: fit-content;
 
     &.clicked .text-two {
         opacity: 1 !important;
@@ -33,6 +32,11 @@ const Container = styled.div`
     }
 `
 
+const InnerContainer = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
 const Text = styled.div`
     position: relative;
     text-align: center;
@@ -53,10 +57,6 @@ const Text = styled.div`
     > span:last-child {
         opacity: 0;
     }
-`
-
-const InnerContainer = styled.div`
-    display: flex;
 `
 
 const TextTwo = styled.div`
@@ -105,13 +105,9 @@ export default function Component() {
     let mouseOverIndex = useRef(null);
 
     const controls = useAnimationControls();
-    const dragControls = useDragControls();
 
     let dragElementRef = useRef();
 
-    let triggerConfetti = (e) => {
-      
-    }
 
     let hasClicked = (e, index) => {
         let items = JSON.parse(JSON.stringify(allItems))
@@ -120,7 +116,6 @@ export default function Component() {
 
         setHasInteracted(true)
 
-        // triggerConfetti(e);
         setDragActive(false)
     }
 
@@ -167,7 +162,7 @@ export default function Component() {
   }
 
     return (
-        <Container className={hasInteracted ? 'clicked' : ''}>
+        <Container className={hasInteracted ? 'clicked max-width' : 'max-width'}>
             <Text className='text-one palatino'>
                 <span>Drag the shoe into the answer box</span>
                 <span onClick={() => undo()}>Undo</span>

@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import Card from './card'
 
 const Container = styled.div`
-    width: fit-content;
 
     &.clicked .text-two {
         opacity: 1 !important;
@@ -32,6 +31,11 @@ const Container = styled.div`
     }
 `
 
+const InnerContainer = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
 const Text = styled.div`
     position: relative;
     text-align: center;
@@ -52,10 +56,6 @@ const Text = styled.div`
     > span:last-child {
         opacity: 0;
     }
-`
-
-const InnerContainer = styled.div`
-    display: flex;
 `
 
 const TextTwo = styled.div`
@@ -129,7 +129,7 @@ export default function Component() {
     
 
     return (
-        <Container className={hasInteracted ? 'clicked' : ''}>
+        <Container className={hasInteracted ? 'clicked max-width' : 'max-width'}>
             <Text className='text-one palatino'>
                 <span>Tap spam to make your choice</span>
                 <span onClick={() => undo()}>Undo</span>

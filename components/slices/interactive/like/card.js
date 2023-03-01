@@ -27,13 +27,14 @@ const Container = styled(motion.div)`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 170px;
-    height: 170px;
-    margin: 0 15px;
+    width: calc(50% - 30px);
+    margin: 0 7.5px;
     border: 1px dashed #1A1A1A;
     border-radius: 27px;
     cursor: pointer;
     overflow: hidden;
+    box-sizing: border-box;
+    padding-bottom: calc(50% -  30px);
 
     * {
         cursor: pointer;
@@ -48,6 +49,12 @@ const Container = styled(motion.div)`
 `
 
 const Title = styled.h3`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    margin: 0;
     text-transform: uppercase;
     text-align: center;
     padding: 30px;
