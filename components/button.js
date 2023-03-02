@@ -9,13 +9,17 @@ const Container = styled(motion.button)`
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 10px 30px;
+    padding: 20px 30px;
     background: rgba(255, 255, 255, 0.6);
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(10px);
     border-radius: 30px;
     cursor: pointer;
     user-select: none;
+
+    @media(max-width: 989px) {
+        padding: 10px 30px;
+    }
 `;
 
 

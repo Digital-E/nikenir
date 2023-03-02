@@ -55,6 +55,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  overscroll-behavior: none;
 }
 
 .margin {
@@ -209,4 +210,10 @@ p {
   line-height: 110%;
   letter-spacing: -0.5px;
   text-transform: uppercase;
+}
+
+@media(max-width: 989px) {
+  .large-headline {
+    font-size: 58px;
+  }
 }

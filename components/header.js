@@ -128,7 +128,7 @@ export default function Header({}) {
               <circle class="progress-bar" cx="20" cy="20" r="15" ref={progressBarRef}></circle>
             </svg>      
           </Circle>
-          <Logo><img src='/images/nike logo.svg' /></Logo>
+          <Logo><img src='/images/logos/nike logo.svg' /></Logo>
         </ScrollIndicator>
       </ScrollIndicatorWrapper>
     </Container>
