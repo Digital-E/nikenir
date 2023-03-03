@@ -46,9 +46,10 @@ const Noise = styled.div`
     background: url(https://grainy-gradients.vercel.app/noise.svg);
     // filter: url(#noiseFilter);
     // mix-blend-mode: multiply;
-    mix-blend-mode: hard-light;
+    // mix-blend-mode: hard-light;
+    mix-blend-mode: plus-lighter;
     z-index: 9;
-    filter: contrast(10%) brightness(100%);
+    filter: contrast(10%) brightness(50%);
     // isolation: isolate;
 `
 
