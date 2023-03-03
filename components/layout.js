@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import Meta from './meta'
 
+import BackgroundGradient from './background-gradient-video'
+
 const Container = styled.div``
 
 
