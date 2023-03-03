@@ -21,7 +21,7 @@ const InnerContainer = styled.div`
     background: white;
     filter: blur(100px);
     overflow: hidden;
-    // transform: scale(1.3);
+    transform: scale(1.3);
 `
 
 
@@ -32,7 +32,7 @@ const Circle = styled.div`
     top: ${props => props.data.top};
     left: ${props => props.data.left};
     background: ${props => props.data.color};
-    border-radius: 999px;
+    border-radius: 50%;
 `
 
 const Noise = styled.div`
@@ -49,7 +49,7 @@ const Noise = styled.div`
     // mix-blend-mode: hard-light;
     mix-blend-mode: plus-lighter;
     z-index: 9;
-    filter: contrast(10%) brightness(50%);
+    filter: contrast(0%) brightness(30%);
     // isolation: isolate;
 `
 
