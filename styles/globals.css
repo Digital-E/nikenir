@@ -36,14 +36,19 @@
 
 :root {
   --transition-in: 0.3s;
+  --padding: 15px;
+  --border-radius: 20px;
+  --background: rgba(255, 255, 255, 0.6);
+  --backdrop-filter-blur: blur(10px);
 }
 
 * {
   -webkit-tap-highlight-color: transparent;
 }
 
-html {
+body {
   background: url('/images/gradients/PLANET_GRAIDENT_02 2.png');
+  min-height: 100vh;
 }
 
 html,
@@ -102,7 +107,7 @@ ul {
 
 button {
   border: none;
-  /* -webkit-appearance: none; */
+  -webkit-appearance: none;
 }
 
 h1, h2, h3, h4, h5, h6, p, span, a {

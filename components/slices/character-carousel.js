@@ -12,23 +12,38 @@ if(typeof window !== 'undefined') {
 const Container = styled.div`
     position: relative;
     overflow: hidden;
-    height: 850px;
+    width: 100%;
+
+    @media(max-width: 989px) {
+        width: 100%;
+    }
 `
 
 const Carousel = styled.div`
+    display: flex;
+    justify-content: center;
+
+    > div {
+        flex-basis: 25%;
+    }
+
     outline: none !important;
+
+    @media(max-width: 989px) {
+        display: block;
+    }
 `
 
 const InnerContainer = styled.div``
 
 const Card = styled.div`
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: column;
-    width: 85%;
-    height: calc(850px - 300px);
-    margin: 40px 10px 40px 10px;
-    padding: 25px 15px;
+    height: auto;
+    width: 100%;
+    margin: 40px 20px 40px 20px;
+    padding: 25px var(--padding);
     border-radius: 27px;
     background: ${props => props.data.background};
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
@@ -37,6 +52,13 @@ const Card = styled.div`
 
     * {
         cursor: pointer;
+    }
+
+    @media(max-width: 989px) {
+        position: absolute;
+        height: calc(100vh - 300px);
+        width: 85%;
+        margin: 40px 10px 40px 10px;
     }
 `
 
@@ -69,8 +91,15 @@ const Information = styled.div`
 `
 
 const ButtonWrapper = styled.div`
-    width: 85%;
+    width: 100%;
     margin: 0 auto 20px auto;
+    max-width: 365px;
+
+    @media(max-width: 989px) {
+        width: 85%;
+        margin: 0 auto 20px auto;
+        max-width: none;
+    }
 `
 
 
@@ -109,27 +138,49 @@ let data = [
 
 export default function Component() {
     let gallery = useRef();
-    let flickity;
+    let flickity = null;
     let [selectedIndex, setSelectedIndex] = useState(0);
 
-    useEffect(() => {
-        setTimeout(() => {
-            flickity = new Flickity(gallery.current, {
-                prevNextButtons: false,
-                pageDots: false,
-                cellAlign: "center",
-                percentPosition: true,
-                wrapAround: true,
-            })
 
-            flickity.on('change', (cellIndex) => {
-                setSelectedIndex(cellIndex)
-            })
-        }, 0)
+    let init = () => {
+        if(flickity !== null) return
+
+        flickity = new Flickity(gallery.current, {
+            prevNextButtons: false,
+            pageDots: false,
+            cellAlign: "center",
+            percentPosition: true,
+            wrapAround: true,
+        })
+
+        flickity.on('change', (cellIndex) => {
+            setSelectedIndex(cellIndex)
+        })
+    }
+
+    let destroy = () => {
+        if(flickity === null) return
+        flickity.destroy()
+        flickity = null
+    }
+
+    useEffect(() => {
+
+        if(window.innerWidth < 990) {
+            init();
+        }
+
+        window.addEventListener("resize", () => {
+            if(window.innerWidth > 989) {
+                destroy();
+            } else {
+                init();
+            }
+        })
     }, [])
     
     return (
-        <Container className='max-width'>
+        <Container>
             <Carousel ref={gallery}>
                 {
                     data.map(item => 

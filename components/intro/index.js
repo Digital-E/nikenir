@@ -13,14 +13,15 @@ const Container = styled.div`
     height: 200vh;
 `;
 
-const Slide = styled.div`
+const Slide = styled(motion.div)`
     position: relative;
     height: 100vh;
 `;
 
 const Logo = styled.div`
-    width: fit-content;
-    margin: 0 auto;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
     padding: 40px 0;
 
     @media(max-width: 989px) {
@@ -28,7 +29,7 @@ const Logo = styled.div`
     }
 `
 
-const Center = styled.div`
+const Center = styled(motion.div)`
     position: absolute;
     left: 50%;
     top: 50%;
@@ -41,17 +42,19 @@ const Title = styled.h1`
     text-align: center;
 `
 
-const Arrow = styled.div`
+const ArrowContainer = styled(motion.div)`
     position: absolute;
     left: 50%;
     bottom: 50px;
     transform: translate(-50%, -50%);
-    max-width: 720px;
+`
+
+const Arrow = styled.div`
     text-align: center;
     cursor: pointer;
 `
 
-const Text = styled.p`
+const Text = styled(motion.div)`
     text-align: center;
     font-size: 32px;
     margin-bottom: 30px;
@@ -61,9 +64,10 @@ const Text = styled.p`
     }
 `
 
-const ButtonWrapper = styled.div`
+const ButtonWrapper = styled(motion.div)`
+    width: 100%;
     max-width: 420px;
-    margin: 0 auto;
+    margin: 30px auto;
 `
 
 let isSliding = false;
@@ -73,20 +77,80 @@ let touchstartY = 0;
 let touchendX = 0;
 let touchendY = 0;
 
+
+let slideOneAnimation = {
+    'show': {
+        opacity: 1,
+        x: '-50%',
+        y: '-50%',
+    },
+    'hide': {
+        opacity: 0,
+        x: '-50%',
+        y: '-200%',
+        transition: {
+            opacity: {
+                duration: 1
+            },
+            y: {
+                duration: 2 
+            }
+        }
+    }
+}
+
+let slideTwoAnimationParent = {
+    'show': {
+        transition: {
+            delayChildren: 1,
+            staggerChildren: 0.5
+        }
+    },
+    'hide': {
+    }
+}
+
+let slideTwoAnimation = {
+    'show': {
+        opacity: 1,
+        // x: '-50%',
+        // y: '-50%',
+        transition: {
+            duration: 1,
+        }
+    },
+    'hide': {
+        opacity: 0,
+        // x: '-50%',
+        // y: '-50%',
+        transition: {
+            opacity: {
+                duration: 1
+            },
+            y: {
+                duration: 1
+            }
+        }
+    }
+}
+
 const Component = () => {
 
     let containerRef = useRef();
     let slideOneRef = useRef();
     let arrowRef = useRef();
     let slideIndex = useRef(0);
+    let [slideIndexState, setSlideIndexState] = useState(0);
 
     let triggerSlide = (direction) => {
         if(isSliding) return;
 
         if(direction === 'down') {
             slideIndex.current = 1
+            setSlideIndexState(1)
         } else {
             slideIndex.current = 0
+            setSlideIndexState(0)
         }
 
         gsap.to(containerRef.current, {duration: 2, ease: "power2.inOut", y: direction === 'down' ? '-100vh' : '0', onComplete: () => {isSliding = false}})
@@ -163,37 +227,39 @@ const Component = () => {
     },[]);
 
     return (
+        <>
+        <Logo>
+            <img src='/images/logos/with purpose logo.svg' />
+        </Logo>        
         <Container ref={containerRef} className='margin'> 
-            <Slide ref={slideOneRef}>
-                <Logo>
-                    <img src='/images/logos/with purpose logo.svg' />
-                </Logo>
-                <Center>
+            <Slide ref={slideOneRef} initial='show' animate={slideIndexState === 0 ? 'show' : 'hide'}>
+                <Center variants={slideOneAnimation}>
                     <Title className='large-headline'>
                         WHAT KIND OF CHANGEMAKER ARE YOU?
                     </Title>
                 </Center>
-                <Arrow ref={arrowRef}>
-                    <img src='/images/icons/ui-arrow-20.svg' />
-                </Arrow> 
+                <ArrowContainer variants={slideOneAnimation}>
+                    <Arrow ref={arrowRef}>
+                        <img src='/images/icons/ui-arrow-20.svg' />
+                    </Arrow>
+                </ArrowContainer> 
             </Slide>
-
-            <Slide>
+            <Slide initial='hide' variants={slideTwoAnimationParent} animate={slideIndexState === 1 ? 'show' : 'hide'}>
                 <Center>
-                    <Text className='palatino'>
+                    <Text className='palatino' variants={slideTwoAnimation}>
                         A champion of your community?<br/>
                         A guardian of our planet?<br/>
                         A mentor to the many?<br/><br/>
                         The world is your answer!<br/><br/>
                         Your Move is a game that lets you plot a path to a fairer, greener and healthier future.
                     </Text>
-                    <ButtonWrapper>
+                    <ButtonWrapper variants={slideTwoAnimation}>
                         <Button>Let's Play!</Button>
                     </ButtonWrapper>
                 </Center>
             </Slide> 
-
         </Container>
+        </>
     )
 }
 

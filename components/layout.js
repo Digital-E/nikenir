@@ -1,4 +1,8 @@
+import styled from 'styled-components'
 import Meta from './meta'
+
+const Container = styled.div``
+
 
 export default function Layout({ preview, children, title, content }) {
 
@@ -6,9 +10,9 @@ export default function Layout({ preview, children, title, content }) {
   return (
     <>
       <Meta title={title} content={content}/>
-      <div>
+      <Container>
         <main>{children}</main>
-      </div>
+      </Container>
     </>
   )
 }

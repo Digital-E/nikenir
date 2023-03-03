@@ -61,7 +61,7 @@ function MyApp({ Component, pageProps, router }) {
 
   return (
     <StateProvider>
-      {/* <Header /> */}
+      <Header />
       {/* <CookieConsent
         buttonText={pageProps.data?.menuData.cookieaccept}
         declineButtonText={pageProps.data?.menuData.cookierefuse}

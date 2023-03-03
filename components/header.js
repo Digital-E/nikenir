@@ -17,11 +17,15 @@ let Container = styled.header`
   height: 60px;
   padding: 15px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--background);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
+  backdrop-filter: var(--backdrop-filter-blur);
+  border-radius: var(--border-radius);
   z-index: 998;
+
+  &.hide-header {
+    transform: translateX(-50%) translateY(-130%);
+  }
 `
 
 const Arrow = styled.div`
@@ -109,7 +113,7 @@ export default function Header({}) {
 
   return (
     <>
-    <Container ref={headerRef}>
+    <Container ref={headerRef} className='hide-header'>
       <Arrow><img src='/images/icons/ui-arrow.svg' /></Arrow>
       <Text>
         <span className='futura'>Planet Protector</span>

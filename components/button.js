@@ -10,9 +10,9 @@ const Container = styled(motion.button)`
     align-items: center;
     width: 100%;
     padding: 20px 30px;
-    background: rgba(255, 255, 255, 0.6);
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(10px);
+    background: var(--background);
+    backdrop-filter: var(--backdrop-filter-blur);
     border-radius: 30px;
     cursor: pointer;
     user-select: none;
