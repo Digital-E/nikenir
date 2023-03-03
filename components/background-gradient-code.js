@@ -53,27 +53,8 @@ const Noise = styled.div`
     // isolation: isolate;
 `
 
-let data = [
-    {color: 'rgb(26, 250, 27)', rotate: -50},
-    {color: 'rgb(1, 139, 250)', rotate: 50},
-    {color: 'rgb(0, 73, 128)', rotate: 20},
-    {color: 'rgb(26, 250, 27)', rotate: -30},
-    {color: 'rgb(26, 250, 27)', rotate: -50},
-    {color: 'rgb(1, 139, 250)', rotate: 50},
-    {color: 'rgb(0, 73, 128)', rotate: 20},
-    {color: 'rgb(26, 250, 27)', rotate: -30},
-    {color: 'rgb(26, 250, 27)', rotate: -50},
-    {color: 'rgb(1, 139, 250)', rotate: 50},
-    {color: 'rgb(0, 73, 128)', rotate: 20},
-    {color: 'rgb(26, 250, 27)', rotate: -30},
-    {color: 'rgb(26, 250, 27)', rotate: -50},
-    {color: 'rgb(1, 139, 250)', rotate: 50},
-    {color: 'rgb(0, 73, 128)', rotate: 20},
-    {color: 'rgb(26, 250, 27)', rotate: -30},
-]
 
-
-export default function Component() {
+export default function Component({ data }) {
     let backgroundIndexRef = useRef(0);
     let containerRef = useRef();
     let videoRef = useRef();
@@ -89,14 +70,9 @@ export default function Component() {
     }
 
     let randomTo = (item, index, init) => {
-        let min = -window.innerWidth / 2
+        let min = -window.innerWidth / 3
         let maxX = window.innerWidth
         let maxY = window.innerHeight
-        // let randomPosNegX = Math.random() > 0.5 ? 1 : -1;
-        // let randomPosNegY = Math.random() > 0.5 ? 1 : -1;
-        
-        // let randomX = randomPosNegX === 1 ? Math.random() * (window.innerWidth - 200) : Math.random() * (window.innerWidth - 200);
-        // let randomY = Math.random() * (window.innerHeight - 200);
 
         let randomX = Math.random() * (maxX - min) + min
         let randomY = Math.random() * (maxY - min) + min
@@ -105,7 +81,6 @@ export default function Component() {
     }
     
     useEffect(() => {
-        // document.querySelector('body').addEventListener('click', increment)
 
         data.forEach((item, index) => randomTo(item, index, true))
         data.forEach((item, index) => randomTo(item, index, false))
@@ -117,24 +92,7 @@ export default function Component() {
 
     return (
         <Container ref={containerRef}>
-        <svg 
-        viewBox="0 0 200 200"
-        xmlns='http://www.w3.org/2000/svg'>
-            <filter id='noiseFilter'>
-            <feTurbulence 
-            type='fractalNoise' 
-            baseFrequency='0.65' 
-            numOctaves='3' 
-            stitchTiles='stitch' />
-            </filter>
-
-            <rect
-            width='100%' 
-            height='100%' 
-            filter='url(#noiseFilter)' />
-        </svg>
             <Noise />
-            {/* <video muted autoPlay playsInline loop ref={videoRef} src={data[0].src}></video> */}
             <InnerContainer>
                 {
                     data.map((item, index) => <Circle className={`circle-${index}`} data={item} />)
