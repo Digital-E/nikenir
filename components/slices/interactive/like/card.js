@@ -4,10 +4,10 @@ import styled from 'styled-components'
 
 const Image = styled.div`
     position: absolute;
-    left: 15px;
-    bottom: 15px;
-    width: 30px;
-    height: 30px;
+    left: calc(var(--margin) / 2);
+    bottom: calc(var(--margin) / 2);
+    width: var(--margin);
+    height: var(--margin);
 
     img {
         position: absolute;
@@ -27,14 +27,14 @@ const Container = styled(motion.div)`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: calc(50% - 30px);
-    margin: 0 7.5px;
+    width: calc(50% - var(--margin));
+    margin: 0 calc(var(--margin) / 4);
     border: 1px dashed #1A1A1A;
     border-radius: 27px;
     cursor: pointer;
     overflow: hidden;
     box-sizing: border-box;
-    padding-bottom: calc(50% -  30px);
+    padding-bottom: calc(50% - var(--margin) - 2px);
 
     * {
         cursor: pointer;
@@ -57,60 +57,16 @@ const Title = styled.h3`
     margin: 0;
     text-transform: uppercase;
     text-align: center;
-    padding: 30px;
+    padding: var(--padding);
 `
 
-
-
-const Background = styled.div`
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: ${props => props.gauge}%;
-    width: 100%;
-    background: white;
-    transition: 0.2s;
-    z-index: -1;
-
-    &.lock {
-        height: 0;
-    }
-`
 
 export default function Component({ data, index, allItems, hasClicked, hasInteracted }) {
-    let lock = useRef(false);
-    let [gauge, setGauge] = useState(0);
-    let gaugeTimeout = useRef(null);
+
 
     const controls = useAnimationControls();
 
-    let gaugeIncrement = (e) => {
-        clearTimeout(gaugeTimeout.current)
-        setGauge(gauge + 10)
-
-        if(gauge === 100) {
-            hasClicked(e, index); 
-        }
-
-        gaugeTimeout.current = setTimeout(() => {
-            if(gauge < 100) {
-                setGauge(0)
-            }
-        }, 500)
-    }
-
-    useEffect(() => {
-        if(!hasInteracted) {
-            setGauge(0)
-            lock.current = false
-        } else {
-            lock.current = true
-        }
-    }, [hasInteracted])
-
     let clicked = (e) => {
-        if(lock.current) return
-        // gaugeIncrement(e)
         controls.start({ scale: 2 })
         setTimeout(() => {
             controls.start({ scale: 1.02 })
@@ -132,7 +88,6 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
                 <img src='/images/like/heart.svg' />
                 <img src='/images/like/heart.png' />
             </Image>
-            <Background gauge={gauge} className={!allItems[index].clicked &&  hasInteracted ? `lock` : ``}/>
         </Container>
     )
 }

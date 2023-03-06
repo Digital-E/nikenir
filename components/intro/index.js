@@ -18,8 +18,8 @@ const Slide = styled(motion.div)`
     height: 100vh;
 `;
 
-const Logo = styled.div`
-    position: fixed;
+const Logo = styled(motion.div)`
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
     padding: 40px 0;
@@ -94,6 +94,27 @@ let slideOneAnimation = {
             },
             y: {
                 duration: 2 
+            }
+        }
+    }
+}
+
+let slideOneAnimationBis = {
+    'show': {
+        opacity: 1,
+        x: '-50%',
+        y: '0%',
+    },
+    'hide': {
+        opacity: 0,
+        x: '-50%',
+        y: '-200%',
+        transition: {
+            opacity: {
+                duration: 1
+            },
+            y: {
+                duration: 1.3
             }
         }
     }
@@ -227,12 +248,12 @@ const Component = () => {
     },[]);
 
     return (
-        <>
-        <Logo>
-            <img src='/images/logos/with purpose logo.svg' />
-        </Logo>        
+        <>     
         <Container ref={containerRef} className='margin'> 
             <Slide ref={slideOneRef} initial='show' animate={slideIndexState === 0 ? 'show' : 'hide'}>
+                <Logo variants={slideOneAnimationBis}>
+                    <img src='/images/logos/with purpose logo.svg' />
+                </Logo>   
                 <Center variants={slideOneAnimation}>
                     <Title className='large-headline'>
                         WHAT KIND OF CHANGEMAKER ARE YOU?

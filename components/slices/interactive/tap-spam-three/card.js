@@ -4,18 +4,26 @@ import styled from 'styled-components'
 
 const Container = styled(motion.div)`
     position: relative;
+    height: 100%;
+    width: calc(50% - var(--margin));
+    padding-bottom: calc(50% - var(--margin) - 2px);
+    margin: 0 calc(var(--margin) / 4);
+`
+
+
+const InnerContainer = styled(motion.div)`
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: calc(50% - 30px);
-    margin: 0 7.5px;
+    width: 100%;
+    height: 100%;
     border: 1px dashed #1A1A1A;
     border-radius: 27px;
     cursor: pointer;
     overflow: hidden;
     box-sizing: border-box;
-    padding-bottom: calc(50% -  30px);
 
     * {
         cursor: pointer;
@@ -29,13 +37,17 @@ const Title = styled.h3`
     transform: translate(-50%, -50%);
     width: 100%;
     margin: 0;
-    padding: 30px;
+    padding: var(--padding);
     text-transform: uppercase;
     text-align: center;
 `
 
 const Image = styled.div`
-    width: 40%;
+    position: absolute;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
 
     img {
         width: 100%;
@@ -61,10 +73,9 @@ let hasTriggered = false
 let tsParticlesInstance = null
 
 export default function Component({ data, index, allItems, hasClicked, hasInteracted }) {
-    let lock = useRef(false);
     let [gauge, setGauge] = useState(0);
+    let gaugeRef = useRef(0);
     let gaugeTimeout = useRef(null);
-    // let tsParticlesInstance = useRef(null);
 
     const controls = useAnimationControls();
 
@@ -93,7 +104,6 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
     }
 
     useEffect(() => {
-        
         if(hasTriggered) return
         hasTriggered = true
 
@@ -290,33 +300,53 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
     }, [])
 
     let gaugeIncrement = (e) => {
-        clearTimeout(gaugeTimeout.current)
-        setGauge(gauge + 10)
+        let selectedIndex = null;
 
-        if(gauge === 100) {
+        allItems.forEach((item, index) => {
+            if(item.clicked === true) {
+                selectedIndex = index
+            }
+        })
+
+        if(selectedIndex !== index && selectedIndex !== null) {
+            setGauge(0)
+            gaugeRef.current = 0
+            hasClicked(e, null)
+        }
+
+
+        clearTimeout(gaugeTimeout.current)
+        setGauge(gaugeRef.current + 10)
+        gaugeRef.current = gaugeRef.current + 10
+
+        if(gaugeRef.current === 100) {
             hasClicked(e, index); 
         }
 
         gaugeTimeout.current = setTimeout(() => {
-            if(gauge < 100) {
+            if(gaugeRef.current < 100) {
                 setGauge(0)
+                gaugeRef.current = 0
             }
         }, 500)
     }
 
     useEffect(() => {
-        if(!hasInteracted) {
+        let selectedIndex = null;
+
+        allItems.forEach((item, index) => {
+            if(item.clicked === true) {
+                selectedIndex = index
+            }
+        })
+        
+        if(selectedIndex !== index) {
             setGauge(0)
-            lock.current = false
-        } else {
-            lock.current = true
-            tsParticles.domItem(0).options.interactivity.events.onClick.enable = false
-            tsParticles.domItem(0).updateActualOptions()
+            gaugeRef.current = 0
         }
-    }, [hasInteracted])
+    }, [allItems])
 
     let clicked = (e) => {
-        if(lock.current) return
 
         createConfetti(e)
 
@@ -329,7 +359,6 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
     }
 
     let toggleParticles = (state) => {
-        if(lock.current) return
 
         if(state) {
             tsParticles.domItem(0).options.interactivity.events.onClick.enable = true
@@ -352,11 +381,13 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
             whileHover={{scale: 1.02}}
             animate={controls}
             >
-            <Title>{data.title}</Title>
-            {/* <Image>
+            <InnerContainer>
+                <Title>{data.title}</Title>
+                <Background gauge={gauge} />
+            </InnerContainer>
+            <Image>
                 <img src={data.img} />
-            </Image> */}
-            <Background gauge={gauge} className={!allItems[index].clicked &&  hasInteracted ? `lock` : ``}/>
+            </Image>
         </Container>
     )
 }

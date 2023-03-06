@@ -1,8 +1,10 @@
 import { useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
-import { motion, useAnimationControls, useDragControls } from "framer-motion"
+import { motion, useAnimationControls } from "framer-motion"
 
 import Card from './card'
+
+import InformationCard from '../../information-card'
 
 const Container = styled.div`
 
@@ -11,25 +13,6 @@ const Container = styled.div`
         transition: opacity var(--transition-in) 0s;
     }
 
-    .text-one > span:nth-child(2) {
-        opacity: 0;
-        // transition: opacity var(--transition-in);
-    }
-
-    .text-one > span:nth-child(1) {
-        // transition: opacity var(--transition-in) 0.3s;
-    }
-
-    &.clicked .text-one > span:nth-child(1) {
-        opacity: 0;
-        // transition: opacity var(--transition-in);
-    }
-
-    &.clicked .text-one > span:nth-child(2) {
-        opacity: 1;
-        cursor: pointer;
-        // transition: opacity var(--transition-in) 0.3s;
-    }
 `
 
 const InnerContainer = styled.div`
@@ -40,28 +23,10 @@ const InnerContainer = styled.div`
 const Text = styled.div`
     position: relative;
     text-align: center;
-    margin: 30px auto;
-    height: 20px;
-
-    > span {
-        position: absolute;
-        transform: translateX(-50%);
-        left: 50%;
-        width: 100%;
-    }
-
-    > span:not(:last-child) {
-        position: absolute;
-    }
-
-    > span:last-child {
-        opacity: 0;
-    }
 `
 
 const TextTwo = styled.div`
     text-align: center;
-    margin: 30px 0;
     opacity: 0;
     transition: opacity var(--transition-in);
 `
@@ -84,22 +49,9 @@ const DragElement = styled(motion.div)`
 `
 
 
-let data = [
-    {
-        title: 'Reduce your footprint',
-        img: 'images/cross-cards/shoebox 1.png',
-        clicked: false
-    },
-    {
-        title: 'Buy it for life',
-        img: 'images/cross-cards/pngegg 1.png',
-        clicked: false
-    },
-]
-
-export default function Component() {
+export default function Component({ item, data }) {
     let [hasInteracted, setHasInteracted] = useState(false)
-    let [allItems, setAllItems] = useState(data)
+    let [allItems, setAllItems] = useState(item.squares)
     let [dragActive, setDragActive] = useState(true)
     let [isDragging, setIsDragging] = useState(false)
     let mouseOverIndex = useRef(null);
@@ -108,30 +60,30 @@ export default function Component() {
 
     let dragElementRef = useRef();
 
+    useEffect(() => {
+        let hasInteractedCount = 0
+
+        allItems.forEach(item => {
+            if(item.clicked === true) {
+                hasInteractedCount += 1;
+            }
+        })
+
+        if(hasInteractedCount === 0) {
+            setHasInteracted(false)
+        } else {
+            setHasInteracted(true)
+        }
+    }, [allItems])
 
     let hasClicked = (e, index) => {
         let items = JSON.parse(JSON.stringify(allItems))
+
         items[index].clicked = true
         setAllItems(items)
-
-        setHasInteracted(true)
-
-        setDragActive(false)
-    }
-
-    let undo = () => {
-        let items = JSON.parse(JSON.stringify(allItems))
-        items.forEach(item => item.clicked = false)
-        setAllItems(items)
-
-        setHasInteracted(false)
-
-        setDragActive(true)
-        controls.start({ x: 0, y: 0})
     }
 
     let clicked = (e) => {
-      if(!dragActive.current) return
 
       controls.start({ scale: 2 })
       setTimeout(() => {
@@ -148,12 +100,15 @@ export default function Component() {
     dragElementRef.current.classList.remove("dragging")
     setIsDragging(false)
 
+
     if(mouseOverIndex.current === 0) {
       hasClicked(null, 0)
       controls.start({ x: -100, y: 150})
     } else if (mouseOverIndex.current === 1) {
       hasClicked(null, 1)
       controls.start({ x: 100, y: 150})
+    } else if(mouseOverIndex.current === null) {
+        setHasInteracted(false)
     }
   }
 
@@ -162,10 +117,9 @@ export default function Component() {
   }
 
     return (
-        <Container className={hasInteracted ? 'clicked max-width' : 'max-width'}>
-            <Text className='text-one palatino'>
-                <span>Drag the shoe into the answer box</span>
-                <span onClick={() => undo()}>Undo</span>
+        <Container className={hasInteracted ? 'clicked mtb-2 max-width' : 'mtb-2 max-width'}>
+            <Text className='text-one mtb-2 palatino-x-small'>
+                <span>{item.title}</span>
             </Text>
             <DragElement
               ref={dragElementRef}
@@ -177,7 +131,6 @@ export default function Component() {
               animate={controls}
               onDragStart={() => onDragStart()}
               onDragEnd={() => onDragEnd()}
-              // dragControls={dragControls}
               drag={dragActive}
               dragConstraints={{
                 top: -50,
@@ -187,13 +140,12 @@ export default function Component() {
               }}
               dragSnapToOrigin={true}
               dragMomentum={false}
-              // className={!dragActive && 'lock'}
             >
               <img src='/images/drag/air-jordan-1-low-se-older-shoes-f9r9bX 1.png' />
             </DragElement>
             <InnerContainer className='inner-container'>
                 {
-                    data.map((item, index) => 
+                    item.squares.map((item, index) => 
                     <Card 
                       data={item} 
                       index={index} 
@@ -205,7 +157,8 @@ export default function Component() {
                       />)
                 }
             </InnerContainer>
-            <TextTwo className='text-two palatino'>You picked</TextTwo>
+            <TextTwo className='text-two mtb-2 palatino-x-small'>You picked</TextTwo>
+            <InformationCard item={item} data={data} selectedIndex={mouseOverIndex.current !== null ? mouseOverIndex.current : 0} />
         </Container>
     )
 }

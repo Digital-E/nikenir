@@ -1,0 +1,26 @@
+import Intro from './character/character-intro'
+import Question from './question'
+import Like from './interactive/like'
+import Drag from './interactive/drag'
+import TapSpam from './interactive/tap-spam-three'
+
+let slice = (item, data) => {
+    switch(item.type) {
+        case 'intro':
+            return <Intro item={item} data={data} />;
+        case 'question':
+            return <Question item={item} data={data} />;
+        case 'like':
+            return <Like item={item} data={data} />;
+        case 'drag':
+            return <Drag item={item} data={data} />;    
+        case 'tap spam':
+            return <TapSpam item={item} data={data} />;                     
+        default:
+            return null
+    }
+}
+
+export default function Component({ data }) {
+    return data.slices.map(item => slice(item, data))
+}

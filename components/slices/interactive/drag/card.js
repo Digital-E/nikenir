@@ -8,14 +8,14 @@ const Container = styled(motion.div)`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: calc(50% - 30px);
-    margin: 0 7.5px;
+    width: calc(50% - var(--margin));
+    margin: 0 calc(var(--margin) / 4);
     border: 1px dashed #1A1A1A;
     border-radius: 27px;
     cursor: pointer;
     overflow: hidden;
     box-sizing: border-box;
-    padding-bottom: calc(50% -  30px);
+    padding-bottom: calc(50% - var(--margin) - 2px);
 
     * {
         cursor: pointer;
@@ -29,7 +29,7 @@ const Title = styled.h3`
     transform: translate(-50%, -50%);
     width: 100%;
     margin: 0;
-    padding: 30px;
+    padding: var(--padding);
     text-transform: uppercase;
     text-align: center;
 `

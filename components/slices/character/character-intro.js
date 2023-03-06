@@ -20,6 +20,10 @@ const Text = styled.p``
 
 const Image = styled.div`
     margin-bottom: 50px;
+
+    img {
+        transform: rotateY(180deg);
+    }
 `
 
 const Bubble = styled.div`
@@ -43,7 +47,7 @@ const ButtonWrapper = styled.div`
     padding: 0 40px;
 `
 
-export default function Component({ data }) {
+export default function Component({ item, data }) {
     let gallery = useRef();
     let flickity;
     let [selectedIndex, setSelectedIndex] = useState(0);
@@ -54,16 +58,13 @@ export default function Component({ data }) {
     
     return (
         <Container className='max-width'>
-            <Title>{data.character.intro.title}</Title>
-            <Image><img src='/images/avatars/People_03 6.png' /></Image>
+            <Title>{item.title}</Title>
+            <Image><img src={data.avatar} /></Image>
             <ButtonWrapper>
                 <Button>Let's play!</Button>
             </ButtonWrapper>
             <Bubble>
-                <Text>
-                    The personal choices we make now can help shape a better future for everyone. <br /><br />
-                    Sorry, hi, I’m Theo, these issues just get me really fired up! I genuinely think that if we can each think of ourselves as part of a greater whole, fewer people are going to feel left out!
-                </Text>
+                <Text>{item.text[0]}</Text>
             </Bubble>
         </Container>
     )
