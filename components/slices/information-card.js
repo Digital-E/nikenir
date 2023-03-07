@@ -7,6 +7,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     background: ${props => props.colourOne} !important;
+    margin: 0 auto;
 `
 
 const RowOne = styled.div`
@@ -40,8 +41,12 @@ const ColTwo = styled.div`
 `
 
 const Title = styled.h3`
-    max-width: 49%;
-    text-align:center;
+    max-width: 60%;
+    text-align: center;
+
+    @media(max-width: 989px) {
+        max-width: 49%;
+    }
 `
 
 
@@ -51,7 +56,7 @@ const TextCarousel = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-top: var(--padding);
+    margin-top: var(--margin);
     border-radius: 20px;
     background: ${props => props.colourTwo} !important;
 
@@ -64,7 +69,7 @@ const TextCarousel = styled.div`
 export default function Component({ item, data, selectedIndex }) {
 
     return (
-        <Container className='margin max-width container-background' colourOne={data.colourOne}>
+        <Container className='max-width container-background' colourOne={data.colourOne}>
         <RowOne>
             <ColOne>
                 <Avatar>
@@ -83,7 +88,7 @@ export default function Component({ item, data, selectedIndex }) {
             </Text>
             <TextCarousel className='container-background' colourTwo={data.colourTwo}>
                 <Text className='palatino-x-small'>Did you know ?</Text>
-                <Text className='body-large'>{item.information[selectedIndex]?.text[0]}</Text>
+                <Text className='body-large'>{item.information[selectedIndex]?.text[1]}</Text>
             </TextCarousel>
         </RowTwo>
         </Container>

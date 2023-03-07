@@ -9,11 +9,10 @@ let Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  top: 15px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 30px);
-  max-width: 360px;
   height: 60px;
   padding: 15px;
   overflow: hidden;
@@ -23,8 +22,10 @@ let Container = styled.header`
   border-radius: var(--border-radius);
   z-index: 998;
 
+  transition: transform var(--transition-in);
+
   &.hide-header {
-    transform: translateX(-50%) translateY(-130%);
+    transform: translateX(-50%) translateY(-150%);
   }
 `
 
@@ -113,10 +114,10 @@ export default function Header({}) {
 
   return (
     <>
-    <Container ref={headerRef} className='hide-header'>
+    <Container ref={headerRef} className='hide-header max-width-2'>
       <Arrow><img src='/images/icons/ui-arrow.svg' /></Arrow>
       <Text>
-        <span className='futura'>Planet Protector</span>
+        <span className='futura'>People Protector</span>
       </Text>
       <ScrollIndicatorWrapper>
         <ScrollIndicator>

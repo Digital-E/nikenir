@@ -11,20 +11,22 @@ const Container = styled(motion.button)`
     width: 100%;
     padding: 20px 30px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
-    background: var(--background);
+    background: ${props => props.colour ? props.colour : 'var(--background)'};
     backdrop-filter: var(--backdrop-filter-blur);
     border-radius: 30px;
     cursor: pointer;
     user-select: none;
+    max-width: 395px;
 
     @media(max-width: 989px) {
         padding: 10px 30px;
+        max-width: none;
     }
 `;
 
 
 
-const Component = ({ children }) => {
+const Component = ({ colour, children }) => {
     const controls = useAnimationControls();
 
     let click = (e) => {
@@ -37,6 +39,7 @@ const Component = ({ children }) => {
     return (
         <Container 
             className='helvetica'
+            colour={colour}
             onClick={(e) => {click(e)}} 
             transition={{ type: "spring", stiffness: 200, damping: 10 }}
             whileHover={{scale: 1.02}}

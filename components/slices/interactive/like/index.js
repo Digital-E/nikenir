@@ -21,12 +21,10 @@ const InnerContainer = styled.div`
 const Text = styled.div`
     position: relative;
     text-align: center;
-    margin: var(--margin) auto;
 `
 
 const TextTwo = styled.div`
     text-align: center;
-    margin: var(--margin) auto;
     opacity: 0;
     transition: opacity var(--transition-in);
 `
@@ -89,7 +87,7 @@ export default function Component({ item, data }) {
     }
     
     return (
-        <Container className={hasInteracted ? 'clicked mtb-2 max-width' : 'mtb-2 max-width'}>
+        <Container className={hasInteracted ? 'clicked mtb-2 max-width-2' : 'mtb-2 max-width-2'}>
             <Text className='text-one mtb-2 palatino-x-small'>
                 <span>Answer with a like</span>
             </Text>
@@ -99,7 +97,7 @@ export default function Component({ item, data }) {
                 }
             </InnerContainer>
             <Hide className={hasInteracted ? 'show' : ''}>
-                <TextTwo className='text-two palatino-x-small'>You picked</TextTwo>
+                <TextTwo className='text-two mtb-2 palatino-x-small'>You picked</TextTwo>
                 <InformationCard item={item} data={data} selectedIndex={selectedIndex} />
             </Hide>
         </Container>

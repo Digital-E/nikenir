@@ -33,7 +33,7 @@ export default function Meta({ title, content }) {
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <title>{SITE_NAME}</title>
+      <title>{title}</title>
       <meta
         name="description"
         content={content}
@@ -45,6 +45,7 @@ export default function Meta({ title, content }) {
       {/* tsParticles Preset Confetti Old */}
       {/* <script src="https://cdn.jsdelivr.net/npm/tsparticles-preset-confetti@2/tsparticles.preset.confetti.bundle.min.js"></script> */}
       <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+
     </Head>
   )
 }

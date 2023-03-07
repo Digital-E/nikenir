@@ -1,13 +1,20 @@
-import Intro from './character/character-intro'
+import styled from 'styled-components'
+
+import Intro from './character-intro'
 import Question from './question'
 import Like from './interactive/like'
 import Drag from './interactive/drag'
 import TapSpam from './interactive/tap-spam-three'
+import Pause from './pause'
+import Complete from './complete'
+
+const Container = styled.div`
+    margin: 0 auto;
+`
+
 
 let slice = (item, data) => {
     switch(item.type) {
-        case 'intro':
-            return <Intro item={item} data={data} />;
         case 'question':
             return <Question item={item} data={data} />;
         case 'like':
@@ -22,5 +29,14 @@ let slice = (item, data) => {
 }
 
 export default function Component({ data }) {
-    return data.slices.map(item => slice(item, data))
+    return (
+        <>
+        <Intro data={data} />
+        <Container>
+            {data.slices.map(item => slice(item, data))}
+            <Pause data={data} />
+            <Complete data={data} />
+        </Container>
+        </>
+        )
 }

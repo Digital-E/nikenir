@@ -6,13 +6,15 @@
     "start": "next start"
   },
   "dependencies": {
-    "flickity": "^3.0.0",
+    "flickity": "^2.3.0",
+    "flickity-fade": "^1.0.0",
     "framer-motion": "^10.0.1",
     "gsap": "^3.11.4",
     "next": "latest",
     "react": "18.2.0",
     "react-cookie-consent": "^8.0.1",
     "react-dom": "18.2.0",
+    "react-responsive": "^9.0.2",
     "react-tsparticles": "^2.9.3",
     "styled-components": "^5.3.6"
   }

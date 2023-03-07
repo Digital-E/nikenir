@@ -4,10 +4,10 @@ import styled from 'styled-components'
 
 const Image = styled.div`
     position: absolute;
-    left: calc(var(--margin) / 2);
-    bottom: calc(var(--margin) / 2);
-    width: var(--margin);
-    height: var(--margin);
+    left: calc(var(--margin));
+    bottom: calc(var(--margin));
+    width: calc(var(--margin) * 2);
+    height: calc(var(--margin) * 2);
 
     img {
         position: absolute;
@@ -27,14 +27,14 @@ const Container = styled(motion.div)`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: calc(50% - var(--margin));
-    margin: 0 calc(var(--margin) / 4);
+    width: calc(50% - calc(var(--margin)));
+    padding-bottom: calc(50% - calc(var(--margin)) - 2px);
+    margin: 0 calc(var(--margin) / 2);
     border: 1px dashed #1A1A1A;
     border-radius: 27px;
     cursor: pointer;
     overflow: hidden;
     box-sizing: border-box;
-    padding-bottom: calc(50% - var(--margin) - 2px);
 
     * {
         cursor: pointer;

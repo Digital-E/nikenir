@@ -12,19 +12,20 @@ const Container = styled.div`
       }  
 
     &.ticker-wrap {
-        position: relative;
-        margin-top: ${props => props.secondary ? '-40px' : ''};
-        transform: ${props => props.secondary ? 'rotateZ(-9deg)' : 'rotateZ(9deg)'};
-        width: 100%;
+        position: absolute;
+        z-index: -1;
+        margin-top: -210px;
+        margin-left: -10%;
+        transform: rotateZ(15deg);
+        width: 120%;
         overflow: hidden;
-        z-index: ${props => props.secondary ? '-1' : '0'};
     }
 
     .ticker {
         display: flex;
         height: 70px;
         white-space: nowrap;
-        background: ${props => props.data.background};
+        background: ${props => props.data.colourOne};
         backdrop-filter: blur(5px);
         overflow: hidden;
     }
@@ -37,6 +38,13 @@ const Container = styled.div`
     .ticker__item div {
         display: flex;
         align-items: center;
+    }
+
+    @media(min-width: 990px) {
+        &.ticker-wrap {
+            margin-top: -450px;
+            transform: rotateZ(5deg);
+        }
     }
 `
 
@@ -76,7 +84,7 @@ export default function Component({ data, secondary }) {
                 <TickerItem class="ticker__item">
                         {itemCount.map(item => (
                                 <div>
-                                    <Text><span className='palatino'>{data.tickerText}</span></Text>
+                                    <Text><span className='palatino-small'>A spring in your step</span></Text>
                                     <Logo><img src='/images/logos/nike logo.svg'/></Logo>  
                                 </div>              
                         ))}
@@ -84,7 +92,7 @@ export default function Component({ data, secondary }) {
                 <TickerItem class="ticker__item">
                         {itemCount.map(item => (
                                 <div>
-                                    <Text><span className='palatino'>{data.tickerText}</span></Text>
+                                    <Text><span className='palatino-small'>A spring in your step</span></Text>
                                     <Logo><img src='/images/logos/nike logo.svg'/></Logo>  
                                 </div>              
                         ))}

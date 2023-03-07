@@ -267,7 +267,7 @@ const Component = () => {
             </Slide>
             <Slide initial='hide' variants={slideTwoAnimationParent} animate={slideIndexState === 1 ? 'show' : 'hide'}>
                 <Center>
-                    <Text className='palatino' variants={slideTwoAnimation}>
+                    <Text className='palatino-medium' variants={slideTwoAnimation}>
                         A champion of your community?<br/>
                         A guardian of our planet?<br/>
                         A mentor to the many?<br/><br/>

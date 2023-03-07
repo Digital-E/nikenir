@@ -5,9 +5,9 @@ import styled from 'styled-components'
 const Container = styled(motion.div)`
     position: relative;
     height: 100%;
-    width: calc(50% - var(--margin));
-    padding-bottom: calc(50% - var(--margin) - 2px);
-    margin: 0 calc(var(--margin) / 4);
+    width: calc(50% - calc(var(--margin) * 2));
+    padding-bottom: calc(50% - calc(var(--margin) * 2) - 2px);
+    margin: 0 calc(var(--margin) / 2);
 `
 
 

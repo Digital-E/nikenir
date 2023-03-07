@@ -5,7 +5,11 @@ import AvatarCard from './avatar-card'
 
 
 const Container = styled.div`
-    margin-top: 140px;
+    margin: 120px auto 0 auto;
+
+    @media(max-width: 989px) {
+        margin: 140px auto 0 auto; 
+    }
 `
 
 const Number = styled.p`

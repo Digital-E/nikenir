@@ -29,7 +29,9 @@ const ColTwo = styled.div`
     margin-left: 10px;
 `
 
-const Name = styled.h3``
+const Name = styled.h3`
+    font-size: 24px;
+`
 
 const Role = styled.p``
 

@@ -1,6 +1,7 @@
-import '../styles/normalize.css';
+import '../styles/normalize.css'
 import '../styles/globals.css'
 import '../styles/flickity.css'
+import '../styles/flickity-fade.css'
 
 import { useEffect } from 'react'
 import styled from 'styled-components';
@@ -12,6 +13,8 @@ import { StateProvider } from "../store"
 
 import Header from '../components/header'
 import Footer from '../components/footer'
+
+import Sidebar from '../components/sidebar'
 
 import BackgroundGradientCode from '../components/background-gradient-code'
 
@@ -57,6 +60,26 @@ let dataOne = [
   {color: colors[0][0], rotate: -50},
   {color: colors[0][1], rotate: -20},
   {color: colors[0][3], rotate: -70},
+]
+
+let dataTwo = [
+  {color: colors[1][0], rotate: -50},
+  {color: colors[1][1], rotate: 20},
+  {color: colors[1][2], rotate: -70},
+  {color: colors[1][3], rotate: -30},
+  {color: colors[1][0], rotate: -50},
+  {color: colors[1][1], rotate: -20},
+  {color: colors[1][3], rotate: -70},
+]
+
+let dataThree = [
+  {color: colors[2][0], rotate: -50},
+  {color: colors[2][1], rotate: 20},
+  {color: colors[2][2], rotate: -70},
+  {color: colors[2][3], rotate: -30},
+  {color: colors[2][0], rotate: -50},
+  {color: colors[2][1], rotate: -20},
+  {color: colors[2][3], rotate: -70},
 ]
 
 function MyApp({ Component, pageProps, router }) {
@@ -107,8 +130,9 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <StateProvider>
       <Header />
+      <Sidebar />
       <GradientWrapper>
-        <BackgroundGradientCode data={dataOne} />
+        <BackgroundGradientCode data={dataThree} />
       </GradientWrapper>
       {/* <CookieConsent
         buttonText={pageProps.data?.menuData.cookieaccept}

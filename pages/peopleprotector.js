@@ -6,7 +6,9 @@ import Slices from '../components/slices'
 
 
 
-const Container = styled.div``
+const Container = styled.div`
+  margin-top: 130px;
+`
 
 let data = {
     name: 'Theo',
@@ -14,15 +16,14 @@ let data = {
     avatar: '/images/avatars/People_02 1.png',
     colourOne: 'rgba(255, 184, 0, 0.7)',
     colourTwo: '#F05822',
-    slices: [
-        {
-            type: 'intro',
-            title: 'A SOCIETY IS ONLY AS CREATIVE AND HAPPY AS IT IS DIVERSE AND INCLUSIVE.',
-            text: [
-              'In fact, how about we make some positive choices right now! I’m going to ask you to imagine three scenarios.',
-              'In fact, how about we make some positive choices right now! I’m going to ask you to imagine three scenarios.'
-            ]
-        },      
+    intro: {
+        title: 'A SOCIETY IS ONLY AS CREATIVE AND HAPPY AS IT IS DIVERSE AND INCLUSIVE.',
+        text: [
+          'In fact, how about we make some positive choices right now! I’m going to ask you to imagine three scenarios.',
+          'In fact, how about we make some positive choices right now! I’m going to ask you to imagine three scenarios.'
+        ]
+    },
+    slices: [    
         {
             type: 'question',
             number: '1 / 3',
@@ -132,7 +133,35 @@ let data = {
               }
             ]
         },                                     
-    ]
+    ],
+    pause: {
+      title: 'Not so quick !',
+      text: ['Answer all the questions to advance!']
+    },
+    complete: {
+      praise: {
+        title: 'WE DID IT!',
+        text: ['That’s all us! Well all you, actually. Goes to show. These personal choices can wind up meaning so much for the bigger picture. Go integrity']
+      },
+      reward: {
+        image: '/images/rewards/Asset 1 7.png',
+        text: 'Congratulations, you are a wise and inclusive'
+      },
+      more: {
+        title: 'Want to know more?',
+        text: [
+          'Explore the Serena Williams Design Crew',
+          'Explore',
+          'Explore the Serena Williams Design Crew',
+          'Explore ',
+        ],
+        link: 'https://nike.com'
+      },
+      continue: {
+        title: 'Fancy another round?',
+        text: 'Don’t go anywhere, there are still decisions to be made.'
+      }
+    }
 }
 export default function Component() {
   return (
