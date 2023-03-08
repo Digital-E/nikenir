@@ -1,6 +1,8 @@
-
+import { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
+import { motion, useInView } from 'framer-motion'
 
+import Typewriter from './typewriter'
 
 
 const Container = styled.div`
@@ -8,7 +10,7 @@ const Container = styled.div`
     display: flex;
     z-index: 1;
 
-    svg {
+    > svg {
         fill:#fff;
         fill-opacity:0.6000000238418579;
         backdrop-filter: blur(10px);
@@ -31,31 +33,31 @@ const Image = styled.div`
     }
 `
 
-const Bubble = styled.div`
+const Bubble = styled(motion.div)`
     position: absolute;
     height: fit-content;
     left: 40%;
-    margin-right: 15px;
     bottom: 95%;
+    margin-right: 15px;
     
 
     @media(min-width: 990px) {
-        width: 100%;
+        width: 80%;
         left: auto;
-        right: -75%;
+        bottom: 90%;
+        right: -55%;
         margin-right: auto;
     }
 `
 
 const BubbleInner = styled.div`
+    position: relative;
+    min-height: 60px;
     padding: var(--padding);
     border-radius: var(--border-radius) var(--border-radius) var(--border-radius) 0;
     background: var(--background);
     backdrop-filter: blur(10px);
 `
-
-
-const Text = styled.p``
 
 const Tail = styled.div`
     position: absolute;
@@ -69,12 +71,36 @@ const Tail = styled.div`
     //clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
 `
 
+let bubbleVariants = {
+    'show': {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.3
+        }
+    },
+    'hide': {
+        opacity: 0,
+        y: 20
+    }
+}
 
 
 export default function Component({ data, text }) {
+    let containerRef = useRef()
+    let isInView = useInView(containerRef)
+    let [startType, setStartType] = useState(false)
+
+    useEffect(() => {
+        if(isInView) {
+            setTimeout(() => {
+                setStartType(true)
+            }, 500)
+        }
+    }, [isInView])
 
     return (
-        <Container>
+        <Container ref={containerRef}>
             <Image><img src={data.avatar} /></Image>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.73 28.05">
                 <clipPath id="clipPath">
@@ -82,9 +108,9 @@ export default function Component({ data, text }) {
                     {/* <circle cx="40" cy="35" r="35" /> */}
                 </clipPath>
             </svg>
-            <Bubble>
+            <Bubble variants={bubbleVariants} initial='hide' animate={startType ? 'show' : 'hide'}>
                 <BubbleInner>
-                    <Text>{text[0]}</Text>
+                    <Typewriter data={text} start={startType} />
                 </BubbleInner>
                 <Tail />
             </Bubble>

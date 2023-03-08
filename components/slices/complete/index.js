@@ -5,7 +5,9 @@ import Reward from './reward'
 import More from './more'
 import Next from './next-round'
 
-const Container = styled.div``
+const Container = styled.div`
+    margin-bottom: 200px;
+`
 
 const RowOne = styled.div``
 

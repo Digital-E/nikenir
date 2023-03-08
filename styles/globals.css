@@ -42,6 +42,7 @@
   --border-radius: 20px;
   --background: rgba(255, 255, 255, 0.6);
   --backdrop-filter-blur: blur(10px);
+  --color: black;
 }
 
 * {

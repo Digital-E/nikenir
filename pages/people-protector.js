@@ -23,7 +23,7 @@ let data = {
     intro: {
         title: 'A SOCIETY IS ONLY AS CREATIVE AND HAPPY AS IT IS DIVERSE AND INCLUSIVE.',
         text: [
-          'In fact, how about we make some positive choices right now! I’m going to ask you to imagine three scenarios.',
+          'Hello, how are you ?',
           'In fact, how about we make some positive choices right now! I’m going to ask you to imagine three scenarios.'
         ]
     },
