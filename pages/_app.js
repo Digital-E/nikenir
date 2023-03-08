@@ -29,6 +29,19 @@ const GradientWrapper = styled.div`
   }
 `
 
+const Background = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/images/gradients/PLANET_GRAIDENT_02 2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+`
+
+
 
 let colors = [
   [
@@ -131,9 +144,10 @@ function MyApp({ Component, pageProps, router }) {
     <StateProvider>
       <Header />
       <Sidebar />
-      <GradientWrapper>
+      <Background />
+      {/* <GradientWrapper>
         <BackgroundGradientCode data={dataThree} />
-      </GradientWrapper>
+      </GradientWrapper> */}
       {/* <CookieConsent
         buttonText={pageProps.data?.menuData.cookieaccept}
         declineButtonText={pageProps.data?.menuData.cookierefuse}

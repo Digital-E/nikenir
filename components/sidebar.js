@@ -40,7 +40,7 @@ export default function Header({}) {
 
   return (
     <>
-    <Container className='hide-sidebar'>
+    <Container className='sidebar hide-sidebar'>
       <Logo><img src='/images/logos/nikeimpact-side.svg'/></Logo>
       <Share />
     </Container>

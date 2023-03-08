@@ -1,11 +1,10 @@
 import React, { useReducer, createContext, useEffect } from "react";
 
 const initialState = {
-  // projectIndex: 0,
-  // slideIndex: 0,
-  // projectOpen: false,
-  // allProjects: [],
-  notificationMessage: null
+  colour: '',
+  message: '',
+  progress: 0,
+  questionCount: 0
 };
 
 const store = createContext(initialState);
@@ -16,29 +15,26 @@ const StateProvider = ({ children }) => {
     const newState = state;
 
     switch (action.type) {
-      // case "update project index":
-      //   return {
-      //     ...newState,
-      //     projectIndex: action.value
-      //   };
-      // case "update slide index":
-      //   return {
-      //     ...newState,
-      //     slideIndex: action.value
-      //   };
-      // case "update all projects":
-      //   newState.allProjects = action.value;
-      //   return newState;
-      // case "update project open":
-      //   return {
-      //     ...newState,
-      //     projectOpen: action.value
-      //   };
-      case "update notification message":
+      case "update colour":
         return {
           ...newState,
-          notificationMessage: action.value
-        };                       
+          colour: action.value
+        };      
+      case "update message":
+        return {
+          ...newState,
+          message: action.value
+        };
+      case "update progress":
+        return {
+          ...newState,
+          progress: action.value
+        };
+      case "update question count":
+        return {
+          ...newState,
+          questionCount: action.value
+        };                                            
       default:
         throw new Error();
     }

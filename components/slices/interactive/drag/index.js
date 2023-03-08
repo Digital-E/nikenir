@@ -1,10 +1,14 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, useContext } from 'react'
 import styled from 'styled-components'
-import { motion, useAnimationControls } from "framer-motion"
+import { motion, useAnimationControls } from 'framer-motion'
+
+import { store } from '../../../../store'
 
 import Card from './card'
 
 import InformationCard from '../../information-card'
+
+import Hide from '../hide'
 
 const Container = styled.div`
 
@@ -49,7 +53,13 @@ const DragElement = styled(motion.div)`
 `
 
 
+
+
 export default function Component({ item, data }) {
+    // Context
+    const context = useContext(store);
+    const { state, dispatch } = context; 
+
     let [hasInteracted, setHasInteracted] = useState(false)
     let [allItems, setAllItems] = useState(item.squares)
     let [dragActive, setDragActive] = useState(true)
@@ -116,6 +126,16 @@ export default function Component({ item, data }) {
     mouseOverIndex.current = index;
   }
 
+  useEffect(() => {
+      if(hasInteracted) {
+          dispatch({type: "update progress", value: state.progress += 1})
+      } else {
+          if(state.progress !== 0) {
+              dispatch({type: "update progress", value: state.progress -= 1})
+          }
+      }
+  }, [hasInteracted])  
+
     return (
         <Container className={hasInteracted ? 'clicked mtb-2 max-width-2' : 'mtb-2 max-width-2'}>
             <Text className='text-one mtb-2 palatino-x-small'>
@@ -158,7 +178,9 @@ export default function Component({ item, data }) {
                 }
             </InnerContainer>
             <TextTwo className='text-two mtb-2 palatino-x-small'>You picked</TextTwo>
-            <InformationCard item={item} data={data} selectedIndex={mouseOverIndex.current !== null ? mouseOverIndex.current : 0} />
+            <Hide hasInteracted={hasInteracted}>
+                <InformationCard item={item} data={data} selectedIndex={mouseOverIndex.current !== null ? mouseOverIndex.current : 0} />
+            </Hide>
         </Container>
     )
 }

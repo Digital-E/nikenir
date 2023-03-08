@@ -7,15 +7,35 @@ import Next from './next-round'
 
 const Container = styled.div``
 
+const RowOne = styled.div``
+
+
+const RowTwo = styled.div`
+    @media(min-width: 990px) {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+
+        > div {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    }
+`
+
 
 export default function Component({ data }) {
 
     return (
         <Container>
-            <Praise data={data} />
-            <Reward data={data} />
-            <More data={data} />
-            <Next data={data} />
+            <RowOne>
+                <Praise data={data} />
+                <Reward data={data} />
+            </RowOne>
+            <RowTwo>
+                <More data={data} />
+                <Next data={data} />
+            </RowTwo>
         </Container>
     )
 }

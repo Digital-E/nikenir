@@ -1,9 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import styled from 'styled-components'
+
+import { store } from '../../../../store'
 
 import Card from './card'
 
 import InformationCard from '../../information-card'
+
+import Hide from '../hide'
+
 
 const Container = styled.div`
     width: 100%;
@@ -32,6 +37,10 @@ const TextTwo = styled.div`
 `
 
 export default function Component({ item, data }) {
+    // Context
+    const context = useContext(store);
+    const { state, dispatch } = context; 
+
     let [hasInteracted, setHasInteracted] = useState(false)
     let [allItems, setAllItems] = useState(item.squares)
     let [selectedIndex, setSelectedIndex] = useState(0)
@@ -73,6 +82,16 @@ export default function Component({ item, data }) {
 
         setHasInteracted(false)
     }
+
+    useEffect(() => {
+        if(hasInteracted) {
+            dispatch({type: "update progress", value: state.progress += 1})
+        } else {
+            if(state.progress !== 0) {
+                dispatch({type: "update progress", value: state.progress -= 1})
+            }
+        }
+    }, [hasInteracted])
     
 
     return (
@@ -86,7 +105,9 @@ export default function Component({ item, data }) {
                 }
             </InnerContainer>
             <TextTwo className='text-two mtb-2 palatino-x-small'>You picked</TextTwo>
-            <InformationCard item={item} data={data} selectedIndex={selectedIndex} />
+            <Hide hasInteracted={hasInteracted}>
+                <InformationCard item={item} data={data} selectedIndex={selectedIndex} />
+            </Hide>
         </Container>
     )
 }

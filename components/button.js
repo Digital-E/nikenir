@@ -16,7 +16,6 @@ const Container = styled(motion.button)`
     border-radius: 30px;
     cursor: pointer;
     user-select: none;
-    max-width: 395px;
 
     @media(max-width: 989px) {
         padding: 10px 30px;
@@ -38,7 +37,7 @@ const Component = ({ colour, children }) => {
 
     return (
         <Container 
-            className='helvetica'
+            className='helvetica max-width'
             colour={colour}
             onClick={(e) => {click(e)}} 
             transition={{ type: "spring", stiffness: 200, damping: 10 }}

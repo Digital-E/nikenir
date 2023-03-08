@@ -1,9 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import styled from 'styled-components'
+
+import { store } from '../../../../store'
 
 import Card from './card'
 
 import InformationCard from '../../information-card'
+
+import Hide from '../hide'
 
 const Container = styled.div`
 
@@ -29,16 +33,12 @@ const TextTwo = styled.div`
     transition: opacity var(--transition-in);
 `
 
-let Hide = styled.div`
-    display: none;
-
-    &.show {
-        display: block;
-    }
-`
-
 
 export default function Component({ item, data }) {
+    // Context
+    const context = useContext(store);
+    const { state, dispatch } = context; 
+
     let [hasInteracted, setHasInteracted] = useState(false)
     let [allItems, setAllItems] = useState(item.squares)
     let [selectedIndex, setSelectedIndex] = useState(0)
@@ -85,6 +85,16 @@ export default function Component({ item, data }) {
 
         triggerConfetti(e);
     }
+
+    useEffect(() => {
+        if(hasInteracted) {
+            dispatch({type: "update progress", value: state.progress += 1})
+        } else {
+            if(state.progress !== 0) {
+                dispatch({type: "update progress", value: state.progress -= 1})
+            }
+        }
+    }, [hasInteracted])
     
     return (
         <Container className={hasInteracted ? 'clicked mtb-2 max-width-2' : 'mtb-2 max-width-2'}>
@@ -96,8 +106,8 @@ export default function Component({ item, data }) {
                     item.squares.map((item, index) => <Card data={item} index={index} allItems={allItems} hasClicked={(e, index) => hasClicked(e, index)} hasInteracted={hasInteracted} />)
                 }
             </InnerContainer>
-            <Hide className={hasInteracted ? 'show' : ''}>
-                <TextTwo className='text-two mtb-2 palatino-x-small'>You picked</TextTwo>
+            <TextTwo className='text-two mtb-2 palatino-x-small'>You picked</TextTwo>
+            <Hide hasInteracted={hasInteracted}>
                 <InformationCard item={item} data={data} selectedIndex={selectedIndex} />
             </Hide>
         </Container>

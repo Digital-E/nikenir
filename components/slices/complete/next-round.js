@@ -1,10 +1,18 @@
 import styled from 'styled-components'
 
-import Button from '../../button'
+import ButtonLink from '../../button-link'
 import AvatarCard from '../avatar-card'
 
 const Container = styled.div`
     margin-top: calc(var(--margin) * 4);
+
+    > div:nth-child(2) {
+        margin-bottom: var(--margin);
+    }
+
+    button {
+        box-shadow: none;
+    }
 `;
 
 const Title = styled.h2`
@@ -17,12 +25,11 @@ const Title = styled.h2`
 
 
 const Component = ({ data }) => {
-
     return (
         <Container className='mtb max-width'>
             <Title>{data.complete.continue.title}</Title>
-            <AvatarCard data={data} item={data.complete.continue} />
-            <Button colour={data.colourOne}>Let's play!</Button>
+            <AvatarCard data={data.complete.continue.next} item={data.complete.continue} />
+            <ButtonLink href={data.complete.continue.next.link} colour={data.colourOne}>Let's play!</ButtonLink>
         </Container>
     )
 }

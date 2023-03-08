@@ -5,6 +5,7 @@ import { useMediaQuery } from 'react-responsive'
 import { motion } from 'framer-motion'
 
 import Button from '../button'
+import Link from '../link'
 
 let Flickity = null;
 
@@ -70,6 +71,12 @@ const Card = styled(motion.div)`
         height: calc(85vw * 1.8);
         width: 85%;
         margin: 40px 10px 30px 10px;
+
+        a {
+            display: flex;
+            flex-direction: column;
+            height: 100%;;
+        }
     }
 `
 
@@ -143,6 +150,7 @@ let data = [
         textOne: 'People Protector',
         textTwo: 'Community hero inspiring togetherness',
         img: '/images/avatars/MaxGuther_11-2.png',
+        link: '/people-protector',
         background: 'radial-gradient(101.96% 52.55% at 84.6% 50%, rgba(254, 194, 37, 0.9) 0%, rgba(255, 255, 255, 0) 76.07%)',
         width: 60,
         left: 35,
@@ -153,6 +161,7 @@ let data = [
         textOne: 'Climate Champion',
         textTwo: 'Planet protector empowering citizens of the world',
         img: '/images/avatars/mg_zc_03 1.png',
+        link: 'climate-champion',
         background: 'radial-gradient(101.96% 52.55% at 84.6% 50%, rgba(195, 188, 236, 0.9) 0%, rgba(255, 255, 255, 0) 76.07%)',
         width: 80,
         left: 15,
@@ -163,6 +172,7 @@ let data = [
         textOne: 'Active Activist',
         textTwo: 'Trusted coach who really listens',
         img: '/images/avatars/MaxGuther_12-2.png',
+        link: 'active-activist',
         background: 'radial-gradient(239.95% 126.46% at 33.97% 17.02%, rgba(2, 131, 254, 0.7) 0%, rgba(255, 255, 255, 0) 76.07%)',
         width: 45,
         left: 40,
@@ -242,30 +252,32 @@ export default function Component() {
             <Carousel ref={gallery}>
                 {
                     data.map((item, index) => 
-                        <Card 
-                            // transition={{ type: "spring", stiffness: 200, damping: 10 }}
-                            className={hoveredIndex !== null && hoveredIndex !== index ? 'blur' : ''}
-                            onMouseEnter={() => setHoveredIndex(index)}
-                            onMouseLeave={() => setHoveredIndex(null)}
-                            whileHover={isDesktop ? {scale: 1.05} : {}}
-                            data={item}
-                        >
-                            <Title>
-                                <h2>Play <br/> With:</h2>
-                                <h2>{item.name}</h2>
-                            </Title>
-                            <Image data={item}><img src={item.img} /></Image>
-                            <Information>
-                                <p className='palatino-small'>{item.textOne}</p>
-                                <p className='body-large'>{item.textTwo}</p>
-                            </Information>
-                            <ButtonDesktopWrapper
-                                animate={hoveredIndex === index ? 'show' : 'hide'}
-                                variants={cardHoverVariants}
+                            <Card 
+                                // transition={{ type: "spring", stiffness: 200, damping: 10 }}
+                                // className={hoveredIndex !== null && hoveredIndex !== index ? 'blur' : ''}
+                                // onMouseEnter={() => setHoveredIndex(index)}
+                                // onMouseLeave={() => setHoveredIndex(null)}
+                                whileHover={isDesktop ? {scale: 1.05} : {}}
+                                data={item}
                             >
-                                <Button>Choose {item.name}</Button>
-                            </ButtonDesktopWrapper>
-                        </Card>
+                                <Link href={item.link}>
+                                    <Title>
+                                        <h2>Play <br/> With:</h2>
+                                        <h2>{item.name}</h2>
+                                    </Title>
+                                    <Image data={item}><img src={item.img} /></Image>
+                                    <Information>
+                                        <p className='palatino-small'>{item.textOne}</p>
+                                        <p className='body-large'>{item.textTwo}</p>
+                                    </Information>
+                                    {/* <ButtonDesktopWrapper
+                                        animate={hoveredIndex === index ? 'show' : 'hide'}
+                                        variants={cardHoverVariants}
+                                    >
+                                        <Button>Choose {item.name}</Button>
+                                    </ButtonDesktopWrapper> */}
+                                </Link>
+                            </Card>
                         )
                 }
             </Carousel>

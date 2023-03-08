@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 
 import Intro from './character-intro'
@@ -29,6 +30,7 @@ let slice = (item, data) => {
 }
 
 export default function Component({ data }) {
+
     return (
         <>
         <Intro data={data} />

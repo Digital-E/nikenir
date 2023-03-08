@@ -5,7 +5,7 @@ import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styled from 'styled-components'
 
-import Button from '../button'
+import ButtonLink from '../button-link'
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
@@ -68,6 +68,10 @@ const ButtonWrapper = styled(motion.div)`
     width: 100%;
     max-width: 420px;
     margin: 30px auto;
+
+    button {
+        box-shadow: none;
+    }
 `
 
 let isSliding = false;
@@ -275,7 +279,7 @@ const Component = () => {
                         Your Move is a game that lets you plot a path to a fairer, greener and healthier future.
                     </Text>
                     <ButtonWrapper variants={slideTwoAnimation}>
-                        <Button>Let's Play!</Button>
+                        <ButtonLink href='/pick-your-player'>Let's Play!</ButtonLink>
                     </ButtonWrapper>
                 </Center>
             </Slide> 

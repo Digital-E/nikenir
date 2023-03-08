@@ -1,6 +1,7 @@
 
 import styled from 'styled-components'
 
+import TextCarousel from './text-carousel'
 
 
 const Container = styled.div`
@@ -52,7 +53,7 @@ const Title = styled.h3`
 
 const Text = styled.p``
 
-const TextCarousel = styled.div`
+const TextCarouselWrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -86,10 +87,11 @@ export default function Component({ item, data, selectedIndex }) {
             <Text className='body-large'>
                 {item.information[selectedIndex]?.text[0]}
             </Text>
-            <TextCarousel className='container-background' colourTwo={data.colourTwo}>
+            <TextCarouselWrapper className='container-background' colourTwo={data.colourTwo}>
                 <Text className='palatino-x-small'>Did you know ?</Text>
-                <Text className='body-large'>{item.information[selectedIndex]?.text[1]}</Text>
-            </TextCarousel>
+                <TextCarousel data={item.information[selectedIndex]?.text} />
+                {/* <Text className='body-large'>{item.information[selectedIndex]?.text[1]}</Text> */}
+            </TextCarouselWrapper>
         </RowTwo>
         </Container>
     )

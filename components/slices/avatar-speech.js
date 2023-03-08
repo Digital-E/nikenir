@@ -6,6 +6,7 @@ import styled from 'styled-components'
 const Container = styled.div`
     position: relative;
     display: flex;
+    z-index: 1;
 
     svg {
         fill:#fff;

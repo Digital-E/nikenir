@@ -1,7 +1,10 @@
-import { useState, useRef, useEffect } from "react"
-import styled from "styled-components"
+import { useState, useRef, useEffect, useContext } from 'react'
+import { useRouter } from 'next/router'
+import styled from 'styled-components'
 
-import { motion, useScroll, useMotionValueEvent } from "framer-motion"
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
+
+import { store } from '../store'
 
 
 let Container = styled.header`
@@ -42,6 +45,24 @@ const Text = styled.div`
   flex-basis: 50%;
   text-align: center;
   margin-top: 2px;
+
+  > span:nth-child(1) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  > span:nth-child(2) {
+    position: absolute;
+    left: 50%;
+    top: 150%;
+    transform: translate(-50%, -50%);
+  }
+
+  > span {
+    transition: top 1s;
+  }
 `
 
 const ScrollIndicatorWrapper = styled.div`
@@ -77,8 +98,9 @@ const Circle = styled.div`
   }
 
   svg .progress-bar {
-    stroke: url(#grad);
-    transition: stroke-dashoffset 0 ease-in-out; 
+    // stroke: url(#grad);
+    stroke: ${props => props.colour};
+    transition: stroke-dashoffset 0.3s ease-in-out; 
     // filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.2));
   }
 `
@@ -87,20 +109,39 @@ const Circle = styled.div`
 
 let progressBar = null;
 let totalLength = 0;
+let hasLoaded = 0;
 
 export default function Header({}) {
+  // Context
+  const context = useContext(store);
+  const { state, dispatch } = context;
+
+  let router = useRouter();
+
+  let [colour, setColour] = useState('')
+  let [messageOne, setMessageOne] = useState('')
+  let [messageTwo, setMessageTwo] = useState('')
 
   let headerRef = useRef();
+  let headerTextRef = useRef();
   let progressBarRef = useRef();
-  const { scrollYProgress } = useScroll()
+  let transitionCount = useRef(0);
+  // const { scrollYProgress } = useScroll()
 
   let setProgress = (latest) => {
-    progressBarRef.current.style.strokeDashoffset = totalLength - latest * totalLength;
+    // progressBarRef.current.style.strokeDashoffset = totalLength - latest * totalLength;
+    let progress = state.progress / state.questionCount
+    if(progress > 1) {
+      progress = 1;
+      progressBarRef.current.style.strokeDashoffset = totalLength - progress * totalLength
+    } else {
+      progressBarRef.current.style.strokeDashoffset = totalLength - progress * totalLength
+    }
   }
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    setProgress(latest)
-  })
+  // useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  //   setProgress(latest)
+  // })
 
   useEffect(() => {
     progressBar = document.querySelector('.progress-bar');
@@ -109,26 +150,86 @@ export default function Header({}) {
     progressBarRef.current.style.strokeDasharray = totalLength;
     progressBarRef.current.style.strokeDashoffset = totalLength;
 
-    setProgress(scrollYProgress.prev)
+    // setProgress(scrollYProgress.prev)
   }, []);
+
+  let changeFontClass = (el, message) => {
+    if(message === 'Pick your player') {
+      el.classList.remove('futura')
+      el.classList.add('palatino-x-small')
+    } else {
+      el.classList.add('futura')
+      el.classList.remove('palatino-x-small')
+    }
+  }
+
+  useEffect(() => {
+    if(hasLoaded < 2) {
+      hasLoaded += 1
+      changeFontClass(headerTextRef.current.children[0], state.message)
+      return setMessageOne(state.message)
+    }
+
+    if(transitionCount.current % 2 === 0) {
+      setMessageTwo(state.message)
+    
+      changeFontClass(headerTextRef.current.children[1], state.message)
+      headerTextRef.current.children[0].style.top = '-100%'
+      headerTextRef.current.children[1].style.top = '50%'
+    } else {
+      setMessageOne(state.message)
+
+      changeFontClass(headerTextRef.current.children[0], state.message)
+      headerTextRef.current.children[0].style.top = '50%'
+      headerTextRef.current.children[1].style.top = '-100%'
+    }
+
+    setTimeout(() => {
+      if(transitionCount.current % 2 === 0) {
+        headerTextRef.current.children[0].style.transition = 'top 0s'
+        headerTextRef.current.children[0].style.top = '150%'
+        setTimeout(() => {
+          headerTextRef.current.children[0].style.transition = 'top 1s'
+        }, 1000)
+      } else {
+        headerTextRef.current.children[1].style.transition = 'top 0s'
+        headerTextRef.current.children[1].style.top = '150%'
+        setTimeout(() => {
+          headerTextRef.current.children[1].style.transition = 'top 1s'
+        }, 1000)
+      }
+      transitionCount.current += 1;
+    }, 1000)
+    
+  }, [state.message])
+
+  useEffect(() => {
+    setProgress()
+  }, [state.progress])
+
+  useEffect(() => {
+    setColour(state.colour)
+  }, [state.colour])
+
 
   return (
     <>
     <Container ref={headerRef} className='hide-header max-width-2'>
-      <Arrow><img src='/images/icons/ui-arrow.svg' /></Arrow>
-      <Text>
-        <span className='futura'>People Protector</span>
+      <Arrow onClick={() => router.back()}><img src='/images/icons/ui-arrow.svg' /></Arrow>
+      <Text ref={headerTextRef}>
+        <span>{messageOne}</span>
+        <span>{messageTwo}</span>
       </Text>
       <ScrollIndicatorWrapper>
         <ScrollIndicator>
-          <Circle>
+          <Circle colour={colour}>
             <svg class="complete" width="40" height="40" viewport="0 0 20 20" xmlns="https://www.w3.org/2000/svg">
-              <defs>
+              {/* <defs>
                 <linearGradient id="grad">
                 <stop offset="0%" stop-color="#fbc2eb"></stop>
                 <stop offset="100%" stop-color="#a6c1ee"></stop>
               </linearGradient>
-              </defs>
+              </defs> */}
               <circle cx="20" cy="20" r="15"></circle>
               <circle class="progress-bar" cx="20" cy="20" r="15" ref={progressBarRef}></circle>
             </svg>      

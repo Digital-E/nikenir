@@ -28,6 +28,10 @@ const Number = styled.div``
 const Carousel = styled.div`
     outline: none !important;
 
+    .flickity-slider {
+        transform: none !important;
+    }
+
     .flickity-page-dots {
         bottom: -95px;
     }
@@ -48,6 +52,15 @@ const Carousel = styled.div`
 
 const Slide = styled.div`
     width: 100%;
+
+    transform: none !important;
+    opacity: 0;
+    transition: opacity 0.7s 0s;
+
+    &.is-selected {
+        opacity: 1;
+        transition: opacity 0.7s 0.5s;
+    }
 `
 
 const Text = styled.p`
@@ -55,6 +68,10 @@ const Text = styled.p`
 `
 
 const ButtonWrapper = styled.div`
+    button {
+        box-shadow: none;
+    }
+
     @media(max-width: 989px) {
         margin: 0 10px;
     }
@@ -79,7 +96,7 @@ const Component = ({ data }) => {
             cellAlign: "center",
             percentPosition: true,
             wrapAround: true,
-            fade: true,
+            fade: false,
             resize: true
         })
 

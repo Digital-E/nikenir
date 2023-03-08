@@ -1,5 +1,7 @@
-import { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
 import styled from 'styled-components'
+
+import { store } from "../store"
 
 // Components
 import Layout from '../components/layout'
@@ -20,20 +22,24 @@ const Container = styled.div`
     }
 `
 
+export default function Component() {
+    // Context
 
-
-export default function Home() {
+    const context = useContext(store);
+    const { state, dispatch } = context; 
 
   useEffect(() => {
+    dispatch({type: "update message", value: 'Pick your player'})
+
     setTimeout(() => {
       document.querySelector('header').classList.remove('hide-header')
 
-      document.querySelector('.hide-sidebar').classList.remove('hide-sidebar')
+      document.querySelector('.sidebar').classList.remove('hide-sidebar')
     }, 250)
   }, [])
 
   return (
-    <Layout title={`Nike Impact Report | Pick Your Player`} content={`Nike Impact Report | Pick Your Player`}>
+    <Layout title={`Pick Your Player | Nike Impact Report`} content={`Pick Your Player | Nike Impact Report`}>
       <Container>
         <CharacterCarousel />
       </Container>

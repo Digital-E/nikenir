@@ -4,6 +4,7 @@ import Share from '../../share'
 
 
 const Container = styled.div`
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;

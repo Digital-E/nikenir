@@ -1,4 +1,7 @@
+import { useEffect, useContext } from 'react'
 import styled from 'styled-components'
+
+import { store } from '../store'
 
 // Components
 import Layout from '../components/layout'
@@ -16,6 +19,20 @@ const Container = styled.div`
 
 
 export default function Home() {
+  // Context
+
+  const context = useContext(store);
+  const { state, dispatch } = context; 
+
+  useEffect(() => {
+    dispatch({type: "update colour", value: 'transparent'})
+    dispatch({type: "update progress", value: 0})
+
+    document.querySelector('header').classList.add('hide-header')
+
+    document.querySelector('.sidebar').classList.add('hide-sidebar')
+  }, [])
+
   return (
     <Layout title={`Nike Impact Report`} content={`Nike Impact Report`}>
       <Container>

@@ -1,4 +1,7 @@
+import { useEffect, useContext } from "react"
 import styled from 'styled-components'
+
+import { store } from "../store"
 
 // Components
 import Layout from '../components/layout'
@@ -6,16 +9,17 @@ import Slices from '../components/slices'
 
 
 
-const Container = styled.div`
-  margin-top: 130px;
-`
+const Container = styled.div``
 
 let data = {
+    title: 'People Protector',
     name: 'Theo',
     role: 'People Protector',
     avatar: '/images/avatars/People_02 1.png',
     colourOne: 'rgba(255, 184, 0, 0.7)',
     colourTwo: '#F05822',
+    colourThree: '#F6693D',
+    questionCount: 3,
     intro: {
         title: 'A SOCIETY IS ONLY AS CREATIVE AND HAPPY AS IT IS DIVERSE AND INCLUSIVE.',
         text: [
@@ -159,13 +163,36 @@ let data = {
       },
       continue: {
         title: 'Fancy another round?',
-        text: 'Don’t go anywhere, there are still decisions to be made.'
+        text: 'Don’t go anywhere, there are still decisions to be made.',
+        next: {
+          name: 'Ivy',
+          role: 'Climate Champion',
+          avatar: '/images/avatars/ivy-small.png',
+          link: '/climate-champion'
+        }
       }
     }
 }
 export default function Component() {
+  // Context
+  const context = useContext(store);
+  const { state, dispatch } = context; 
+
+  useEffect(() => {
+    dispatch({type: "update colour", value: data.colourThree})
+    dispatch({type: "update message", value: data.role})
+    dispatch({type: "update progress", value: 0.25})
+    dispatch({type: "update question count", value: data.questionCount})
+
+    setTimeout(() => {
+      document.querySelector('header').classList.remove('hide-header')
+
+      document.querySelector('.sidebar').classList.remove('hide-sidebar')
+    }, 250)
+  }, [])
+
   return (
-    <Layout title={data.title} content={data.title}>
+    <Layout title={`${data.title} | Nike Impact Report`} content={`${data.title} | Nike Impact Report`}>
       <Container>
         <Slices data={data}/>
       </Container>
