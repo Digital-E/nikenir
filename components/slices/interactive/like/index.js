@@ -1,5 +1,9 @@
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState, useRef, useContext } from 'react'
 import styled from 'styled-components'
+
+import { gsap } from 'gsap'
+import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin"
+gsap.registerPlugin(ScrollToPlugin)
 
 import { store } from '../../../../store'
 
@@ -33,6 +37,9 @@ const TextTwo = styled.div`
     transition: opacity var(--transition-in);
 `
 
+const HideWrapper = styled.div``
+
+
 
 export default function Component({ item, data }) {
     // Context
@@ -42,6 +49,8 @@ export default function Component({ item, data }) {
     let [hasInteracted, setHasInteracted] = useState(false)
     let [allItems, setAllItems] = useState(item.squares)
     let [selectedIndex, setSelectedIndex] = useState(0)
+
+    let hideWrapperRef = useRef();
 
     let triggerConfetti = (e) => {
         // confetti({
@@ -84,6 +93,13 @@ export default function Component({ item, data }) {
         setHasInteracted(true)
 
         triggerConfetti(e);
+        
+        // Scroll To Bottom of Info Card
+
+        setTimeout(() => {
+            let informationContainerBottom = hideWrapperRef.current.getBoundingClientRect().bottom
+            gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: `+=${informationContainerBottom - window.innerHeight + 20 - 70}`})
+        }, 400)
     }
 
     useEffect(() => {
@@ -107,9 +123,11 @@ export default function Component({ item, data }) {
                 }
             </InnerContainer>
             <TextTwo className='text-two mtb-2 palatino-x-small'>You picked</TextTwo>
-            <Hide hasInteracted={hasInteracted}>
-                <InformationCard item={item} data={data} selectedIndex={selectedIndex} />
-            </Hide>
+            <HideWrapper ref={hideWrapperRef}>
+                <Hide hasInteracted={hasInteracted}>
+                    <InformationCard item={item} data={data} selectedIndex={selectedIndex} />
+                </Hide>
+            </HideWrapper>
         </Container>
     )
 }

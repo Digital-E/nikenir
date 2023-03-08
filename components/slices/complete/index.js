@@ -23,7 +23,19 @@ const RowTwo = styled.div`
             margin-right: 20px;
         }
     }
+
+
+    @media(max-width: 989px) {
+        padding: 0 var(--margin);
+    }
 `
+
+const RewardWrapper = styled.div`
+    @media(max-width: 989px) {
+        padding: 0 var(--margin);
+    }
+`
+
 
 
 export default function Component({ data }) {
@@ -32,7 +44,9 @@ export default function Component({ data }) {
         <Container>
             <RowOne>
                 <Praise data={data} />
-                <Reward data={data} />
+                <RewardWrapper>
+                    <Reward data={data} />
+                </RewardWrapper>
             </RowOne>
             <RowTwo>
                 <More data={data} />

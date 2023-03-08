@@ -9,14 +9,13 @@ const Container = styled.div`
     justify-content: space-between;
     margin: 140px auto 0 auto;
 
-    @media(max-width: 989px) {
-        height: 100vh;
-    }
+    // @media(max-width: 989px) {
+    //     height: 100vh;
+    // }
 `
 
 const Title = styled.h2`
-    margin-bottom: 50px;
-    margin: 0 15px 50px 15px;
+    margin: 0 15px 100px 15px;
 `
 
 const AvatarSpeechWrapper = styled.div`

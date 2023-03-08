@@ -44,7 +44,7 @@ const Carousel = styled.div`
 
     @media(max-width: 989px) {
         .flickity-page-dots {
-            bottom: -px;
+            bottom: -75px;
         }
     }
 
@@ -55,11 +55,13 @@ const Slide = styled.div`
 
     transform: none !important;
     opacity: 0;
-    transition: opacity 0.7s 0s;
+    // transition: opacity 0.7s 0s;
+    transition: 0;
 
     &.is-selected {
         opacity: 1;
-        transition: opacity 0.7s 0.5s;
+        // transition: opacity 0.7s 0.5s;
+        transition: 0;
     }
 `
 
@@ -92,6 +94,7 @@ const Component = ({ data }) => {
 
         flickity = new Flickity(gallery.current, {
             prevNextButtons: false,
+            autoPlay: 3000,
             pageDots: true,
             cellAlign: "center",
             percentPosition: true,
@@ -101,8 +104,12 @@ const Component = ({ data }) => {
         })
 
 
-        flickity.on('staticClick', (cellIndex) => {
-            flickity.next()
+        flickity.on('staticClick', (e, cellIndex) => {
+            if(e.offsetX < gallery.current.getBoundingClientRect().width / 2) {
+                flickity.previous()
+            } else {
+                flickity.next()
+            }
         })
 
         flickity.on('change', (cellIndex) => {
@@ -116,7 +123,7 @@ const Component = ({ data }) => {
             <Carousel ref={gallery}>
                 {data.complete.more.text.map(item => 
                 <Slide>
-                    <Text className='body-large'>{item}</Text>
+                    <Text className='body-x-large'>{item}</Text>
                 </Slide>
                 )}
             </Carousel>

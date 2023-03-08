@@ -1,5 +1,9 @@
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState, useRef, useContext } from 'react'
 import styled from 'styled-components'
+
+import { gsap } from 'gsap'
+import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin"
+gsap.registerPlugin(ScrollToPlugin)
 
 import { store } from '../../../../store'
 
@@ -36,6 +40,10 @@ const TextTwo = styled.div`
     transition: opacity var(--transition-in);
 `
 
+const HideWrapper = styled.div`
+    padding-bottom: 70px;
+`
+
 export default function Component({ item, data }) {
     // Context
     const context = useContext(store);
@@ -44,6 +52,8 @@ export default function Component({ item, data }) {
     let [hasInteracted, setHasInteracted] = useState(false)
     let [allItems, setAllItems] = useState(item.squares)
     let [selectedIndex, setSelectedIndex] = useState(0)
+
+    let hideWrapperRef = useRef();
 
     let triggerConfetti = (e) => {
         confetti({
@@ -86,6 +96,13 @@ export default function Component({ item, data }) {
     useEffect(() => {
         if(hasInteracted) {
             dispatch({type: "update progress", value: state.progress += 1})
+            
+        // Scroll To Bottom of Info Card
+        setTimeout(() => {
+            let informationContainerBottom = hideWrapperRef.current.getBoundingClientRect().bottom
+            gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: `+=${informationContainerBottom - window.innerHeight + 20 - 70}`})
+        }, 400)   
+
         } else {
             if(state.progress !== 0) {
                 dispatch({type: "update progress", value: state.progress -= 1})
@@ -101,13 +118,15 @@ export default function Component({ item, data }) {
             </Text>
             <InnerContainer className='inner-container'>
                 {
-                    item.squares.map((item, index) => <Card data={item} index={index} allItems={allItems} hasClicked={(e, index) => hasClicked(e, index)} hasInteracted={hasInteracted} />)
+                    item.squares.map((item, index) => <Card data={item} index={index} allItems={allItems} hasClicked={(e, index) => hasClicked(e, index)} hasInteracted={hasInteracted} dataAll={data} />)
                 }
             </InnerContainer>
             <TextTwo className='text-two mtb-2 palatino-x-small'>You picked</TextTwo>
-            <Hide hasInteracted={hasInteracted}>
-                <InformationCard item={item} data={data} selectedIndex={selectedIndex} />
-            </Hide>
+            <HideWrapper ref={hideWrapperRef}>
+                <Hide hasInteracted={hasInteracted}>
+                    <InformationCard item={item} data={data} selectedIndex={selectedIndex} />
+                </Hide>
+            </HideWrapper>
         </Container>
     )
 }

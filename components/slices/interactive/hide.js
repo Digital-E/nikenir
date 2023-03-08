@@ -1,8 +1,13 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
+
 const Hide = styled(motion.div)`
     overflow: hidden;
+
+    @media(max-width: 989px) {
+        padding: 0 var(--margin);
+    }
 `
 
 const InformationCardWrapper = styled(motion.div)``

@@ -26,8 +26,9 @@ const Container = styled.div`
     }
 
     @media(max-width: 989px) {
-        height: 100vh;
+        height: calc(100vh - 105px);
         width: 100%;
+        margin-top: 105px;
     }
 `
 
@@ -48,7 +49,7 @@ const Title = styled.h1`
     margin: 0 var(--margin);
 
     @media(min-width: 989px) {
-        max-width: 50%;
+        max-width: 40%;
     }
 `
 
@@ -71,20 +72,22 @@ export default function Component({ item, data }) {
     let containerRef = useRef();
 
     useEffect(() => {
-        window.scrollTo(0, 0)
-        document.addEventListener('wheel', disableScroll, {passive: false})
-        document.addEventListener('touchmove', disableScroll, { passive:false });
+        // window.scrollTo(0, 0)
+        if(window.scrollY === 0) {
+            document.addEventListener('wheel', disableScroll, {passive: false})
+            document.addEventListener('touchmove', disableScroll, { passive:false });
+        }
     }, [])
 
     let hideIntro = () => {
-        containerRef.current.classList.add('hide-intro')
+        // containerRef.current.classList.add('hide-intro')
         document.removeEventListener('wheel', disableScroll, {passive: false})
         document.removeEventListener('touchmove', disableScroll, { passive:false });
-        window.scrollTo(0, 0)
+        // window.scrollTo(0, 0)
     }
 
     let scrollDown = () => {
-        gsap.to(window, {duration: 2, ease: "power2.inOut", scrollTo: window.innerHeight, onComplete: () => hideIntro()})
+        gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: window.innerHeight, onComplete: () => hideIntro()})
     }
     
     return (

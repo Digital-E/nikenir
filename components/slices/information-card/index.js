@@ -8,7 +8,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     background: ${props => props.colourOne} !important;
-    margin: 0 auto;
+    margin: 0px auto 80px auto;
 `
 
 const RowOne = styled.div`

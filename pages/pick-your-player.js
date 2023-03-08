@@ -30,6 +30,8 @@ export default function Component() {
 
   useEffect(() => {
     dispatch({type: "update message", value: 'Pick your player'})
+    dispatch({type: "update colour", value: 'transparent'})
+    dispatch({type: "update progress", value: 0})
 
     setTimeout(() => {
       document.querySelector('header').classList.remove('hide-header')

@@ -11,7 +11,11 @@ const Container = styled.div`
     justify-content: center;
     width: 100%;
     background: white;
-    padding: 60px 15px;
+    padding: 60px 15px 45px 15px;
+
+    @media(max-width: 989px) {
+        padding: 60px 15px 60px 15px;
+    }
 `
 
 const Image = styled.div`
@@ -24,11 +28,15 @@ const Image = styled.div`
 const Text = styled.p`
     text-align: center;
     width: 80%;
-    margin: var(--margin) 0 calc(var(--margin) / 2) 0;
+    margin: var(--margin) 0;
 `
 
 const Title = styled.h3`
+    margin: var(--margin) 0;
 
+    @media(max-width: 989px) {
+        margin: 0;
+    }
 `
 
 const ShareWrapper = styled.div`

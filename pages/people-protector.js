@@ -16,14 +16,13 @@ let data = {
     name: 'Theo',
     role: 'People Protector',
     avatar: '/images/avatars/People_02 1.png',
-    colourOne: 'rgba(255, 184, 0, 0.7)',
+    colourOne: 'rgba(255, 184, 0, 0.9)',
     colourTwo: '#F05822',
     colourThree: '#F6693D',
     questionCount: 3,
     intro: {
         title: 'A SOCIETY IS ONLY AS CREATIVE AND HAPPY AS IT IS DIVERSE AND INCLUSIVE.',
         text: [
-          'Hello, how are you ?',
           'In fact, how about we make some positive choices right now! I’m going to ask you to imagine three scenarios.'
         ]
     },

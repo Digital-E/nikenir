@@ -18,8 +18,9 @@ const Slide = styled(motion.div)`
     height: 100vh;
 `;
 
-const Logo = styled(motion.div)`
-    position: absolute;
+const Logo = styled.div`
+    position: fixed;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
     padding: 40px 0;
@@ -94,10 +95,10 @@ let slideOneAnimation = {
         y: '-200%',
         transition: {
             opacity: {
-                duration: 1
+                duration: 0.5
             },
             y: {
-                duration: 2 
+                duration: 0.5 
             }
         }
     }
@@ -127,7 +128,7 @@ let slideOneAnimationBis = {
 let slideTwoAnimationParent = {
     'show': {
         transition: {
-            delayChildren: 1,
+            delayChildren: 0,
             staggerChildren: 0.5
         }
     },
@@ -178,13 +179,13 @@ const Component = () => {
             setSlideIndexState(0)
         }
 
-        gsap.to(containerRef.current, {duration: 2, ease: "power2.inOut", y: direction === 'down' ? '-100vh' : '0', onComplete: () => {isSliding = false}})
+        gsap.to(containerRef.current, {duration: 1, ease: "power3.inOut", y: direction === 'down' ? '-100vh' : '0', onComplete: () => {isSliding = false}})
 
         isSliding = true;
     }
 
     useEffect(() => {
-        gsap.fromTo(arrowRef.current,{y: 0}, { y: -5 , duration: 1, yoyo: true, ease: "power1.inOut", repeat: -1});
+        gsap.fromTo(arrowRef.current,{y: 0}, { y: -5 , duration: 0.5, yoyo: true, ease: "power1.inOut", repeat: -1});
 
         slideOneRef.current.addEventListener("click", () => {
             triggerSlide("down");
@@ -252,12 +253,14 @@ const Component = () => {
     },[]);
 
     return (
-        <>     
-        <Container ref={containerRef} className='margin'> 
+        <>    
+        <Logo 
+        // variants={slideOneAnimationBis}
+        >
+            <img src='/images/logos/with purpose logo.svg' />
+        </Logo>            
+        <Container ref={containerRef} className='margin'>         
             <Slide ref={slideOneRef} initial='show' animate={slideIndexState === 0 ? 'show' : 'hide'}>
-                <Logo variants={slideOneAnimationBis}>
-                    <img src='/images/logos/with purpose logo.svg' />
-                </Logo>   
                 <Center variants={slideOneAnimation}>
                     <Title className='large-headline'>
                         WHAT KIND OF CHANGEMAKER ARE YOU?

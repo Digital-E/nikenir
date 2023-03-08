@@ -25,7 +25,8 @@ const Image = styled.div`
     }
 
     @media(max-width: 989px) {
-        width: 50%;
+        width: 70%;
+        margin-left: -20%;
         
         img {
             width: 100%;
@@ -36,7 +37,7 @@ const Image = styled.div`
 const Bubble = styled(motion.div)`
     position: absolute;
     height: fit-content;
-    left: 40%;
+    left: 30%;
     bottom: 95%;
     margin-right: 15px;
     
@@ -48,11 +49,15 @@ const Bubble = styled(motion.div)`
         right: -55%;
         margin-right: auto;
     }
+
+    @media(max-width: 989px) {
+        min-width: calc(70% - 15px);
+    }
 `
 
 const BubbleInner = styled.div`
     position: relative;
-    min-height: 60px;
+    min-height: 53px;
     padding: var(--padding);
     border-radius: var(--border-radius) var(--border-radius) var(--border-radius) 0;
     background: var(--background);

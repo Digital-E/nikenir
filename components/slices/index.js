@@ -5,12 +5,18 @@ import Intro from './character-intro'
 import Question from './question'
 import Like from './interactive/like'
 import Drag from './interactive/drag'
-import TapSpam from './interactive/tap-spam-three'
+import TapSpam from './interactive/tap-spam-four'
 import Pause from './pause'
 import Complete from './complete'
 
 const Container = styled.div`
     margin: 0 auto;
+
+    @media(max-width: 989px) {
+        > div:first-child {
+            margin-top: 105px;
+        }
+    }
 `
 
 

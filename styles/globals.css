@@ -161,7 +161,7 @@ h2 {
   font-family: 'Nike Futura ND';
   font-style: normal;
   font-weight: 800;
-  font-size: 50px;
+  font-size: 42px;
   line-height: 85%;
   text-transform: uppercase; 
 }
@@ -185,6 +185,16 @@ p {
   letter-spacing: -0.005em;
 }
 
+
+.body-small {
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 110%;
+  letter-spacing: -0.005em;
+}
+
 .body-large {
   font-family: 'Helvetica';
   font-style: normal;
@@ -194,13 +204,13 @@ p {
   letter-spacing: -0.01em;
 }
 
-.body-small {
+.body-x-large {
   font-family: 'Helvetica';
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 110%;
-  letter-spacing: -0.005em;
+  font-size: 24px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
 }
 
 .large-headline {
@@ -269,6 +279,15 @@ p {
 }
 
 @media(max-width: 989px) {
+  h1 {
+    font-family: 'Nike Futura ND';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 42px;
+    line-height: 85%;
+    text-transform: uppercase;
+  }
+
   h2 {
     font-family: 'Nike Futura ND';
     font-style: normal;

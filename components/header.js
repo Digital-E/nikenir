@@ -78,8 +78,8 @@ const ScrollIndicator = styled.div`
 
 const Logo = styled.div`
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: calc(50% + 1px);
+  top: calc(50% - 1px);
   transform: translate(-50%, -50%);
 `
 const Circle = styled.div`
@@ -100,7 +100,7 @@ const Circle = styled.div`
   svg .progress-bar {
     // stroke: url(#grad);
     stroke: ${props => props.colour};
-    transition: stroke-dashoffset 0.3s ease-in-out; 
+    transition: stroke 0.5s, stroke-dashoffset 0.3s ease-in-out; 
     // filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.2));
   }
 `
@@ -214,7 +214,7 @@ export default function Header({}) {
 
   return (
     <>
-    <Container ref={headerRef} className='hide-header max-width-2'>
+    <Container ref={headerRef} className='hide-header max-width'>
       <Arrow onClick={() => router.back()}><img src='/images/icons/ui-arrow.svg' /></Arrow>
       <Text ref={headerTextRef}>
         <span>{messageOne}</span>

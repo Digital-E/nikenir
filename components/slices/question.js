@@ -5,10 +5,11 @@ import AvatarCard from './avatar-card'
 
 
 const Container = styled.div`
-    margin: 120px auto 0 auto;
+    margin: 40px auto 0 auto;
 
     @media(max-width: 989px) {
-        margin: 140px auto 0 auto; 
+        margin: 80px auto 0 auto; 
+        padding: 0 var(--margin);
     }
 `
 

@@ -5,8 +5,8 @@ import styled from 'styled-components'
 const Container = styled(motion.div)`
     position: relative;
     height: 100%;
-    width: calc(50% - calc(var(--margin) * 2));
-    padding-bottom: calc(50% - calc(var(--margin) * 2) - 2px);
+    width: calc(50% - calc(var(--margin) * 2 - 8px));
+    padding-bottom: calc(50% - calc(var(--margin) * 2 - 8px));
     margin: 0 calc(var(--margin) / 2);
 `
 
@@ -60,7 +60,7 @@ const Background = styled.div`
     left: 0;
     height: ${props => props.gauge}%;
     width: 100%;
-    background: white;
+    background: ${props => props.colour};
     transition: 0.2s;
     z-index: -1;
 
@@ -72,7 +72,7 @@ const Background = styled.div`
 let hasTriggered = false
 let tsParticlesInstance = null
 
-export default function Component({ data, index, allItems, hasClicked, hasInteracted }) {
+export default function Component({ data, index, allItems, hasClicked, hasInteracted, dataAll }) {
     let [gauge, setGauge] = useState(0);
     let gaugeRef = useRef(0);
     let gaugeTimeout = useRef(null);
@@ -352,7 +352,7 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
 
         gaugeIncrement(e)
 
-        controls.start({ scale: 2 })
+        controls.start({ scale: 1.3 })
         setTimeout(() => {
             controls.start({ scale: 1.02 })
         }, 50)
@@ -383,7 +383,7 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
             >
             <InnerContainer>
                 <Title>{data.title}</Title>
-                <Background gauge={gauge} />
+                <Background gauge={gauge} colour={dataAll.colourOne} />
             </InnerContainer>
             <Image>
                 <img src={data.img} />

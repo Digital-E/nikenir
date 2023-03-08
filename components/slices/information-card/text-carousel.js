@@ -43,11 +43,13 @@ const Slide = styled.div`
 
     transform: none !important;
     opacity: 0;
-    transition: opacity 0.7s 0s;
+    // transition: opacity 0.7s 0s;
+    transition: 0;
 
     &.is-selected {
         opacity: 1;
-        transition: opacity 0.7s 0.5s;
+        // transition: opacity 0.7s 0.5s;
+        transition: 0;
     }
 `
 

@@ -94,8 +94,8 @@ const Replay = styled.div`
     color: white;
     font-size: 12px;
     // padding: 5px 10px;
-    height: 20px;
-    width: 20px;
+    height: 23px;
+    width: 23px;
     border-radius: 999px;
     background: var(--background);
     backdrop-filter: blur(10px);
@@ -126,7 +126,7 @@ const Replay = styled.div`
     }
 
     svg {
-        height: 10px;
+        height: 12px;
         // margin-left: 5px;
     }
 
@@ -190,7 +190,7 @@ export default function Component({ data, start }) {
 
         if(letterIndex <= sentenceLength) {
 
-            if(typeWriterRef.current.children[letterIndex] !== undefined) {
+            if(typeWriterRef.current?.children[letterIndex] !== undefined) {
                 
                 if(cursorActive) {
                     cursorRef.current.style.left = `${typeWriterRef.current.children[letterIndex].getBoundingClientRect().x + typeWriterRef.current.children[letterIndex].getBoundingClientRect().width - typeWriterRef.current.children[0].getBoundingClientRect().x}px`
@@ -199,13 +199,13 @@ export default function Component({ data, start }) {
 
                 typeWriterRef.current.children[letterIndex].classList.add("reveal-letter")
 
-                cursorRef.current.classList.add("typing")
+                cursorRef.current?.classList.add("typing")
 
             }
             
             letterIndex +=1;
         } else {
-            cursorRef.current.classList.remove("typing")
+            cursorRef.current?.classList.remove("typing")
 
             if(sentenceIndex === data.length - 1 ) return
 

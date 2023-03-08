@@ -2,6 +2,10 @@ import { useEffect, useState, useRef, useContext } from 'react'
 import styled from 'styled-components'
 import { motion, useAnimationControls } from 'framer-motion'
 
+import { gsap } from 'gsap'
+import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin"
+gsap.registerPlugin(ScrollToPlugin)
+
 import { store } from '../../../../store'
 
 import Card from './card'
@@ -11,6 +15,7 @@ import InformationCard from '../../information-card'
 import Hide from '../hide'
 
 const Container = styled.div`
+    position: relative;
 
     &.clicked .text-two {
         opacity: 1 !important;
@@ -20,6 +25,7 @@ const Container = styled.div`
 `
 
 const InnerContainer = styled.div`
+    position: relative;
     display: flex;
     justify-content: center;
 `
@@ -36,14 +42,17 @@ const TextTwo = styled.div`
 `
 
 const DragElement = styled(motion.div)`
-    position: relative;
-    width: 130px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250px;
     margin: 0 auto;
     cursor: pointer;
     touch-action: none;
     z-index: 2;
 
     img {
+      cursor: pointer;
       width: 100%;
     }
 
@@ -52,7 +61,7 @@ const DragElement = styled(motion.div)`
     }
 `
 
-
+const HideWrapper = styled.div``
 
 
 export default function Component({ item, data }) {
@@ -66,9 +75,15 @@ export default function Component({ item, data }) {
     let [isDragging, setIsDragging] = useState(false)
     let mouseOverIndex = useRef(null);
 
+    let hideWrapperRef = useRef();
+
     const controls = useAnimationControls();
 
     let dragElementRef = useRef();
+
+    useEffect(() => {
+      controls.start({ x: '-50%', y: '-50%'})
+    }, [])
 
     useEffect(() => {
         let hasInteractedCount = 0
@@ -113,17 +128,34 @@ export default function Component({ item, data }) {
 
     if(mouseOverIndex.current === 0) {
       hasClicked(null, 0)
-      controls.start({ x: -100, y: 150})
+      controls.start({ x: '-85%', y: '-50%'})
+
+        // Scroll To Bottom of Info Card
+        setTimeout(() => {
+            let informationContainerBottom = hideWrapperRef.current.getBoundingClientRect().bottom
+            gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: `+=${informationContainerBottom - window.innerHeight + 20 - 70}`})
+        }, 400)
+        
     } else if (mouseOverIndex.current === 1) {
       hasClicked(null, 1)
-      controls.start({ x: 100, y: 150})
+      controls.start({ x: '-5%', y: '-50%'})
+
+        // Scroll To Bottom of Info Card
+        setTimeout(() => {
+            let informationContainerBottom = hideWrapperRef.current.getBoundingClientRect().bottom
+            gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: `+=${informationContainerBottom - window.innerHeight + 20 - 70}`})
+        }, 400)
+
     } else if(mouseOverIndex.current === null) {
+      controls.start({ x: '-50%', y: '-50%'})
         setHasInteracted(false)
     }
   }
 
   let toggleMouseOver = (index) => {
-    mouseOverIndex.current = index;
+    setTimeout(() => {
+      mouseOverIndex.current = index
+    }, 30)
   }
 
   useEffect(() => {
@@ -141,29 +173,29 @@ export default function Component({ item, data }) {
             <Text className='text-one mtb-2 palatino-x-small'>
                 <span>{item.title}</span>
             </Text>
-            <DragElement
-              ref={dragElementRef}
-              onClick={(e) => {clicked(e)}}
-              onPointerDown={(e) => e.target.releasePointerCapture(e.pointerId)}
-              transition={{ type: "spring", stiffness: 200, damping: 10 }}
-              whileHover={{scale: 1.1 }}
-              whileTap={{ scale: 2 }}
-              animate={controls}
-              onDragStart={() => onDragStart()}
-              onDragEnd={() => onDragEnd()}
-              drag={dragActive}
-              dragConstraints={{
-                top: -50,
-                left: -150,
-                right: 150,
-                bottom: 210,
-              }}
-              dragSnapToOrigin={true}
-              dragMomentum={false}
-            >
-              <img src='/images/drag/air-jordan-1-low-se-older-shoes-f9r9bX 1.png' />
-            </DragElement>
             <InnerContainer className='inner-container'>
+                <DragElement
+                  ref={dragElementRef}
+                  onClick={(e) => {clicked(e)}}
+                  onPointerDown={(e) => e.target.releasePointerCapture(e.pointerId)}
+                  transition={{ type: "spring", stiffness: 200, damping: 10 }}
+                  whileHover={{scale: 1.1 }}
+                  whileTap={{ scale: 2 }}
+                  animate={controls}
+                  onDragStart={() => onDragStart()}
+                  onDragEnd={() => onDragEnd()}
+                  drag={dragActive}
+                  // dragConstraints={{
+                  //   top: -50,
+                  //   left: -150,
+                  //   right: 150,
+                  //   bottom: 210,
+                  // }}
+                  dragSnapToOrigin={true}
+                  dragMomentum={false}
+                >
+                  <img src='/images/drag/air-jordan-1-low-se-older-shoes-f9r9bX 1.png' />
+                </DragElement>
                 {
                     item.squares.map((item, index) => 
                     <Card 
@@ -178,9 +210,11 @@ export default function Component({ item, data }) {
                 }
             </InnerContainer>
             <TextTwo className='text-two mtb-2 palatino-x-small'>You picked</TextTwo>
-            <Hide hasInteracted={hasInteracted}>
-                <InformationCard item={item} data={data} selectedIndex={mouseOverIndex.current !== null ? mouseOverIndex.current : 0} />
-            </Hide>
+            <HideWrapper ref={hideWrapperRef}>
+                <Hide hasInteracted={hasInteracted}>
+                    <InformationCard item={item} data={data} selectedIndex={mouseOverIndex.current !== null ? mouseOverIndex.current : 0} />
+                </Hide>
+            </HideWrapper>
         </Container>
     )
 }

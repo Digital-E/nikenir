@@ -8,8 +8,8 @@ const Container = styled(motion.div)`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: calc(50% - calc(var(--margin) * 2));
-    padding-bottom: calc(50% - calc(var(--margin) * 2) - 2px);
+    width: calc(50% - calc(var(--margin) * 2 - 8px));
+    padding-bottom: calc(50% - calc(var(--margin) * 2 - 6px));
     margin: 0 calc(var(--margin) / 2);
     border: 1px dashed #1A1A1A;
     border-radius: 27px;
@@ -36,18 +36,12 @@ const Title = styled.h3`
 
 export default function Component({ data, index, allItems, hasClicked, hasInteracted, isDragging, mouseOver }) {
 
-    const onDragOver = (e) => {
-        // hasClicked(e, index)
-    };
-
-    useEffect(() => {
-
-    }, [isDragging])
-
     return (
         <Container
             onPointerEnter={() => mouseOver(index)}
             onPointerLeave={() => mouseOver(null)}
+            // onPointerEnter={() => console.log("enter")}
+            // onPointerLeave={() => console.log("leave")}
         >
             <Title>{data.title}</Title>
         </Container>
