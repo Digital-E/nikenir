@@ -74,10 +74,10 @@ export default function Component({ item, data }) {
 
     useEffect(() => {
         // window.scrollTo(0, 0)
-        // if(window.scrollY === 0) {
+        if(window.scrollY === 0) {
             document.addEventListener('wheel', disableScroll, {passive: false})
             document.addEventListener('touchmove', disableScroll, { passive:false });
-        // }
+        }
 
         setScreenHeight(window.innerHeight)
     }, [])

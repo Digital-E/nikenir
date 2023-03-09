@@ -20,7 +20,7 @@ let data = {
     colourOne: 'rgba(255, 184, 0, 0.9)',
     colourTwo: '#F05822',
     colourThree: '#F6693D',
-    questionCount: 3,
+    questionCount: 4,
     intro: {
         title: 'A CREATIVE AND HAPPY SOCIETY IS ONE THAT IS DIVERSE AND INCLUSIVE.',
         text: [
@@ -30,7 +30,7 @@ let data = {
     slices: [    
         {
             type: 'question',
-            number: '1 / 3',
+            number: '1 / 4',
             title: 'Walk and talk',
             text: 'You feel a little lost in your feelings. Isolated, even. You want to feel connected to the world again, find a way back to being yourself. Do you...'
         },
@@ -65,7 +65,7 @@ let data = {
         },
         {
             type: 'question',
-            number: '2 / 3',
+            number: '2 / 4',
             title: 'Win win',
             text: 'Time to pick a new roller derby team. You wonder if there’s a winning formula. Is this about team spirit or team balance?'
         },
@@ -101,7 +101,7 @@ let data = {
         },   
         {
             type: 'question',
-            number: '3 / 3',
+            number: '3 / 4',
             title: 'All about progress',
             text: 'You love the teamwork of volleyball and the pure purpose of tennis. But it’s time to choose where to put more of your time and energy. Will you...'
         },  
@@ -136,7 +136,43 @@ let data = {
                 ]
               }
             ]
-        },                                     
+        },
+        {
+          type: 'question',
+          number: '4 / 4',
+          title: 'THIS IS YOUR TIME',
+          text: 'You’ve been thinking about your future, but it’s hard because people that look like you aren’t always represented in the worlds of work you’re interested in. Something gives you hope…'
+        },
+        {
+          type: 'tap spam',
+          title: 'Tap spam to make your choice',
+          squares: [
+            {
+              title: 'You see a place where you fit in',
+              img: '/images/tap-spam/Bag_01.png'
+            },
+            {
+              title: 'You see a life that you aspire to',
+              img: '/images/tap-spam/Bottle_01 2.png'
+            }
+          ],
+          information: [
+            {
+              title: 'You see a place where you fit in',
+              text: 'A visit to your sister at college fills you with optimism. You’re surrounded by people just like you expanding their horizons and defining their place in the world.',
+              textCarousel: [
+                'We continue to support of Historically Black Colleges and Universities (HBCUs) and Hispanic-Serving Institutions (HSIs) – through storytelling, recruitment, and investments.'
+              ]
+            },
+            {
+              title: 'You see a life that you aspire to',
+              text: 'You’re looking for a sport that rewards your ambition with the progression you deserve. You want to be judged on what you bring, not who you are.',
+              textCarousel: [
+                'We’re accelerating the career trajectory of women in the workplace by investing in programs that increase a sense of belonging.',
+              ]
+            }
+          ]
+      }                                               
     ],
     pause: {
       title: 'Not so quick !',

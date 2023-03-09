@@ -1,5 +1,7 @@
-import { useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import styled from 'styled-components'
+
+import { store } from '../../store'
 
 import Intro from './character-intro'
 import Question from './question'
@@ -39,14 +41,29 @@ let slice = (item, data) => {
 }
 
 export default function Component({ data }) {
+    // Context
+    const context = useContext(store);
+    const { state, dispatch } = context; 
+
+    let [unlocked, setUnlocked] = useState(false);
+
+    useEffect(() => {
+        if(state.progress > state.questionCount) {
+            setUnlocked(true)
+        }
+    }, [state.progress])
 
     return (
         <>
         <Intro data={data} />
         <Container>
             {data.slices.map(item => slice(item, data))}
-            <Pause data={data} />
-            <Complete data={data} />
+            {
+                unlocked ?
+                <Complete data={data} />
+                :
+                <Pause data={data} />
+            }
         </Container>
         </>
         )

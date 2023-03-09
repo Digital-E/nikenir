@@ -275,6 +275,8 @@ export default function Component({ data, start }) {
     let init = () => {
         initSentence();
 
+        containerRef.current.style.height = `${containerRef.current.getBoundingClientRect().height}px`
+
         interval = setInterval(() => {
             if(newSentenceTimeout !== null) return
             typeText();

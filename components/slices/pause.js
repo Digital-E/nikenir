@@ -7,7 +7,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 140px auto 0 auto;
+    margin: 40px auto 0 auto;
 
     // @media(max-width: 989px) {
     //     height: 100vh;
