@@ -39,7 +39,7 @@ const TextTwo = styled.div`
 
 const HideWrapper = styled.div``
 
-
+let scrollTo = null;
 
 export default function Component({ item, data }) {
     // Context
@@ -51,6 +51,11 @@ export default function Component({ item, data }) {
     let [selectedIndex, setSelectedIndex] = useState(0)
 
     let hideWrapperRef = useRef();
+
+    let killScroll = () => {
+        scrollTo.kill()
+        window.removeEventListener("wheel", killScroll)
+    }
 
     let triggerConfetti = (e) => {
         // confetti({
@@ -98,7 +103,9 @@ export default function Component({ item, data }) {
 
         setTimeout(() => {
             let informationContainerBottom = hideWrapperRef.current.getBoundingClientRect().bottom
-            gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: `+=${informationContainerBottom - window.innerHeight + 20 - 70}`})
+            scrollTo = gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: `+=${informationContainerBottom - window.innerHeight + 20 - 70}`, onComplete: () => killScroll()})
+
+            window.addEventListener("wheel", killScroll)
         }, 400)
     }
 

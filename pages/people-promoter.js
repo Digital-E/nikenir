@@ -217,8 +217,8 @@ export default function Component() {
   useEffect(() => {
     dispatch({type: "update colour", value: data.colourThree})
     dispatch({type: "update message", value: data.role})
-    dispatch({type: "update progress", value: 0.25})
     dispatch({type: "update question count", value: data.questionCount})
+    dispatch({type: "update progress", value: 0})
     dispatch({type: "update back link", value: '/pick-your-player'})
 
     setTimeout(() => {

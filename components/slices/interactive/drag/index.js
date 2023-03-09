@@ -63,6 +63,7 @@ const DragElement = styled(motion.div)`
 
 const HideWrapper = styled.div``
 
+let scrollTo = null;
 
 export default function Component({ item, data }) {
     // Context
@@ -80,6 +81,11 @@ export default function Component({ item, data }) {
     const controls = useAnimationControls();
 
     let dragElementRef = useRef();
+
+    let killScroll = () => {
+      scrollTo.kill()
+      window.removeEventListener("wheel", killScroll)
+    }
 
     useEffect(() => {
       controls.start({ x: '-50%', y: '-50%'})
@@ -133,7 +139,8 @@ export default function Component({ item, data }) {
         // Scroll To Bottom of Info Card
         setTimeout(() => {
             let informationContainerBottom = hideWrapperRef.current.getBoundingClientRect().bottom
-            gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: `+=${informationContainerBottom - window.innerHeight + 20 - 70}`})
+            scrollTo = gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: `+=${informationContainerBottom - window.innerHeight + 20 - 70}`, onComplete: () => killScroll()})
+            window.addEventListener("wheel", killScroll)
         }, 400)
         
     } else if (mouseOverIndex.current === 1) {
@@ -143,7 +150,8 @@ export default function Component({ item, data }) {
         // Scroll To Bottom of Info Card
         setTimeout(() => {
             let informationContainerBottom = hideWrapperRef.current.getBoundingClientRect().bottom
-            gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: `+=${informationContainerBottom - window.innerHeight + 20 - 70}`})
+            scrollTo = gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: `+=${informationContainerBottom - window.innerHeight + 20 - 70}`, onComplete: () => killScroll()})
+            window.addEventListener("wheel", killScroll)
         }, 400)
 
     } else if(mouseOverIndex.current === null) {

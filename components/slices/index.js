@@ -48,10 +48,10 @@ export default function Component({ data }) {
     let [unlocked, setUnlocked] = useState(false);
 
     useEffect(() => {
-        if(state.progress > state.questionCount) {
+        if((state.progress === state.questionCount) && state.questionCount !== 0) {
             setUnlocked(true)
         }
-    }, [state.progress])
+    }, [state])
 
     return (
         <>
