@@ -99,7 +99,13 @@ const FooterWrapper = styled.div`
     bottom: 0;
 
     > footer {
-        padding: 20px 0px;
+        padding: 20px 40px;
+    }
+
+    @media(max-width: 989px) {
+        > footer {
+            padding: 20px 0;
+        } 
     }
 `
 

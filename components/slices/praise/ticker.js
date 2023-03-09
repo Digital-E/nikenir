@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 
 
@@ -33,7 +34,7 @@ const Container = styled.div`
     .ticker__item {
         display: flex;
         animation: ticker ${duration} infinite linear;
-      }
+    }
 
     .ticker__item div {
         display: flex;
@@ -77,11 +78,12 @@ export default function Component({ data, secondary }) {
 
 
     let itemCount = new Array(10).fill('');
+
     
     return (
         <Container className='ticker-wrap' secondary={secondary} data={data}>
             <Ticker className='ticker'>
-                <TickerItem class="ticker__item">
+                <TickerItem className="ticker__item">
                         {itemCount.map(item => (
                                 <div>
                                     <Text><span className='palatino-small'>A spring in your step</span></Text>
@@ -89,7 +91,7 @@ export default function Component({ data, secondary }) {
                                 </div>              
                         ))}
                 </TickerItem>
-                <TickerItem class="ticker__item">
+                <TickerItem className="ticker__item">
                         {itemCount.map(item => (
                                 <div>
                                     <Text><span className='palatino-small'>A spring in your step</span></Text>
