@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useContext } from 'react'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
 
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
+import Link  from './link'
 
 import { store } from '../store'
 
@@ -212,11 +212,15 @@ export default function Header({}) {
     setColour(state.colour)
   }, [state.colour])
 
+  // useEffect(() => {
+  //   setBackLink(state.backLink)
+  // }, [state.backLink])
+
 
   return (
     <>
     <Container ref={headerRef} className='hide-header max-width'>
-      <Arrow onClick={() => router.back()}><img src='/images/icons/ui-arrow.svg' /></Arrow>
+      <Link href={state.backLink}><Arrow><img src='/images/icons/ui-arrow.svg' /></Arrow></Link>
       <Text ref={headerTextRef}>
         <span>{messageOne}</span>
         <span>{messageTwo}</span>

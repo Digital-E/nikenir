@@ -4,7 +4,7 @@ import Link from 'next/link'
 const Component = ({ href, children }) => {
 
     return (
-        <Link href={href}>
+        <Link href={href} scroll={false}>
             {children}
         </Link>
     )

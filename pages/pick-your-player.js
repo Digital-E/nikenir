@@ -47,6 +47,7 @@ export default function Component() {
     }
     dispatch({type: "update colour", value: 'transparent'})
     dispatch({type: "update progress", value: 0})
+    dispatch({type: "update back link", value: '/'})
 
     setTimeout(() => {
       document.querySelector('header').classList.remove('hide-header')

@@ -4,7 +4,8 @@ const initialState = {
   colour: '',
   message: '',
   progress: 0,
-  questionCount: 0
+  questionCount: 0,
+  backLink: ''
 };
 
 const store = createContext(initialState);
@@ -34,7 +35,12 @@ const StateProvider = ({ children }) => {
         return {
           ...newState,
           questionCount: action.value
-        };                                            
+        };
+      case "update back link":
+        return {
+          ...newState,
+          backLink: action.value
+        };                                                     
       default:
         throw new Error();
     }
