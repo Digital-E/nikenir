@@ -23,9 +23,8 @@ const FooterWrapper = styled.div`
 
 const Container = styled.div`
     position: fixed;
-    height: 100vh;
-    width: 100vw;
-    // margin-top: 130px;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
 
     @media(max-width: 989px) {

@@ -16,7 +16,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: calc(100vh - 130px);
+    height: calc(${props => props.height}px - 130px);
     width: 80%;
     margin: 0 auto;
     margin-top: 130px;
@@ -26,7 +26,7 @@ const Container = styled.div`
     }
 
     @media(max-width: 989px) {
-        height: calc(100vh - 105px);
+        height: calc(${props => props.height}px - 105px);
         width: 100%;
         margin-top: 105px;
     }
@@ -70,13 +70,16 @@ let disableScroll = (e) => {
 
 export default function Component({ item, data }) {
     let containerRef = useRef();
+    let [screenHeight, setScreenHeight] = useState(0);
 
     useEffect(() => {
         // window.scrollTo(0, 0)
-        if(window.scrollY === 0) {
+        // if(window.scrollY === 0) {
             document.addEventListener('wheel', disableScroll, {passive: false})
             document.addEventListener('touchmove', disableScroll, { passive:false });
-        }
+        // }
+
+        setScreenHeight(window.innerHeight)
     }, [])
 
     let hideIntro = () => {
@@ -91,7 +94,7 @@ export default function Component({ item, data }) {
     }
     
     return (
-        <Container ref={containerRef}>
+        <Container ref={containerRef} height={screenHeight}>
             <Title>{data.intro.title}</Title>
             <AvatarWrapper>
                 <AvatarSpeech data={data} text={data.intro.text} />

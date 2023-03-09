@@ -100,7 +100,7 @@ const Card = styled(motion.div)`
 
     @media(max-width: 539px) {
         position: absolute;
-        height: calc(85vw * 1.7);
+        height: calc(85vw * 1.5);
         width: 85%;
         margin: 40px 10px 30px 10px;
 

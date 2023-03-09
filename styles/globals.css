@@ -50,9 +50,10 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-body {
-  min-height: 100vh;
+.lock-scroll {
+  position: absolute;
 }
+
 
 html,
 body {
@@ -143,6 +144,7 @@ ul {
 button {
   border: none;
   -webkit-appearance: none;
+  color: black;
 }
 
 h1, h2, h3, h4, h5, h6, p, span, a, img {

@@ -128,7 +128,7 @@ const Component = ({ data }) => {
                 )}
             </Carousel>
             <ButtonWrapper>
-                <Button>Read More</Button>
+                <a href='https://nike.com' target='_blank'><Button>Read More</Button></a>
             </ButtonWrapper>
         </Container>
     )

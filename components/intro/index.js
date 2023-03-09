@@ -14,8 +14,6 @@ import Character from './character'
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 const Container = styled.div`
-    height: 200vh;
-
     @media(min-width: 990px) {
         margin: 0;
     }
@@ -23,7 +21,7 @@ const Container = styled.div`
 
 const Slide = styled(motion.div)`
     position: relative;
-    height: 100vh;
+    height: ${props => props.height}px;
 `;
 
 const Logo = styled.div`
@@ -66,6 +64,10 @@ const ArrowContainer = styled(motion.div)`
     left: 50%;
     bottom: 50px;
     transform: translate(-50%, -50%);
+
+    @media(max-width: 989px) {
+        bottom: 0;
+    }
 `
 
 const Arrow = styled.div`
@@ -245,6 +247,17 @@ const Component = () => {
     let slideIndex = useRef(0);
     let [slideIndexState, setSlideIndexState] = useState(0);
 
+    let [screenHeight, setScreenHeight] = useState(0);
+
+    useEffect(() => {
+        document.querySelector('body').classList.add('lock-scroll')
+        setScreenHeight(window.innerHeight)
+
+        return () => {
+            document.querySelector('body').classList.remove('lock-scroll')
+        }
+    }, [])
+
     let triggerSlide = (direction) => {
         if(isSliding) return;
 
@@ -256,7 +269,7 @@ const Component = () => {
             setSlideIndexState(0)
         }
 
-        gsap.to(containerRef.current, {duration: 1, ease: "power3.inOut", y: direction === 'down' ? '-100vh' : '0', onComplete: () => {isSliding = false}})
+        gsap.to(containerRef.current, {duration: 1, ease: "power3.inOut", y: direction === 'down' ? -window.innerHeight : '0', onComplete: () => {isSliding = false}})
 
         isSliding = true;
     }
@@ -337,7 +350,7 @@ const Component = () => {
             <img src='/images/logos/with purpose logo.svg' />
         </Logo>            
         <Container ref={containerRef} className='margin'>         
-            <Slide ref={slideOneRef} initial='show' animate={slideIndexState === 0 ? 'show' : 'hide'}>
+            <Slide ref={slideOneRef} initial='show' animate={slideIndexState === 0 ? 'show' : 'hide'} height={screenHeight}>
                 <Center variants={slideOneAnimation} className='intro-center-one'>
                     <Title className='large-headline'>
                         WHAT KIND OF CHANGEMAKER ARE YOU?
@@ -352,7 +365,7 @@ const Component = () => {
                     </Arrow>
                 </ArrowContainer> 
             </Slide>
-            <Slide initial='hide' variants={slideTwoAnimationParent} animate={slideIndexState === 1 ? 'show' : 'hide'}>
+            <Slide initial='hide' variants={slideTwoAnimationParent} animate={slideIndexState === 1 ? 'show' : 'hide'} height={screenHeight}>
                 <Center>
                     <Text className='palatino-medium' variants={slideTwoAnimation}>
                         A champion of your community?<br/>
