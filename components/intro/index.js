@@ -5,12 +5,20 @@ import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styled from 'styled-components'
 
+import Footer from '../footer'
+
 import ButtonLink from '../button-link'
+
+import Character from './character'
 
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 const Container = styled.div`
     height: 200vh;
+
+    @media(min-width: 990px) {
+        margin: 0;
+    }
 `;
 
 const Slide = styled(motion.div)`
@@ -37,10 +45,20 @@ const Center = styled(motion.div)`
     transform: translate(-50%, -50%);
     width: 100%;
     max-width: 720px;
+
+    @media(max-width: 989px) {
+        &.intro-center-one {
+            max-width: 360px;
+        }
+    }
 `
 
 const Title = styled.h1`
     text-align: center;
+
+    // @media(min-width: 990px) {
+    //     font-size: 8.328vw;
+    // }
 `
 
 const ArrowContainer = styled(motion.div)`
@@ -74,6 +92,17 @@ const ButtonWrapper = styled(motion.div)`
         box-shadow: none;
     }
 `
+
+const FooterWrapper = styled.div`
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+
+    > footer {
+        padding: 20px 0px;
+    }
+`
+
 
 let isSliding = false;
 
@@ -159,6 +188,48 @@ let slideTwoAnimation = {
         }
     }
 }
+
+let characters = [
+    {
+        desktop: {
+            x: -8,
+            y: 20,
+            width: 100,
+        },
+        mobile: {
+            x: -5,
+            y: 50,
+            width: 100,
+        },
+        src: '/images/intro-characters/1.png'
+    },
+    {
+        desktop: {
+            x: 90,
+            y: -10,
+            width: 200,
+        },
+        mobile: {
+            x: 40,
+            y: -110,
+            width: 200,
+        },
+        src: '/images/intro-characters/2.png'
+    },
+    {
+        desktop: {
+            x: 50,
+            y: 80,
+            width: 300,
+        },
+        mobile: {
+            x: 30,
+            y: 80,
+            width: 250
+        },
+        src: '/images/intro-characters/3.png'
+    }
+]
 
 const Component = () => {
 
@@ -261,10 +332,13 @@ const Component = () => {
         </Logo>            
         <Container ref={containerRef} className='margin'>         
             <Slide ref={slideOneRef} initial='show' animate={slideIndexState === 0 ? 'show' : 'hide'}>
-                <Center variants={slideOneAnimation}>
+                <Center variants={slideOneAnimation} className='intro-center-one'>
                     <Title className='large-headline'>
                         WHAT KIND OF CHANGEMAKER ARE YOU?
                     </Title>
+                    {
+                        characters.map(item => <Character data={item} />)
+                    }
                 </Center>
                 <ArrowContainer variants={slideOneAnimation}>
                     <Arrow ref={arrowRef}>
@@ -285,6 +359,9 @@ const Component = () => {
                         <ButtonLink href='/pick-your-player'>Let's Play!</ButtonLink>
                     </ButtonWrapper>
                 </Center>
+                <FooterWrapper>
+                    <Footer />
+                </FooterWrapper>
             </Slide> 
         </Container>
         </>

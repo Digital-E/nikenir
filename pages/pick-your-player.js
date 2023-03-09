@@ -4,17 +4,28 @@ import styled from 'styled-components'
 import { store } from "../store"
 
 // Components
+import Footer from '../components/footer'
 import Layout from '../components/layout'
 
 import CharacterCarousel from '../components/slices/character-carousel'
 
+const FooterWrapper = styled.div`
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 
+    @media(max-width: 989px) {
+      footer {
+        display: none;
+      }
+    }
+`
 
 const Container = styled.div`
     position: fixed;
     height: 100vh;
     width: 100vw;
-    margin-top: 130px;
+    // margin-top: 130px;
     overflow: hidden;
 
     @media(max-width: 989px) {
@@ -29,7 +40,11 @@ export default function Component() {
     const { state, dispatch } = context; 
 
   useEffect(() => {
-    dispatch({type: "update message", value: 'Pick your player'})
+    if(window.innerWidth < 990) {
+      dispatch({type: "update message", value: 'Swipe to Pick Your Player'})
+    } else {
+      dispatch({type: "update message", value: 'Pick Your Player'})
+    }
     dispatch({type: "update colour", value: 'transparent'})
     dispatch({type: "update progress", value: 0})
 
@@ -44,6 +59,9 @@ export default function Component() {
     <Layout title={`Pick Your Player | Nike Impact Report`} content={`Pick Your Player | Nike Impact Report`}>
       <Container>
         <CharacterCarousel />
+        <FooterWrapper>
+            <Footer />
+        </FooterWrapper>
       </Container>
     </Layout>
   )

@@ -11,9 +11,6 @@ const Container = styled.div`
     z-index: 1;
 
     > svg {
-        fill:#fff;
-        fill-opacity:0.6000000238418579;
-        backdrop-filter: blur(10px);
         height: 0;
     }
 `
@@ -55,6 +52,9 @@ const Bubble = styled(motion.div)`
     }
 `
 
+const BubbleTail = styled.div``
+
+
 const BubbleInner = styled.div`
     position: relative;
     min-height: 53px;
@@ -66,15 +66,16 @@ const BubbleInner = styled.div`
 
 const Tail = styled.div`
     position: absolute;
-    bottom: -30.1px;
-    left: 0;
+    bottom: -30px;
+    left: 0px;
     height: 30px;
     width: 30px;
-    background: rgb(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     clip-path: url(#clipPath);
-    //clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+    // clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
 `
+
 
 let bubbleVariants = {
     'show': {
@@ -110,6 +111,7 @@ export default function Component({ data, text }) {
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.73 28.05">
                 <clipPath id="clipPath">
                     <path d="M37.73.33a27,27,0,0,0-21.8,11.12L3.62,28.38A2,2,0,0,1,0,27.2V0"/>
+                    {/* <polygon class="triangle" stroke="white" strokeWidth="10" stroke-linejoin="round" points="20,0 0,40 40,40"/> */}
                     {/* <circle cx="40" cy="35" r="35" /> */}
                 </clipPath>
             </svg>

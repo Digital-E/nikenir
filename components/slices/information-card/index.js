@@ -85,12 +85,11 @@ export default function Component({ item, data, selectedIndex }) {
 
         <RowTwo>
             <Text className='body-large'>
-                {item.information[selectedIndex]?.text[0]}
+                {item.information[selectedIndex]?.text}
             </Text>
             <TextCarouselWrapper className='container-background' colourTwo={data.colourTwo}>
                 <Text className='palatino-x-small'>Did you know ?</Text>
-                <TextCarousel data={item.information[selectedIndex]?.text} />
-                {/* <Text className='body-large'>{item.information[selectedIndex]?.text[1]}</Text> */}
+                <TextCarousel data={item.information[selectedIndex]?.textCarousel} />
             </TextCarouselWrapper>
         </RowTwo>
         </Container>

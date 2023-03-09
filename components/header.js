@@ -62,6 +62,7 @@ const Text = styled.div`
 
   > span {
     transition: top 1s;
+    white-space: nowrap;
   }
 `
 
@@ -154,7 +155,7 @@ export default function Header({}) {
   }, []);
 
   let changeFontClass = (el, message) => {
-    if(message === 'Pick your player') {
+    if(message === 'Pick Your Player' || message === 'Swipe to Pick Your Player') {
       el.classList.remove('futura')
       el.classList.add('palatino-x-small')
     } else {

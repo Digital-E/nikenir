@@ -9,8 +9,11 @@ import TapSpam from './interactive/tap-spam-four'
 import Pause from './pause'
 import Complete from './complete'
 
+
 const Container = styled.div`
-    margin: 0 auto;
+    > div:first-child {
+        margin-top: 120px;
+    }
 
     @media(max-width: 989px) {
         > div:first-child {

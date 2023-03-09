@@ -4,7 +4,7 @@ import { useMediaQuery } from 'react-responsive'
 
 import { motion } from 'framer-motion'
 
-import Button from '../button'
+import ButtonLink from '../button-link'
 import Link from '../link'
 
 let Flickity = null;
@@ -14,11 +14,19 @@ if(typeof window !== 'undefined') {
 }
 
 const Container = styled.div`
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     overflow: hidden;
     width: 100%;
 
     @media(max-width: 989px) {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
         width: 100%;
     }
 `
@@ -26,10 +34,6 @@ const Container = styled.div`
 const Carousel = styled.div`
     display: flex;
     justify-content: center;
-
-    > div {
-        flex-basis: 25%;
-    }
 
     outline: none !important;
 
@@ -41,11 +45,11 @@ const Carousel = styled.div`
 const Card = styled(motion.div)`
     position: relative;
     display: flex;
-    flex-direction: column;
-    height: auto;
+    flex-basis: 28%;
+    height: calc(33.333vw * 1.15);
     width: 100%;
-    margin: 40px 20px 40px 20px;
-    padding: 25px var(--padding);
+    margin: 40px 10px 40px 10px;
+    padding: 30px 0;
     border-radius: 27px;
     background: ${props => props.data.background};
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
@@ -53,9 +57,18 @@ const Card = styled(motion.div)`
     cursor: pointer;
     overflow: hidden;
 
+    a {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: space-between;
+    }
+
     transition: filter 0.7s;
 
     @media(min-width: 990px) {
+        padding: 2.776vw 0;
+
         &.blur {
             filter: blur(10px);
             transition: filter 1s;
@@ -66,51 +79,108 @@ const Card = styled(motion.div)`
         cursor: pointer;
     }
 
+
     @media(max-width: 989px) {
         position: absolute;
-        height: calc(85vw * 1.8);
+        height: calc(50vw * 1.8);
+        width: 50%;
+        margin: 40px 10px 30px 10px;
+
+        a {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+    }
+
+    @media(max-width: 768px) {
+        width: 50vw;
+        height: calc(50vw * 1.8);
+    }
+
+    @media(max-width: 539px) {
+        position: absolute;
+        height: calc(85vw * 1.7);
         width: 85%;
         margin: 40px 10px 30px 10px;
 
         a {
             display: flex;
             flex-direction: column;
-            height: 100%;;
+            height: 100%;
         }
+    }
+
+    @media(max-height: 667px) {
+        height: calc(85vw * 1.3);
     }
 `
 
 const Title = styled.div`
+    position: absolute;
+    left: 15px;
+    top: 30px;
+
     > h2:first-child {
         color: gray;
+    }
+
+    @media(min-width: 990px) {
+        // left: 30px;
+        // top: 25px;
+        left: 2.082vw;
+        top: 1.735vw;
+
+        h2 {
+            font-size: 2.91vw;
+        }
     }
 `
 
 const Image = styled.div`
-    flex-grow: 1;
-    margin-top: ${props => props.data.top}%;
-    margin-left: ${props => props.data.left}%;
-    width: ${props => props.data.width}%;
+    display: flex;
+    flex-basis: 100%;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
 
     img {
-        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     @media(max-width: 989px) {
-        height: 0;
-        width: auto;
+        img {
+            margin-left: 25%;
+        }
     }
 `
 
 const Information = styled.div`
     margin-top: 10px;
+    flex-basis: auto;
 
-    p:last-child {
-        width: 65%;
-    }
+    padding: 0px var(--margin);
 
     p:first-child {
         font-size: 38px;
+    }
+
+    p:last-child {
+        width: 90%;
+    }
+
+    @media(min-width: 990px) {
+        padding: 0 2.082vw;
+
+        p:first-child {
+            font-size: 2.6372vw;
+        }
+
+        p:last-child {
+            font-size: 1.388vw;
+            width: 75%;
+        }
     }
 `
 
@@ -123,8 +193,12 @@ const ButtonWrapper = styled.div`
 
     @media(max-width: 989px) {
         display: block;
-        width: 85%;
+        width: 50%;
         margin: 0 auto 20px auto;
+    }
+
+    @media(max-width: 540px) {
+        width: 85%;
     }
 `
 
@@ -146,37 +220,37 @@ const ButtonDesktopWrapper = styled(motion.div)`
 
 let data = [
     {
-        name: 'Ines',
-        textOne: 'People Protector',
+        name: 'Theo',
+        textOne: 'People Promoter',
         textTwo: 'Community hero inspiring togetherness',
         img: '/images/avatars/MaxGuther_11-2.png',
-        link: '/people-protector',
+        link: '/people-promoter',
         background: 'radial-gradient(101.96% 52.55% at 84.6% 50%, rgba(254, 194, 37, 0.9) 0%, rgba(255, 255, 255, 0) 76.07%)',
         width: 60,
-        left: 35,
-        top: -25
+        left: 30,
+        top: -30
     },
     {
         name: 'Ivy',
         textOne: 'Climate Champion',
         textTwo: 'Planet protector empowering citizens of the world',
         img: '/images/avatars/mg_zc_03 1.png',
-        link: 'climate-champion',
+        link: '/climate-champion',
         background: 'radial-gradient(101.96% 52.55% at 84.6% 50%, rgba(195, 188, 236, 0.9) 0%, rgba(255, 255, 255, 0) 76.07%)',
         width: 80,
         left: 15,
-        top: -20
+        top: -30
     },
     {
-        name: 'Theo',
+        name: 'Ines',
         textOne: 'Active Activist',
         textTwo: 'Trusted coach who really listens',
         img: '/images/avatars/MaxGuther_12-2.png',
-        link: 'active-activist',
+        link: '/active-activist',
         background: 'radial-gradient(239.95% 126.46% at 33.97% 17.02%, rgba(2, 131, 254, 0.7) 0%, rgba(255, 255, 255, 0) 76.07%)',
         width: 45,
         left: 40,
-        top: -25
+        top: -30
     },    
 ]
 
@@ -282,7 +356,7 @@ export default function Component() {
                 }
             </Carousel>
             <ButtonWrapper>
-                <Button>Choose {data[selectedIndex].name}</Button>
+                <ButtonLink href={data[selectedIndex].link}>Choose {data[selectedIndex].name}</ButtonLink>
             </ButtonWrapper>
         </Container>
     )

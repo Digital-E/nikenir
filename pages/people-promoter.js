@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { store } from "../store"
 
 // Components
+import Footer from '../components/footer'
 import Layout from '../components/layout'
 import Slices from '../components/slices'
 
@@ -12,18 +13,18 @@ import Slices from '../components/slices'
 const Container = styled.div``
 
 let data = {
-    title: 'People Protector',
+    title: 'People Promoter',
     name: 'Theo',
-    role: 'People Protector',
+    role: 'People Promoter',
     avatar: '/images/avatars/People_02 1.png',
     colourOne: 'rgba(255, 184, 0, 0.9)',
     colourTwo: '#F05822',
     colourThree: '#F6693D',
     questionCount: 3,
     intro: {
-        title: 'A SOCIETY IS ONLY AS CREATIVE AND HAPPY AS IT IS DIVERSE AND INCLUSIVE.',
+        title: 'A CREATIVE AND HAPPY SOCIETY IS ONE THAT IS DIVERSE AND INCLUSIVE.',
         text: [
-          'In fact, how about we make some positive choices right now! I’m going to ask you to imagine three scenarios.'
+          'The choices we make now can help shape a fairer society.'
         ]
     },
     slices: [    
@@ -46,18 +47,18 @@ let data = {
             information: [
               {
                 title: 'Walk it out',
-                text: [
-                  'Nothing like stepping out into the fresh air, noticing the birds in the trees and the ground under your feet.',
-                  'We encourage our employees to practice sport as a way of maintaining their wellbeing.',
-                  'We’re investing in our employees’ ongoing wellbeing by providing mental health support with Lyra Health.'
+                text: 'Nothing like stepping out into the fresh air, noticing the birds in the trees and the ground under your feet.',
+                textCarousel: [
+                  'We encourage our employees to practice sport and movement as a way of maintaining their wellbeing.',
+                  'We’re investing in our employees’ ongoing wellbeing by providing mental health support, and in doing so helping redefine the scope of traditional workplace benefits.'
                 ]
               },
               {
                 title: 'Talk it out',
-                text: [
-                  'Knowing there are other people out there facing similar struggles helps you feel more in control.',
-                  'We encourage our employees to practice sport as a way of maintaining their wellbeing.',
-                  'We’re investing in our employees’ ongoing wellbeing by providing mental health support with Lyra Health.'
+                text: 'Knowing there are other people out there facing similar struggles helps you feel more in control.',
+                textCarousel: [
+                  'We encourage our employees to practice sport and movement as a way of maintaining their wellbeing.',
+                  'We’re investing in our employees’ ongoing wellbeing by providing mental health support, and in doing so helping redefine the scope of traditional workplace benefits.'
                 ]
               }
             ]
@@ -82,17 +83,17 @@ let data = {
             information: [
               {
                 title: 'FIND STRENGTH IN TOGETHERNESS',
-                text: [
-                  'A team where everyone feels included can do anything. That sense of belonging will let us dream and move as one.',
-                  'Our Employee Resource Groups strengthen our commitment to inclusion.',
+                text: 'You want to be part of a team where you feel you can make a difference. Where everyone is counted and accountable.',
+                textCarousel: [
+                  'We’re accelerating the career trajectory of women in the workplace by investing in programs that increase a sense of belonging.',
                   'We’re building more diverse teams, check out our Serena Williams Design Crew program.'
                 ]
               },
               {
                 title: 'FIND BALANCE IN OUR DIFFERENCES',
-                text: [
-                  'A diverse team means new ideas, fresh plays and great balance. Our combined skills will give us the edge.',
-                  'Our Employee Resource Groups strengthen our commitment to inclusion.',
+                text: 'A diverse team means news ideas, fresh plays and great balance. Our combined skills will give us the edge.',
+                textCarousel: [
+                  'We’re accelerating the career trajectory of women in the workplace by investing in programs that increase a sense of belonging.',
                   'We’re building more diverse teams, check out our Serena Williams Design Crew program.'
                 ]
               }
@@ -102,7 +103,7 @@ let data = {
             type: 'question',
             number: '3 / 3',
             title: 'All about progress',
-            text: 'You’ve started thinking about what kind of career you want, and where you’d like to work. Do you want to join a game-changing team or shoot for leadership?'
+            text: 'You love the teamwork of volleyball and the pure purpose of tennis. But it’s time to choose where to put more of your time and energy. Will you...'
         },  
         {
             type: 'tap spam',
@@ -120,16 +121,16 @@ let data = {
             information: [
               {
                 title: 'Be part of something bigger',
-                text: [
-                  'You’re looking for a workplace where you feel you can make a difference. Where everyone is counted and accountable.',
+                text: 'You’re looking for a workplace where you feel you can make a difference. Where everyone is counted and accountable.',
+                textCarousel: [
                   'We’re accelerating the career trajectory of women in the workplace by investing in programs that increase a sense of belonging.',
                   'We’re committed to reaching 50% representation of women in leadership positions. This year we made it to 43%.'
                 ]
               },
               {
                 title: 'Maximise your potential',
-                text: [
-                  'You’re looking for a job that rewards your ambition with the support and progression you deserve. You want to be judged on what you bring, not who you are.',
+                text: 'You’re looking for a sport that rewards your ambition with the progression you deserve. You want to be judged on what you bring, not who you are.',
+                textCarousel: [
                   'We’re accelerating the career trajectory of women in the workplace by investing in programs that increase a sense of belonging.',
                   'We’re committed to reaching 50% representation of women in leadership positions. This year we made it to 43%.'
                 ]
@@ -194,6 +195,7 @@ export default function Component() {
     <Layout title={`${data.title} | Nike Impact Report`} content={`${data.title} | Nike Impact Report`}>
       <Container>
         <Slices data={data}/>
+        <Footer />
       </Container>
     </Layout>
   )

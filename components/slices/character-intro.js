@@ -87,7 +87,7 @@ export default function Component({ item, data }) {
     }
 
     let scrollDown = () => {
-        gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: window.innerHeight, onComplete: () => hideIntro()})
+        gsap.to(window, {duration: 2, ease: "power2.inOut", scrollTo: window.innerHeight, onComplete: () => hideIntro()})
     }
     
     return (

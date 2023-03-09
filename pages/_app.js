@@ -12,22 +12,13 @@ import { StateProvider } from "../store"
 // import CookieConsent from "react-cookie-consent"
 
 import Header from '../components/header'
-import Footer from '../components/footer'
 
 import Sidebar from '../components/sidebar'
 
-import BackgroundGradientCode from '../components/background-gradient-code'
+import BackgroundGradientCode from '../components/background-gradient-code-canvas'
 
 import { credits } from "../lib/credits"
 
-const GradientWrapper = styled.div`
-  > div {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
-`
 
 const Background = styled.div`
   position: fixed;
@@ -144,7 +135,8 @@ function MyApp({ Component, pageProps, router }) {
     <StateProvider>
       <Header />
       <Sidebar />
-      <Background />
+      {/* <Background /> */}
+      <BackgroundGradientCode data={dataThree}/>
       {/* <GradientWrapper>
         <BackgroundGradientCode data={dataThree} />
       </GradientWrapper> */}
@@ -167,7 +159,6 @@ function MyApp({ Component, pageProps, router }) {
             <Component {...pageProps} />
           </motion.div>
         </AnimatePresence>
-      {/* <Footer data={pageProps.data?.footerData}/> */}
     </StateProvider>
   )
 }
