@@ -9,6 +9,10 @@ const Container = styled.div`
     flex-direction: column;
     background: ${props => props.colourOne} !important;
     margin: 0px auto 80px auto;
+
+    @media(max-width: 989px) {
+        margin: 0px auto 40px auto;
+    }
 `
 
 const RowOne = styled.div`

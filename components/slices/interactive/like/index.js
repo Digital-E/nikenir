@@ -55,6 +55,7 @@ export default function Component({ item, data }) {
     let killScroll = () => {
         scrollTo.kill()
         window.removeEventListener("wheel", killScroll)
+        window.removeEventListener("touchmove", killScroll)
     }
 
     let triggerConfetti = (e) => {
@@ -103,9 +104,11 @@ export default function Component({ item, data }) {
 
         setTimeout(() => {
             let informationContainerBottom = hideWrapperRef.current.getBoundingClientRect().bottom
-            scrollTo = gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: `+=${informationContainerBottom - window.innerHeight + 20 - 70}`, onComplete: () => killScroll()})
+            let informationMarginBottom = window.innerWidth > 989 ? 70 : 30
+            scrollTo = gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: `+=${informationContainerBottom - window.innerHeight + 20 - informationMarginBottom}`, onComplete: () => killScroll()})
 
             window.addEventListener("wheel", killScroll)
+            window.addEventListener("touchmove", killScroll)
         }, 400)
     }
 

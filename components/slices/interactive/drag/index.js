@@ -85,6 +85,7 @@ export default function Component({ item, data }) {
     let killScroll = () => {
       scrollTo.kill()
       window.removeEventListener("wheel", killScroll)
+      window.removeEventListener("touchmove", killScroll)
     }
 
     useEffect(() => {
@@ -139,8 +140,10 @@ export default function Component({ item, data }) {
         // Scroll To Bottom of Info Card
         setTimeout(() => {
             let informationContainerBottom = hideWrapperRef.current.getBoundingClientRect().bottom
-            scrollTo = gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: `+=${informationContainerBottom - window.innerHeight + 20 - 70}`, onComplete: () => killScroll()})
+            let informationMarginBottom = window.innerWidth > 989 ? 70 : 30
+            scrollTo = gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: `+=${informationContainerBottom - window.innerHeight + 20 - informationMarginBottom}`, onComplete: () => killScroll()})
             window.addEventListener("wheel", killScroll)
+            window.addEventListener("touchmove", killScroll)
         }, 400)
         
     } else if (mouseOverIndex.current === 1) {
@@ -150,8 +153,10 @@ export default function Component({ item, data }) {
         // Scroll To Bottom of Info Card
         setTimeout(() => {
             let informationContainerBottom = hideWrapperRef.current.getBoundingClientRect().bottom
-            scrollTo = gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: `+=${informationContainerBottom - window.innerHeight + 20 - 70}`, onComplete: () => killScroll()})
+            let informationMarginBottom = window.innerHeight > 989 ? 70 : 30
+            scrollTo = gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: `+=${informationContainerBottom - window.innerHeight + 20 - informationMarginBottom}`, onComplete: () => killScroll()})
             window.addEventListener("wheel", killScroll)
+            window.addEventListener("touchmove", killScroll)
         }, 400)
 
     } else if(mouseOverIndex.current === null) {
