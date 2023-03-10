@@ -49,7 +49,9 @@ export default function Component({ data }) {
 
     useEffect(() => {
         if((state.progress === state.questionCount) && state.questionCount !== 0) {
-            setUnlocked(true)
+            setTimeout(() => {
+                setUnlocked(true)
+            }, 500)
         }
     }, [state])
 

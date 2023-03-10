@@ -71,10 +71,11 @@ export default function Component({ item, data }) {
     const { state, dispatch } = context; 
 
     let [hasInteracted, setHasInteracted] = useState(false)
-    let [allItems, setAllItems] = useState(item.squares)
+    let [allItems, setAllItems] = useState([])
     let [dragActive, setDragActive] = useState(true)
     let [isDragging, setIsDragging] = useState(false)
-    let mouseOverIndex = useRef(null);
+    let mouseOverIndex = useRef(0);
+    let [selectedIndex, setSelectedIndex] = useState(0)
 
     let hideWrapperRef = useRef();
 
@@ -89,6 +90,7 @@ export default function Component({ item, data }) {
     }
 
     useEffect(() => {
+      setAllItems(item.squares)
       controls.start({ x: '-50%', y: '-50%'})
     }, [])
 
@@ -118,6 +120,7 @@ export default function Component({ item, data }) {
     let clicked = (e) => {
 
       controls.start({ scale: 2 })
+
       setTimeout(() => {
           controls.start({ scale: 1.1 })
       }, 50)
@@ -134,6 +137,8 @@ export default function Component({ item, data }) {
 
 
     if(mouseOverIndex.current === 0) {
+      setSelectedIndex(0)
+
       hasClicked(null, 0)
       controls.start({ x: '-85%', y: '-50%'})
 
@@ -147,6 +152,8 @@ export default function Component({ item, data }) {
         }, 400)
         
     } else if (mouseOverIndex.current === 1) {
+      setSelectedIndex(1)
+
       hasClicked(null, 1)
       controls.start({ x: '-5%', y: '-50%'})
 
@@ -179,7 +186,7 @@ export default function Component({ item, data }) {
               dispatch({type: "update progress", value: state.progress -= 1})
           }
       }
-  }, [hasInteracted])  
+  }, [hasInteracted]) 
 
     return (
         <Container className={hasInteracted ? 'clicked mtb-2 max-width-2' : 'mtb-2 max-width-2'}>
@@ -210,12 +217,12 @@ export default function Component({ item, data }) {
                   <img src='/images/drag/air-jordan-1-low-se-older-shoes-f9r9bX 1.png' />
                 </DragElement>
                 {
-                    item.squares.map((item, index) => 
+                    allItems.map((item, index) => 
                     <Card 
                       data={item} 
                       index={index} 
                       allItems={allItems} 
-                      hasClicked={(e, index) => hasClicked(e, index)} 
+                      // hasClicked={(e, index) => hasClicked(e, index)} 
                       hasInteracted={hasInteracted} 
                       isDragging={isDragging}
                       mouseOver={(index) => toggleMouseOver(index)}
@@ -225,7 +232,7 @@ export default function Component({ item, data }) {
             <TextTwo className='text-two mtb-2 palatino-x-small'>You picked</TextTwo>
             <HideWrapper ref={hideWrapperRef}>
                 <Hide hasInteracted={hasInteracted}>
-                    <InformationCard item={item} data={data} selectedIndex={mouseOverIndex.current !== null ? mouseOverIndex.current : 0} />
+                    <InformationCard item={item} data={data} selectedIndex={selectedIndex} />
                 </Hide>
             </HideWrapper>
         </Container>
