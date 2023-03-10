@@ -269,13 +269,13 @@ const Component = () => {
             setSlideIndexState(0)
         }
 
-        gsap.to(containerRef.current, {duration: 1, ease: "power3.inOut", y: direction === 'down' ? -window.innerHeight : '0', onComplete: () => {isSliding = false}})
+        gsap.to(containerRef.current, {duration: 1, ease: "power2.inOut", y: direction === 'down' ? -window.innerHeight : '0', onComplete: () => {isSliding = false}})
 
         isSliding = true;
     }
 
     useEffect(() => {
-        gsap.fromTo(arrowRef.current,{y: 0}, { y: -5 , duration: 0.5, yoyo: true, ease: "power1.inOut", repeat: -1});
+        gsap.fromTo(arrowRef.current,{y: 0}, { y: -5 , duration: 0.5, yoyo: true, ease: "power2.inOut", repeat: -1});
 
         slideOneRef.current.addEventListener("click", () => {
             triggerSlide("down");

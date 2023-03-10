@@ -16,6 +16,10 @@ const Container = styled.div`
     @media(max-width: 989px) {
         padding: 60px 15px 60px 15px;
     }
+
+    @media(min-width: 990px) {
+        min-width: 425px;
+    }
 `
 
 const Image = styled.div`

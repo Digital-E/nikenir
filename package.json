@@ -17,6 +17,7 @@
     "react-dom": "18.2.0",
     "react-responsive": "^9.0.2",
     "react-tsparticles": "^2.9.3",
+    "scratchcard-js": "^1.4.10",
     "styled-components": "^5.3.6"
   }
 }

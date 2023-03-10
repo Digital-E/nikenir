@@ -42,6 +42,7 @@ const TextTwo = styled.div`
 
 const HideWrapper = styled.div`
 `
+
 let scrollTo = null;
 
 export default function Component({ item, data }) {
@@ -61,15 +62,8 @@ export default function Component({ item, data }) {
         window.removeEventListener("touchmove", killScroll)
     }
 
-    let triggerConfetti = (e) => {
-        confetti({
-            particleCount: 100,
-            spread: 70,
-            origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
-        });       
-    }
 
-    let hasClicked = (e, index) => {
+    let hasClicked = (index) => {
         if(index === null) {
             let items = JSON.parse(JSON.stringify(allItems))
 
@@ -88,7 +82,6 @@ export default function Component({ item, data }) {
 
         setHasInteracted(true)
 
-        // triggerConfetti(e);
     }
 
     useEffect(() => {
@@ -115,11 +108,11 @@ export default function Component({ item, data }) {
     return (
         <Container className={hasInteracted ? 'clicked mtb-2 max-width-2' : 'mtb-2 max-width-2'}>
             <Text className='text-one mtb-2 palatino-x-small'>
-                <span>Tap spam to make your choice</span>
+                <span>{item.title}</span>
             </Text>
             <InnerContainer className='inner-container'>
                 {
-                    item.squares.map((item, index) => <Card data={item} index={index} allItems={allItems} hasClicked={(e, index) => hasClicked(e, index)} hasInteracted={hasInteracted} dataAll={data} />)
+                    item.squares.map((item, index) => <Card data={item} index={index} allItems={allItems} hasClicked={(index) => hasClicked(index)} hasInteracted={hasInteracted} dataAll={data} />)
                 }
             </InnerContainer>
             <TextTwo className='text-two mtb-2 palatino-x-small'>You picked</TextTwo>

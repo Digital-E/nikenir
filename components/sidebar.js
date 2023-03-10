@@ -11,7 +11,7 @@ let Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  bottom: 50px;
+  bottom: 20px;
   left: 20px;
   z-index: 998;
 
@@ -27,10 +27,6 @@ let Container = styled.div`
 `
 const Logo = styled.div`
   margin-bottom: 5px;
-
-  img {
-
-  }
 `
 
 

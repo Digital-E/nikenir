@@ -1,61 +1,36 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef, useContext } from 'react'
 import styled from 'styled-components'
+
+import { gsap } from 'gsap'
+import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin"
+gsap.registerPlugin(ScrollToPlugin)
+
+import { store } from '../../../../store'
 
 import Card from './card'
 
+import InformationCard from '../../information-card'
+
+import Hide from '../hide'
+
+
 const Container = styled.div`
-    width: fit-content;
+    width: 100%;
 
     &.clicked .text-two {
         opacity: 1 !important;
         transition: opacity var(--transition-in) 0s;
     }
+`
 
-    .text-one > span:nth-child(2) {
-        opacity: 0;
-        // transition: opacity var(--transition-in);
-    }
-
-    .text-one > span:nth-child(1) {
-        // transition: opacity var(--transition-in) 0.3s;
-    }
-
-    &.clicked .text-one > span:nth-child(1) {
-        opacity: 0;
-        // transition: opacity var(--transition-in);
-    }
-
-    &.clicked .text-one > span:nth-child(2) {
-        opacity: 1;
-        cursor: pointer;
-        // transition: opacity var(--transition-in) 0.3s;
-    }
+const InnerContainer = styled.div`
+    display: flex;
+    justify-content: center;
 `
 
 const Text = styled.div`
     position: relative;
     text-align: center;
-    margin: 30px auto;
-    height: 20px;
-
-    > span {
-        position: absolute;
-        transform: translateX(-50%);
-        left: 50%;
-        width: 100%;
-    }
-
-    > span:not(:last-child) {
-        position: absolute;
-    }
-
-    > span:last-child {
-        opacity: 0;
-    }
-`
-
-const InnerContainer = styled.div`
-    display: flex;
 `
 
 const TextTwo = styled.div`
@@ -65,156 +40,94 @@ const TextTwo = styled.div`
     transition: opacity var(--transition-in);
 `
 
-let data = [
-    {
-        title: 'Be part of something bigger',
-        img: 'images/cross-cards/shoebox 1.png',
-        clicked: false
-    },
-    {
-        title: 'Maximise your potential',
-        img: 'images/cross-cards/pngegg 1.png',
-        clicked: false
-    },
-]
+const HideWrapper = styled.div`
+`
+let scrollTo = null;
 
-export default function Component() {
+export default function Component({ item, data }) {
+    // Context
+    const context = useContext(store);
+    const { state, dispatch } = context; 
+
     let [hasInteracted, setHasInteracted] = useState(false)
-    let [allItems, setAllItems] = useState(data)
+    let [allItems, setAllItems] = useState(item.squares)
+    let [selectedIndex, setSelectedIndex] = useState(0)
+
+    let hideWrapperRef = useRef();
+
+    let killScroll = () => {
+        scrollTo.kill()
+        window.removeEventListener("wheel", killScroll)
+        window.removeEventListener("touchmove", killScroll)
+    }
 
     let triggerConfetti = (e) => {
-        // confetti({
-        //     particleCount: 100,
-        //     spread: 70,
-        //     origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
-        // });
         confetti({
-            spread: 360,
-            ticks: 200,
-            gravity: 1,
-            decay: 0.94,
-            startVelocity: 30,
-            count: 100,
-            scalar: 10,
+            particleCount: 100,
+            spread: 70,
             origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
-            shapes: ["image"],
-            shapeOptions: {
-              image: [{
-                  src: "/images/tap-spam/Bag_01.png",
-                  width: 32,
-                  height: 32
-                },
-                // {
-                //   src: "https://particles.js.org/images/fruits/avocado.png",
-                //   width: 32,
-                //   height: 32
-                // },
-                // {
-                //   src: "https://particles.js.org/images/fruits/banana.png",
-                //   width: 32,
-                //   height: 32
-                // },
-                // {
-                //   src: "https://particles.js.org/images/fruits/berries.png",
-                //   width: 32,
-                //   height: 32
-                // },
-                // {
-                //   src: "https://particles.js.org/images/fruits/cherry.png",
-                //   width: 32,
-                //   height: 32
-                // },
-                // {
-                //   src: "https://particles.js.org/images/fruits/grapes.png",
-                //   width: 32,
-                //   height: 32
-                // },
-                // {
-                //   src: "https://particles.js.org/images/fruits/lemon.png",
-                //   width: 32,
-                //   height: 32
-                // },
-                // {
-                //   src: "https://particles.js.org/images/fruits/orange.png",
-                //   width: 32,
-                //   height: 32
-                // },
-                // {
-                //   src: "https://particles.js.org/images/fruits/peach.png",
-                //   width: 32,
-                //   height: 32
-                // },
-                // {
-                //   src: "https://particles.js.org/images/fruits/pear.png",
-                //   width: 32,
-                //   height: 32
-                // },
-                // {
-                //   src: "https://particles.js.org/images/fruits/pepper.png",
-                //   width: 32,
-                //   height: 32
-                // },
-                // {
-                //   src: "https://particles.js.org/images/fruits/plum.png",
-                //   width: 32,
-                //   height: 32
-                // },
-                // {
-                //   src: "https://particles.js.org/images/fruits/star.png",
-                //   width: 32,
-                //   height: 32
-                // },
-                // {
-                //   src: "https://particles.js.org/images/fruits/strawberry.png",
-                //   width: 32,
-                //   height: 32
-                // },
-                // {
-                //   src: "https://particles.js.org/images/fruits/watermelon.png",
-                //   width: 32,
-                //   height: 32
-                // },
-                // {
-                //   src: "https://particles.js.org/images/fruits/watermelon_slice.png",
-                //   width: 32,
-                //   height: 32
-                // }
-              ]
-            },
-          });        
+        });       
     }
 
     let hasClicked = (e, index) => {
+        if(index === null) {
+            let items = JSON.parse(JSON.stringify(allItems))
+
+            items.forEach(item => item.clicked = false)
+
+            setHasInteracted(false)
+
+            return setAllItems(items)
+        }
+
+        setSelectedIndex(index)
+
         let items = JSON.parse(JSON.stringify(allItems))
         items[index].clicked = true
         setAllItems(items)
 
         setHasInteracted(true)
 
-        triggerConfetti(e);
+        // triggerConfetti(e);
     }
 
-    let undo = () => {
-        let items = JSON.parse(JSON.stringify(allItems))
-        items.forEach(item => item.clicked = false)
-        setAllItems(items)
+    useEffect(() => {
+        if(hasInteracted) {
+            dispatch({type: "update progress", value: state.progress += 1})
+            
+        // Scroll To Bottom of Info Card
+        setTimeout(() => {
+            let informationContainerBottom = hideWrapperRef.current.getBoundingClientRect().bottom
+            let informationMarginBottom = window.innerWidth > 989 ? 70 : 30
+            scrollTo = gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: `+=${informationContainerBottom - window.innerHeight + 20 - informationMarginBottom}`, onComplete: () => killScroll()})
+            window.addEventListener("wheel", killScroll)
+            window.addEventListener("touchmove", killScroll)
+        }, 400)   
 
-        setHasInteracted(false)
-    }
+        } else {
+            if(state.progress !== 0) {
+                dispatch({type: "update progress", value: state.progress -= 1})
+            }
+        }
+    }, [hasInteracted])
     
 
     return (
-        <Container className={hasInteracted ? 'clicked' : ''}>
-            <Text className='text-one palatino'>
+        <Container className={hasInteracted ? 'clicked mtb-2 max-width-2' : 'mtb-2 max-width-2'}>
+            <Text className='text-one mtb-2 palatino-x-small'>
                 <span>Tap spam to make your choice</span>
-                <span onClick={() => undo()}>Undo</span>
             </Text>
             <InnerContainer className='inner-container'>
                 {
-                    data.map((item, index) => <Card data={item} index={index} allItems={allItems} hasClicked={(e, index) => hasClicked(e, index)} hasInteracted={hasInteracted} />)
+                    item.squares.map((item, index) => <Card data={item} index={index} allItems={allItems} hasClicked={(e, index) => hasClicked(e, index)} hasInteracted={hasInteracted} dataAll={data} />)
                 }
             </InnerContainer>
-            <TextTwo className='text-two palatino'>You picked</TextTwo>
+            <TextTwo className='text-two mtb-2 palatino-x-small'>You picked</TextTwo>
+            <HideWrapper ref={hideWrapperRef}>
+                <Hide hasInteracted={hasInteracted}>
+                    <InformationCard item={item} data={data} selectedIndex={selectedIndex} />
+                </Hide>
+            </HideWrapper>
         </Container>
     )
 }

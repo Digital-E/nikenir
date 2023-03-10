@@ -17,7 +17,7 @@ let data = {
     name: 'Theo',
     role: 'People Promoter',
     avatar: '/images/avatars/People_02 1.png',
-    colourOne: 'rgba(255, 184, 0, 0.9)',
+    colourOne: '#FFB800',
     colourTwo: '#F05822',
     colourThree: '#F6693D',
     questionCount: 4,
@@ -144,8 +144,8 @@ let data = {
           text: 'You’ve been thinking about your future, but it’s hard because people that look like you aren’t always represented in the worlds of work you’re interested in. Something gives you hope…'
         },
         {
-          type: 'tap spam',
-          title: 'Tap spam to make your choice',
+          type: 'scratch',
+          title: 'Scratch out the choice you don’t want',
           squares: [
             {
               title: 'You see a place where you fit in',

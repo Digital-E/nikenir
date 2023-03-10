@@ -14,8 +14,8 @@ const Container = styled.div`
 
     &.ticker-wrap {
         position: absolute;
+        top: 40%;
         z-index: -1;
-        margin-top: -210px;
         margin-left: -10%;
         transform: rotateZ(15deg);
         width: 120%;
@@ -43,7 +43,7 @@ const Container = styled.div`
 
     @media(min-width: 990px) {
         &.ticker-wrap {
-            margin-top: -450px;
+            top: 500px;
             transform: rotateZ(5deg);
         }
     }

@@ -6,17 +6,24 @@ import More from './more'
 import Next from './next-round'
 
 const Container = styled.div`
-    margin-bottom: 200px;
+    margin: 200px 0 0 0;
+
+    @media(max-width: 989px) {
+    }
 `
 
 const RowOne = styled.div``
 
 
 const RowTwo = styled.div`
+    margin-bottom: 100px;
+
     @media(min-width: 990px) {
         display: flex;
         justify-content: center;
         flex-direction: row;
+        margin-top: 130px;
+        margin-bottom: 200px;
 
         > div {
             margin-left: 20px;
@@ -30,12 +37,6 @@ const RowTwo = styled.div`
     }
 `
 
-const RewardWrapper = styled.div`
-    @media(max-width: 989px) {
-        padding: 0 var(--margin);
-    }
-`
-
 
 
 export default function Component({ data }) {
@@ -44,9 +45,6 @@ export default function Component({ data }) {
         <Container>
             <RowOne>
                 <Praise data={data} />
-                <RewardWrapper>
-                    <Reward data={data} />
-                </RewardWrapper>
             </RowOne>
             <RowTwo>
                 <More data={data} />

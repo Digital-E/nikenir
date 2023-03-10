@@ -60,9 +60,9 @@ export default function Component() {
     <Layout title={`Pick Your Player | Nike Impact Report`} content={`Pick Your Player | Nike Impact Report`}>
       <Container>
         <CharacterCarousel />
-        <FooterWrapper>
+        {/* <FooterWrapper>
             <Footer />
-        </FooterWrapper>
+        </FooterWrapper> */}
       </Container>
     </Layout>
   )
