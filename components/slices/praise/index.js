@@ -35,8 +35,11 @@ const InnerContainer = styled.div`
 `
 
 const Text = styled.div`
+    position: relative;
     text-align: center;
     margin: 0 var(--margin);
+    // top: 200px;
+    z-index: -1;
 
     span {
         font-size: 120px;
@@ -91,10 +94,11 @@ const RewardWrapper = styled.div`
 
 
 const StickyWrapper = styled.div`
-    margin: 100px 0 0 0;
+    position: relative;
+    margin: -50px 0 0 0;
 
     @media(min-width: 990px) {
-        margin: 0 auto;
+        margin: -200px auto 0 auto;
         display: flex;
         width: 100%;
         max-width: 890px;
@@ -110,23 +114,41 @@ export default function Component({ data }) {
         var textWrapper = document.querySelector('.ml2');
         textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
+    //     anime.timeline({loop: true})
+    //     .add({
+    //         targets: '.ml2 .letter',
+    //         scale: [4,1],
+    //         opacity: [0,1],
+    //         translateZ: 0,
+    //         easing: "easeOutExpo",
+    //         duration: 950,
+    //         delay: (el, i) => 70*i
+    //     }).add({
+    //         targets: '.ml2',
+    //         opacity: 0,
+    //         duration: 1000,
+    //         easing: "easeOutExpo",
+    //         delay: 1000
+    //     });      
+
         anime.timeline({loop: true})
         .add({
             targets: '.ml2 .letter',
-            scale: [4,1],
-            opacity: [0,1],
+            translateX: [40,0],
             translateZ: 0,
+            opacity: [0,1],
             easing: "easeOutExpo",
-            duration: 950,
-            delay: (el, i) => 70*i
+            duration: 1200,
+            delay: (el, i) => 500 + 30 * i
         }).add({
-            targets: '.ml2',
-            opacity: 0,
-            duration: 1000,
-            easing: "easeOutExpo",
-            delay: 1000
-        });      
-    }, [])
+            targets: '.ml2 .letter',
+            translateX: [0,-30],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 1100,
+            delay: (el, i) => 100 + 30 * i
+        });
+    }, [])    
     
     return (
         <Container>

@@ -14,7 +14,7 @@ const Container = styled.div`
 
     &.ticker-wrap {
         position: absolute;
-        top: 40%;
+        top: 30%;
         z-index: -1;
         margin-left: -10%;
         transform: rotateZ(15deg);
