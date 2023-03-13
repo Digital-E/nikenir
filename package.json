@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "animejs": "^3.2.1",
     "context-filter-polyfill": "^0.3.5",
     "flickity": "^2.3.0",
     "flickity-fade": "^1.0.0",

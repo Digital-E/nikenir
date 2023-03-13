@@ -37,6 +37,8 @@ const InnerContainer = styled(motion.div)`
     cursor: pointer;
     overflow: hidden;
     box-sizing: border-box;
+    z-index: 2;
+    pointer-events: none;
 
     * {
         cursor: pointer;
@@ -158,7 +160,7 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
             scratchType: SCRATCH_TYPE_VAR.LINE,
             containerWidth: scContainer.offsetWidth,
             containerHeight: scContainer.offsetHeight,
-            imageForwardSrc: '/images/drag/air-jordan-1-low-se-older-shoes-f9r9bX 1.png',
+            imageForwardSrc: data.img,
             // imageForwardSrc: 'https://masth0.github.io/ScratchCard/images/result.png',
             imageBackgroundSrc: '',
             // htmlBackground: '<p class="test"><strong>Hello i am HTML content !</strong></p>',
@@ -176,8 +178,8 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
         sc.init().then(() => {
         sc.canvas.addEventListener('scratch.move', () => {
             let percent = sc.getPercent().toFixed(2)
-            console.log(percent)
-            if(percent > 95) {
+
+            if(percent > 60) {
                 hasClicked(index); 
             }
         })

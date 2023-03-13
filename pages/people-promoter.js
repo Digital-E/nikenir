@@ -149,11 +149,11 @@ let data = {
           squares: [
             {
               title: 'You see a place where you fit in',
-              img: '/images/tap-spam/Bag_01.png'
+              img: '/images/scratch/1-yellow.png'
             },
             {
               title: 'You see a life that you aspire to',
-              img: '/images/tap-spam/Bottle_01 2.png'
+              img: '/images/scratch/1-yellow.png'
             }
           ],
           information: [

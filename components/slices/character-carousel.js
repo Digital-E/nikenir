@@ -225,7 +225,7 @@ let data = [
         textTwo: 'Community hero inspiring togetherness',
         img: '/images/avatars/MaxGuther_11-2.png',
         link: '/people-promoter',
-        background: 'radial-gradient(101.96% 52.55% at 84.6% 50%, rgba(254, 194, 37, 0.9) 0%, rgba(255, 255, 255, 0) 76.07%)',
+        background: 'radial-gradient(101.96% 52.55% at 8.6% 50%, rgba(254, 194, 37, 0.9) 0%, rgba(255, 255, 255, 1) 76.07%)',
         width: 60,
         left: 30,
         top: -30
@@ -236,7 +236,7 @@ let data = [
         textTwo: 'Planet protector empowering citizens of the world',
         img: '/images/avatars/mg_zc_03 1.png',
         link: '/climate-champion',
-        background: 'radial-gradient(101.96% 52.55% at 84.6% 50%, rgba(195, 188, 236, 0.9) 0%, rgba(255, 255, 255, 0) 76.07%)',
+        background: 'radial-gradient(101.96% 52.55% at 8.6% 50%, rgba(195, 188, 236, 0.9) 0%, rgba(255, 255, 255, 1) 76.07%)',
         width: 80,
         left: 15,
         top: -30
@@ -247,7 +247,7 @@ let data = [
         textTwo: 'Trusted coach who really listens',
         img: '/images/avatars/MaxGuther_12-2.png',
         link: '/active-activist',
-        background: 'radial-gradient(239.95% 126.46% at 33.97% 17.02%, rgba(2, 131, 254, 0.7) 0%, rgba(255, 255, 255, 0) 76.07%)',
+        background: 'radial-gradient(239.95% 126.46% at 33.97% 17.02%, rgba(2, 131, 254, 0.7) 0%, rgba(255, 255, 255, 1) 76.07%)',
         width: 45,
         left: 40,
         top: -30

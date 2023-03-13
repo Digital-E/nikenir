@@ -209,7 +209,8 @@ let characters = [
             y: 50,
             width: 100,
         },
-        src: '/images/intro-characters/1.png'
+        src: '/images/intro-characters/1.png',
+        bubbleSrc: '/images/bubbles/1.png'
     },
     {
         desktop: {
@@ -222,7 +223,8 @@ let characters = [
             y: -110,
             width: 200,
         },
-        src: '/images/intro-characters/2.png'
+        src: '/images/intro-characters/2.png',
+        bubbleSrc: '/images/bubbles/3.png'
     },
     {
         desktop: {
@@ -235,7 +237,8 @@ let characters = [
             y: 80,
             width: 250
         },
-        src: '/images/intro-characters/3.png'
+        src: '/images/intro-characters/3.png',
+        bubbleSrc: '/images/bubbles/2.png'
     }
 ]
 

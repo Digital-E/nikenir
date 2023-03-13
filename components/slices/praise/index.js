@@ -1,14 +1,28 @@
+import { useEffect } from 'react'
 import styled from 'styled-components'
+import { motion, useInView } from 'framer-motion'
 
 import Ticker from './ticker'
 import AvatarSpeech from '../avatar-speech'
 
 import Reward from '../complete/reward'
 
+const anime = require('animejs').default
+
 const Container = styled.div`
     position: relative;
     height: 100%;
-    overflow: hidden;
+    // overflow: hidden;
+
+    .ml2 {
+        font-weight: 900;
+        font-size: 3.5em;
+    }
+
+    .ml2 .letter {
+        display: inline-block;
+        line-height: 1em;
+    } 
 `
 
 const InnerContainer = styled.div`
@@ -92,11 +106,32 @@ const StickyWrapper = styled.div`
 
 export default function Component({ data }) {
 
+    useEffect(() => {
+        var textWrapper = document.querySelector('.ml2');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        anime.timeline({loop: true})
+        .add({
+            targets: '.ml2 .letter',
+            scale: [4,1],
+            opacity: [0,1],
+            translateZ: 0,
+            easing: "easeOutExpo",
+            duration: 950,
+            delay: (el, i) => 70*i
+        }).add({
+            targets: '.ml2',
+            opacity: 0,
+            duration: 1000,
+            easing: "easeOutExpo",
+            delay: 1000
+        });      
+    }, [])
     
     return (
         <Container>
             <InnerContainer>
-                <Text><span className='large-headline'>{data.complete.praise.title}</span></Text>
+                <Text><span className='large-headline ml2'>{data.complete.praise.title}</span></Text>
                 <StickyWrapper>
                     <AvatarSpeechWrapper>
                         <AvatarSpeech data={data} text={data.complete.praise.text}/>

@@ -76,14 +76,24 @@ let dataTwo = [
   {color: colors[1][3], rotate: -70},
 ]
 
+// let dataThree = [
+//   {color: colors[2][0], rotate: -50},
+//   {color: colors[2][1], rotate: 20},
+//   {color: colors[2][2], rotate: -70},
+//   {color: colors[2][3], rotate: -30},
+//   {color: colors[2][0], rotate: -50},
+//   {color: colors[2][1], rotate: -20},
+//   {color: colors[2][3], rotate: -70},
+// ]
+
 let dataThree = [
   {color: colors[2][0], rotate: -50},
   {color: colors[2][1], rotate: 20},
-  {color: colors[2][2], rotate: -70},
-  {color: colors[2][3], rotate: -30},
+  {color: colors[2][0], rotate: -70},
+  {color: colors[2][1], rotate: -30},
   {color: colors[2][0], rotate: -50},
   {color: colors[2][1], rotate: -20},
-  {color: colors[2][3], rotate: -70},
+  {color: colors[2][0], rotate: -70},
 ]
 
 function MyApp({ Component, pageProps, router }) {

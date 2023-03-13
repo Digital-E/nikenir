@@ -1,9 +1,12 @@
+import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
+import { motion, useInView } from 'framer-motion'
+
 
 import Share from '../../share'
 
 
-const Container = styled.div`
+const Container = styled(motion.div)`
     position: relative;
     display: flex;
     flex-direction: column;
@@ -11,7 +14,7 @@ const Container = styled.div`
     justify-content: center;
     width: 100%;
     background: white;
-    padding: 60px 15px 45px 15px;
+    padding: 60px 15px 45px 15px;   
 
     @media(max-width: 989px) {
         padding: 60px 15px 60px 15px;
@@ -49,12 +52,36 @@ const ShareWrapper = styled.div`
     right: var(--padding);
 `
 
+let variants = {
+    'show': {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.3
+        }
+    },
+    'hide': {
+        opacity: 0,
+        y: 20
+    }
+}
 
 
 export default function Component({ data }) {
+    let containerRef = useRef()
+    let isInView = useInView(containerRef, {
+        margin: "0px 0px -50% 0px",
+        once: true
+    })
 
     return (
-        <Container className='container-background max-width center'>
+        <Container 
+            initial='hide'
+            variants={variants}
+            animate={isInView ? 'show' : 'hide'}
+            ref={containerRef} 
+            className='container-background max-width center'
+        >
             <ShareWrapper>
                 <Share />
             </ShareWrapper>
