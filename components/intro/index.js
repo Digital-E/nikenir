@@ -209,8 +209,7 @@ let characters = [
             y: 50,
             width: 100,
         },
-        src: '/images/intro-characters/1.png',
-        bubbleSrc: '/images/bubbles/1.png'
+        src: '/images/intro-characters/1.png'
     },
     {
         desktop: {
@@ -223,8 +222,7 @@ let characters = [
             y: -110,
             width: 200,
         },
-        src: '/images/intro-characters/2.png',
-        bubbleSrc: '/images/bubbles/3.png'
+        src: '/images/intro-characters/2.png'
     },
     {
         desktop: {
@@ -237,10 +235,50 @@ let characters = [
             y: 80,
             width: 250
         },
-        src: '/images/intro-characters/3.png',
-        bubbleSrc: '/images/bubbles/2.png'
+        src: '/images/intro-characters/3.png'
     }
 ]
+
+let bubbles = [
+    '/images/bubbles/1.png',
+    '/images/bubbles/2.png',
+    '/images/bubbles/3.png'
+]
+
+let bubblesDisplayArrayInit =  [
+    {
+        show: true,
+        src: bubbles[0],
+        index: 0,
+        position: {
+            x: 100,
+            y: -20,
+            flip: false
+        }
+    },
+    {
+        show: true,
+        src: bubbles[1],
+        index: 1,
+        position: {
+            x: -30,
+            y: -50,
+            flip: true
+        }
+    },
+    {
+        show: true,
+        src: bubbles[2],
+        index: 2,
+        position: {
+            x: 20,
+            y: -30,
+            flip: true
+        }
+    }
+]
+
+let bubbleSwitchIndex = 0;
 
 const Component = () => {
 
@@ -252,6 +290,10 @@ const Component = () => {
 
     let [screenHeight, setScreenHeight] = useState(0);
 
+    let [bubblesDisplayArray, setBubblesDisplayArray] = useState(bubblesDisplayArrayInit)
+
+    let bubblesDisplayArrayRef = useRef(bubblesDisplayArrayInit)
+
     useEffect(() => {
         document.querySelector('body').classList.add('lock-scroll')
         setScreenHeight(window.innerHeight)
@@ -260,6 +302,56 @@ const Component = () => {
             document.querySelector('body').classList.remove('lock-scroll')
         }
     }, [])
+
+    useEffect(() => {
+        // Bubbles Animation
+        // let bubblesDisplayArrayCopy = JSON.parse(JSON.stringify(bubblesDisplayArray))
+
+        // bubblesDisplayArrayCopy[0].show = true
+
+        // setBubblesDisplayArray(bubblesDisplayArrayCopy)
+
+        setInterval(() => {
+            let bubblesDisplayArrayCopy = bubblesDisplayArrayRef.current
+
+            bubblesDisplayArrayCopy[bubbleSwitchIndex].show = false
+
+            setBubblesDisplayArray(JSON.parse(JSON.stringify(bubblesDisplayArrayCopy)))
+
+            // let bubblesDisplayArrayCopyTwo = JSON.parse(JSON.stringify(bubblesDisplayArray))
+
+            setTimeout(() => {
+                let bubblesDisplayArrayCopyTwo = bubblesDisplayArrayRef.current
+
+                if(bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].index < bubbles.length - 1) {
+                    bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].index += 1;
+                    bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].src = bubbles[bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].index]
+                } 
+                else {
+                    bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].index = 0;
+                    bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].src = bubbles[0]
+                }
+
+    
+                bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].show = true
+    
+                setBubblesDisplayArray(JSON.parse(JSON.stringify(bubblesDisplayArrayCopyTwo)))
+
+                if(bubbleSwitchIndex < bubblesDisplayArrayInit.length - 1) {
+                    bubbleSwitchIndex += 1
+                } else {
+                    bubbleSwitchIndex = 0
+                }
+    
+            }, 300)
+
+
+        }, 3000)
+    }, [])
+
+    // useEffect(() => {
+    //     console.log(bubblesDisplayArray)
+    // }, [bubblesDisplayArray])
 
     let triggerSlide = (direction) => {
         if(isSliding) return;
@@ -359,7 +451,7 @@ const Component = () => {
                         WHAT KIND OF CHANGEMAKER ARE YOU?
                     </Title>
                     {
-                        characters.map(item => <Character data={item} />)
+                        characters.map((item, index) => <Character data={item} index={index} bubbles={bubbles} bubblesDisplayArray={bubblesDisplayArray} />)
                     }
                 </Center>
                 <ArrowContainer variants={slideOneAnimation}>

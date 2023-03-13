@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { motion, useAnimationControls } from 'framer-motion'
 import styled from 'styled-components'
 
+import Bubble from './bubble'
 
 const Container = styled.div`
     position: absolute;
@@ -15,6 +16,8 @@ const Container = styled.div`
         width: ${props => props.data.mobile.width}px; 
     }
 `;
+
+
 
 
 let slideOneAnimation = {
@@ -94,14 +97,30 @@ let slideTwoAnimation = {
     }
 }
 
-const Component = ({ data }) => {
+let bubblesDisplayArray =  [
+    {
+        show: false,
+        index: 0,
+    },
+    {
+        show: false,
+        index: 1,
+    },
+    {
+        show: false,
+        index: 2,
+    }
+]
 
+const Component = ({ data, index, bubbles, bubblesDisplayArray }) => {
+    let [bubblesDisplay, setBubblesDisplay] = useState([])
     let containerRef = useRef();
 
 
     return (          
         <Container ref={containerRef} data={data}>         
             <img src={data.src} />
+            <Bubble data={data} index={index} bubbles={bubbles} bubblesDisplayArray={bubblesDisplayArray} />
         </Container>
     )
 }

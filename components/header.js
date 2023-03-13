@@ -44,12 +44,11 @@ const Arrow = styled.div`
 const Text = styled.div`
   flex-basis: 50%;
   text-align: center;
-  margin-top: 2px;
 
   > span:nth-child(1) {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: calc(50% + 3px);
     transform: translate(-50%, -50%);
   }
 
@@ -176,12 +175,12 @@ export default function Header({}) {
     
       changeFontClass(headerTextRef.current.children[1], state.message)
       headerTextRef.current.children[0].style.top = '-100%'
-      headerTextRef.current.children[1].style.top = '50%'
+      headerTextRef.current.children[1].style.top = 'calc(50% + 3px)'
     } else {
       setMessageOne(state.message)
 
       changeFontClass(headerTextRef.current.children[0], state.message)
-      headerTextRef.current.children[0].style.top = '50%'
+      headerTextRef.current.children[0].style.top = 'calc(50% + 3px)'
       headerTextRef.current.children[1].style.top = '-100%'
     }
 
@@ -191,16 +190,16 @@ export default function Header({}) {
         headerTextRef.current.children[0].style.top = '150%'
         setTimeout(() => {
           headerTextRef.current.children[0].style.transition = 'top 1s'
-        }, 1000)
+        }, 500)
       } else {
         headerTextRef.current.children[1].style.transition = 'top 0s'
         headerTextRef.current.children[1].style.top = '150%'
         setTimeout(() => {
           headerTextRef.current.children[1].style.transition = 'top 1s'
-        }, 1000)
+        }, 500)
       }
       transitionCount.current += 1;
-    }, 1000)
+    }, 500)
     
   }, [state.message])
 
