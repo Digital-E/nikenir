@@ -247,38 +247,54 @@ let bubbles = [
 
 let bubblesDisplayArrayInit =  [
     {
-        show: true,
+        show: false,
         src: bubbles[0],
         index: 0,
-        position: {
+        desktop: {
             x: 100,
             y: -20,
             flip: false
-        }
+        },
+        mobile: {
+            x: 90,
+            y: 0,
+            flip: false
+        },
     },
     {
-        show: true,
+        show: false,
         src: bubbles[1],
         index: 1,
-        position: {
-            x: -30,
-            y: -50,
+        desktop: {
+            x: -10,
+            y: -30,
+            flip: true
+        },
+        mobile: {
+            x: 0,
+            y: -10,
             flip: true
         }
     },
     {
-        show: true,
+        show: false,
         src: bubbles[2],
         index: 2,
-        position: {
-            x: 20,
-            y: -30,
+        desktop: {
+            x: 30,
+            y: -20,
+            flip: true
+        },
+        mobile: {
+            x: 35,
+            y: -5,
             flip: true
         }
     }
 ]
 
 let bubbleSwitchIndex = 0;
+
 
 const Component = () => {
 
@@ -303,13 +319,7 @@ const Component = () => {
         }
     }, [])
 
-    useEffect(() => {
-        // Bubbles Animation
-        // let bubblesDisplayArrayCopy = JSON.parse(JSON.stringify(bubblesDisplayArray))
-
-        // bubblesDisplayArrayCopy[0].show = true
-
-        // setBubblesDisplayArray(bubblesDisplayArrayCopy)
+    let initInterval = () => {
 
         setInterval(() => {
             let bubblesDisplayArrayCopy = bubblesDisplayArrayRef.current
@@ -318,7 +328,6 @@ const Component = () => {
 
             setBubblesDisplayArray(JSON.parse(JSON.stringify(bubblesDisplayArrayCopy)))
 
-            // let bubblesDisplayArrayCopyTwo = JSON.parse(JSON.stringify(bubblesDisplayArray))
 
             setTimeout(() => {
                 let bubblesDisplayArrayCopyTwo = bubblesDisplayArrayRef.current
@@ -346,12 +355,35 @@ const Component = () => {
             }, 300)
 
 
-        }, 3000)
+        }, 3000)    
+            
+    }
+
+    let initBubble = (index) => {
+        let bubblesDisplayArrayCopy = bubblesDisplayArrayRef.current
+
+        bubblesDisplayArrayCopy[index].show = true
+
+        setBubblesDisplayArray(JSON.parse(JSON.stringify(bubblesDisplayArrayCopy)))
+    }
+
+    useEffect(() => {
+        // Bubbles Animation
+        let intervalIncrement = 0;
+
+
+        let init = setInterval(() => {
+            initBubble(intervalIncrement);
+            intervalIncrement += 1;
+
+            if(intervalIncrement > 2) {
+                clearInterval(init)
+                initInterval();
+            }
+        }, 1000)
+
     }, [])
 
-    // useEffect(() => {
-    //     console.log(bubblesDisplayArray)
-    // }, [bubblesDisplayArray])
 
     let triggerSlide = (direction) => {
         if(isSliding) return;
@@ -446,7 +478,9 @@ const Component = () => {
         </Logo>            
         <Container ref={containerRef} className='margin'>         
             <Slide ref={slideOneRef} initial='show' animate={slideIndexState === 0 ? 'show' : 'hide'} height={screenHeight}>
-                <Center variants={slideOneAnimation} className='intro-center-one'>
+                <Center 
+                variants={slideOneAnimation} 
+                className='intro-center-one'>
                     <Title className='large-headline'>
                         WHAT KIND OF CHANGEMAKER ARE YOU?
                     </Title>

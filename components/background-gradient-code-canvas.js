@@ -1,5 +1,7 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, useContext } from 'react'
 import styled from 'styled-components'
+
+import { store } from '../store'
 
 
 const Container = styled.div`
@@ -42,8 +44,18 @@ const Noise = styled.div`
 
 
 export default function Component({ data }) {
+    // Context
+    const context = useContext(store);
+    const { state, dispatch } = context; 
+
     let containerRef = useRef();
     let allCircles = useRef([]);
+    let [colours, setColours] = useState(data[0])
+
+    useEffect(() => {
+      let copyAllCircles = allCircles.current
+      copyAllCircles.forEach((item, index) => item.colour = data[state.gradientIndex][index].color)
+    }, [state.gradientIndex])
 
     
     useEffect(() => {
@@ -54,6 +66,7 @@ export default function Component({ data }) {
         function resize() {
             // canvas.width = window.innerWidth * window.devicePixelRatio
             // canvas.height = window.innerHeight * window.devicePixelRatio
+
             canvas.width = innerWidth;
             canvas.height = innerHeight;
             canvas.style.width = window.innerWidth + 'px'
@@ -89,10 +102,11 @@ export default function Component({ data }) {
           this.position = position;
           this.velocity = velocity;
           this.rad = rad;
+          this.colour = colour
           
           this.draw = function() {
             ctx.beginPath();
-            ctx.fillStyle=colour
+            ctx.fillStyle = this.colour
             // ctx.ellipse(this.position.x, this.position.y, radiusX, radiusY, rotation, startAngle, endAngle)
             // ctx.arc(this.position.x, this.position.y, this.rad, Math.PI * 2, false);
             ctx.ellipse(this.position.x, this.position.y, this.rad * 2, this.rad, -Math.PI / 4, 0, 2 * Math.PI)
@@ -123,7 +137,7 @@ export default function Component({ data }) {
           };
         }
         
-        data.forEach(item => {
+        colours.forEach(item => {
 
             let initPosition = new Vector2D(Math.random() * (window.innerWidth), Math.random() * (window.innerHeight))
 
@@ -143,7 +157,7 @@ export default function Component({ data }) {
           requestAnimationFrame(animate);
           ctx.clearRect(0, 0, innerWidth, innerHeight);
 
-          allCircles.current.forEach(circle=> {
+          allCircles.current.forEach(circle => {
             circle.draw()
             circle.update()
           })

@@ -7,15 +7,16 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 40px auto 0 auto;
+    margin: 0 auto 0 auto;
+    height: calc(100vh - 55px);
 
-    // @media(max-width: 989px) {
-    //     height: 100vh;
-    // }
+    @media(max-width: 989px) {
+        height: calc(100vh - 120px);
+    }
 `
 
 const Title = styled.h2`
-    margin: 0 15px 100px 15px;
+    margin: 105px var(--margin) 0 var(--margin);
 `
 
 const AvatarSpeechWrapper = styled.div`

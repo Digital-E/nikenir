@@ -35,7 +35,6 @@ const Container = styled.div`
 
 export default function Component() {
     // Context
-
     const context = useContext(store);
     const { state, dispatch } = context; 
 
@@ -48,12 +47,20 @@ export default function Component() {
     dispatch({type: "update colour", value: 'transparent'})
     dispatch({type: "update progress", value: 0})
     dispatch({type: "update back link", value: '/'})
+    dispatch({type: "update gradient index", value: 0})
+
+    document.querySelector('body').classList.add('lock-scroll')
 
     setTimeout(() => {
       document.querySelector('header').classList.remove('hide-header')
 
       document.querySelector('.sidebar').classList.remove('hide-sidebar')
+
     }, 250)
+
+    return () => {
+      document.querySelector('body').classList.remove('lock-scroll')
+    }
   }, [])
 
   return (

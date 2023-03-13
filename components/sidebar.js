@@ -15,10 +15,14 @@ let Container = styled.div`
   left: 20px;
   z-index: 998;
 
-  transition: transform var(--transition-in) 1s;
+  transition: transform var(--transition-in) 1s, bottom 0.1s;
 
   &.hide-sidebar {
     transform: translateX(-150%);
+  }
+
+  &.lift-sidebar {
+    bottom: 50px;
   }
 
   @media(max-width: 989px) {

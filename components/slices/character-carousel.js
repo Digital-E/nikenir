@@ -51,7 +51,13 @@ const Card = styled(motion.div)`
     margin: 40px 10px 40px 10px;
     padding: 30px 0;
     border-radius: 27px;
-    background: ${props => props.data.background};
+    // background: ${props => props.data.background};
+    background: url(${props => props.data.backgroundSrc});
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     cursor: pointer;
@@ -220,12 +226,13 @@ const ButtonDesktopWrapper = styled(motion.div)`
 
 let data = [
     {
-        name: 'Theo',
+        name: 'Ines',
         textOne: 'People Promoter',
         textTwo: 'Community hero inspiring togetherness',
-        img: '/images/avatars/MaxGuther_11-2.png',
+        img: '/images/avatars/carousel/ines.png',
         link: '/people-promoter',
         background: 'radial-gradient(101.96% 52.55% at 8.6% 50%, rgba(254, 194, 37, 0.9) 0%, rgba(255, 255, 255, 1) 76.07%)',
+        backgroundSrc: '/images/carousel-gradients/gradient1.png',
         width: 60,
         left: 30,
         top: -30
@@ -234,20 +241,22 @@ let data = [
         name: 'Ivy',
         textOne: 'Climate Champion',
         textTwo: 'Planet protector empowering citizens of the world',
-        img: '/images/avatars/mg_zc_03 1.png',
+        img: '/images/avatars/carousel/ivy.png',
         link: '/climate-champion',
         background: 'radial-gradient(101.96% 52.55% at 8.6% 50%, rgba(195, 188, 236, 0.9) 0%, rgba(255, 255, 255, 1) 76.07%)',
+        backgroundSrc: '/images/carousel-gradients/gradient2.png',
         width: 80,
         left: 15,
         top: -30
     },
     {
-        name: 'Ines',
+        name: 'Theo',
         textOne: 'Active Activist',
         textTwo: 'Trusted coach who really listens',
-        img: '/images/avatars/MaxGuther_12-2.png',
+        img: '/images/avatars/carousel/theo.png',
         link: '/active-activist',
         background: 'radial-gradient(239.95% 126.46% at 33.97% 17.02%, rgba(2, 131, 254, 0.7) 0%, rgba(255, 255, 255, 1) 76.07%)',
+        backgroundSrc: '/images/carousel-gradients/gradient3.png',
         width: 45,
         left: 40,
         top: -30

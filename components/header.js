@@ -211,9 +211,6 @@ export default function Header({}) {
     setColour(state.colour)
   }, [state.colour])
 
-  // useEffect(() => {
-  //   setBackLink(state.backLink)
-  // }, [state.backLink])
 
 
   return (

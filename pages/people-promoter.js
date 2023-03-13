@@ -14,10 +14,10 @@ const Container = styled.div``
 
 let data = {
     title: 'People Promoter',
-    name: 'Theo',
+    name: 'Ines',
     role: 'People Promoter',
     avatar: '/images/avatars/People_02 1.png',
-    colourOne: '#FFB800',
+    colourOne: '#FDD800',
     colourTwo: '#F05822',
     colourThree: '#F6693D',
     questionCount: 4,
@@ -50,14 +50,12 @@ let data = {
                 text: 'Nothing like stepping out into the fresh air, noticing the birds in the trees and the ground under your feet.',
                 textCarousel: [
                   'We encourage our employees to practice sport and movement as a way of maintaining their wellbeing.',
-                  'We’re investing in our employees’ ongoing wellbeing by providing mental health support, and in doing so helping redefine the scope of traditional workplace benefits.'
                 ]
               },
               {
                 title: 'Talk it out',
                 text: 'Knowing there are other people out there facing similar struggles helps you feel more in control.',
                 textCarousel: [
-                  'We encourage our employees to practice sport and movement as a way of maintaining their wellbeing.',
                   'We’re investing in our employees’ ongoing wellbeing by providing mental health support, and in doing so helping redefine the scope of traditional workplace benefits.'
                 ]
               }
@@ -86,14 +84,12 @@ let data = {
                 text: 'You want to be part of a team where you feel you can make a difference. Where everyone is counted and accountable.',
                 textCarousel: [
                   'We’re accelerating the career trajectory of women in the workplace by investing in programs that increase a sense of belonging.',
-                  'We’re building more diverse teams, check out our Serena Williams Design Crew program.'
                 ]
               },
               {
                 title: 'FIND BALANCE IN OUR DIFFERENCES',
                 text: 'A diverse team means news ideas, fresh plays and great balance. Our combined skills will give us the edge.',
                 textCarousel: [
-                  'We’re accelerating the career trajectory of women in the workplace by investing in programs that increase a sense of belonging.',
                   'We’re building more diverse teams, check out our Serena Williams Design Crew program.'
                 ]
               }
@@ -123,16 +119,14 @@ let data = {
                 title: 'Be part of something bigger',
                 text: 'You’re looking for a workplace where you feel you can make a difference. Where everyone is counted and accountable.',
                 textCarousel: [
-                  'We’re accelerating the career trajectory of women in the workplace by investing in programs that increase a sense of belonging.',
-                  'We’re committed to reaching 50% representation of women in leadership positions. This year we made it to 43%.'
+                  'We continue to support of Historically Black Colleges and Universities (HBCUs) and Hispanic-Serving Institutions (HSIs) – through storytelling, recruitment, and investments.',
                 ]
               },
               {
                 title: 'Maximise your potential',
                 text: 'You’re looking for a sport that rewards your ambition with the progression you deserve. You want to be judged on what you bring, not who you are.',
                 textCarousel: [
-                  'We’re accelerating the career trajectory of women in the workplace by investing in programs that increase a sense of belonging.',
-                  'We’re committed to reaching 50% representation of women in leadership positions. This year we made it to 43%.'
+                  'We’re committed to reaching 50% representation of women in leadership positions. Since last year, we’ve increased the number of women at the Director level to 43%.',
                 ]
               }
             ]
@@ -149,11 +143,13 @@ let data = {
           squares: [
             {
               title: 'You see a place where you fit in',
-              img: '/images/scratch/1-yellow.png'
+              img: '/images/scratch/1-yellow.png',
+              imgBack: '/images/scratch/1.png'
             },
             {
               title: 'You see a life that you aspire to',
-              img: '/images/scratch/1-yellow.png'
+              img: '/images/scratch/1-yellow.png',
+              imgBack: '/images/scratch/1.png'
             }
           ],
           information: [
@@ -220,12 +216,38 @@ export default function Component() {
     dispatch({type: "update question count", value: data.questionCount})
     dispatch({type: "update progress", value: 0})
     dispatch({type: "update back link", value: '/pick-your-player'})
+    dispatch({type: "update gradient index", value: 1})
 
     setTimeout(() => {
       document.querySelector('header').classList.remove('hide-header')
 
       document.querySelector('.sidebar').classList.remove('hide-sidebar')
+
+    // Scroll Event Listener
+
+    let scrollListener = () => {
+      var body = document.body,
+          html = document.documentElement;
+
+      var height = Math.max( body.scrollHeight, body.offsetHeight, 
+                            html.clientHeight, html.scrollHeight, html.offsetHeight );  
+
+      if(window.scrollY > height - window.innerHeight - 55) {
+        document.querySelector('.sidebar').classList.add('lift-sidebar')
+      } else {
+        document.querySelector('.sidebar').classList.remove('lift-sidebar')
+      }         
+    }
+
+    if(window.innerWidth > 990) {
+      document.addEventListener("scroll", scrollListener)
+    }
+
     }, 250)
+
+    return () => {
+      document.removeEventListener("scroll", scrollListener)
+    }
   }, [])
 
   return (

@@ -36,65 +36,75 @@ const Background = styled.div`
 
 let colors = [
   [
-    '#95FF61',
     '#00FC00',
-    '#C2BCEB',
-    '#8679e4'
+    '#00C457',
+    '#95FF61'
   ],
   [
-    '#95FF61',
+    '#00FC00',
+    '#FF8A00',
+    '#FF8A00',
+  ],
+  [
+    '#00FC00',
+    '#C2BCEB',
+    '#C2BCEB',
+  ],
+  [
     '#00FC00',
     '#A2D8EF',
     '#A2D8EF'
-  ],
-  [
-    '#95FF61',
-    '#00FC00',
-    '#FFB800',
-    '#FFB800'
   ]
+]
+
+let dataInit = [
+  {color: colors[0][0], rotate: -50},
+  {color: colors[0][1], rotate: 20},
+  {color: colors[0][2], rotate: -70},
+  {color: colors[0][0], rotate: -30},
+  {color: colors[0][1], rotate: -50},
+  {color: colors[0][2], rotate: -20},
+  {color: colors[0][0], rotate: -70},
 ]
 
 
 let dataOne = [
-  {color: colors[0][0], rotate: -50},
-  {color: colors[0][1], rotate: 20},
-  {color: colors[0][2], rotate: -70},
-  {color: colors[0][3], rotate: -30},
-  {color: colors[0][0], rotate: -50},
-  {color: colors[0][1], rotate: -20},
-  {color: colors[0][3], rotate: -70},
-]
-
-let dataTwo = [
   {color: colors[1][0], rotate: -50},
   {color: colors[1][1], rotate: 20},
   {color: colors[1][2], rotate: -70},
-  {color: colors[1][3], rotate: -30},
-  {color: colors[1][0], rotate: -50},
-  {color: colors[1][1], rotate: -20},
-  {color: colors[1][3], rotate: -70},
+  {color: colors[1][0], rotate: -30},
+  {color: colors[1][1], rotate: -50},
+  {color: colors[1][2], rotate: -20},
+  {color: colors[1][0], rotate: -70},
 ]
 
-// let dataThree = [
-//   {color: colors[2][0], rotate: -50},
-//   {color: colors[2][1], rotate: 20},
-//   {color: colors[2][2], rotate: -70},
-//   {color: colors[2][3], rotate: -30},
-//   {color: colors[2][0], rotate: -50},
-//   {color: colors[2][1], rotate: -20},
-//   {color: colors[2][3], rotate: -70},
-// ]
-
-let dataThree = [
+let dataTwo = [
   {color: colors[2][0], rotate: -50},
   {color: colors[2][1], rotate: 20},
-  {color: colors[2][0], rotate: -70},
-  {color: colors[2][1], rotate: -30},
-  {color: colors[2][0], rotate: -50},
-  {color: colors[2][1], rotate: -20},
+  {color: colors[2][2], rotate: -70},
+  {color: colors[2][0], rotate: -30},
+  {color: colors[2][1], rotate: -50},
+  {color: colors[2][2], rotate: -20},
   {color: colors[2][0], rotate: -70},
 ]
+
+let dataThree = [
+  {color: colors[3][0], rotate: -50},
+  {color: colors[3][1], rotate: 20},
+  {color: colors[3][2], rotate: -70},
+  {color: colors[3][0], rotate: -30},
+  {color: colors[3][1], rotate: -50},
+  {color: colors[3][2], rotate: -20},
+  {color: colors[3][0], rotate: -70},
+]
+
+let dataAll = [
+  dataInit,
+  dataOne,
+  dataTwo,
+  dataThree
+]
+
 
 function MyApp({ Component, pageProps, router }) {
 
@@ -146,7 +156,7 @@ function MyApp({ Component, pageProps, router }) {
       <Header />
       <Sidebar />
       {/* <Background /> */}
-      <BackgroundGradientCode data={dataThree}/>
+      <BackgroundGradientCode data={dataAll}/>
       {/* <GradientWrapper>
         <BackgroundGradientCode data={dataThree} />
       </GradientWrapper> */}

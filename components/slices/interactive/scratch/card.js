@@ -21,6 +21,11 @@ const Container = styled(motion.div)`
     margin: 0 calc(var(--margin) / 2);
     border-radius: 27px;
     overflow: hidden;
+
+    canvas {
+        width: 100% !important;
+        height: 100% !important;
+    }
 `
 
 
@@ -39,6 +44,7 @@ const InnerContainer = styled(motion.div)`
     box-sizing: border-box;
     z-index: 2;
     pointer-events: none;
+
 
     * {
         cursor: pointer;
@@ -92,6 +98,19 @@ const ScratchContainer = styled.div`
     height: 100%;
     width: 100%;
 `
+
+const BackgroundImage = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    img {
+        width: 100%;
+    }
+`
+
 
 
 let hasTriggered = false
@@ -168,6 +187,8 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
             percentToFinish: 100,
             // nPoints: 30,
             // pointSize: 4,
+            nPoints: 0,
+            pointSize: 0,
             callback: function () {
                 // alert('Now the window will reload !')
                 // window.location.reload()
@@ -202,6 +223,9 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
             // whileHover={{scale: 1.02}}
             // animate={controls}
             >
+            <BackgroundImage>
+                <img src={data.imgBack} />
+            </BackgroundImage>
             <InnerContainer>
                 <Title>{data.title}</Title>
             </InnerContainer>

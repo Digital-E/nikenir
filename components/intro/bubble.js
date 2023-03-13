@@ -5,9 +5,13 @@ import styled from 'styled-components'
 
 const Container = styled(motion.div)`
     position: absolute;
-    top: ${props => props.position.y}%;
-    left: ${props => props.position.x}%;
+    top: ${props => props.data.desktop.y}%;
+    left: ${props => props.data.desktop.x}%;
 
+    @media(max-width: 989px) {
+        top: ${props => props.data.mobile.y}%;
+        left: ${props => props.data.mobile.x}%;  
+    }
 `;
 
 let MainBubble = styled(motion.div)`
@@ -17,12 +21,17 @@ let MainBubble = styled(motion.div)`
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    width: 120px;
-    height: 100px;
+    width: 90px;
+    height: 75px;
     transition: backdropFilter 0s !important;
 
     img {
         width: 80%;
+    }
+
+    @media(max-width: 989px) {
+        width: 70px;
+        height: 50px;
     }
 `
 
@@ -35,6 +44,11 @@ let BubbleOne = styled(motion.div)`
     border-radius: 999px;
     bottom: ${props => props.flip ? '-30%' : '-30%' };
     left: ${props => props.flip ? '115%' : '-30%' };
+
+    @media(max-width: 989px) {
+        height: 10px;
+        width: 10px;
+    }
 `
 
 let BubbleTwo = styled(motion.div)`
@@ -46,6 +60,11 @@ let BubbleTwo = styled(motion.div)`
     border-radius: 999px;
     bottom: ${props => props.flip ? '-15%' : '-15%' };
     left: ${props => props.flip ? '100%' : '-20%' };
+
+    @media(max-width: 989px) {
+        width: 15px;
+        height: 15px;
+    }
 `
 
 
@@ -78,9 +97,9 @@ const Component = ({ data, index, bubbles, bubblesDisplayArray }) => {
     let containerRef = useRef();
 
     return (          
-        <Container initial='hide' variants={mainBubbleVariants} animate={bubblesDisplayArray[index].show ? 'show' : 'hide'} ref={containerRef} position={bubblesDisplayArray[index].position}>  
-            <BubbleOne variants={bubbleVariants} flip={bubblesDisplayArray[index].position.flip} />
-            <BubbleTwo variants={bubbleVariants} flip={bubblesDisplayArray[index].position.flip} /> 
+        <Container initial='hide' variants={mainBubbleVariants} animate={bubblesDisplayArray[index].show ? 'show' : 'hide'} ref={containerRef} data={bubblesDisplayArray[index]}>  
+            <BubbleOne variants={bubbleVariants} flip={bubblesDisplayArray[index].desktop.flip} />
+            <BubbleTwo variants={bubbleVariants} flip={bubblesDisplayArray[index].desktop.flip} /> 
             <MainBubble variants={bubbleVariants}>
                 <img src={bubblesDisplayArray[index].src} />
             </MainBubble>
