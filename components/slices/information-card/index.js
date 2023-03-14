@@ -18,6 +18,7 @@ const Container = styled.div`
 const RowOne = styled.div`
     position: relative;
     display: flex;
+    align-items: center;
 `
 
 const RowTwo = styled.div`
@@ -27,7 +28,6 @@ const ColOne = styled.div``
 
 const Avatar = styled.div`
     width: 70px;
-    margin-top: -10px;
 
     img {
         width: 100%;
@@ -35,22 +35,23 @@ const Avatar = styled.div`
 `
 
 const ColTwo = styled.div`
-    position: absolute;
-    width: 100%;
+    // position: absolute;
+    // width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
     flex-grow: 1;
     left: 0;
 `
 
 const Title = styled.h3`
-    max-width: 60%;
-    text-align: center;
+    max-width: 80%;
+    margin-left: 10px;
+    // text-align: center;
 
     @media(max-width: 989px) {
-        max-width: 49%;
+        max-width: 80%;
     }
 `
 

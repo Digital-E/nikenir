@@ -233,7 +233,7 @@ export default function Component() {
     dispatch({type: "update question count", value: data.questionCount})
     dispatch({type: "update progress", value: 0})
     dispatch({type: "update back link", value: '/pick-your-player'})
-    dispatch({type: "update gradient index", value: 2})
+    dispatch({type: "update gradient index", value: 3})
 
     setTimeout(() => {
       document.querySelector('header').classList.remove('hide-header')

@@ -43,19 +43,19 @@ let colors = [
   ],
   [
     '#00FC00',
-    '#FF8A00',
-    '#FF8A00',
-  ],
-  [
-    '#00FC00',
-    '#C2BCEB',
-    '#C2BCEB',
+    '#FFB800',
+    '#FFB800',
   ],
   [
     '#00FC00',
     '#A2D8EF',
     '#A2D8EF'
-  ]
+  ],
+  [
+    '#00FC00',
+    '#C2BCEB',
+    '#C2BCEB',
+  ],
 ]
 
 let dataInit = [

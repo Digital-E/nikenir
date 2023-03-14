@@ -55,12 +55,13 @@ const Text = styled.div`
   > span:nth-child(2) {
     position: absolute;
     left: 50%;
-    top: 150%;
+    calc(50% + 3px);
     transform: translate(-50%, -50%);
+    filter: blur(10px);
   }
 
   > span {
-    transition: top 1s;
+    transition: filter 1s, opacity 1s;
     white-space: nowrap;
   }
 `
@@ -174,30 +175,34 @@ export default function Header({}) {
       setMessageTwo(state.message)
     
       changeFontClass(headerTextRef.current.children[1], state.message)
-      headerTextRef.current.children[0].style.top = '-100%'
-      headerTextRef.current.children[1].style.top = 'calc(50% + 3px)'
+      headerTextRef.current.children[0].style.filter = 'blur(10px)'
+      headerTextRef.current.children[0].style.opacity = 0
+      headerTextRef.current.children[1].style.filter = 'blur(0px)'
+      headerTextRef.current.children[1].style.opacity = 1
     } else {
       setMessageOne(state.message)
 
       changeFontClass(headerTextRef.current.children[0], state.message)
-      headerTextRef.current.children[0].style.top = 'calc(50% + 3px)'
-      headerTextRef.current.children[1].style.top = '-100%'
+      headerTextRef.current.children[0].style.filter = 'blur(0px)'
+      headerTextRef.current.children[0].style.opacity = 1
+      headerTextRef.current.children[1].style.filter = 'blur(10px)'
+      headerTextRef.current.children[1].style.opacity = 0
     }
 
     setTimeout(() => {
-      if(transitionCount.current % 2 === 0) {
-        headerTextRef.current.children[0].style.transition = 'top 0s'
-        headerTextRef.current.children[0].style.top = '150%'
-        setTimeout(() => {
-          headerTextRef.current.children[0].style.transition = 'top 1s'
-        }, 500)
-      } else {
-        headerTextRef.current.children[1].style.transition = 'top 0s'
-        headerTextRef.current.children[1].style.top = '150%'
-        setTimeout(() => {
-          headerTextRef.current.children[1].style.transition = 'top 1s'
-        }, 500)
-      }
+      // if(transitionCount.current % 2 === 0) {
+      //   headerTextRef.current.children[0].style.transition = 'top 0s'
+      //   headerTextRef.current.children[0].style.top = '150%'
+      //   setTimeout(() => {
+      //     headerTextRef.current.children[0].style.transition = 'top 1s'
+      //   }, 500)
+      // } else {
+      //   headerTextRef.current.children[1].style.transition = 'top 0s'
+      //   headerTextRef.current.children[1].style.top = '150%'
+      //   setTimeout(() => {
+      //     headerTextRef.current.children[1].style.transition = 'top 1s'
+      //   }, 500)
+      // }
       transitionCount.current += 1;
     }, 500)
     

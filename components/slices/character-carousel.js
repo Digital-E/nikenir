@@ -151,13 +151,13 @@ const Image = styled.div`
     justify-content: center;
 
     img {
-        height: 100%;
+        height: ${props => props.data.height}%;
         object-fit: cover;
     }
 
     @media(max-width: 989px) {
         img {
-            margin-left: 25%;
+            margin-left: 20%;
         }
     }
 `
@@ -235,7 +235,8 @@ let data = [
         backgroundSrc: '/images/carousel-gradients/gradient1.png',
         width: 60,
         left: 30,
-        top: -30
+        top: -30,
+        height: 110,
     },
     {
         name: 'Ivy',
@@ -247,7 +248,8 @@ let data = [
         backgroundSrc: '/images/carousel-gradients/gradient2.png',
         width: 80,
         left: 15,
-        top: -30
+        top: -30,
+        height: 130,
     },
     {
         name: 'Theo',
@@ -259,7 +261,8 @@ let data = [
         backgroundSrc: '/images/carousel-gradients/gradient3.png',
         width: 45,
         left: 40,
-        top: -30
+        top: -30,
+        height: 130,
     },    
 ]
 

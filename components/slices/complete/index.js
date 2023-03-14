@@ -7,7 +7,7 @@ import Next from './next-round'
 
 const Container = styled.div`
     margin: 200px 0 0 0;
-    overflow: hidden;
+    // overflow: hidden;
 
     @media(max-width: 989px) {
         margin: 180px 0 0 0;

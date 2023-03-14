@@ -18,7 +18,7 @@ let data = {
     role: 'People Promoter',
     avatar: '/images/avatars/People_02 1.png',
     avatarMiniature: '/images/avatars/miniature/ines.png',
-    colourOne: '#FDD800',
+    colourOne: '#FFB800',
     colourTwo: '#F05822',
     colourThree: '#F6693D',
     questionCount: 4,

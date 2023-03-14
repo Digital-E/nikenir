@@ -121,7 +121,11 @@ let tsParticlesInstance = null
 export default function Component({ data, index, allItems, hasClicked, hasInteracted, dataAll }) {
     let scratchContainerRef = useRef();
 
+    let percentRef = useRef(0)
+
     const controls = useAnimationControls();
+
+    let confettiActive = useRef(false);
 
 
     // let gaugeIncrement = (e) => {
@@ -201,9 +205,12 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
         sc.init().then(() => {
         sc.canvas.addEventListener('scratch.move', () => {
             let percent = sc.getPercent().toFixed(2)
+            percentRef.current = percent
 
             if(percent > 60) {
                 hasClicked(index); 
+            } else {
+                hasClicked(null);
             }
         })
         }).catch((error) => {
@@ -213,17 +220,55 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
              
     }, [])
 
+    let triggerConfetti = (e) => {
+        if(!confettiActive.ref) return
+
+        let origin = {
+            x: 0,
+            y: 0
+        }
+
+        if(window.innerWidth < 990) {
+            origin.x = e.touches[0].clientX / window.innerWidth
+            origin.y = e.touches[0].clientY / window.innerHeight
+        } else {
+            origin.x = e.clientX / window.innerWidth
+            origin.y = e.clientY / window.innerHeight
+        }
+
+        confetti({
+            spread: 70,
+            ticks: 100,
+            gravity: 1,
+            decay: 1,
+            startVelocity: 1,
+            count: 1,
+            scalar: 1,
+            origin: origin,
+            shapes: ["square"],
+            colors: [`${dataAll.colourOne}`]
+        });  
+    }
+
+    let enableConfetti = (action) => {
+        if(action) {
+            confettiActive.ref = true
+        } else {
+            confettiActive.ref = false
+        }
+    }
+
 
     return (
         <Container 
             className='max-width'
-            // onClick={(e) => {clicked(e)}} 
-            // onPointerDown={(e) => e.target.releasePointerCapture(e.pointerId)}
-            // onPointerEnter={() => { toggleParticles(true) }}
-            // onPointerLeave={() => { toggleParticles(false) }}
             transition={{ type: "spring", stiffness: 200, damping: 10 }}
-            // whileHover={{scale: 1.02}}
-            // animate={controls}
+            onMouseMove={(e) => triggerConfetti(e)}
+            onMouseDown={() => enableConfetti(true)}
+            onMouseUp={() => enableConfetti(false)}
+            onTouchMove={(e) => triggerConfetti(e)}
+            onTouchStart={() => enableConfetti(true)}
+            onTouchEnd={() => enableConfetti(false)}
             >
             <BackgroundImage>
                 <img src={data.imgBack} />
