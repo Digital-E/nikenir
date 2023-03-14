@@ -38,6 +38,10 @@ main {
   overflow: hidden;
 }
 
+#__next {
+  opacity: 0;
+}
+
 
 :root {
   --transition-in: 0.3s;

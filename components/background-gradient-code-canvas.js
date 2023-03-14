@@ -11,11 +11,11 @@ const Container = styled.div`
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-	background: white;
+	  background: white;
     z-index: -1;
 
     #canvas {
-        filter: blur(200px)
+        filter: blur(140px)
     }
 
     svg {
