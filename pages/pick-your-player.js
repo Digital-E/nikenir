@@ -49,6 +49,7 @@ export default function Component() {
     dispatch({type: "update back link", value: '/'})
     dispatch({type: "update gradient index", value: 0})
 
+    window.scrollTo(0, 0)
     document.querySelector('body').classList.add('lock-scroll')
 
     setTimeout(() => {

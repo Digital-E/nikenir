@@ -218,9 +218,9 @@ let characters = [
             width: 200,
         },
         mobile: {
-            x: 40,
-            y: -110,
-            width: 200,
+            x: 60,
+            y: -70,
+            width: 150,
         },
         src: '/images/intro-characters/2.png'
     },
@@ -271,8 +271,8 @@ let bubblesDisplayArrayInit =  [
             flip: true
         },
         mobile: {
-            x: 0,
-            y: -10,
+            x: -15,
+            y: -20,
             flip: true
         }
     },

@@ -43,7 +43,7 @@ let BubbleOne = styled(motion.div)`
     backdrop-filter: blur(10px);
     border-radius: 999px;
     bottom: ${props => props.flip ? '-30%' : '-30%' };
-    left: ${props => props.flip ? '115%' : '-30%' };
+    left: ${props => props.flip ? '120%' : '-30%' };
 
     @media(max-width: 989px) {
         height: 10px;
