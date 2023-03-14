@@ -205,10 +205,28 @@ let data = {
       }
     }
 }
+
+
 export default function Component() {
   // Context
   const context = useContext(store);
-  const { state, dispatch } = context; 
+  const { state, dispatch } = context;
+  
+  // Scroll Event Listener
+
+  let scrollListener = () => {
+    var body = document.body,
+        html = document.documentElement;
+
+    var height = Math.max( body.scrollHeight, body.offsetHeight, 
+                          html.clientHeight, html.scrollHeight, html.offsetHeight );  
+
+    if(window.scrollY > height - window.innerHeight - 55) {
+      document.querySelector('.sidebar').classList.add('lift-sidebar')
+    } else {
+      document.querySelector('.sidebar').classList.remove('lift-sidebar')
+    }         
+  }  
 
   useEffect(() => {
     dispatch({type: "update colour", value: data.colourThree})
@@ -222,22 +240,6 @@ export default function Component() {
       document.querySelector('header').classList.remove('hide-header')
 
       document.querySelector('.sidebar').classList.remove('hide-sidebar')
-
-    // Scroll Event Listener
-
-    let scrollListener = () => {
-      var body = document.body,
-          html = document.documentElement;
-
-      var height = Math.max( body.scrollHeight, body.offsetHeight, 
-                            html.clientHeight, html.scrollHeight, html.offsetHeight );  
-
-      if(window.scrollY > height - window.innerHeight - 55) {
-        document.querySelector('.sidebar').classList.add('lift-sidebar')
-      } else {
-        document.querySelector('.sidebar').classList.remove('lift-sidebar')
-      }         
-    }
 
     if(window.innerWidth > 990) {
       document.addEventListener("scroll", scrollListener)

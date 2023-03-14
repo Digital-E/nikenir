@@ -408,7 +408,7 @@ const Component = () => {
             triggerSlide("down");
         })
 
-        containerRef.current.addEventListener("mousewheel", (e) => {
+        containerRef.current.addEventListener("wheel", (e) => {
             if(e.deltaY > 0 && slideIndex.current !== 1) {
                 triggerSlide('down');
             } else if (e.deltaY < 0 && slideIndex.current !== 0) {

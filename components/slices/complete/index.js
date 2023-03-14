@@ -19,12 +19,12 @@ const RowOne = styled.div``
 
 const RowTwo = styled.div`
     margin-bottom: 100px;
-    height: calc(100vh - 130px);
 
     @media(min-width: 990px) {
         display: flex;
         justify-content: center;
         flex-direction: row;
+        height: calc(100vh - 130px);
         margin-top: 130px;
         margin-bottom: 0;
 

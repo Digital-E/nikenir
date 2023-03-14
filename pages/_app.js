@@ -4,8 +4,9 @@ import '../styles/flickity.css'
 import '../styles/flickity-fade.css'
 
 import { useEffect } from 'react'
-import styled from 'styled-components';
+import styled from 'styled-components'
 import { motion, AnimatePresence } from "framer-motion"
+
 
 import { StateProvider } from "../store"
 

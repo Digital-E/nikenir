@@ -80,6 +80,11 @@ export default function Component({ item, data }) {
         }
 
         setScreenHeight(window.innerHeight)
+
+        return () => {
+            document.removeEventListener('wheel', disableScroll, {passive: false})
+            document.removeEventListener('touchmove', disableScroll, { passive:false });
+        }
     }, [])
 
     let hideIntro = () => {

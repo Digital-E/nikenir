@@ -304,7 +304,7 @@ export default function Component({ data, start }) {
         // }, 1500)
 
         window.addEventListener('resize', () => {
-            if(typeWriterRef === null) return
+            if(typeWriterRef.current === null) return
             if(typeWriterRef.current.children[letterIndex - 2] === undefined) return;
 
             cursorRef.current.style.left = `${typeWriterRef.current.children[letterIndex - 2].getBoundingClientRect().x + typeWriterRef.current.children[letterIndex - 2].getBoundingClientRect().width}px`
