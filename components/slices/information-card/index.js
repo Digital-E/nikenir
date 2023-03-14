@@ -78,7 +78,7 @@ export default function Component({ item, data, selectedIndex }) {
         <RowOne>
             <ColOne>
                 <Avatar>
-                    <img src={data.avatar}/>
+                    <img src={data.avatarMiniature}/>
                 </Avatar>
             </ColOne>
 

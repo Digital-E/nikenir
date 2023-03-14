@@ -17,6 +17,7 @@ let data = {
     name: 'Ines',
     role: 'People Promoter',
     avatar: '/images/avatars/People_02 1.png',
+    avatarMiniature: '/images/avatars/miniature/ines.png',
     colourOne: '#FDD800',
     colourTwo: '#F05822',
     colourThree: '#F6693D',
@@ -199,7 +200,7 @@ let data = {
         next: {
           name: 'Ivy',
           role: 'Climate Champion',
-          avatar: '/images/avatars/ivy-small.png',
+          avatarMiniature: '/images/avatars/miniature/ivy.png',
           link: '/climate-champion'
         }
       }
@@ -240,12 +241,11 @@ export default function Component() {
       document.querySelector('header').classList.remove('hide-header')
 
       document.querySelector('.sidebar').classList.remove('hide-sidebar')
+    }, 250)
 
     if(window.innerWidth > 990) {
       document.addEventListener("scroll", scrollListener)
     }
-
-    }, 250)
 
     return () => {
       document.removeEventListener("scroll", scrollListener)

@@ -63,6 +63,7 @@ const Background = styled.div`
     background: ${props => props.colour};
     transition: 0.2s;
     z-index: -1;
+    border-radius: 0 0 27px 27px;
 
     &.lock {
         height: 0;

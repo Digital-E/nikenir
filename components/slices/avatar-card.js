@@ -45,7 +45,7 @@ export default function Component({ item, data }) {
         <RowOne>
             <ColOne>
                 <Avatar>
-                    <img src={data.avatar}/>
+                    <img src={data.avatarMiniature}/>
                 </Avatar>
             </ColOne>
 
