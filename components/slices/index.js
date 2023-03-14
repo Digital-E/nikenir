@@ -48,7 +48,7 @@ export default function Component({ data }) {
     const context = useContext(store);
     const { state, dispatch } = context; 
 
-    let [unlocked, setUnlocked] = useState(true);
+    let [unlocked, setUnlocked] = useState(false);
 
     useEffect(() => {
         if((state.progress === state.questionCount) && state.questionCount !== 0) {
