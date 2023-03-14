@@ -97,6 +97,8 @@ const ScratchContainer = styled.div`
     top: 0;
     height: 100%;
     width: 100%;
+    border-radius: 27px;
+    overflow: hidden;
 `
 
 const BackgroundImage = styled.div`
