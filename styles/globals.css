@@ -42,7 +42,12 @@ main {
   opacity: 0;
 }
 
-img {
+.hide-img {
+  opacity: 0;
+}
+
+.reveal-img {
+  opacity: 1;
   transition: 0.3s;
 }
 
