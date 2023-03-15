@@ -23,6 +23,7 @@ const Container = styled(motion.div)`
     overflow: hidden;
 
     canvas {
+        position: absolute;
         width: 100% !important;
         height: 100% !important;
     }
@@ -103,10 +104,10 @@ const ScratchContainer = styled.div`
 
 const BackgroundImage = styled.div`
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
 
     img {
         width: 100%;
@@ -118,49 +119,27 @@ const BackgroundImage = styled.div`
 let hasTriggered = false
 let tsParticlesInstance = null
 
-export default function Component({ data, index, allItems, hasClicked, hasInteracted, dataAll }) {
+
+export default function Component({ data, index, allItems, hasClicked, hasInteracted, dataAll, prevScratch, prevScratchToggle }) {
     let scratchContainerRef = useRef();
 
     let percentRef = useRef(0)
+
+    let allItemsRef = useRef(allItems);
+
+    let prevScratchRef = useRef(prevScratch);
 
     const controls = useAnimationControls();
 
     let confettiActive = useRef(false);
 
+    let scContainer = null;
+    let sc = null;
 
-    // let gaugeIncrement = (e) => {
-    //     let selectedIndex = null;
-
-    //     allItems.forEach((item, index) => {
-    //         if(item.clicked === true) {
-    //             selectedIndex = index
-    //         }
-    //     })
-
-    //     if(selectedIndex !== index && selectedIndex !== null) {
-    //         setGauge(0)
-    //         gaugeRef.current = 0
-    //         hasClicked(e, null)
-    //     }
-
-
-    //     clearTimeout(gaugeTimeout.current)
-    //     setGauge(gaugeRef.current + 10)
-    //     gaugeRef.current = gaugeRef.current + 10
-
-    //     if(gaugeRef.current === 100) {
-    //         hasClicked(e, index); 
-    //     }
-
-    //     gaugeTimeout.current = setTimeout(() => {
-    //         if(gaugeRef.current < 100) {
-    //             setGauge(0)
-    //             gaugeRef.current = 0
-    //         }
-    //     }, 500)
-    // }
 
     // useEffect(() => {
+    //     allItemsRef.current = allItems
+
     //     let selectedIndex = null;
 
     //     allItems.forEach((item, index) => {
@@ -168,20 +147,36 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
     //             selectedIndex = index
     //         }
     //     })
-
+        
+    //     if(selectedIndex !== index && selectedIndex !== null) {
+    //         // document.querySelector(`#scratch-container-${index}`).innerHTML = ''
+    //         // percentRef.current = 0
+    //     }
     // }, [allItems])
 
-    // let clicked = (e) => {
-    //     controls.start({ scale: 1.3 })
-    //     setTimeout(() => {
-    //         controls.start({ scale: 1.02 })
-    //     }, 50)
-    // }
-
     useEffect(() => {
-        const scContainer = document.getElementById(`scratch-container-${index}`)
+        prevScratchRef.current = prevScratch
 
-        const sc = new ScratchCardVar(`#scratch-container-${index}`, {
+        if(prevScratchRef.current !== index && prevScratchRef.current !== null) {
+            initSc();
+
+            let parent = document.querySelector(`#scratch-container-${index}`)
+
+            setTimeout(() => {
+                parent.removeChild(parent.children[0])
+            }, 10)
+
+        }
+    }, [prevScratch])
+
+    let initSc = () => {
+
+        scContainer = null;
+        sc = null;
+
+        scContainer = document.getElementById(`scratch-container-${index}`)
+
+        sc = new ScratchCardVar(`#scratch-container-${index}`, {
             scratchType: SCRATCH_TYPE_VAR.LINE,
             containerWidth: scContainer.offsetWidth,
             containerHeight: scContainer.offsetHeight,
@@ -204,11 +199,26 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
         // Init
         sc.init().then(() => {
         sc.canvas.addEventListener('scratch.move', () => {
+            let selectedIndex = null;
+
+            allItemsRef.current.forEach((item, index) => {
+                if(item.clicked === true) {
+                    selectedIndex = index
+                }
+            })
+
             let percent = sc.getPercent().toFixed(2)
             percentRef.current = percent
 
-            if(percent > 60) {
+            prevScratchToggle(index)
+
+            if(percent > 20) {
                 hasClicked(index); 
+
+                controls.start({ scale: 1.1 })
+                setTimeout(() => {
+                    controls.start({ scale: 1 })
+                }, 50)
             } else {
                 hasClicked(null);
             }
@@ -217,7 +227,11 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
         // image not loaded
         // alert(error.message);
         }); 
-             
+    }
+
+
+    useEffect(() => {
+        initSc();
     }, [])
 
     let triggerConfetti = (e) => {
@@ -266,9 +280,12 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
             onMouseMove={(e) => triggerConfetti(e)}
             onMouseDown={() => enableConfetti(true)}
             onMouseUp={() => enableConfetti(false)}
+            onMouseLeave={() => enableConfetti(false)}
             onTouchMove={(e) => triggerConfetti(e)}
             onTouchStart={() => enableConfetti(true)}
             onTouchEnd={() => enableConfetti(false)}
+            transition={{ type: "spring", stiffness: 200, damping: 10 }}
+            animate={controls}
             >
             <BackgroundImage>
                 <img src={data.imgBack} />

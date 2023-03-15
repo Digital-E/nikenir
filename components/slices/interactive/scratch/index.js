@@ -52,7 +52,8 @@ export default function Component({ item, data }) {
 
     let [hasInteracted, setHasInteracted] = useState(false)
     let [allItems, setAllItems] = useState(item.squares)
-    let [selectedIndex, setSelectedIndex] = useState(0)
+    let [selectedIndex, setSelectedIndex] = useState(0);
+    let [prevScratch, setPrevScratch] = useState(null);
 
     let hideWrapperRef = useRef();
 
@@ -112,7 +113,7 @@ export default function Component({ item, data }) {
             </Text>
             <InnerContainer className='inner-container'>
                 {
-                    item.squares.map((item, index) => <Card data={item} index={index} allItems={allItems} hasClicked={(index) => hasClicked(index)} hasInteracted={hasInteracted} dataAll={data} />)
+                    item.squares.map((item, index) => <Card data={item} index={index} allItems={allItems} hasClicked={(index) => hasClicked(index)} hasInteracted={hasInteracted} dataAll={data} prevScratch={prevScratch} prevScratchToggle={(i) => setPrevScratch(i)}/>)
                 }
             </InnerContainer>
             <TextTwo className='text-two mtb-2 palatino-x-small'>You picked</TextTwo>

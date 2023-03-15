@@ -39,6 +39,11 @@ export default function Meta({ title, content }) {
         content={content}
       />
 
+      {/* tsParticles Confetti New */}
+      <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.9.3/tsparticles.confetti.bundle.min.js" />
+      
+      {/* tsParticles */}
+      <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js" />
 
     </Head>
   )

@@ -140,17 +140,17 @@ let data = {
         },
         {
           type: 'scratch',
-          title: 'Scratch out the choice you don’t want',
+          title: 'Scratch out your choice',
           squares: [
             {
               title: 'You see a place where you fit in',
-              img: '/images/scratch/1-yellow.png',
-              imgBack: '/images/scratch/1.png'
+              img: '/images/scratch/1-yellow-shoe.png',
+              imgBack: '/images/logos/nike logo.svg'
             },
             {
               title: 'You see a life that you aspire to',
-              img: '/images/scratch/1-yellow.png',
-              imgBack: '/images/scratch/1.png'
+              img: '/images/scratch/1-yellow-shoe.png',
+              imgBack: '/images/logos/nike logo.svg'
             }
           ],
           information: [

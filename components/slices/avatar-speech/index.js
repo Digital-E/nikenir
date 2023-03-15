@@ -52,8 +52,6 @@ const Bubble = styled(motion.div)`
     }
 `
 
-const BubbleTail = styled.div``
-
 
 const BubbleInner = styled.div`
     position: relative;

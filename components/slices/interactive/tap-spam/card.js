@@ -71,9 +71,8 @@ const Background = styled.div`
 `
 
 let hasTriggered = false
-let tsParticlesInstance = null
 
-export default function Component({ data, index, allItems, hasClicked, hasInteracted, dataAll }) {
+export default function Component({ data, index, allItems, hasClicked, dataAll }) {
     let [gauge, setGauge] = useState(0);
     let gaugeRef = useRef(0);
     let gaugeTimeout = useRef(null);

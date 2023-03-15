@@ -319,68 +319,54 @@ const Component = () => {
         }
     }, [])
 
-    let initInterval = () => {
+    let initTimeout = () => {
 
-        setInterval(() => {
             let bubblesDisplayArrayCopy = bubblesDisplayArrayRef.current
 
-            bubblesDisplayArrayCopy[bubbleSwitchIndex].show = false
+            bubblesDisplayArrayCopy[bubbleSwitchIndex].show = true
 
             setBubblesDisplayArray(JSON.parse(JSON.stringify(bubblesDisplayArrayCopy)))
-
 
             setTimeout(() => {
                 let bubblesDisplayArrayCopyTwo = bubblesDisplayArrayRef.current
 
-                if(bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].index < bubbles.length - 1) {
-                    bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].index += 1;
-                    bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].src = bubbles[bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].index]
-                } 
-                else {
-                    bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].index = 0;
-                    bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].src = bubbles[0]
-                }
+                bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].show = false
 
-    
-                bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].show = true
-    
                 setBubblesDisplayArray(JSON.parse(JSON.stringify(bubblesDisplayArrayCopyTwo)))
-
-                if(bubbleSwitchIndex < bubblesDisplayArrayInit.length - 1) {
-                    bubbleSwitchIndex += 1
-                } else {
-                    bubbleSwitchIndex = 0
-                }
     
-            }, 300)
+                setTimeout(() => {
+                    
+                    if(bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].index < bubbles.length - 1) {
+                        bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].index += 1;
+                        bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].src = bubbles[bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].index]
+                    } 
+                    else {
+                        bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].index = 0;
+                        bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].src = bubbles[0]
+                    }
 
+                    setBubblesDisplayArray(JSON.parse(JSON.stringify(bubblesDisplayArrayCopyTwo)))
 
-        }, 3000)    
-            
-    }
+                    if(bubbleSwitchIndex < bubblesDisplayArrayInit.length - 1) {
+                        bubbleSwitchIndex += 1
+                    } else {
+                        bubbleSwitchIndex = 0
+                    }
 
-    let initBubble = (index) => {
-        let bubblesDisplayArrayCopy = bubblesDisplayArrayRef.current
+                    initTimeout();
 
-        bubblesDisplayArrayCopy[index].show = true
-
-        setBubblesDisplayArray(JSON.parse(JSON.stringify(bubblesDisplayArrayCopy)))
+                    }, 1000)
+    
+            }, 5000)
+   
     }
 
     useEffect(() => {
         // Bubbles Animation
-        let intervalIncrement = 0;
 
-
-        let init = setInterval(() => {
-            initBubble(intervalIncrement);
-            intervalIncrement += 1;
-
-            if(intervalIncrement > 2) {
-                clearInterval(init)
-                initInterval();
-            }
-        }, 1000)
+        setTimeout(() => {
+            initTimeout();
+        }, 5000)
 
     }, [])
 

@@ -25,19 +25,19 @@ export default class MyDocument extends Document {
     }
   }
 
-  render() {
-    return (
-      <Html>
-        <Head />
-        <body>
-          <Main />
-          <NextScript />
-          {/* tsParticles Confetti New */}
-          <Script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.9.3/tsparticles.confetti.bundle.min.js" strategy="beforeInteractive" />
-          {/* tsParticles */}
-          <Script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js" strategy="beforeInteractive" />
-        </body>
-      </Html>
-    ) 
-  }
+  // render() {
+  //   return (
+  //     <Html>
+  //       <Head />
+  //       <body>
+  //         <Main />
+  //         <NextScript />
+  //         {/* tsParticles Confetti New */}
+  //         <Script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.9.3/tsparticles.confetti.bundle.min.js" strategy="beforeInteractive" />
+  //         {/* tsParticles */}
+  //         <Script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js" strategy="beforeInteractive" />
+  //       </body>
+  //     </Html>
+  //   ) 
+  // }
 }
