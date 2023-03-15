@@ -5,10 +5,9 @@ import { gsap } from 'gsap'
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin"
 gsap.registerPlugin(ScrollToPlugin)
 
-import AvatarSpeech from './avatar-speech'
+import AvatarSpeech from './avatar-speech/index'
 
 import Button from '../button'
-
 
 
 const Container = styled.div`

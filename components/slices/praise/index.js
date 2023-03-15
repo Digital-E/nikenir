@@ -6,7 +6,7 @@ import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import Ticker from './ticker'
-import AvatarSpeech from '../avatar-speech'
+import AvatarSpeech from '../avatar-speech/index'
 
 import Reward from '../complete/reward'
 
@@ -17,14 +17,8 @@ const Container = styled.div`
     height: 100%;
     // overflow: hidden;
 
-    .ml2 {
-        font-weight: 900;
-        font-size: 3.5em;
-    }
-
     .ml2 .letter {
         display: inline-block;
-        line-height: 1em;
     } 
 `
 
@@ -59,7 +53,12 @@ const AvatarSpeechWrapper = styled(motion.div)`
     @media(min-width: 990px) {
         height: fit-content;
         width: fit-content;
-        margin-left: -10vw;
+        position: relative;
+        left: -10vw;
+
+        > div {
+            width: calc(100% + 10vw);
+        }
 
         > div:nth-child(1) > div:nth-child(3) {
             width: calc(100% - 10vw);
@@ -94,6 +93,7 @@ const StickyWrapper = styled.div`
     @media(min-width: 990px) {
         margin: -200px auto 0 auto;
         display: flex;
+        align-items: flex-end;
         width: 100%;
         max-width: 890px;
     }

@@ -21,6 +21,7 @@ const Container = styled(motion.div)`
     margin: 0 calc(var(--margin) / 2);
     border-radius: 27px;
     overflow: hidden;
+    z-index: 0;
 
     canvas {
         position: absolute;

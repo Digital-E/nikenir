@@ -8,6 +8,7 @@ const Container = styled(motion.div)`
     width: calc(50% - calc(var(--margin) * 2 - 8px));
     padding-bottom: calc(50% - calc(var(--margin) * 2 - 8px));
     margin: 0 calc(var(--margin) / 2);
+    z-index: 0;
 `
 
 

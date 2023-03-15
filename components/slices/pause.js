@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import AvatarSpeech from './avatar-speech'
+import AvatarSpeech from './avatar-speech/index'
 
 const Container = styled.div`
     position: relative;
