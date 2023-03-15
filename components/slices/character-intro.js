@@ -20,6 +20,7 @@ const Container = styled.div`
     width: 80%;
     margin: 0 auto;
     margin-top: 130px;
+    min-height: calc(100vh - 130px);
 
     &.hide-intro {
         display: none !important;

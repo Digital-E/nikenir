@@ -15,7 +15,8 @@ const Container = styled.div`
     z-index: -1;
 
     #canvas {
-        filter: blur(100px)
+        filter: blur(100px);
+        transform: translate3d(0, 0, 0);
     }
 
     svg {
