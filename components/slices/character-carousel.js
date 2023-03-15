@@ -6,6 +6,16 @@ import { motion } from 'framer-motion'
 
 import ButtonLink from '../button-link'
 import Link from '../link'
+import Image from '../image'
+
+// Images
+import characterOne from '../../public/images/avatars/carousel/ines.png'
+import characterTwo from '../../public/images/avatars/carousel/ivy.png'
+import characterThree from '../../public/images/avatars/carousel/theo.png'
+
+import gradientOne from '../../public/images/carousel-gradients/gradient1.png'
+import gradientTwo from '../../public/images/carousel-gradients/gradient2.png'
+import gradientThree from '../../public/images/carousel-gradients/gradient3.png'
 
 let Flickity = null;
 
@@ -52,7 +62,7 @@ const Card = styled(motion.div)`
     padding: 30px 0;
     border-radius: 27px;
     // background: ${props => props.data.background};
-    background: url(${props => props.data.backgroundSrc});
+    // background: url(${props => props.data.backgroundSrc});
 
     background-size: cover;
     background-repeat: no-repeat;
@@ -68,6 +78,7 @@ const Card = styled(motion.div)`
         flex-direction: column;
         justify-content: space-between;
         align-items: space-between;
+        width: 100%;
     }
 
     transition: filter 0.7s;
@@ -122,6 +133,17 @@ const Card = styled(motion.div)`
     }
 `
 
+const Background = styled.div`
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+`
+
+
 const Title = styled.div`
     position: absolute;
     left: 15px;
@@ -143,7 +165,7 @@ const Title = styled.div`
     }
 `
 
-const Image = styled.div`
+const ImageWrapper = styled.div`
     display: flex;
     flex-basis: 100%;
     overflow: hidden;
@@ -151,8 +173,9 @@ const Image = styled.div`
     justify-content: center;
 
     img {
-        height: ${props => props.data.height}%;
-        object-fit: cover;
+        height: ${props => props.data.height}%  !important;
+        // object-fit: cover;
+        width: auto;
     }
 
     @media(max-width: 989px) {
@@ -229,10 +252,10 @@ let data = [
         name: 'Ines',
         textOne: 'People Promoter',
         textTwo: 'Community hero inspiring togetherness',
-        img: '/images/avatars/carousel/ines.png',
+        img: characterOne,
         link: '/people-promoter',
         background: 'radial-gradient(101.96% 52.55% at 8.6% 50%, rgba(254, 194, 37, 0.9) 0%, rgba(255, 255, 255, 1) 76.07%)',
-        backgroundSrc: '/images/carousel-gradients/gradient1.png',
+        backgroundSrc: gradientOne,
         width: 60,
         left: 30,
         top: -30,
@@ -242,10 +265,10 @@ let data = [
         name: 'Ivy',
         textOne: 'Climate Champion',
         textTwo: 'Planet protector empowering citizens of the world',
-        img: '/images/avatars/carousel/ivy.png',
+        img: characterTwo,
         link: '/climate-champion',
         background: 'radial-gradient(101.96% 52.55% at 8.6% 50%, rgba(195, 188, 236, 0.9) 0%, rgba(255, 255, 255, 1) 76.07%)',
-        backgroundSrc: '/images/carousel-gradients/gradient2.png',
+        backgroundSrc: gradientTwo,
         width: 80,
         left: 15,
         top: -30,
@@ -255,10 +278,10 @@ let data = [
         name: 'Theo',
         textOne: 'Active Activist',
         textTwo: 'Trusted coach who really listens',
-        img: '/images/avatars/carousel/theo.png',
+        img: characterThree,
         link: '/active-activist',
         background: 'radial-gradient(239.95% 126.46% at 33.97% 17.02%, rgba(2, 131, 254, 0.7) 0%, rgba(255, 255, 255, 1) 76.07%)',
-        backgroundSrc: '/images/carousel-gradients/gradient3.png',
+        backgroundSrc: gradientThree,
         width: 45,
         left: 40,
         top: -30,
@@ -347,11 +370,14 @@ export default function Component() {
                                 data={item}
                             >
                                 <Link href={item.link}>
+                                    <Background>
+                                        <Image src={item.backgroundSrc} priority={true} />
+                                    </Background>
                                     <Title>
                                         <h2>Play <br/> With:</h2>
                                         <h2>{item.name}</h2>
                                     </Title>
-                                    <Image data={item}><img src={item.img} /></Image>
+                                    <ImageWrapper data={item}><Image src={item.img} priority={true} /></ImageWrapper>
                                     <Information>
                                         <p className='palatino-small'>{item.textOne}</p>
                                         <p className='body-large'>{item.textTwo}</p>

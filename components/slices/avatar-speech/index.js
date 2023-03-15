@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { motion, useInView } from 'framer-motion'
+import Image from '../../image'
 
 import Typewriter from './typewriter'
 
@@ -15,7 +16,7 @@ const Container = styled.div`
     }
 `
 
-const Image = styled.div`
+const ImageWrapper = styled.div`
     img {
         width: 30vw;
         transform: rotateY(180deg);
@@ -122,7 +123,7 @@ export default function Component({ data, text, disableInView, activate, toggleF
 
     return (
         <Container ref={containerRef}>
-            <Image><img src={data.avatar} /></Image>
+            <ImageWrapper><Image src={data.avatar} priority={true} /></ImageWrapper>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 30">
                 <clipPath id="clipPath">
                     {/* <path d="M37.73.33a27,27,0,0,0-21.8,11.12L3.62,28.38A2,2,0,0,1,0,27.2V0"/> */}

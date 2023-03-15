@@ -8,7 +8,8 @@ import Footer from '../components/footer'
 import Layout from '../components/layout'
 import Slices from '../components/slices'
 
-
+// Images
+import avatarImage from '../public/images/avatars/character-intro/ivy.png'
 
 const Container = styled.div``
 
@@ -16,7 +17,7 @@ let data = {
     title: 'Climate Champion',
     name: 'Ivy',
     role: 'Climate Champion',
-    avatar: '/images/avatars/character-intro/ivy.png',
+    avatar: avatarImage,
     avatarMiniature: '/images/avatars/miniature/ivy.png',
     colourOne: '#C2BCEB',
     colourTwo: '#F05822',

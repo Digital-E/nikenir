@@ -8,13 +8,16 @@ import Footer from '../components/footer'
 import Layout from '../components/layout'
 import Slices from '../components/slices'
 
+// Images
+import avatarImage from '../public/images/avatars/character-intro/ines.png'
+
 const Container = styled.div``
 
 let data = {
     title: 'People Promoter',
     name: 'Ines',
     role: 'People Promoter',
-    avatar: '/images/avatars/People_02 1.png',
+    avatar: avatarImage,
     avatarMiniature: '/images/avatars/miniature/ines.png',
     colourOne: '#FFB800',
     colourTwo: '#F05822',
