@@ -42,6 +42,10 @@ main {
   opacity: 0;
 }
 
+img {
+  transition: 1s;
+}
+
 
 :root {
   --transition-in: 0.3s;
