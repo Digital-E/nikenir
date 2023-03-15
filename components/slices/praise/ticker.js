@@ -43,7 +43,7 @@ const Container = styled.div`
 
     @media(min-width: 990px) {
         &.ticker-wrap {
-            top: 280px;
+            top: 15vw;
             transform: rotateZ(5deg);
         }
     }

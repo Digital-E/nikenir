@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 
 import Praise from '../praise'
@@ -43,16 +44,23 @@ const RowTwo = styled.div`
 
 
 export default function Component({ data }) {
+    let [unlocked, setUnlocked] = useState(false);
 
     return (
         <Container>
             <RowOne>
-                <Praise data={data} />
+                <Praise data={data} unlock={() => setUnlocked(true)} />
             </RowOne>
-            <RowTwo>
-                <More data={data} />
-                <Next data={data} />
-            </RowTwo>
+            {
+                unlocked ?
+                <RowTwo>
+                    <More data={data} />
+                    <Next data={data} />
+                </RowTwo>
+                :
+                null
+                
+            }
         </Container>
     )
 }

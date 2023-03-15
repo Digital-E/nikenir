@@ -8,8 +8,6 @@ import Footer from '../components/footer'
 import Layout from '../components/layout'
 import Slices from '../components/slices'
 
-
-
 const Container = styled.div``
 
 let data = {

@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 import Bubble from './bubble'
 
+import Image from '../image'
+
 const Container = styled.div`
     position: absolute;
     top: ${props => props.data.desktop.y}%;
@@ -23,7 +25,7 @@ const Component = ({ data, index, bubbles, bubblesDisplayArray }) => {
 
     return (          
         <Container data={data}>         
-            <img src={data.src} />
+            <Image src={data.src} priority={true} />
             <Bubble data={data} index={index} bubbles={bubbles} bubblesDisplayArray={bubblesDisplayArray} />
         </Container>
     )

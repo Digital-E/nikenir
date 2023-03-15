@@ -138,7 +138,7 @@ const Replay = styled.div`
 
 
 
-export default function Component({ data, start }) {
+export default function Component({ data, start, toggleFinishedFunc }) {
 
     let [triggerInit, setTriggerInit] = useState(false);
     let containerRef = useRef();
@@ -207,8 +207,10 @@ export default function Component({ data, start }) {
         } else {
             cursorRef.current?.classList.remove("typing")
 
-            if(sentenceIndex === data.length - 1 ) return
-
+            if(sentenceIndex === data.length - 1 ) {
+                clearInterval(interval)
+                return toggleFinishedFunc()
+            }
 
             newSentenceTimeout = setTimeout(() => {
                 cursorRef.current.classList.add('hide');

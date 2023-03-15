@@ -80,7 +80,8 @@ let bubbleVariants = {
         opacity: 1,
         y: 0,
         transition: {
-            duration: 0.3
+            duration: 0.3,
+            delay: 0.1
         }
     },
     'hide': {
@@ -90,18 +91,34 @@ let bubbleVariants = {
 }
 
 
-export default function Component({ data, text }) {
+export default function Component({ data, text, disableInView, activate, toggleFinished }) {
     let containerRef = useRef()
     let isInView = useInView(containerRef)
     let [startType, setStartType] = useState(false)
 
     useEffect(() => {
+        if(disableInView) return
+
         if(isInView) {
             setTimeout(() => {
                 setStartType(true)
             }, 500)
         }
     }, [isInView])
+
+    useEffect(() => {
+        if(activate) {
+            setTimeout(() => {
+                setStartType(true)
+            }, 500)
+        }
+    }, [activate])
+
+    let toggleFinishedFunc = () => {
+        if(activate) {
+            toggleFinished()
+        }
+    }
 
     return (
         <Container ref={containerRef}>
@@ -117,7 +134,7 @@ export default function Component({ data, text }) {
             </svg>
             <Bubble variants={bubbleVariants} initial='hide' animate={startType ? 'show' : 'hide'}>
                 <BubbleInner>
-                    <Typewriter data={text} start={startType} />
+                    <Typewriter data={text} start={startType} toggleFinishedFunc={() => toggleFinishedFunc()}/>
                 </BubbleInner>
                 <Tail />
             </Bubble>

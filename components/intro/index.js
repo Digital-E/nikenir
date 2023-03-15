@@ -11,6 +11,10 @@ import ButtonLink from '../button-link'
 
 import Character from './character'
 
+import characterOne from '../../public/images/intro-characters/1.png'
+import characterTwo from '../../public/images/intro-characters/2.png'
+import characterThree from '../../public/images/intro-characters/3.png'
+
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 const Container = styled.div`
@@ -209,7 +213,7 @@ let characters = [
             y: 50,
             width: 100,
         },
-        src: '/images/intro-characters/1.png'
+        src: characterOne
     },
     {
         desktop: {
@@ -222,7 +226,7 @@ let characters = [
             y: -70,
             width: 150,
         },
-        src: '/images/intro-characters/2.png'
+        src: characterTwo
     },
     {
         desktop: {
@@ -235,7 +239,7 @@ let characters = [
             y: 80,
             width: 250
         },
-        src: '/images/intro-characters/3.png'
+        src: characterThree
     }
 ]
 

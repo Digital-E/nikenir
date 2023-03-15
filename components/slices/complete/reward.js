@@ -76,9 +76,10 @@ export default function Component({ data }) {
 
     return (
         <Container 
-            initial='hide'
-            variants={variants}
-            animate={isInView ? 'show' : 'hide'}
+            // initial='hide'
+            // initial='hide'
+            // variants={variants}
+            // animate={isInView ? 'show' : 'hide'}
             ref={containerRef} 
             className='container-background max-width center'
         >
