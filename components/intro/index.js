@@ -314,12 +314,19 @@ const Component = () => {
 
     let bubblesDisplayArrayRef = useRef(bubblesDisplayArrayInit)
 
+    let resize = () => {
+        setScreenHeight(window.innerHeight)
+    }
+
     useEffect(() => {
         document.querySelector('body').classList.add('lock-scroll')
         setScreenHeight(window.innerHeight)
 
+        window.addEventListener('resize', resize)
+
         return () => {
             document.querySelector('body').classList.remove('lock-scroll')
+            window.removeEventListener('resize', resize)
         }
     }, [])
 

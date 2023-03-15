@@ -115,9 +115,7 @@ export default function Component({ data, text, disableInView, activate, toggleF
 
     useEffect(() => {
         if(activate) {
-            setTimeout(() => {
-                setStartType(true)
-            }, 500)
+            setStartType(true)
         }
     }, [activate])
 

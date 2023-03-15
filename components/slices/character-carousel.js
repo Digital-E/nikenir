@@ -153,6 +153,10 @@ const Title = styled.div`
         color: gray;
     }
 
+    h2 {
+        margin: 0;
+    }
+
     @media(min-width: 990px) {
         // left: 30px;
         // top: 25px;
@@ -192,23 +196,26 @@ const Information = styled.div`
     padding: 0px var(--margin);
 
     p:first-child {
-        font-size: 38px;
+        font-size: 32px;
     }
 
     p:last-child {
         width: 90%;
+        font-size: 16px;
     }
 
     @media(min-width: 990px) {
         padding: 0 2.082vw;
 
         p:first-child {
-            font-size: 2.6372vw;
+            // font-size: 2.6372vw;
+            font-size: 2.5vw;
         }
 
         p:last-child {
-            font-size: 1.388vw;
-            width: 75%;
+            // font-size: 1.388vw;
+            font-size: 1.1vw;
+            width: 60%;
         }
     }
 `

@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 import { gsap } from 'gsap'
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin"
@@ -52,7 +53,7 @@ const Title = styled.h1`
     }
 `
 
-const ButtonWrapper = styled.div`
+const ButtonWrapper = styled(motion.div)`
     position: absolute;
     display: flex;
     justify-content: center;
@@ -67,9 +68,26 @@ let disableScroll = (e) => {
     e.preventDefault()
 }
 
+let variants = {
+    'show': {
+        opacity: 1,
+        y: 0,
+    },
+    'hide': {
+        opacity: 0,
+        y: '100%'
+    }
+}
+
 export default function Component({ item, data }) {
     let containerRef = useRef();
+    let [showSpeech, setShowSpeech] = useState(false);
+    let [showButton, setShowButton] = useState(false);
     let [screenHeight, setScreenHeight] = useState(0);
+
+    let resize = () => {
+        setScreenHeight(window.innerHeight)
+    }
 
     useEffect(() => {
         // window.scrollTo(0, 0)
@@ -80,9 +98,20 @@ export default function Component({ item, data }) {
 
         setScreenHeight(window.innerHeight)
 
+        window.addEventListener('resize', resize)
+
+        setTimeout(() => {
+            setShowSpeech(true)
+
+            setTimeout(() => {
+                setShowButton(true)
+            }, 1000)
+        }, 2000)
+
         return () => {
             document.removeEventListener('wheel', disableScroll, {passive: false})
             document.removeEventListener('touchmove', disableScroll, { passive:false });
+            window.removeEventListener('resize', resize)
         }
     }, [])
 
@@ -101,9 +130,14 @@ export default function Component({ item, data }) {
         <Container ref={containerRef} height={screenHeight}>
             <Title>{data.intro.title}</Title>
             <AvatarWrapper>
-                <AvatarSpeech data={data} text={data.intro.text} />
+                <AvatarSpeech data={data} text={data.intro.text} disableInView={true} activate={showSpeech} toggleFinished={() => {}}/>
             </AvatarWrapper>
-            <ButtonWrapper onClick={() => scrollDown()}>
+            <ButtonWrapper 
+                onClick={() => scrollDown()} 
+                variants={variants}
+                transition={{ type: "spring", stiffness: 200, damping: 10 }}
+                animate={showButton ? 'show' : 'hide'}
+                >
                 <Button>Let's play!</Button>
             </ButtonWrapper>
         </Container>

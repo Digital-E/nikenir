@@ -92,6 +92,8 @@ export default function Component({ item, data }) {
     useEffect(() => {
       setAllItems(item.squares)
       controls.start({ x: '-50%', y: '-50%'})
+
+      gsap.fromTo(dragElementRef.current.children[0],{scale: 1}, { scale: 1.05 , duration: 0.5, yoyo: true, ease: "power1.inOut", repeat: -1});
     }, [])
 
     useEffect(() => {

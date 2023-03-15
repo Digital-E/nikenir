@@ -226,7 +226,7 @@ export default function Component({ data, index, allItems, hasClicked, dataAll }
                 life: {
                 duration: {
                     sync: true,
-                    value: 1
+                    value: 3
                 },
                 count: 1
                 },

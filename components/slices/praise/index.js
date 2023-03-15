@@ -215,9 +215,6 @@ export default function Component({ data, unlock }) {
         setTimeout(() => {
             setArrowReveal(true)
             unlock()
-            setTimeout(() => {
-                scrollDown()
-            }, 10)
         }, 1000)
     }
 
@@ -231,9 +228,9 @@ export default function Component({ data, unlock }) {
                 <Text><span className='large-headline ml2'>{data.complete.praise.title}</span></Text>
                 <StickyWrapper>
                     <AvatarSpeechWrapper 
-                        initial='hide'
-                        variants={variants}
-                        animate={avatarReveal ? 'show' : 'hide'}
+                        // initial='hide'
+                        // variants={variants}
+                        // animate={avatarReveal ? 'show' : 'hide'}
                         ref={avatarSpeechWrapperRef}>
                         <AvatarSpeech data={data} text={data.complete.praise.text} disableInView={true} activate={avatarReveal} toggleFinished={() => toggleFinished()}/>
                     </AvatarSpeechWrapper>

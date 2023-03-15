@@ -213,7 +213,7 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
 
             prevScratchToggle(index)
 
-            if(percent > 20) {
+            if(percent > 50) {
                 hasClicked(index); 
 
                 controls.start({ scale: 1.1 })

@@ -55,13 +55,14 @@ const Text = styled.div`
   > span:nth-child(2) {
     position: absolute;
     left: 50%;
-    calc(50% + 3px);
+    top: calc(50% + 3px);
     transform: translate(-50%, -50%);
-    filter: blur(10px);
+    opacity: 0;
+    // filter: blur(10px);
   }
 
   > span {
-    transition: filter 1s, opacity 1s;
+    transition: filter 1s, opacity 0.5s;
     white-space: nowrap;
   }
 `
@@ -175,17 +176,21 @@ export default function Header({}) {
       setMessageTwo(state.message)
     
       changeFontClass(headerTextRef.current.children[1], state.message)
-      headerTextRef.current.children[0].style.filter = 'blur(10px)'
+      // headerTextRef.current.children[0].style.filter = 'blur(10px)'
       headerTextRef.current.children[0].style.opacity = 0
-      headerTextRef.current.children[1].style.filter = 'blur(0px)'
-      headerTextRef.current.children[1].style.opacity = 1
+      // headerTextRef.current.children[1].style.filter = 'blur(0px)'
+      setTimeout(() => {
+        headerTextRef.current.children[1].style.opacity = 1
+      }, 300)
     } else {
       setMessageOne(state.message)
 
       changeFontClass(headerTextRef.current.children[0], state.message)
-      headerTextRef.current.children[0].style.filter = 'blur(0px)'
-      headerTextRef.current.children[0].style.opacity = 1
-      headerTextRef.current.children[1].style.filter = 'blur(10px)'
+      // headerTextRef.current.children[0].style.filter = 'blur(0px)'
+      setTimeout(() => {
+        headerTextRef.current.children[0].style.opacity = 1
+      }, 300)
+      // headerTextRef.current.children[1].style.filter = 'blur(10px)'
       headerTextRef.current.children[1].style.opacity = 0
     }
 

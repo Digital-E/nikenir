@@ -1,8 +1,6 @@
 
 import styled from 'styled-components'
-
 import TextCarousel from './text-carousel'
-
 
 const Container = styled.div`
     display: flex;
@@ -75,7 +73,10 @@ const TextCarouselWrapper = styled.div`
 export default function Component({ item, data, selectedIndex }) {
 
     return (
-        <Container className='max-width container-background' colourOne={data.colourOne}>
+        <Container 
+        className='max-width container-background' 
+        colourOne={data.colourOne}
+        >
         <RowOne>
             <ColOne>
                 <Avatar>
