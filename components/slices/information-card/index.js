@@ -25,10 +25,20 @@ const RowTwo = styled.div`
 const ColOne = styled.div``
 
 const Avatar = styled.div`
+    position: relative;
     width: 70px;
+    height: 70px;
+    margin-top: -5px;
 
     img {
-        width: 100%;
+        width: 140%;
+        max-width: auto;
+        object-fit: cover;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: none;
     }
 `
 
