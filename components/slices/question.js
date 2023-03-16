@@ -44,7 +44,8 @@ let variants = {
 export default function Component({ item, data }) {
     let cardRef = useRef()
     let isInView = useInView(cardRef, {
-        margin: "0px 0px -200px 0px"
+        margin: "0px 0px -200px 0px",
+        once: true
     })
 
 

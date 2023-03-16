@@ -11,7 +11,7 @@ const Container = styled.div`
     // overflow: hidden;
 
     @media(max-width: 989px) {
-        margin: 180px 0 0 0;
+        margin: 120px 0 0 0;
     }
 `
 
@@ -41,6 +41,13 @@ const RowTwo = styled.div`
     }
 `
 
+const RewardWrapperMobile = styled.div`
+    margin-top: 80px;
+    @media(min-width: 990px) {
+        display: none;
+    }
+`
+
 
 
 export default function Component({ data }) {
@@ -54,6 +61,9 @@ export default function Component({ data }) {
             {
                 unlocked ?
                 <RowTwo>
+                    <RewardWrapperMobile>
+                        <Reward data={data} />
+                    </RewardWrapperMobile>
                     <More data={data} />
                     <Next data={data} />
                 </RowTwo>

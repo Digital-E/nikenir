@@ -12,7 +12,6 @@ const Container = styled.div`
     z-index: 1;
 
     > svg {
-        // height: 0;
         position: absolute;
     }
 `
@@ -22,13 +21,13 @@ const ImageWrapper = styled.div`
     z-index: 999;
 
     img {
-        width: 30vw;
+        width: 32.5vw;
         transform: rotateY(180deg);
     }
 
     @media(max-width: 989px) {
-        width: 70%;
-        margin-left: -20%;
+        width: 100%;
+        margin-left: -30%;
         
         img {
             width: 100%;
@@ -39,21 +38,21 @@ const ImageWrapper = styled.div`
 const Bubble = styled(motion.div)`
     position: absolute;
     height: fit-content;
-    left: 30%;
-    bottom: 95%;
+    left: 37%;
+    bottom: 90%;
     margin-right: 15px;
     
 
     @media(min-width: 990px) {
         width: 80%;
         left: auto;
-        bottom: 90%;
-        right: -55%;
+        bottom: 87%;
+        right: -46%;
         margin-right: auto;
     }
 
     @media(max-width: 989px) {
-        min-width: calc(70% - 15px);
+        min-width: calc(53% - 15px);
     }
 `
 

@@ -19,7 +19,8 @@ const Container = styled(motion.button)`
 
     @media(max-width: 989px) {
         padding: 10px 30px;
-        max-width: none;
+        max-width: 315px;
+        margin: 0 auto;
     }
 `;
 

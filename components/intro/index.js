@@ -399,7 +399,7 @@ const Component = () => {
     }
 
     useEffect(() => {
-        gsap.fromTo(arrowRef.current,{y: 0}, { y: -5 , duration: 0.5, yoyo: true, ease: "power2.inOut", repeat: -1});
+        gsap.fromTo(arrowRef.current,{x: '-50%', y: 0}, {x: '-50%', y: -5 , duration: 0.5, yoyo: true, ease: "power2.inOut", repeat: -1});
 
         slideOneRef.current.addEventListener("click", () => {
             triggerSlide("down");

@@ -8,7 +8,8 @@ import Footer from '../components/footer'
 import Layout from '../components/layout'
 import Slices from '../components/slices'
 
-
+// Images
+import avatarImage from '../public/images/avatars/character-intro/theo.png'
 
 const Container = styled.div``
 
@@ -16,7 +17,7 @@ let data = {
     title: 'Active Activist',
     name: 'Theo',
     role: 'Active Activist',
-    avatar: '/images/avatars/character-intro/theo.png',
+    avatar: avatarImage,
     avatarMiniature: '/images/avatars/miniature/theo.png',
     colourOne: '#A2D8EF',
     colourTwo: '#F05822',

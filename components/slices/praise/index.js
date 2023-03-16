@@ -73,6 +73,7 @@ const RewardWrapper = styled(motion.div)`
     @media(max-width: 989px) {
         padding-top: 0;
         margin: calc(var(--margin) * 4) var(--margin) 0 var(--margin);
+        display: none;
     }
 
     @media(min-width: 990px) {
@@ -200,7 +201,7 @@ export default function Component({ data, unlock }) {
         initTextEffect();
 
         // Arrow Animation
-        gsap.fromTo(arrowRef.current,{y: 0}, { y: -5 , duration: 0.5, yoyo: true, ease: "power2.inOut", repeat: -1});
+        gsap.fromTo(arrowRef.current,{x: '-50%', y: 0}, {x: '-50%', y: -5 , duration: 0.5, yoyo: true, ease: "power2.inOut", repeat: -1});
     }, [])
 
     useEffect(() => {
