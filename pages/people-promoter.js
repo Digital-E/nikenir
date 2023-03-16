@@ -22,6 +22,7 @@ let data = {
     colourOne: '#FFB800',
     colourTwo: '#F05822',
     colourThree: '#F6693D',
+    tickerColourOne: 'rgba(255, 184, 0, 0.5)',
     questionCount: 4,
     intro: {
         title: 'A CREATIVE AND HAPPY SOCIETY IS ONE THAT IS DIVERSE AND INCLUSIVE.',
@@ -38,12 +39,15 @@ let data = {
         },
         {
             type: 'like',
+            title: 'Answer with a like',
             squares: [
               {
-                title: 'Walk it out'
+                title: 'Walk it out',
+                img: '/images/people-promoter/objects/People_Q1.png'
               },
               {
-                title: 'Talk it out'
+                title: 'Talk it out',
+                img: '/images/people-promoter/objects/People_Q1_02.png'
               }
             ],
             information: [
@@ -72,12 +76,13 @@ let data = {
         {
             type: 'drag',
             title: 'Drag the roller-skate into the box',
+            img: '/images/people-promoter/objects/People_Q2.png',
             squares: [
               {
-                title: 'FIND STRENGTH IN TOGETHERNESS'
+                title: 'FIND STRENGTH IN TOGETHERNESS',
               },
               {
-                title: 'FIND BALANCE IN OUR DIFFERENCES'
+                title: 'FIND BALANCE IN OUR DIFFERENCES',
               }
             ],
             information: [
@@ -109,11 +114,11 @@ let data = {
             squares: [
               {
                 title: 'Be part of something bigger',
-                img: '/images/tap-spam/Bag_01.png'
+                img: '/images/people-promoter/objects/People_Q3.png'
               },
               {
                 title: 'Maximise your potential',
-                img: '/images/tap-spam/Bottle_01 2.png'
+                img: '/images/people-promoter/objects/People_Q3_02.png'
               }
             ],
             information: [
@@ -145,12 +150,12 @@ let data = {
           squares: [
             {
               title: 'You see a place where you fit in',
-              img: '/images/scratch/1-yellow-shoe.png',
+              img: '/images/people-promoter/objects/People_Q4_background.png',
               imgBack: '/images/logos/nike logo.svg'
             },
             {
               title: 'You see a life that you aspire to',
-              img: '/images/scratch/1-yellow-shoe.png',
+              img: '/images/people-promoter/objects/People_Q4_background.png',
               imgBack: '/images/logos/nike logo.svg'
             }
           ],

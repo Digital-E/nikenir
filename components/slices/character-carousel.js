@@ -128,8 +128,37 @@ const Card = styled(motion.div)`
         }
     }
 
-    @media(max-height: 667px) {
+    @media(max-height: 667px) and (max-width: 576px) {
         height: calc(85vw * 1.3);
+    }
+
+
+    @media(min-width: 989px) {
+        :nth-child(1) > a > div:nth-child(4) > p:nth-child(2) {
+            width: 60%;
+        }
+
+        :nth-child(2) > a > div:nth-child(4) > p:nth-child(2) {
+            width: 90%;
+        }
+
+        :nth-child(3) > a > div:nth-child(4) > p:nth-child(2) {
+            width: 60%;
+        }
+    }
+
+    @media(max-width: 989px) {
+        :nth-child(1) > a > div:nth-child(4) > p:nth-child(2) {
+            width: 50%;
+        }
+
+        :nth-child(2) > a > div:nth-child(4) > p:nth-child(2) {
+            width: 70%;
+        }
+
+        :nth-child(3) > a > div:nth-child(4) > p:nth-child(2) {
+            width: 45%;
+        }
     }
 `
 
@@ -178,8 +207,7 @@ const ImageWrapper = styled.div`
 
     img {
         height: ${props => props.data.height}%  !important;
-        // object-fit: cover;
-        width: auto;
+        width: fit-content;
     }
 
     @media(max-width: 989px) {
@@ -200,7 +228,6 @@ const Information = styled.div`
     }
 
     p:last-child {
-        width: 90%;
         font-size: 16px;
     }
 
@@ -215,7 +242,6 @@ const Information = styled.div`
         p:last-child {
             // font-size: 1.388vw;
             font-size: 1.1vw;
-            width: 60%;
         }
     }
 `
@@ -374,6 +400,7 @@ export default function Component() {
                                 // onMouseEnter={() => setHoveredIndex(index)}
                                 // onMouseLeave={() => setHoveredIndex(null)}
                                 whileHover={isDesktop ? {scale: 1.05} : {}}
+                                transition={{ duration: 0.4 }}
                                 data={item}
                             >
                                 <Link href={item.link}>

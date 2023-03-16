@@ -13,6 +13,12 @@ const Container = styled.div`
     button {
         box-shadow: none;
     }
+
+    @media(max-width: 989px) {
+        button {
+            max-width: none;
+        }
+    }
 `;
 
 const Title = styled.h2`

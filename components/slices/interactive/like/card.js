@@ -43,7 +43,7 @@ const Container = styled(motion.div)`
     &.liked ${Image} {
         img:nth-child(2) {
             opacity: 1;
-            transform: scale(1.5);
+            transform: scale(1.3);
         }
     }
 `
@@ -86,7 +86,7 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
             <Title>{data.title}</Title>
             <Image>
                 <img src='/images/like/heart.svg' />
-                <img src='/images/like/heart.png' />
+                <img src='/images/like/heart-fill.svg' />
             </Image>
         </Container>
     )

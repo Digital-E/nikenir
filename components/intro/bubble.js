@@ -41,7 +41,7 @@ let MainBubble = styled(motion.div)`
     height: 75px;
 
     img {
-        width: 80%;
+        width: 90%;
     }
 
 

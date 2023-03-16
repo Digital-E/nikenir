@@ -244,9 +244,22 @@ let characters = [
 ]
 
 let bubbles = [
-    '/images/bubbles/1.png',
-    '/images/bubbles/2.png',
-    '/images/bubbles/3.png'
+    '/images/people-promoter/objects/People_Q1_02.png',
+    '/images/people-promoter/objects/People_Q1.png',
+    '/images/people-promoter/objects/People_Q2.png',
+    '/images/people-promoter/objects/People_Q3_02.png',
+    '/images/people-promoter/objects/People_Q3.png',
+    '/images/people-promoter/objects/People_Q4.png',
+    '/images/active-activist/objects/Play_Q1.png',
+    '/images/active-activist/objects/Play_Q2_02.png',
+    '/images/active-activist/objects/Play_Q2.png',
+    '/images/active-activist/objects/Play_Q3.png',
+    '/images/active-activist/objects/Play_Q4.png',
+    '/images/climate-champion/objects/Planet_Q1.png',
+    '/images/climate-champion/objects/Planet_Q2_02.png',
+    '/images/climate-champion/objects/Planet_Q2.png',
+    '/images/climate-champion/objects/Planet_Q4_02.png',
+    '/images/climate-champion/objects/Planet_Q4.png',
 ]
 
 let bubblesDisplayArrayInit =  [
@@ -298,6 +311,7 @@ let bubblesDisplayArrayInit =  [
 ]
 
 let bubbleSwitchIndex = 0;
+let objectIndex = 0;
 
 
 const Component = () => {
@@ -346,14 +360,24 @@ const Component = () => {
                 setBubblesDisplayArray(JSON.parse(JSON.stringify(bubblesDisplayArrayCopyTwo)))
     
                 setTimeout(() => {
+
+                    console.log(objectIndex)
+
+                    if(objectIndex === bubbles.length - 1) {
+                        objectIndex = 0
+                    }
                     
                     if(bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].index < bubbles.length - 1) {
                         bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].index += 1;
-                        bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].src = bubbles[bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].index]
+                        // bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].src = bubbles[bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].index]
+                        bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].src = bubbles[objectIndex]
+                        objectIndex += 1
                     } 
                     else {
                         bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].index = 0;
-                        bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].src = bubbles[0]
+                        // bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].src = bubbles[0]
+                        bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].src = bubbles[objectIndex]
+                        objectIndex += 1
                     }
 
                     setBubblesDisplayArray(JSON.parse(JSON.stringify(bubblesDisplayArrayCopyTwo)))

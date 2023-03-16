@@ -22,6 +22,7 @@ let data = {
     colourOne: '#C2BCEB',
     colourTwo: '#F05822',
     colourThree: '#C2BCEB',
+    tickerColourOne: 'rgba(194, 188, 235, 0.5)',
     questionCount: 4,
     intro: {
         title: 'TO PROTECT THE PLANET AND THOSE WHO WILL INHERIT IT IS A PROMISE WE CAN MAKE TOGETHER.',
@@ -39,6 +40,7 @@ let data = {
         {
             type: 'drag',
             title: 'Drag the shoe into the answer box',
+            img: '/images/climate-champion/objects/Planet_Q1.png',
             squares: [
               {
                 title: 'Reduce your footprint'
@@ -75,11 +77,11 @@ let data = {
             squares: [
               {
                 title: 'Recycle your gear',
-                img: '/images/tap-spam/ivy/vest.png'
+                img: '/images/climate-champion/objects/Planet_Q2.png'
               },
               {
                 title: 'Regift your gear',
-                img: '/images/tap-spam/ivy/donut.png'
+                img: '/images/climate-champion/objects/Planet_Q2_02.png'
               }
             ],
             information: [
@@ -106,16 +108,16 @@ let data = {
             text: 'You wake up early on Saturday for soccer practice. You open the curtains, and the sky has never looked so blue. You see at the car in the driveway and decide to make a change.'
         },  
         {
-            type: 'tap spam',
-            title: 'Tap spam to make your choice',
+            type: 'like',
+            title: 'Answer with a like',
             squares: [
               {
                 title: 'Ride your bike to practice',
-                img: '/images/tap-spam/ivy/turbine.png'
+                img: '/images/climate-champion/objects/Planet_Q2.png'
               },
               {
                 title: 'Take the bus to practice',
-                img: '/images/tap-spam/ivy/wheel.png'
+                img: '/images/climate-champion/objects/Planet_Q2_02.png'
               }
             ],
             information: [
@@ -143,17 +145,17 @@ let data = {
         },
         {
           type: 'scratch',
-          title: 'Scratch out the choice you don’t want',
+          title: 'Scratch out your choice',
           squares: [
             {
               title: 'Time to clean this beach!',
-              img: '/images/scratch/1-yellow.png',
-              imgBack: '/images/scratch/1.png'
+              img: '/images/climate-champion/objects/Planet_Q4_Background.png',
+              imgBack: '/images/logos/nike logo.svg'
             },
             {
               title: 'Time we reused our bottles!',
-              img: '/images/scratch/1-yellow.png',
-              imgBack: '/images/scratch/1.png'
+              img: '/images/climate-champion/objects/Planet_Q4_02_Background.png',
+              imgBack: '/images/logos/nike logo.svg'
             }
           ],
           information: [

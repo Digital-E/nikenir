@@ -22,6 +22,7 @@ let data = {
     colourOne: '#A2D8EF',
     colourTwo: '#F05822',
     colourThree: '#0584FE',
+    tickerColourOne: 'rgba(62, 216, 239, 0.5)',
     questionCount: 4,
     intro: {
         title: 'EVERYONE SHOULD EXPERIENCE THE JOY OF MOVEMENT. GIRLS INCLUDED.',
@@ -37,7 +38,9 @@ let data = {
             text: 'You never thought of yourself as into sports. But a friend had you join her one time and something made you want to come back'
         },
         {
-            type: 'like',
+            type: 'drag',
+            title: 'Drag the ball into a box',
+            img: '/images/active-activist/objects/Play_Q1.png',
             squares: [
               {
                 title: 'The simple joy of play'
@@ -70,14 +73,16 @@ let data = {
             text: 'You were always interested in sport and an active lifestyle, but until now, it’s never felt set up for someone with your background. Today you saw something that gave you courage…'
         },
         {
-            type: 'drag',
+            type: 'tap spam',
             title: 'Drag the roller-skate into a box',
             squares: [
               {
-                title: 'Sport sees me'
+                title: 'Sport sees me',
+                img: '/images/active-activist/objects/Play_Q2.png',
               },
               {
-                title: 'Sport hears me'
+                title: 'Sport hears me',
+                img: '/images/active-activist/objects/Play_Q2_02.png',
               }
             ],
             information: [
@@ -104,16 +109,16 @@ let data = {
             text: 'You decide it’s time to give something back to your community, make yourself useful somehow. Something sports related because…'
         },  
         {
-            type: 'tap spam',
-            title: 'Tap spam to make your choice',
+            type: 'like',
+            title: 'Answer with a like',
             squares: [
               {
                 title: 'My coach is my rock',
-                img: '/images/tap-spam/Bag_01.png'
+                img: '/images/active-activist/objects/Play_Q3.png'
               },
               {
                 title: 'Sport is what drives me',
-                img: '/images/tap-spam/Bottle_01 2.png'
+                img: '/images/active-activist/objects/Play_Q3.png'
               }
             ],
             information: [
@@ -140,18 +145,16 @@ let data = {
           text: 'You didn’t think you’d ever last more than a minute playing sports. But a year on from joining the team it’s become such an important part of your life. And that’s because:'
         },
         {
-          type: 'scratch',
-          title: 'Scratch out the choice you don’t want',
+          type: 'like',
+          title: 'Answer with a like',
           squares: [
             {
               title: 'Sport gives you purpose',
-              img: '/images/scratch/1-yellow.png',
-              imgBack: '/images/scratch/1.png'
+              img: '/images/active-activist/objects/Play_Q4.png'
             },
             {
               title: 'Sport gives you confidence',
-              img: '/images/scratch/1-yellow.png',
-              imgBack: '/images/scratch/1.png'
+              img: '/images/active-activist/objects/Play_Q4.png'
             }
           ],
           information: [

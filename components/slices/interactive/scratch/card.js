@@ -213,7 +213,7 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
 
             prevScratchToggle(index)
 
-            if(percent > 50) {
+            if(percent > 40) {
                 hasClicked(index); 
 
                 controls.start({ scale: 1.1 })
@@ -281,7 +281,7 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
             onMouseMove={(e) => triggerConfetti(e)}
             onMouseDown={() => enableConfetti(true)}
             onMouseUp={() => enableConfetti(false)}
-            onMouseLeave={() => enableConfetti(false)}
+            // onMouseLeave={() => enableConfetti(false)}
             onTouchMove={(e) => triggerConfetti(e)}
             onTouchStart={() => enableConfetti(true)}
             onTouchEnd={() => enableConfetti(false)}

@@ -26,8 +26,8 @@ const Container = styled.div`
         display: flex;
         height: 70px;
         white-space: nowrap;
-        background: ${props => props.data.colourOne};
-        backdrop-filter: blur(5px);
+        background: ${props => props.data.tickerColourOne};
+        backdrop-filter: blur(10px);
         overflow: hidden;
     }
 

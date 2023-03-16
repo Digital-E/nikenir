@@ -71,12 +71,12 @@ export default function Component({ item, data }) {
             decay: 0.94,
             startVelocity: 30,
             count: 100,
-            scalar: 3,
+            scalar: 10,
             origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
             shapes: ["image"],
             shapeOptions: {
               image: [{
-                  src: "/images/like/heart.png",
+                  src: allItems[selectedIndex].img,
                   width: 32,
                   height: 32
                 }
@@ -125,7 +125,7 @@ export default function Component({ item, data }) {
     return (
         <Container className={hasInteracted ? 'clicked mtb-2 max-width-2' : 'mtb-2 max-width-2'}>
             <Text className='text-one mtb-2 palatino-x-small'>
-                <span>Answer with a like</span>
+                <span>{item.title}</span>
             </Text>
             <InnerContainer className='inner-container'>
                 {

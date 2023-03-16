@@ -93,7 +93,7 @@ export default function Component({ item, data }) {
       setAllItems(item.squares)
       controls.start({ x: '-50%', y: '-50%'})
 
-      gsap.fromTo(dragElementRef.current.children[0],{scale: 1}, { scale: 1.05 , duration: 0.5, yoyo: true, ease: "power1.inOut", repeat: -1});
+      gsap.fromTo(dragElementRef.current.children[0],{y: 0}, {y: -5 , duration: 0.5, yoyo: true, ease: "power1.inOut", repeat: -1});
     }, [])
 
     useEffect(() => {
@@ -216,7 +216,7 @@ export default function Component({ item, data }) {
                   dragSnapToOrigin={true}
                   dragMomentum={false}
                 >
-                  <img src='/images/drag/air-jordan-1-low-se-older-shoes-f9r9bX 1.png' />
+                  <img src={item.img} />
                 </DragElement>
                 {
                     allItems.map((item, index) => 
