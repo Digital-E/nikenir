@@ -26,8 +26,8 @@ const ImageWrapper = styled.div`
     }
 
     @media(max-width: 989px) {
-        width: 100%;
-        margin-left: -30%;
+        width: 80%;
+        margin-left: -20%;
         
         img {
             width: 100%;

@@ -20,7 +20,7 @@ const Container = styled.div`
     width: 80%;
     margin: 0 auto;
     margin-top: 130px;
-    min-height: calc(100vh - 130px);
+    min-height: calc(100vh - 230px);
 
     &.hide-intro {
         display: none !important;
@@ -34,7 +34,6 @@ const Container = styled.div`
 `
 
 const AvatarWrapper = styled.div`
-
     @media(min-width: 990px) {
         position: absolute;
         bottom: 0;
@@ -42,6 +41,10 @@ const AvatarWrapper = styled.div`
         justify-content: center;
         width: 100%;
         margin: 0 auto;
+    }
+
+    @media(max-width: 989px) {
+        margin-bottom: 20px;
     }
 `
 
