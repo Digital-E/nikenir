@@ -271,7 +271,7 @@ let data = [
     {
         name: 'Ivy',
         textOne: 'Climate Champion',
-        textTwo: 'Planet protector empowering citizens of the world',
+        textTwo: 'Planet preserver empowering citizens to have a positive impact',
         img: characterTwo,
         link: '/climate-champion',
         background: 'radial-gradient(101.96% 52.55% at 8.6% 50%, rgba(195, 188, 236, 0.9) 0%, rgba(255, 255, 255, 1) 76.07%)',

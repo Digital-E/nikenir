@@ -71,7 +71,7 @@ let data = {
         },
         {
             type: 'drag',
-            title: 'Drag the roller-skate into a box',
+            title: 'Drag the roller-skate into the box',
             squares: [
               {
                 title: 'FIND STRENGTH IN TOGETHERNESS'
@@ -119,9 +119,9 @@ let data = {
             information: [
               {
                 title: 'Be part of something bigger',
-                text: 'You’re looking for a workplace where you feel you can make a difference. Where everyone is counted and accountable.',
+                text: 'You want to be part of a team where you feel you can make a difference. Where everyone is counted and accountable.',
                 textCarousel: [
-                  'We continue to support of Historically Black Colleges and Universities (HBCUs) and Hispanic-Serving Institutions (HSIs) – through storytelling, recruitment, and investments.',
+                  'We’re accelerating the career trajectory of women in the workplace by investing in programs that increase a sense of belonging.',
                 ]
               },
               {
@@ -164,9 +164,9 @@ let data = {
             },
             {
               title: 'You see a life that you aspire to',
-              text: 'You’re looking for a sport that rewards your ambition with the progression you deserve. You want to be judged on what you bring, not who you are.',
+              text: 'While searching for a new pair of sneakers you get sidetracked watching a bunch of inspiring videos of people from your community telling the story of how they pursued their dream.',
               textCarousel: [
-                'We’re accelerating the career trajectory of women in the workplace by investing in programs that increase a sense of belonging.',
+                'Nike, Converse, Jordan Brand and Michael Jordan have committed a combined $140 million over 10 years to invest in and support organizations focused on economic empowerment, education and social justice to address racial inequality for Black Americans.',
               ]
             }
           ]
@@ -179,7 +179,7 @@ let data = {
     complete: {
       praise: {
         title: 'WE DID IT!',
-        text: ['That’s all us! Well all you, actually. Goes to show. These personal choices can wind up meaning so much for the bigger picture. Go integrity']
+        text: ['We did it! We made the world a fairer place! Feel that spring in your step? That warm glow of belonging? That glittering sense of possibility? That’s all us! Well all you, actually. Goes to show. These personal choices can wind up meaning so much for the bigger picture. Go integrity!']
       },
       reward: {
         image: '/images/rewards/Asset 1 7.png',

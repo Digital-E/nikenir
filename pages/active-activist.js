@@ -33,7 +33,7 @@ let data = {
         {
             type: 'question',
             number: '1 / 4',
-            title: 'The good buy',
+            title: 'MOVE AS ONE',
             text: 'You never thought of yourself as into sports. But a friend had you join her one time and something made you want to come back'
         },
         {
@@ -49,16 +49,16 @@ let data = {
             information: [
               {
                 title: 'The simple joy of play',
-                text: 'At first the thought of all the running and jumping made you sad. But by the time the game was over, you never felt happier.',
+                text: 'At first even the thought of all the running and jumping made you tired. But by the time the game was over, you never felt more energized!',
                 textCarousel: [
-                  'Play fights against the chemicals released when young people face excessive stress in their lives. Last year, Nike helped more than 375K girls to find joy in movement.',
+                  'Play fights against the chemicals released when young people face excessive stress in their lives.',
                 ]
               },
               {
                 title: 'Being part of a team',
                 text: 'Before, the thought of ‘team spirit’ made you cringe, but before you knew it these people were like a second family.',
                 textCarousel: [
-                  'Play fights against the chemicals released when young people face excessive stress in their lives. Last year, Nike helped more than 375K girls to find joy in movement.'
+                  'Through Made to Play, we’re investing in inclusive play and sport-based programs that break barriers, expand opportunities and build a strong community for girls. Last year, Nike helped more than 375K girls to find joy in movement.'
                 ]
               }
             ]
@@ -66,33 +66,33 @@ let data = {
         {
             type: 'question',
             number: '2 / 4',
-            title: 'Win win',
-            text: 'Time to pick a new roller derby team. You wonder if there’s a winning formula. Is this about team spirit or team balance?'
+            title: 'SEEN AND HEARD',
+            text: 'You were always interested in sport and an active lifestyle, but until now, it’s never felt set up for someone with your background. Today you saw something that gave you courage…'
         },
         {
             type: 'drag',
             title: 'Drag the roller-skate into a box',
             squares: [
               {
-                title: 'FIND STRENGTH IN TOGETHERNESS'
+                title: 'Sport sees me'
               },
               {
-                title: 'FIND BALANCE IN OUR DIFFERENCES'
+                title: 'Sport hears me'
               }
             ],
             information: [
               {
-                title: 'FIND STRENGTH IN TOGETHERNESS',
-                text: 'You want to be part of a team where you feel you can make a difference. Where everyone is counted and accountable.',
+                title: 'Sport sees me',
+                text: 'You see one of your classmates wearing an item of sports gear you didn’t even know existed. Right away it makes you feel less on the outside, looking in. You sign up for try-outs.',
                 textCarousel: [
-                  'We’re accelerating the career trajectory of women in the workplace by investing in programs that increase a sense of belonging.',
+                  'We provide our non-profit partners with sportswear – like sports bras and hijabs – …',
                 ]
               },
               {
-                title: 'FIND BALANCE IN OUR DIFFERENCES',
-                text: 'A diverse team means news ideas, fresh plays and great balance. Our combined skills will give us the edge.',
+                title: 'Sport hears me',
+                text: 'You’re hearing stories of people like you feeling like they belong, not just by being part of a team, but because they have people who really listen.',
                 textCarousel: [
-                  'We’re building more diverse teams, check out our Serena Williams Design Crew program.'
+                  'The number one influence in a kid’s sport experience is their coach. Positive role models can welcome more kids into play. + resources like ‘how to coach kids’ and ‘coaching girls guide’.'
                 ]
               }
             ]
@@ -100,35 +100,35 @@ let data = {
         {
             type: 'question',
             number: '3 / 4',
-            title: 'All about progress',
-            text: 'You love the teamwork of volleyball and the pure purpose of tennis. But it’s time to choose where to put more of your time and energy. Will you...'
+            title: 'THANKS TO SPORT',
+            text: 'You decide it’s time to give something back to your community, make yourself useful somehow. Something sports related because…'
         },  
         {
             type: 'tap spam',
             title: 'Tap spam to make your choice',
             squares: [
               {
-                title: 'Be part of something bigger',
+                title: 'My coach is my rock',
                 img: '/images/tap-spam/Bag_01.png'
               },
               {
-                title: 'Maximise your potential',
+                title: 'Sport is what drives me',
                 img: '/images/tap-spam/Bottle_01 2.png'
               }
             ],
             information: [
               {
-                title: 'Be part of something bigger',
-                text: 'You’re looking for a workplace where you feel you can make a difference. Where everyone is counted and accountable.',
+                title: 'My coach is my rock',
+                text: 'You want to give someone else the same time and space your coach gave you. The confidence you gained from being really seen and heard still carries you to this day.',
                 textCarousel: [
-                  'We continue to support of Historically Black Colleges and Universities (HBCUs) and Hispanic-Serving Institutions (HSIs) – through storytelling, recruitment, and investments.',
+                  'We’re investing in helping coaches (9K of them last year) become game-changing mentors to kids, both on and off the field.',
                 ]
               },
               {
-                title: 'Maximise your potential',
-                text: 'You’re looking for a sport that rewards your ambition with the progression you deserve. You want to be judged on what you bring, not who you are.',
+                title: 'Sport is what drives me',
+                text: 'The joy of movement, the sense of belonging, and of shared purpose. Sport was always the brightest star in your sky.',
                 textCarousel: [
-                  'We’re committed to reaching 50% representation of women in leadership positions. Since last year, we’ve increased the number of women at the Director level to 43%.',
+                  'Play builds confidence and problem-solving skills in girls. Proof: 94% of women at the Nike C-suite played a sport growing up.',
                 ]
               }
             ]
@@ -136,37 +136,37 @@ let data = {
         {
           type: 'question',
           number: '4 / 4',
-          title: 'THIS IS YOUR TIME',
-          text: 'You’ve been thinking about your future, but it’s hard because people that look like you aren’t always represented in the worlds of work you’re interested in. Something gives you hope…'
+          title: 'MOVE TO HERO',
+          text: 'You didn’t think you’d ever last more than a minute playing sports. But a year on from joining the team it’s become such an important part of your life. And that’s because:'
         },
         {
           type: 'scratch',
           title: 'Scratch out the choice you don’t want',
           squares: [
             {
-              title: 'You see a place where you fit in',
+              title: 'Sport gives you purpose',
               img: '/images/scratch/1-yellow.png',
               imgBack: '/images/scratch/1.png'
             },
             {
-              title: 'You see a life that you aspire to',
+              title: 'Sport gives you confidence',
               img: '/images/scratch/1-yellow.png',
               imgBack: '/images/scratch/1.png'
             }
           ],
           information: [
             {
-              title: 'You see a place where you fit in',
-              text: 'A visit to your sister at college fills you with optimism. You’re surrounded by people just like you expanding their horizons and defining their place in the world.',
+              title: 'Sport gives you purpose',
+              text: 'Structure. That’s the word you’ve heard your coach use but it’s true: sport is your every day. It’s your social life. It’s what you think about when you wake up and dream about at night.',
               textCarousel: [
-                'We continue to support of Historically Black Colleges and Universities (HBCUs) and Hispanic-Serving Institutions (HSIs) – through storytelling, recruitment, and investments.'
+                'We support organisations like Legacy Volleyball Club, which brings young female athletes – particularly girls of colour – into sport, providing year-round programming.'
               ]
             },
             {
-              title: 'You see a life that you aspire to',
-              text: 'You’re looking for a sport that rewards your ambition with the progression you deserve. You want to be judged on what you bring, not who you are.',
+              title: 'Sport gives you confidence',
+              text: 'Confidence. That’s what I feel when I’m out there with my friends, and I’m doing what I’m doing and they’re doing their thing and together we can do anything!',
               textCarousel: [
-                'We’re accelerating the career trajectory of women in the workplace by investing in programs that increase a sense of belonging.',
+                'Grow Our Game is about empowering young girls to become fierce, formidable leaders through passion, teamwork and sisterhood – all while learning the art of basketball.',
               ]
             }
           ]
@@ -179,7 +179,7 @@ let data = {
     complete: {
       praise: {
         title: 'WE DID IT!',
-        text: ['We safeguarded the world for those that will inherit it! Feel lighter somehow? Complete, like a circle? Bouncy, like a rubber ball?']
+        text: ['We did it! We made the world a fairer place! Feel that fresh air in your lungs? That new-found confidence? The satisfaction of giving back to the community? That’s all us! Well all you, really. Goes to show. These personal choices can wind up meaning so much for future generations. Go empathy!']
       },
       reward: {
         image: '/images/rewards/Asset 1 7.png',
