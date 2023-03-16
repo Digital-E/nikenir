@@ -10,6 +10,7 @@ import Slices from '../components/slices'
 
 // Images
 import avatarImage from '../public/images/avatars/character-intro/ines.png'
+import avatarCrop from '../public/images/avatars/carousel/ines.png'
 
 const Container = styled.div``
 
@@ -18,6 +19,7 @@ let data = {
     name: 'Ines',
     role: 'People Promoter',
     avatar: avatarImage,
+    avatarCrop: avatarCrop,
     avatarMiniature: '/images/avatars/miniature/ines.png',
     colourOne: '#FFB800',
     colourTwo: '#F05822',

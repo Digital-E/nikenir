@@ -21,7 +21,7 @@ const ImageWrapper = styled.div`
     z-index: 999;
 
     img {
-        width: 55.5vw;
+        width: 32.5vw;
         transform: rotateY(180deg);
     }
 
@@ -44,10 +44,10 @@ const Bubble = styled(motion.div)`
     
 
     @media(min-width: 990px) {
-        width: 50%;
+        width: 80%;
         left: auto;
-        bottom: 87%;
-        right: -5%;
+        bottom: 91%;
+        right: -52%;
         margin-right: auto;
     }
 
@@ -126,7 +126,7 @@ export default function Component({ data, text, disableInView, activate, toggleF
 
     return (
         <Container ref={containerRef}>
-            <ImageWrapper><Image src={data.avatar} priority={true} /></ImageWrapper>
+            <ImageWrapper><Image src={data.avatarCrop} priority={true} /></ImageWrapper>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 30">
                 <clipPath id="clipPath">
                     {/* <path d="M37.73.33a27,27,0,0,0-21.8,11.12L3.62,28.38A2,2,0,0,1,0,27.2V0"/> */}

@@ -10,6 +10,7 @@ import Slices from '../components/slices'
 
 // Images
 import avatarImage from '../public/images/avatars/character-intro/ivy.png'
+import avatarCrop from '../public/images/avatars/carousel/ivy.png'
 
 const Container = styled.div``
 
@@ -18,6 +19,7 @@ let data = {
     name: 'Ivy',
     role: 'Climate Champion',
     avatar: avatarImage,
+    avatarCrop: avatarCrop,
     avatarMiniature: '/images/avatars/miniature/ivy.png',
     colourOne: '#C2BCEB',
     colourTwo: '#F05822',
