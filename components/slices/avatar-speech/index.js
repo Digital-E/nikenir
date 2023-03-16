@@ -21,7 +21,7 @@ const ImageWrapper = styled.div`
     z-index: 999;
 
     img {
-        width: 32.5vw;
+        width: 55.5vw;
         transform: rotateY(180deg);
     }
 
@@ -44,10 +44,10 @@ const Bubble = styled(motion.div)`
     
 
     @media(min-width: 990px) {
-        width: 80%;
+        width: 50%;
         left: auto;
         bottom: 87%;
-        right: -46%;
+        right: -5%;
         margin-right: auto;
     }
 

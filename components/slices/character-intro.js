@@ -36,7 +36,8 @@ const Container = styled.div`
 const AvatarWrapper = styled.div`
     @media(min-width: 990px) {
         position: absolute;
-        bottom: 0;
+        // bottom: 0;
+        bottom: -10%;
         display: flex;
         justify-content: center;
         width: 100%;
