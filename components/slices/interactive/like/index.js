@@ -58,31 +58,53 @@ export default function Component({ item, data }) {
         window.removeEventListener("touchmove", killScroll)
     }
 
-    let triggerConfetti = (e) => {
+    let triggerConfetti = (e, index) => {
         // confetti({
         //     particleCount: 100,
         //     spread: 70,
         //     origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
         // });
-        confetti({
-            spread: 360,
-            ticks: 200,
-            gravity: 1,
-            decay: 0.94,
-            startVelocity: 30,
-            count: 100,
-            scalar: 10,
-            origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
-            shapes: ["image"],
-            shapeOptions: {
-              image: [{
-                  src: allItems[selectedIndex].img,
-                  width: 32,
-                  height: 32
-                }
-              ]
-            },
-          });        
+        if(index === 0) {
+            confetti({
+                spread: 360,
+                ticks: 200,
+                gravity: 1,
+                decay: 0.94,
+                startVelocity: 30,
+                count: 100,
+                scalar: 15,
+                origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
+                shapes: ["image"],
+                shapeOptions: {
+                  image: [{
+                      src: allItems[0].img,
+                      width: 32,
+                      height: 32
+                    }
+                  ]
+                },
+              }); 
+        } else {
+            confetti({
+                spread: 360,
+                ticks: 200,
+                gravity: 1,
+                decay: 0.94,
+                startVelocity: 30,
+                count: 100,
+                scalar: 15,
+                origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
+                shapes: ["image"],
+                shapeOptions: {
+                  image: [{
+                      src: allItems[1].img,
+                      width: 32,
+                      height: 32
+                    }
+                  ]
+                },
+              }); 
+        }       
     }
 
     let hasClicked = (e, index) => {
@@ -98,7 +120,7 @@ export default function Component({ item, data }) {
 
         setHasInteracted(true)
 
-        triggerConfetti(e);
+        triggerConfetti(e, index);
         
         // Scroll To Bottom of Info Card
 
