@@ -186,7 +186,7 @@ let data = {
         text: ['We safeguarded the world for those that will inherit it! Feel lighter somehow? Complete, like a circle?  That’s all us! Well all you, actually. Goes to show. How these small acts of thoughtfulness can come to mean so much. Go altruism!']
       },
       reward: {
-        image: '/images/rewards/Asset 1 7.png',
+        image: '/images/rewards/2.png',
         text: 'Congratulations, you are a wise and inclusive'
       },
       more: {

@@ -187,7 +187,7 @@ let data = {
         text: ['We did it! We made the world a fairer place! Feel that spring in your step? That warm glow of belonging? That glittering sense of possibility? That’s all us! Well all you, actually. Goes to show. These personal choices can wind up meaning so much for the bigger picture. Go integrity!']
       },
       reward: {
-        image: '/images/rewards/Asset 1 7.png',
+        image: '/images/rewards/1.png',
         text: 'Congratulations, you are a wise and inclusive'
       },
       more: {

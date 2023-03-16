@@ -84,7 +84,7 @@ const Card = styled(motion.div)`
     transition: filter 0.7s;
 
     @media(min-width: 990px) {
-        padding: 2.776vw 0;
+        padding: 0  0 2.776vw 0;
 
         &.blur {
             filter: blur(10px);
@@ -199,20 +199,24 @@ const Title = styled.div`
 `
 
 const ImageWrapper = styled.div`
+    position: relative;
     display: flex;
     flex-basis: 100%;
     overflow: hidden;
     align-items: center;
     justify-content: center;
+    left: 10%;
 
     img {
-        height: ${props => props.data.height}%  !important;
-        width: fit-content;
+        width: ${props => props.data.width}%  !important;
     }
 
+
     @media(max-width: 989px) {
+        left: 5%;
+
         img {
-            margin-left: 20%;
+            width: ${props => props.data.widthMobile}%  !important;
         }
     }
 `
@@ -289,10 +293,10 @@ let data = [
         link: '/people-promoter',
         background: 'radial-gradient(101.96% 52.55% at 8.6% 50%, rgba(254, 194, 37, 0.9) 0%, rgba(255, 255, 255, 1) 76.07%)',
         backgroundSrc: gradientOne,
-        width: 60,
+        width: 70,
+        widthMobile: 85,
         left: 30,
         top: -30,
-        height: 110,
     },
     {
         name: 'Ivy',
@@ -303,9 +307,9 @@ let data = [
         background: 'radial-gradient(101.96% 52.55% at 8.6% 50%, rgba(195, 188, 236, 0.9) 0%, rgba(255, 255, 255, 1) 76.07%)',
         backgroundSrc: gradientTwo,
         width: 80,
+        widthMobile: 100,
         left: 15,
         top: -30,
-        height: 130,
     },
     {
         name: 'Theo',
@@ -315,10 +319,10 @@ let data = [
         link: '/active-activist',
         background: 'radial-gradient(239.95% 126.46% at 33.97% 17.02%, rgba(2, 131, 254, 0.7) 0%, rgba(255, 255, 255, 1) 76.07%)',
         backgroundSrc: gradientThree,
-        width: 45,
+        width: 75,
+        widthMobile: 95,
         left: 40,
         top: -30,
-        height: 130,
     },    
 ]
 
