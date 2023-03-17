@@ -32,7 +32,17 @@ let data = {
           'The choices we make now can help shape a fairer society.',
           'It won’t be long before we know exactly what kind of changemaker you are!',
           'Don’t worry, there’s no wrong answers. Only progress!'
-        ]
+        ],
+        desktop: {
+          bottom: 34,
+          left: 21,
+          width: 29
+        },
+        mobile: {
+          bottom: 85,
+          left: 28,
+          width: 70
+        }
     },
     slices: [    
         {

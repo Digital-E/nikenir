@@ -56,15 +56,18 @@ const AvatarSpeechWrapper = styled(motion.div)`
         height: fit-content;
         width: fit-content;
         position: relative;
-        bottom: -100px;
         left: -210px;
     }
 
 
     @media(min-width: 990px) {
         .avatar-speech-bubble {
-            top: -12%;
-            right: -18%;
+            bottom: 85%;
+            left: 70%;
+        }
+
+        img {
+            width: 465px;
         }
     }
 `
@@ -79,6 +82,7 @@ const RewardWrapper = styled(motion.div)`
 
     @media(min-width: 990px) {
         min-width: 425px;
+        margin-left: auto;
 
         > div {
             margin: 0;

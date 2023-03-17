@@ -30,7 +30,17 @@ let data = {
         title: 'EVERYONE SHOULD EXPERIENCE THE JOY OF MOVEMENT. GIRLS INCLUDED.',
         text: [
           'The decisions we take now can make a future where everyone belongs.'
-        ]
+        ],
+        desktop: {
+          bottom: 34,
+          left: 21,
+          width: 29
+        },
+        mobile: {
+          bottom: 85,
+          left: 28,
+          width: 70
+        }
     },
     slices: [    
         {

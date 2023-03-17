@@ -31,7 +31,17 @@ let data = {
         text: [
           'Oh, hey, I’m Ivy, sorry, I just really care about our big blue ball!',
           'There are so many small but significant things that we can do as individuals, families and communities to move the climate dial!'
-        ]
+        ],
+        desktop: {
+          bottom: 34,
+          left: 21,
+          width: 29
+        },
+        mobile: {
+          bottom: 85,
+          left: 28,
+          width: 70
+        }
     },
     slices: [    
         {

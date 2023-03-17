@@ -22,12 +22,12 @@ const ImageWrapper = styled.div`
     width: fit-content;
 
     img {
-        width: 600px;
+        width: ${props => props.data.intro.desktop.width}vw;
         transform: rotateY(180deg);
     }
 
     @media(max-width: 989px) {
-        width: 300px;
+        width: ${props => props.data.intro.mobile.width}vw;
         margin-left: -30%;
         
         img {
@@ -44,16 +44,16 @@ const Bubble = styled(motion.div)`
     @media(min-width: 990px) {
         width: ${props => props.smallBubble ? '222px': '427px'};
         height: ${props => props.smallBubble ? '227.5px': '162.5px'};
-        top: -4%;
-        right: -42%;
+        bottom: ${props => props.data.intro.desktop.bottom}vw;
+        left: ${props => props.data.intro.desktop.left}vw;
         clip-path: ${props => props.smallBubble ? 'url(#clipPathMobile)' : 'url(#clipPathDesktop)'};
     }
 
     @media(max-width: 989px) {
         width: 222px;
         height: 227.5px;
-        top: -28%;
-        right: -15%;
+        bottom: ${props => props.data.intro.mobile.bottom}vw;
+        left: ${props => props.data.intro.mobile.left}vw;
         clip-path: url(#clipPathMobile);
     }
 `
@@ -64,6 +64,9 @@ const BubbleInner = styled.div`
     padding: var(--padding) var(--padding) 30px var(--padding);
     height: 100%;
 `
+
+const PortalReplay = styled.div``
+
 
 
 let bubbleVariants = {
@@ -111,7 +114,8 @@ export default function Component({ data, text, smallBubble, disableInView, acti
 
     return (
         <Container ref={containerRef}>
-            <ImageWrapper><Image src={data.avatarCrop} priority={true} /></ImageWrapper>
+            <ImageWrapper data={data}><Image src={data.avatarCrop} priority={true} /></ImageWrapper>
+            <PortalReplay id='portal-replay'/>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0">
                 <clipPath id="clipPathDesktop">
                     <path d="M0 27C0 12.0883 12.0883 0 27 0H400C414.912 0 427 12.0883 427 27V102.246C427 117.151 414.923 129.236 400.019 129.246L50.2326 129.493C44.0438 129.498 38.0443 131.628 33.2386 135.528L3.26022 159.854C1.95299 160.915 0 159.985 0 158.301V118.136V27Z" />
@@ -123,7 +127,7 @@ export default function Component({ data, text, smallBubble, disableInView, acti
                     <path d="M0 27C0 12.0883 12.0883 0 27 0H195C209.912 0 222 12.0883 222 27V165.735C222 180.632 209.935 192.714 195.038 192.735L36.2419 192.961C26.8596 192.974 18.1568 197.857 13.2562 205.858L3.70549 221.45C2.65101 223.172 0 222.425 0 220.406V181.096V27Z" fill="white" fill-opacity="0.6"/>
                 </clipPath>
             </svg>                           
-            <Bubble className='avatar-speech-bubble' smallBubble={smallBubble} variants={bubbleVariants} initial='hide' animate={startType ? 'show' : 'hide'}>
+            <Bubble className='avatar-speech-bubble' data={data} smallBubble={smallBubble} variants={bubbleVariants} initial='hide' animate={startType ? 'show' : 'hide'}>
                 <BubbleInner>
                     <Typewriter data={text} start={startType} toggleFinishedFunc={() => toggleFinishedFunc()}/>
                 </BubbleInner>

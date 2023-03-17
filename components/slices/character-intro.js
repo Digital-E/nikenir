@@ -40,12 +40,12 @@ const AvatarWrapper = styled.div`
         display: flex;
         justify-content: center;
         width: 100%;
-        margin: 0 auto;
+        margin: 0 auto 50px auto;
     }
 
     @media(max-width: 989px) {
         width: fit-content;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
     }
 `
 
