@@ -10,12 +10,12 @@ import Image from '../image'
 
 // Images
 import characterOne from '../../public/images/avatars/carousel/ines.png'
-import characterTwo from '../../public/images/avatars/carousel/ivy.png'
-import characterThree from '../../public/images/avatars/carousel/theo.png'
+import characterTwo from '../../public/images/avatars/carousel/theo.png'
+import characterThree from '../../public/images/avatars/carousel/ivy.png'
 
 import gradientOne from '../../public/images/carousel-gradients/gradient1.png'
-import gradientTwo from '../../public/images/carousel-gradients/gradient2.png'
-import gradientThree from '../../public/images/carousel-gradients/gradient3.png'
+import gradientTwo from '../../public/images/carousel-gradients/gradient3.png'
+import gradientThree from '../../public/images/carousel-gradients/gradient2.png'
 
 let Flickity = null;
 
@@ -276,20 +276,6 @@ const ButtonWrapper = styled.div`
     }
 `
 
-const ButtonDesktopWrapper = styled(motion.div)`
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    top: 50%;
-    left: 50%;
-    width: 80%;
-    transform: translate(-50%, -50%);
-
-    @media(max-width: 989px) {
-        display: none;
-    }
-`
-
 
 
 let data = [
@@ -299,35 +285,32 @@ let data = [
         textTwo: 'Community hero inspiring togetherness',
         img: characterOne,
         link: '/people-promoter',
-        background: 'radial-gradient(101.96% 52.55% at 8.6% 50%, rgba(254, 194, 37, 0.9) 0%, rgba(255, 255, 255, 1) 76.07%)',
         backgroundSrc: gradientOne,
         width: 80,
         widthMobile: 85,
         bottom: -5
     },
     {
-        name: 'Ivy',
+        name: 'Theo',
         textOne: 'Climate Champion',
         textTwo: 'Planet preserver empowering citizens to have a positive impact',
         img: characterTwo,
         link: '/climate-champion',
-        background: 'radial-gradient(101.96% 52.55% at 8.6% 50%, rgba(195, 188, 236, 0.9) 0%, rgba(255, 255, 255, 1) 76.07%)',
         backgroundSrc: gradientTwo,
-        width: 93,
-        widthMobile: 100,
-        bottom: -5
+        width: 85,
+        widthMobile: 90,
+        bottom: -3
     },
     {
-        name: 'Theo',
+        name: 'Ivy',
         textOne: 'Active Activist',
         textTwo: 'Trusted coach who really listens',
         img: characterThree,
         link: '/active-activist',
-        background: 'radial-gradient(239.95% 126.46% at 33.97% 17.02%, rgba(2, 131, 254, 0.7) 0%, rgba(255, 255, 255, 1) 76.07%)',
         backgroundSrc: gradientThree,
-        width: 85,
-        widthMobile: 90,
-        bottom: -3
+        width: 93,
+        widthMobile: 100,
+        bottom: -5
     },    
 ]
 
@@ -425,12 +408,6 @@ export default function Component() {
                                         <p className='palatino-small'>{item.textOne}</p>
                                         <p className='body-large'>{item.textTwo}</p>
                                     </Information>
-                                    {/* <ButtonDesktopWrapper
-                                        animate={hoveredIndex === index ? 'show' : 'hide'}
-                                        variants={cardHoverVariants}
-                                    >
-                                        <Button>Choose {item.name}</Button>
-                                    </ButtonDesktopWrapper> */}
                                 </Link>
                             </Card>
                         )

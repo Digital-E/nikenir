@@ -35,12 +35,12 @@ const Image = styled.div`
     }
 `
 const Text = styled.p`
+    margin: var(--margin) 0;    
     text-align: center;
     width: 80%;
-    margin: var(--margin) 0;
 `
 
-const Title = styled.h3`
+const Title = styled.h2`
     margin: var(--margin) 0;
 
     @media(max-width: 989px) {
@@ -75,7 +75,7 @@ export default function Component({ data, share }) {
     let animationRef = useRef()
 
     let isInView = useInView(containerRef, {
-        margin: "0px 0px -50% 0px",
+        margin: "0px 0px 0px 0px",
         once: true
     })
 
@@ -103,8 +103,8 @@ export default function Component({ data, share }) {
             <Image ref={imageRef}>
                 <img src={data.complete.reward.image} />
             </Image>
-            <Text className='palatino-medium'>{data.complete.reward.text}</Text>
-            <Title>{data.role}</Title>
+            <Title>{data.complete.reward.title}</Title>
+            <Text className='palatino-small'>{data.complete.reward.text}</Text>
         </Container>
     )
 }

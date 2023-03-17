@@ -52,7 +52,8 @@ let data = {
     complete: {
       reward: {
         image: '/images/rewards/2.png',
-        text: 'Congratulations, you are a wise and inclusive',
+        title: 'The earth minder',
+        text: 'You believe in the small as well as big actions we can take for the planet we share, and in the people taking them.',
         link: '/climate-champion'
       }
     }

@@ -19,9 +19,15 @@ const Title = styled.h2`
     margin: 105px var(--margin) 0 var(--margin);
 `
 
+const TitleWrapper = styled.div`
+    width: 100%;
+    margin: 0 auto;
+`
+
+
 const AvatarSpeechWrapper = styled.div`
     width: fit-content;
-    
+
     @media(min-width: 990px) {
         margin: 0 auto;
     }
@@ -31,8 +37,10 @@ const AvatarSpeechWrapper = styled.div`
 export default function Component({ data }) {
 
     return (
-        <Container className='max-width-3'>
-            <Title>{data.pause.title}</Title>
+        <Container>
+            <TitleWrapper className='max-width-3'>
+                <Title>{data.pause.title}</Title>
+            </TitleWrapper>
             <AvatarSpeechWrapper>
                 <AvatarSpeech data={data} text={data.pause.text} />
             </AvatarSpeechWrapper>

@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { store } from "../store"
 
 // Components
-import Footer from '../components/footer'
 import Layout from '../components/layout'
 import Slices from '../components/slices'
 
@@ -23,7 +22,7 @@ let data = {
     avatarMiniature: '/images/avatars/miniature/ines.png',
     colourOne: '#FFB800',
     colourTwo: '#F05822',
-    colourThree: '#F6693D',
+    colourThree: '#FFB800',
     tickerColourOne: 'rgba(255, 184, 0, 0.5)',
     questionCount: 4,
     intro: {
@@ -39,7 +38,7 @@ let data = {
           width: 29
         },
         mobile: {
-          bottom: 85,
+          bottom: 80,
           left: 28,
           width: 70
         }
@@ -201,11 +200,18 @@ let data = {
         text: ['We did it! We made the world a fairer place!',
               'That’s all us! Well all you, actually. Goes to show.',
               'These personal choices can wind up meaning so much for the bigger picture. Go integrity!'
-            ]
+            ],
+        bubblePosition: {
+          desktop: {
+            bottom: 85,
+            left: 70
+          }
+        }
       },
       reward: {
         image: '/images/rewards/1.png',
-        text: 'Congratulations, you are a wise and inclusive',
+        title: 'The people person',
+        text: 'You believe that we’re all in this together, that if we can just keep listening and learning from one another, no one will feel left out.',
         link: '/reward/people-promoter'
       },
       more: {
@@ -222,9 +228,9 @@ let data = {
         title: 'Fancy another round?',
         text: 'Don’t go anywhere, there are still decisions to be made.',
         next: {
-          name: 'Ivy',
+          name: 'Theo',
           role: 'Climate Champion',
-          avatarMiniature: '/images/avatars/miniature/ivy.png',
+          avatarMiniature: '/images/avatars/miniature/theo.png',
           link: '/climate-champion'
         }
       }

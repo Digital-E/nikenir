@@ -18,23 +18,9 @@ import Sidebar from '../components/sidebar'
 
 import Notification from '../components/notification'
 
-import BackgroundGradientCode from '../components/background-gradient-code-canvas'
+import BackgroundGradient from '../components/background-gradient-code-canvas'
 
 import { credits } from "../lib/credits"
-
-
-const Background = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('/images/gradients/PLANET_GRAIDENT_02 2.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: -1;
-`
-
 
 
 let colors = [
@@ -50,13 +36,13 @@ let colors = [
   ],
   [
     '#00FC00',
-    '#A2D8EF',
-    '#A2D8EF'
+    '#C2BCEB',
+    '#C2BCEB',
   ],
   [
     '#00FC00',
-    '#C2BCEB',
-    '#C2BCEB',
+    '#A2D8EF',
+    '#A2D8EF'
   ],
 ]
 
@@ -173,11 +159,7 @@ function MyApp({ Component, pageProps, router }) {
       <Header />
       <Sidebar />
       <Notification />
-      {/* <Background /> */}
-      <BackgroundGradientCode data={dataAll}/>
-      {/* <GradientWrapper>
-        <BackgroundGradientCode data={dataThree} />
-      </GradientWrapper> */}
+      <BackgroundGradient data={dataAll}/>
       {/* <CookieConsent
         buttonText={pageProps.data?.menuData.cookieaccept}
         declineButtonText={pageProps.data?.menuData.cookierefuse}

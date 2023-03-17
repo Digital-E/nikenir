@@ -46,12 +46,12 @@ export default function Component({ item, data }) {
     let titleRef = useRef()
 
     let isInViewTitle = useInView(titleRef, {
-        margin: "0px 0px -200px 0px",
+        // margin: "0px 0px -200px 0px",
         once: true
     })
 
     let isInView = useInView(cardRef, {
-        margin: "0px 0px -200px 0px",
+        // margin: "0px 0px -200px 0px",
         once: true
     })
 

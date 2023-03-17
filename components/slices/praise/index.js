@@ -62,8 +62,8 @@ const AvatarSpeechWrapper = styled(motion.div)`
 
     @media(min-width: 990px) {
         .avatar-speech-bubble {
-            bottom: 85%;
-            left: 70%;
+            bottom: ${props => props.data.complete.praise.bubblePosition.desktop.bottom}%;
+            left: ${props => props.data.complete.praise.bubblePosition.desktop.left}%;
         }
 
         img {
@@ -242,6 +242,7 @@ export default function Component({ data, unlock }) {
                         // initial='hide'
                         // variants={variants}
                         // animate={avatarReveal ? 'show' : 'hide'}
+                        data={data}
                         ref={avatarSpeechWrapperRef}>
                         <AvatarSpeech data={data} text={data.complete.praise.text} smallBubble={true} disableInView={true} activate={avatarReveal} toggleFinished={() => toggleFinished()}/>
                     </AvatarSpeechWrapper>

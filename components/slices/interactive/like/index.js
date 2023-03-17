@@ -70,7 +70,7 @@ export default function Component({ item, data }) {
     let containerRef = useRef();
 
     let isInView = useInView(containerRef, {
-        margin: "0px 0px -200px 0px",
+        margin: "0px 0px -100px 0px",
         once: true
     })
 

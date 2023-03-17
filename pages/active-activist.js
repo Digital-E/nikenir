@@ -4,23 +4,22 @@ import styled from 'styled-components'
 import { store } from "../store"
 
 // Components
-import Footer from '../components/footer'
 import Layout from '../components/layout'
 import Slices from '../components/slices'
 
 // Images
-import avatarImage from '../public/images/avatars/character-intro/theo.png'
-import avatarCrop from '../public/images/avatars/carousel/theo.png'
+import avatarImage from '../public/images/avatars/character-intro/ivy.png'
+import avatarCrop from '../public/images/avatars/carousel/ivy.png'
 
 const Container = styled.div``
 
 let data = {
     title: 'Active Activist',
-    name: 'Theo',
+    name: 'Ivy',
     role: 'Active Activist',
     avatar: avatarImage,
     avatarCrop: avatarCrop,
-    avatarMiniature: '/images/avatars/miniature/theo.png',
+    avatarMiniature: '/images/avatars/miniature/ivy.png',
     colourOne: '#A2D8EF',
     colourTwo: '#F05822',
     colourThree: '#0584FE',
@@ -29,16 +28,17 @@ let data = {
     intro: {
         title: 'EVERYONE SHOULD EXPERIENCE THE JOY OF MOVEMENT. GIRLS INCLUDED.',
         text: [
-          'The decisions we take now can make a future where everyone belongs.'
+          'Oh, hey, I’m Ivy, sorry, I just really care about our big blue ball!',
+          'There are so many small but significant things that we can do as individuals, families and communities to move the climate dial!'
         ],
         desktop: {
-          bottom: 34,
-          left: 21,
+          bottom: 33,
+          left: 20,
           width: 29
         },
         mobile: {
-          bottom: 85,
-          left: 28,
+          bottom: 80,
+          left: 27,
           width: 70
         }
     },
@@ -198,11 +198,18 @@ let data = {
         'Feel that fresh air in your lungs? That new-found confidence? The satisfaction of giving back to the community?',
         'That’s all us! Well all you, really.',
         'Goes to show. These personal choices can wind up meaning so much for future generations. Go empathy!'
-      ]
+      ],
+      bubblePosition: {
+        desktop: {
+          bottom: 82,
+          left: 68
+        }
+      }
       },
       reward: {
         image: '/images/rewards/3.png',
-        text: 'Congratulations, you are a wise and inclusive',
+        title: 'The move maker',
+        text: 'You believe in the power of play to raise young people’s spirits and make them feel part of something bigger',
         link: '/reward/active-activist'
       },
       more: {
@@ -220,7 +227,7 @@ let data = {
           name: 'Ines',
           role: 'People Promoter',
           avatarMiniature: '/images/avatars/miniature/ines.png',
-          link: '/climate-champion'
+          link: '/people-promoter'
         }
       }
     }

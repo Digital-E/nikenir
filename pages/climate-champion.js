@@ -4,23 +4,22 @@ import styled from 'styled-components'
 import { store } from "../store"
 
 // Components
-import Footer from '../components/footer'
 import Layout from '../components/layout'
 import Slices from '../components/slices'
 
 // Images
-import avatarImage from '../public/images/avatars/character-intro/ivy.png'
-import avatarCrop from '../public/images/avatars/carousel/ivy.png'
+import avatarImage from '../public/images/avatars/character-intro/theo.png'
+import avatarCrop from '../public/images/avatars/carousel/theo.png'
 
 const Container = styled.div``
 
 let data = {
     title: 'Climate Champion',
-    name: 'Ivy',
+    name: 'Theo',
     role: 'Climate Champion',
     avatar: avatarImage,
     avatarCrop: avatarCrop,
-    avatarMiniature: '/images/avatars/miniature/ivy.png',
+    avatarMiniature: '/images/avatars/miniature/theo.png',
     colourOne: '#C2BCEB',
     colourTwo: '#F05822',
     colourThree: '#C2BCEB',
@@ -29,17 +28,16 @@ let data = {
     intro: {
         title: 'TO PROTECT THE PLANET AND THOSE WHO WILL INHERIT IT IS A PROMISE WE CAN MAKE TOGETHER.',
         text: [
-          'Oh, hey, I’m Ivy, sorry, I just really care about our big blue ball!',
-          'There are so many small but significant things that we can do as individuals, families and communities to move the climate dial!'
+          'The decisions we take now can make a future where everyone belongs.'
         ],
         desktop: {
           bottom: 34,
-          left: 21,
+          left: 22,
           width: 29
         },
         mobile: {
           bottom: 85,
-          left: 28,
+          left: 31,
           width: 70
         }
     },
@@ -199,11 +197,18 @@ let data = {
         text: [
           'We safeguarded the world for those that will inherit it! Feel lighter somehow? Complete, like a circle? ',
           'That’s all us! Well all you, actually. Goes to show. How these small acts of thoughtfulness can come to mean so much. Go altruism!'
-      ]
+        ],
+        bubblePosition: {
+          desktop: {
+            bottom: 85,
+            left: 75
+          }
+        }
       },
       reward: {
         image: '/images/rewards/2.png',
-        text: 'Congratulations, you are a wise and inclusive',
+        title: 'The earth minder',
+        text: 'You believe in the small as well as big actions we can take for the planet we share, and in the people taking them.',
         link: '/reward/climate-champion'
       },
       more: {
@@ -218,9 +223,9 @@ let data = {
         title: 'Fancy another round?',
         text: 'Don’t go anywhere, there are still decisions to be made.',
         next: {
-          name: 'Theo',
+          name: 'Ivy',
           role: 'Active Activist',
-          avatarMiniature: '/images/avatars/miniature/theo.png',
+          avatarMiniature: '/images/avatars/miniature/ivy.png',
           link: '/active-activist'
         }
       }
