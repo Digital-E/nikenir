@@ -184,11 +184,16 @@ let data = {
     complete: {
       praise: {
         title: 'WE DID IT!',
-        text: ['We did it! We made the world a fairer place! Feel that fresh air in your lungs? That new-found confidence? The satisfaction of giving back to the community? That’s all us! Well all you, really. Goes to show. These personal choices can wind up meaning so much for future generations. Go empathy!']
+        text: ['We did it! We made the world a fairer place!',
+        'Feel that fresh air in your lungs? That new-found confidence? The satisfaction of giving back to the community?',
+        'That’s all us! Well all you, really.',
+        'Goes to show. These personal choices can wind up meaning so much for future generations. Go empathy!'
+      ]
       },
       reward: {
         image: '/images/rewards/3.png',
-        text: 'Congratulations, you are a wise and inclusive'
+        text: 'Congratulations, you are a wise and inclusive',
+        link: '/reward/active-activist'
       },
       more: {
         title: 'Want to know more?',
@@ -247,9 +252,7 @@ export default function Component() {
       document.querySelector('.sidebar').classList.remove('hide-sidebar')
     }, 250)
 
-    if(window.innerWidth > 990) {
-      document.addEventListener("scroll", scrollListener)
-    }
+    document.addEventListener("scroll", scrollListener)
 
     return () => {
       document.removeEventListener("scroll", scrollListener)
@@ -260,7 +263,6 @@ export default function Component() {
     <Layout title={`${data.title} | Nike Impact Report`} content={`${data.title} | Nike Impact Report`}>
       <Container>
         <Slices data={data}/>
-        <Footer />
       </Container>
     </Layout>
   )

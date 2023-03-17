@@ -19,15 +19,16 @@ const Container = styled.div`
 const ImageWrapper = styled.div`
     position: relative;
     z-index: 999;
+    width: fit-content;
 
     img {
-        width: 32.5vw;
+        width: 600px;
         transform: rotateY(180deg);
     }
 
     @media(max-width: 989px) {
-        width: 80%;
-        margin-left: -20%;
+        width: 300px;
+        margin-left: -30%;
         
         img {
             width: 100%;
@@ -37,47 +38,31 @@ const ImageWrapper = styled.div`
 
 const Bubble = styled(motion.div)`
     position: absolute;
-    height: fit-content;
-    left: 37%;
-    bottom: 90%;
-    margin-right: 15px;
-    
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
 
     @media(min-width: 990px) {
-        width: 80%;
-        left: auto;
-        bottom: 91%;
-        right: -52%;
-        margin-right: auto;
+        width: ${props => props.smallBubble ? '222px': '427px'};
+        height: ${props => props.smallBubble ? '227.5px': '162.5px'};
+        top: -4%;
+        right: -42%;
+        clip-path: ${props => props.smallBubble ? 'url(#clipPathMobile)' : 'url(#clipPathDesktop)'};
     }
 
     @media(max-width: 989px) {
-        min-width: calc(53% - 15px);
+        width: 222px;
+        height: 227.5px;
+        top: -28%;
+        right: -15%;
+        clip-path: url(#clipPathMobile);
     }
 `
 
 
 const BubbleInner = styled.div`
     position: relative;
-    min-height: 53px;
-    padding: var(--padding);
-    border-radius: var(--border-radius) var(--border-radius) var(--border-radius) 0;
-    // background: var(--background);
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(10px);
-`
-
-const Tail = styled.div`
-    position: absolute;
-    bottom: -30px;
-    left: -0.3px;
-    height: 30px;
-    width: 70px;
-    // background: rgba(255, 255, 255, 0.6);
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(10px);
-    clip-path: url(#clipPath);
-    // clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+    padding: var(--padding) var(--padding) 30px var(--padding);
+    height: 100%;
 `
 
 
@@ -97,7 +82,7 @@ let bubbleVariants = {
 }
 
 
-export default function Component({ data, text, disableInView, activate, toggleFinished }) {
+export default function Component({ data, text, smallBubble, disableInView, activate, toggleFinished }) {
     let containerRef = useRef()
     let isInView = useInView(containerRef)
     let [startType, setStartType] = useState(false)
@@ -127,21 +112,21 @@ export default function Component({ data, text, disableInView, activate, toggleF
     return (
         <Container ref={containerRef}>
             <ImageWrapper><Image src={data.avatarCrop} priority={true} /></ImageWrapper>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 30">
-                <clipPath id="clipPath">
-                    {/* <path d="M37.73.33a27,27,0,0,0-21.8,11.12L3.62,28.38A2,2,0,0,1,0,27.2V0"/> */}
-                    <path d="M4.88103 29.0714L41 0H0V26.7343C0 29.254 2.91819 30.6512 4.88103 29.0714Z"/>
-                    {/* <path d="M20.5 16.5L4.88103 29.0714C2.91819 30.6512 0 29.254 0 26.7343V0H36H41H63.5C55 0.833333 34.5 5.3 20.5 16.5Z" /> */}
-                    {/* <path d="M4.88103 29.0714L41 0H0V26.7343C0 29.254 2.91819 30.6512 4.88103 29.0714Z" /> */}
-                    {/* <polygon class="triangle" stroke="white" strokeWidth="10" stroke-linejoin="round" points="20,0 0,40 40,40"/> */}
-                    {/* <circle cx="40" cy="35" r="35" /> */}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0">
+                <clipPath id="clipPathDesktop">
+                    <path d="M0 27C0 12.0883 12.0883 0 27 0H400C414.912 0 427 12.0883 427 27V102.246C427 117.151 414.923 129.236 400.019 129.246L50.2326 129.493C44.0438 129.498 38.0443 131.628 33.2386 135.528L3.26022 159.854C1.95299 160.915 0 159.985 0 158.301V118.136V27Z" />
                 </clipPath>
             </svg>
-            <Bubble variants={bubbleVariants} initial='hide' animate={startType ? 'show' : 'hide'}>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0">
+                <clipPath id="clipPathMobile">
+                    <path d="M0 27C0 12.0883 12.0883 0 27 0H195C209.912 0 222 12.0883 222 27V165.735C222 180.632 209.935 192.714 195.038 192.735L36.2419 192.961C26.8596 192.974 18.1568 197.857 13.2562 205.858L3.70549 221.45C2.65101 223.172 0 222.425 0 220.406V181.096V27Z" fill="white" fill-opacity="0.6"/>
+                </clipPath>
+            </svg>                           
+            <Bubble className='avatar-speech-bubble' smallBubble={smallBubble} variants={bubbleVariants} initial='hide' animate={startType ? 'show' : 'hide'}>
                 <BubbleInner>
                     <Typewriter data={text} start={startType} toggleFinishedFunc={() => toggleFinishedFunc()}/>
                 </BubbleInner>
-                <Tail />
             </Bubble>
         </Container>
     )

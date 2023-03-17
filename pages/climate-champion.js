@@ -29,7 +29,8 @@ let data = {
     intro: {
         title: 'TO PROTECT THE PLANET AND THOSE WHO WILL INHERIT IT IS A PROMISE WE CAN MAKE TOGETHER.',
         text: [
-          'Oh, hey, I’m Ivy, sorry, I just really care about our big blue ball! There are so many small but significant things that we can do as individuals, families and communities to move the climate dial!'
+          'Oh, hey, I’m Ivy, sorry, I just really care about our big blue ball!',
+          'There are so many small but significant things that we can do as individuals, families and communities to move the climate dial!'
         ]
     },
     slices: [    
@@ -185,11 +186,15 @@ let data = {
     complete: {
       praise: {
         title: 'WE DID IT!',
-        text: ['We safeguarded the world for those that will inherit it! Feel lighter somehow? Complete, like a circle?  That’s all us! Well all you, actually. Goes to show. How these small acts of thoughtfulness can come to mean so much. Go altruism!']
+        text: [
+          'We safeguarded the world for those that will inherit it! Feel lighter somehow? Complete, like a circle? ',
+          'That’s all us! Well all you, actually. Goes to show. How these small acts of thoughtfulness can come to mean so much. Go altruism!'
+      ]
       },
       reward: {
         image: '/images/rewards/2.png',
-        text: 'Congratulations, you are a wise and inclusive'
+        text: 'Congratulations, you are a wise and inclusive',
+        link: '/reward/climate-champion'
       },
       more: {
         title: 'Want to know more?',
@@ -248,9 +253,7 @@ export default function Component() {
       document.querySelector('.sidebar').classList.remove('hide-sidebar')
     }, 250)
 
-    if(window.innerWidth > 990) {
-      document.addEventListener("scroll", scrollListener)
-    }
+    document.addEventListener("scroll", scrollListener)
 
     return () => {
       document.removeEventListener("scroll", scrollListener)
@@ -261,7 +264,6 @@ export default function Component() {
     <Layout title={`${data.title} | Nike Impact Report`} content={`${data.title} | Nike Impact Report`}>
       <Container>
         <Slices data={data}/>
-        <Footer />
       </Container>
     </Layout>
   )

@@ -20,8 +20,9 @@ const Title = styled.h2`
 `
 
 const AvatarSpeechWrapper = styled.div`
+    width: fit-content;
+    
     @media(min-width: 990px) {
-        width: fit-content;
         margin: 0 auto;
     }
 `

@@ -1,7 +1,4 @@
-import { useState, useRef, useEffect } from "react"
 import styled from "styled-components"
-
-import { motion, useScroll, useMotionValueEvent } from "framer-motion"
 
 import Share from './share'
 
@@ -26,11 +23,27 @@ let Container = styled.div`
   }
 
   @media(max-width: 989px) {
-    display: none;
+    left: auto;
+    right: 20px;
+    transform: translateX(150%);
+    transition: transform var(--transition-in) 0s, bottom 0.1s;
+
+    &.hide-sidebar {
+      transform: translateX(150%);
+    }
+
+    &.lift-sidebar {
+      transform: translateX(0);
+      bottom: 20px;
+    }
   }
 `
 const Logo = styled.div`
   margin-bottom: 5px;
+
+  @media(max-width: 989px) {
+    display: none;
+  }
 `
 
 
@@ -42,7 +55,7 @@ export default function Header({}) {
     <>
     <Container className='sidebar hide-sidebar'>
       <Logo><img src='/images/logos/nikeimpact-side.svg'/></Logo>
-      <Share />
+      <Share currentPageLink={true} />
     </Container>
     </>
   )

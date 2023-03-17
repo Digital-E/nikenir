@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { motion, useInView } from 'framer-motion'
+import { gsap } from 'gsap'
 
 
 import Share from '../../share'
@@ -27,6 +28,7 @@ const Container = styled(motion.div)`
 
 const Image = styled.div`
     width: 225px;
+    margin-bottom: 25px;
     
     img {
         width: 100%;
@@ -67,26 +69,38 @@ let variants = {
 }
 
 
-export default function Component({ data }) {
+export default function Component({ data, share }) {
     let containerRef = useRef()
+    let imageRef = useRef()
+    let animationRef = useRef()
+
     let isInView = useInView(containerRef, {
         margin: "0px 0px -50% 0px",
         once: true
     })
 
+    useEffect(() => {
+        if(isInView) {
+            animationRef.current = gsap.fromTo(imageRef.current.children[0],{scale: 1}, {scale: 1.05 , duration: 1.5, yoyo: true, ease: "power2.inOut", repeat: -1});
+        } else {
+            animationRef.current?.kill()
+        }
+    }, [isInView])
+    
+
     return (
         <Container 
-            // initial='hide'
-            // initial='hide'
-            // variants={variants}
-            // animate={isInView ? 'show' : 'hide'}
-            ref={containerRef} 
+            ref={containerRef}
             className='container-background max-width center'
         >
-            <ShareWrapper>
-                <Share />
-            </ShareWrapper>
-            <Image>
+            {share === false ?
+                null
+                :
+                <ShareWrapper>
+                    <Share link={data.complete.reward.link} />
+                </ShareWrapper>
+            }
+            <Image ref={imageRef}>
                 <img src={data.complete.reward.image} />
             </Image>
             <Text className='palatino-medium'>{data.complete.reward.text}</Text>

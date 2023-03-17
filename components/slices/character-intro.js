@@ -44,6 +44,7 @@ const AvatarWrapper = styled.div`
     }
 
     @media(max-width: 989px) {
+        width: fit-content;
         margin-bottom: 20px;
     }
 `
@@ -57,7 +58,7 @@ const Title = styled.h1`
     }
 `
 
-const ButtonWrapper = styled(motion.div)`
+const ButtonWrapper = styled.div`
     position: absolute;
     display: flex;
     justify-content: center;
@@ -66,31 +67,33 @@ const ButtonWrapper = styled(motion.div)`
     margin: 0 auto 20px auto;
     padding: 0 40px;
     z-index: 2;
+
+    > button {
+        position: relative;
+        transform: translateY(150%);
+    }
 `
 
 let disableScroll = (e) => {
     e.preventDefault()
 }
 
-let variants = {
-    'show': {
-        opacity: 1,
-        y: 0,
-    },
-    'hide': {
-        opacity: 0,
-        y: '100%'
-    }
-}
+
+let hasResizedOnce = false
 
 export default function Component({ item, data }) {
     let containerRef = useRef();
+    let buttonWrapperRef = useRef();
     let [showSpeech, setShowSpeech] = useState(false);
     let [showButton, setShowButton] = useState(false);
     let [screenHeight, setScreenHeight] = useState(0);
 
     let resize = () => {
-        setScreenHeight(window.innerHeight)
+        if(window.innerWidth > 576 && hasResizedOnce) {
+            setScreenHeight(window.innerHeight)
+        }
+
+        hasResizedOnce = true
     }
 
     useEffect(() => {
@@ -129,6 +132,12 @@ export default function Component({ item, data }) {
     let scrollDown = () => {
         gsap.to(window, {duration: 1, ease: "power3.inOut", scrollTo: window.innerHeight, onComplete: () => hideIntro()})
     }
+
+    useEffect(() => {
+        if(showButton) {
+            gsap.to(buttonWrapperRef.current.children[0], {y: 0, duration: 1, ease: "power3.inOut"})
+        }
+    }, [showButton])
     
     return (
         <Container ref={containerRef} height={screenHeight}>
@@ -137,10 +146,8 @@ export default function Component({ item, data }) {
                 <AvatarSpeech data={data} text={data.intro.text} disableInView={true} activate={showSpeech} toggleFinished={() => {}}/>
             </AvatarWrapper>
             <ButtonWrapper 
+                ref={buttonWrapperRef}
                 onClick={() => scrollDown()} 
-                variants={variants}
-                transition={{ type: "spring", stiffness: 200, damping: 10 }}
-                animate={showButton ? 'show' : 'hide'}
                 >
                 <Button>Let's play!</Button>
             </ButtonWrapper>

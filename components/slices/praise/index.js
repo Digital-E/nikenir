@@ -3,19 +3,19 @@ import styled from 'styled-components'
 import { motion, useInView } from 'framer-motion'
 import { gsap }  from  "gsap"
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin"
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 import Ticker from './ticker'
 import AvatarSpeech from '../avatar-speech/index'
 
 import Reward from '../complete/reward'
 
+gsap.registerPlugin(ScrollToPlugin);
+
 const anime = require('animejs').default
 
 const Container = styled.div`
     position: relative;
     height: 100%;
-    // overflow: hidden;
 
     .ml2 .letter {
         display: inline-block;
@@ -35,7 +35,6 @@ const Text = styled.div`
     position: relative;
     text-align: center;
     margin: 0 var(--margin);
-    // top: 200px;
     z-index: -1;
 
     span {
@@ -50,20 +49,22 @@ const Text = styled.div`
 `
 
 const AvatarSpeechWrapper = styled(motion.div)`
+    height: fit-content;
+    width: fit-content;
+
     @media(min-width: 990px) {
         height: fit-content;
         width: fit-content;
         position: relative;
-        left: -10vw;
+        bottom: -100px;
+        left: -210px;
+    }
 
-        > div {
-            width: calc(100% + 10vw);
-        }
 
-        > div:nth-child(1) > div:nth-child(3) {
-            width: calc(100% - 10vw);
-            left: 75%;
-            right: auto;
+    @media(min-width: 990px) {
+        .avatar-speech-bubble {
+            top: -12%;
+            right: -18%;
         }
     }
 `
@@ -77,7 +78,6 @@ const RewardWrapper = styled(motion.div)`
     }
 
     @media(min-width: 990px) {
-        margin-left: 205px;
         min-width: 425px;
 
         > div {
@@ -89,6 +89,7 @@ const RewardWrapper = styled(motion.div)`
 
 const StickyWrapper = styled.div`
     position: relative;
+    z-index: 1;
     margin: -50px 0 0 0;
 
     @media(min-width: 990px) {
@@ -220,7 +221,12 @@ export default function Component({ data, unlock }) {
     }
 
     let scrollDown = () => {
-        gsap.to(window, {duration: 2, ease: "power3.inOut", scrollTo: {y: "max"}})
+        if(window.innerWidth < 576) {
+            let y = window.scrollY + containerRef.current.getBoundingClientRect().bottom - 15
+            gsap.to(window, {duration: 2, ease: "power3.inOut", scrollTo: {y: y}})
+        } else {
+            gsap.to(window, {duration: 2, ease: "power3.inOut", scrollTo: {y: "max"}})
+        }
     }
     
     return (
@@ -233,7 +239,7 @@ export default function Component({ data, unlock }) {
                         // variants={variants}
                         // animate={avatarReveal ? 'show' : 'hide'}
                         ref={avatarSpeechWrapperRef}>
-                        <AvatarSpeech data={data} text={data.complete.praise.text} disableInView={true} activate={avatarReveal} toggleFinished={() => toggleFinished()}/>
+                        <AvatarSpeech data={data} text={data.complete.praise.text} smallBubble={true} disableInView={true} activate={avatarReveal} toggleFinished={() => toggleFinished()}/>
                     </AvatarSpeechWrapper>
                     <RewardWrapper 
                         initial='hide'

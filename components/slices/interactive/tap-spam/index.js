@@ -1,4 +1,6 @@
 import { useEffect, useState, useRef, useContext } from 'react'
+import { motion, useInView } from 'framer-motion'
+
 import styled from 'styled-components'
 
 import { gsap } from 'gsap'
@@ -14,7 +16,7 @@ import InformationCard from '../../information-card'
 import Hide from '../hide'
 
 
-const Container = styled.div`
+const Container = styled(motion.div)`
     width: 100%;
 
     &.clicked .text-two {
@@ -40,6 +42,21 @@ const TextTwo = styled.div`
     transition: opacity var(--transition-in);
 `
 
+let variants = {
+    'show': {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.3,
+            delay: 0.1
+        }
+    },
+    'hide': {
+        opacity: 0,
+        y: 0
+    }
+}
+
 const HideWrapper = styled.div`
 `
 let scrollTo = null;
@@ -52,6 +69,13 @@ export default function Component({ item, data }) {
     let [hasInteracted, setHasInteracted] = useState(false)
     let [allItems, setAllItems] = useState(item.squares)
     let [selectedIndex, setSelectedIndex] = useState(0)
+
+    let containerRef = useRef();
+
+    let isInView = useInView(containerRef, {
+        margin: "0px 0px -200px 0px",
+        once: true
+    })    
 
     let hideWrapperRef = useRef();
 
@@ -113,7 +137,13 @@ export default function Component({ item, data }) {
     
 
     return (
-        <Container className={hasInteracted ? 'clicked mtb-2 max-width-2' : 'mtb-2 max-width-2'}>
+        <Container
+            variants={variants} 
+            initial='hide' 
+            animate={isInView ? 'show' : 'hide'} 
+            ref={containerRef} 
+            className={hasInteracted ? 'clicked mtb-2 max-width-2' : 'mtb-2 max-width-2'}
+        >
             <Text className='text-one mtb-2 palatino-x-small'>
                 <span>Tap spam to make your choice</span>
             </Text>

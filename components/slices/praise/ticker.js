@@ -1,10 +1,12 @@
-import { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 
 
 const duration = '40s';
 
 const Container = styled.div`
+    position: relative;
+    z-index: -1;
+    transform: translate3d(0, 0, 0);
 
     @keyframes ticker {
         100% {

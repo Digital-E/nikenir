@@ -6,6 +6,8 @@ import Reward from './reward'
 import More from './more'
 import Next from './next-round'
 
+import Footer from '../../footer'
+
 const Container = styled.div`
     margin: 200px 0 0 0;
     // overflow: hidden;
@@ -51,7 +53,7 @@ const RewardWrapperMobile = styled.div`
 
 
 export default function Component({ data }) {
-    let [unlocked, setUnlocked] = useState(false);
+    let [unlocked, setUnlocked] = useState(true);
 
     return (
         <Container>
@@ -60,6 +62,7 @@ export default function Component({ data }) {
             </RowOne>
             {
                 unlocked ?
+                <>
                 <RowTwo>
                     <RewardWrapperMobile>
                         <Reward data={data} />
@@ -67,6 +70,8 @@ export default function Component({ data }) {
                     <More data={data} />
                     <Next data={data} />
                 </RowTwo>
+                <Footer />
+                </>
                 :
                 null
                 

@@ -6,7 +6,8 @@ const initialState = {
   progress: 0,
   questionCount: 0,
   backLink: '',
-  gradientIndex: 0
+  gradientIndex: 0,
+  notificationMessage: null
 };
 
 const store = createContext(initialState);
@@ -46,7 +47,12 @@ const StateProvider = ({ children }) => {
         return {
           ...newState,
           gradientIndex: action.value
-        };                                                               
+        };
+      case "update notification message":
+        return {
+          ...newState,
+          notificationMessage: action.value
+        };                                                                        
       default:
         throw new Error();
     }

@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useContext } from 'react'
 import styled from 'styled-components'
-import { motion, useAnimationControls } from 'framer-motion'
+import { motion, useAnimationControls, useInView } from 'framer-motion'
 
 import { gsap } from 'gsap'
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin"
@@ -14,7 +14,7 @@ import InformationCard from '../../information-card'
 
 import Hide from '../hide'
 
-const Container = styled.div`
+const Container = styled(motion.div)`
     position: relative;
 
     &.clicked .text-two {
@@ -61,6 +61,21 @@ const DragElement = styled(motion.div)`
     }
 `
 
+let variants = {
+    'show': {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.3,
+            delay: 0.1
+        }
+    },
+    'hide': {
+        opacity: 0,
+        y: 0
+    }
+}
+
 const HideWrapper = styled.div``
 
 let scrollTo = null;
@@ -76,6 +91,13 @@ export default function Component({ item, data }) {
     let [isDragging, setIsDragging] = useState(false)
     let mouseOverIndex = useRef(0);
     let [selectedIndex, setSelectedIndex] = useState(0)
+
+    let containerRef = useRef();
+
+    let isInView = useInView(containerRef, {
+        margin: "0px 0px -200px 0px",
+        once: true
+    })    
 
     let hideWrapperRef = useRef();
 
@@ -191,7 +213,13 @@ export default function Component({ item, data }) {
   }, [hasInteracted]) 
 
     return (
-        <Container className={hasInteracted ? 'clicked mtb-2 max-width-2' : 'mtb-2 max-width-2'}>
+        <Container 
+          variants={variants} 
+          initial='hide' 
+          animate={isInView ? 'show' : 'hide'} 
+          ref={containerRef}         
+          className={hasInteracted ? 'clicked mtb-2 max-width-2' : 'mtb-2 max-width-2'}
+        >
             <Text className='text-one mtb-2 palatino-x-small'>
                 <span>{item.title}</span>
             </Text>

@@ -16,6 +16,8 @@ import Header from '../components/header'
 
 import Sidebar from '../components/sidebar'
 
+import Notification from '../components/notification'
+
 import BackgroundGradientCode from '../components/background-gradient-code-canvas'
 
 import { credits } from "../lib/credits"
@@ -152,9 +154,17 @@ function MyApp({ Component, pageProps, router }) {
   }
 
   useEffect(() => {
-    // setTimeout(() => {
-    //   window.scrollTo(0, 0);
-    // }, 500)
+
+    setTimeout(() => {
+
+      let prevUrl = window.sessionStorage.getItem('prevUrl')
+      
+      if(prevUrl !== router.asPath) {
+          window.scrollTo(0, 0);
+        }
+
+        window.sessionStorage.setItem('prevUrl', router.asPath)
+    }, 500)
   }, [router.asPath])
   
 
@@ -162,6 +172,7 @@ function MyApp({ Component, pageProps, router }) {
     <StateProvider>
       <Header />
       <Sidebar />
+      <Notification />
       {/* <Background /> */}
       <BackgroundGradientCode data={dataAll}/>
       {/* <GradientWrapper>

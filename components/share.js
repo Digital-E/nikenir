@@ -2,6 +2,11 @@ import { useEffect, useState, useContext } from 'react'
 import { motion, useAnimationControls } from 'framer-motion'
 import styled from 'styled-components'
 
+import { useRouter } from 'next/router'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+
+import { store } from '../store'
+
 
 const Container = styled(motion.div)`
     display: flex;
@@ -25,7 +30,13 @@ const Container = styled(motion.div)`
 
 
 
-const Component = ({ children }) => {
+const Component = ({ link, children, currentPageLink }) => {
+    // Context
+    const context = useContext(store);
+    const { state, dispatch } = context;
+
+    let [shareLink, setShareLink] = useState('')
+    
     const controls = useAnimationControls();
 
     let click = (e) => {
@@ -35,16 +46,30 @@ const Component = ({ children }) => {
         }, 50)
     }
 
+    let copied = () => {
+        dispatch({type: "update notification message", value: 'Link copied to your clipboard.<br />Let’s spread the word and share with rest of the world.'})
+    }
+
+    useEffect(() => {
+        if(currentPageLink) {
+            setShareLink(`${window.location.href}`)
+        } else {
+            setShareLink(`${window.location.origin}${link}`)
+        }
+    }, [])
+
     return (
-        <Container 
-            className='helvetica'
-            onClick={(e) => {click(e)}} 
-            transition={{ type: "spring", stiffness: 200, damping: 10 }}
-            whileHover={{scale: 1.02}}
-            animate={controls}
-        >
-            <img src='/images/icons/share.svg' />
-        </Container>
+        <CopyToClipboard text={shareLink} onCopy={() => copied()}>
+            <Container 
+                className='helvetica'
+                onClick={(e) => {click(e)}} 
+                transition={{ type: "spring", stiffness: 200, damping: 10 }}
+                whileHover={{scale: 1.02}}
+                animate={controls}
+            >
+                <img src='/images/icons/share.svg' />
+            </Container>
+        </CopyToClipboard>
     )
 }
 

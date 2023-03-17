@@ -7,40 +7,32 @@ const Container = styled.div``;
 
 const Popup = styled.div`
     position: fixed;    
-    width: calc(50vw - 20px);
-    bottom: 20px;
-    right: 20px;
-    background: var(--secondary-color);
-    min-height: 150px;
-    padding: 20px;
-    z-index: 999;
+    width: 100%;
+    top: 95px;
+    left: 50%;
+    padding: 15px;
+    z-index: 997;
     box-sizing: border-box;
 
     &&.show-notification {
-        transform: translateY(0);
+        transform: translate(-50%, 0);
         transition: transform ease-in-out 0.3s;
     }
 
     &&.hide-notification {
-        transform: translateY(calc(100% + 20px));
+        transform: translate(-50%, -200px);
         transition: transform ease-in-out 0.3s;
     }
 
-    @media(min-width: 1800px) {
-        right: calc((100vw - 1800px) / 2 + 20px);
-        width: calc(1800px / 2 - 20px);
-    }
+    // @media(min-width: 1800px) {
+    //     right: calc((100vw - 1800px) / 2 + 20px);
+    //     width: calc(1800px / 2 - 20px);
+    // }
       
 
     @media(max-width: 989px) {
-        width: calc(100vw - 30px);
-        bottom: 76px;
-        right: auto;
-        left: 15px;
-        padding: 10px 15px 0 10px;
-
         &&.hide-notification {
-            transform: translateY(calc(100% + 76px));
+            transform: translate(-50%, -200px);
         }
     }
 `;
@@ -90,29 +82,37 @@ const Text = styled.div`
     }
 
     @media(max-width: 989px) {
-        h2 {
-            margin-top: -8px;
-        }
-
         p {
             margin-bottom: 0;
         }
     }
 `
 
+let timeout = null
 
 const Component = () => {
     let [displayNotification, setDisplayNotification] = useState(false)
-    let [notificationMessage, setNotificationMessage] = useState("test")
+    let [notificationMessage, setNotificationMessage] = useState('')
 
     //Context
     const context = useContext(store);
     const { state, dispatch } = context;
 
     useEffect(() => {
-        setNotificationMessage(state.notificationMessage)
-        setDisplayNotification(true)
-    }, [state])
+        clearTimeout(timeout)
+
+        if(state.notificationMessage === '') {
+            setDisplayNotification(false)
+        } else {
+            setNotificationMessage(state.notificationMessage)
+            setDisplayNotification(true)
+
+            timeout = setTimeout(() => {
+                dispatch({type: 'update notification message', value: ''})
+            }, 5000)
+        }
+
+    }, [state.notificationMessage])
 
     useEffect(() => {
         setDisplayNotification(false)
@@ -121,12 +121,14 @@ const Component = () => {
 
     return (
         <Container>
-            <Overlay onClick={() => setDisplayNotification(false)} className={displayNotification ? 'show-overlay' : 'hide-overlay'}/>
-            <Popup className={displayNotification ? 'show-notification' : 'hide-notification'}>
-                <Close onClick={() => setDisplayNotification(false)} className='p'>Close</Close>
+            {/* <Overlay onClick={() => setDisplayNotification(false)} className={displayNotification ? 'show-overlay' : 'hide-overlay'}/> */}
+            <Popup className={displayNotification ? 'show-notification container-background max-width' : 'hide-notification container-background max-width'}>
+                {/* <Close onClick={() => setDisplayNotification(false)} className='p'>Close</Close> */}
                 <Text>
-                    <h2>DONE!</h2>
-                    <p className='medium-text'>{notificationMessage}</p>
+                    <h2>Let's share!</h2>
+                    <p className='medium-text' 
+                        dangerouslySetInnerHTML={{__html: notificationMessage}}
+                    />
                 </Text>
             </Popup>
         </Container>

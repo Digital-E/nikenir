@@ -59,7 +59,7 @@ const Card = styled(motion.div)`
     height: calc(33.333vw * 1.15);
     width: 100%;
     margin: 40px 10px 40px 10px;
-    padding: 30px 0;
+    padding: 0 0 30px 0;
     border-radius: 27px;
     // background: ${props => props.data.background};
     // background: url(${props => props.data.backgroundSrc});
@@ -206,6 +206,7 @@ const ImageWrapper = styled.div`
     align-items: center;
     justify-content: center;
     left: 10%;
+    bottom: ${props => props.data.bottom}%;
 
     img {
         width: ${props => props.data.width}%  !important;
@@ -213,10 +214,17 @@ const ImageWrapper = styled.div`
 
 
     @media(max-width: 989px) {
-        left: 5%;
+        left: 15%;
 
         img {
             width: ${props => props.data.widthMobile}%  !important;
+        }
+    }
+
+    @media(max-height: 667px) and (max-width: 576px) {
+
+        img {
+            width: ${props => props.data.widthMobile - 25}%  !important;
         }
     }
 `
@@ -293,10 +301,9 @@ let data = [
         link: '/people-promoter',
         background: 'radial-gradient(101.96% 52.55% at 8.6% 50%, rgba(254, 194, 37, 0.9) 0%, rgba(255, 255, 255, 1) 76.07%)',
         backgroundSrc: gradientOne,
-        width: 70,
+        width: 80,
         widthMobile: 85,
-        left: 30,
-        top: -30,
+        bottom: -5
     },
     {
         name: 'Ivy',
@@ -306,10 +313,9 @@ let data = [
         link: '/climate-champion',
         background: 'radial-gradient(101.96% 52.55% at 8.6% 50%, rgba(195, 188, 236, 0.9) 0%, rgba(255, 255, 255, 1) 76.07%)',
         backgroundSrc: gradientTwo,
-        width: 80,
+        width: 93,
         widthMobile: 100,
-        left: 15,
-        top: -30,
+        bottom: -5
     },
     {
         name: 'Theo',
@@ -319,10 +325,9 @@ let data = [
         link: '/active-activist',
         background: 'radial-gradient(239.95% 126.46% at 33.97% 17.02%, rgba(2, 131, 254, 0.7) 0%, rgba(255, 255, 255, 1) 76.07%)',
         backgroundSrc: gradientThree,
-        width: 75,
-        widthMobile: 95,
-        left: 40,
-        top: -30,
+        width: 85,
+        widthMobile: 90,
+        bottom: -3
     },    
 ]
 

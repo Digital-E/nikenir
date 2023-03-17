@@ -1,4 +1,6 @@
 import { useEffect, useState, useRef, useContext } from 'react'
+import { motion, useInView } from 'framer-motion'
+
 import styled from 'styled-components'
 
 import { gsap } from 'gsap'
@@ -13,7 +15,7 @@ import InformationCard from '../../information-card'
 
 import Hide from '../hide'
 
-const Container = styled.div`
+const Container = styled(motion.div)`
 
     &.clicked .text-two {
         opacity: 1 !important;
@@ -37,6 +39,21 @@ const TextTwo = styled.div`
     transition: opacity var(--transition-in);
 `
 
+let variants = {
+    'show': {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.3,
+            delay: 0.1
+        }
+    },
+    'hide': {
+        opacity: 0,
+        y: 0
+    }
+}
+
 const HideWrapper = styled.div``
 
 let scrollTo = null;
@@ -50,6 +67,13 @@ export default function Component({ item, data }) {
     let [allItems, setAllItems] = useState(item.squares)
     let [selectedIndex, setSelectedIndex] = useState(0)
 
+    let containerRef = useRef();
+
+    let isInView = useInView(containerRef, {
+        margin: "0px 0px -200px 0px",
+        once: true
+    })
+
     let hideWrapperRef = useRef();
 
     let killScroll = () => {
@@ -59,52 +83,25 @@ export default function Component({ item, data }) {
     }
 
     let triggerConfetti = (e, index) => {
-        // confetti({
-        //     particleCount: 100,
-        //     spread: 70,
-        //     origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
-        // });
-        if(index === 0) {
-            confetti({
-                spread: 360,
-                ticks: 200,
-                gravity: 1,
-                decay: 0.94,
-                startVelocity: 30,
-                count: 100,
-                scalar: 15,
-                origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
-                shapes: ["image"],
-                shapeOptions: {
-                  image: [{
-                      src: allItems[0].img,
-                      width: 32,
-                      height: 32
-                    }
-                  ]
-                },
-              }); 
-        } else {
-            confetti({
-                spread: 360,
-                ticks: 200,
-                gravity: 1,
-                decay: 0.94,
-                startVelocity: 30,
-                count: 100,
-                scalar: 15,
-                origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
-                shapes: ["image"],
-                shapeOptions: {
-                  image: [{
-                      src: allItems[1].img,
-                      width: 32,
-                      height: 32
-                    }
-                  ]
-                },
-              }); 
-        }       
+        confetti({
+            spread: 360,
+            ticks: 500,
+            gravity: 1,
+            decay: 0.94,
+            startVelocity: 30,
+            count: 100,
+            scalar: 3,
+            origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
+            shapes: ["image"],
+            shapeOptions: {
+              image: [{
+                  src: '/images/like/heart-fill-red.png',
+                  width: 32,
+                  height: 32
+                }
+              ]
+            },
+          });     
     }
 
     let hasClicked = (e, index) => {
@@ -145,7 +142,13 @@ export default function Component({ item, data }) {
     }, [hasInteracted])
     
     return (
-        <Container className={hasInteracted ? 'clicked mtb-2 max-width-2' : 'mtb-2 max-width-2'}>
+        <Container
+            variants={variants} 
+            initial='hide' 
+            animate={isInView ? 'show' : 'hide'} 
+            ref={containerRef} 
+            className={hasInteracted ? 'clicked mtb-2 max-width-2' : 'mtb-2 max-width-2'}
+        >
             <Text className='text-one mtb-2 palatino-x-small'>
                 <span>{item.title}</span>
             </Text>

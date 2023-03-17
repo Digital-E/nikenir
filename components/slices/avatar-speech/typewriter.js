@@ -40,9 +40,9 @@ const Text = styled.div`
         transition: opacity 0s, transform 0s;
     }
 
-    @media(max-width: 576px) {
-        width: 90%;
-    }
+    // @media(max-width: 576px) {
+    //     width: 90%;
+    // }
 `
 
 
@@ -58,6 +58,7 @@ const Cursor = styled.div`
     opacity: 1;
     transition: opacity 1s;
     animation: blink 0.5s infinite;
+    display: none;
 
     &.hide {
         opacity: 0;
@@ -87,8 +88,10 @@ const Replay = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    bottom: -30px;
-    right: 0;
+    // bottom: -30px;
+    bottom: 40px;
+    // right: 0;
+    right: 13px;
     z-index: 999;
     font-family: helvetica;
     color: white;
@@ -98,7 +101,7 @@ const Replay = styled.div`
     width: 23px;
     border-radius: 999px;
     background: var(--background);
-    backdrop-filter: blur(10px);
+    // backdrop-filter: blur(10px);
     user-select: none;
 
     * {
@@ -213,6 +216,7 @@ export default function Component({ data, start, toggleFinishedFunc }) {
             }
 
             newSentenceTimeout = setTimeout(() => {
+                if(cursorRef.current === null && typeWriterRef.current === null) return
                 cursorRef.current.classList.add('hide');
 
                 typeWriterRef.current.classList.add('hide');

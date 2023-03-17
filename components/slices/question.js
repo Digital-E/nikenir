@@ -37,22 +37,35 @@ let variants = {
     },
     'hide': {
         opacity: 0,
-        y: 20
+        y: 0
     }
 }
 
 export default function Component({ item, data }) {
     let cardRef = useRef()
+    let titleRef = useRef()
+
+    let isInViewTitle = useInView(titleRef, {
+        margin: "0px 0px -200px 0px",
+        once: true
+    })
+
     let isInView = useInView(cardRef, {
         margin: "0px 0px -200px 0px",
         once: true
     })
 
-
     return (
         <Container className='margin max-width'>
-            <Number className='palatino-small'>{item.number}</Number>
-            <Title>{item.title}</Title>
+            <motion.div
+                ref={titleRef}
+                variants={variants} 
+                initial='hide' 
+                animate={isInViewTitle ? 'show' : 'hide'}
+            >
+                <Number className='palatino-small'>{item.number}</Number>
+                <Title>{item.title}</Title>
+            </motion.div>
             <AvatarCardWrapper
                 variants={variants} 
                 initial='hide' 
