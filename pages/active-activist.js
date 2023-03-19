@@ -22,7 +22,7 @@ let data = {
     avatarMiniature: '/images/avatars/miniature/ivy.png',
     colourOne: '#A2D8EF',
     colourTwo: '#F05822',
-    colourThree: '#0584FE',
+    colourThree: '#A2D8EF',
     tickerColourOne: 'rgba(62, 216, 239, 0.5)',
     questionCount: 4,
     intro: {
@@ -157,16 +157,18 @@ let data = {
           text: 'You didn’t think you’d ever last more than a minute playing sports. But a year on from joining the team it’s become such an important part of your life. And that’s because:'
         },
         {
-          type: 'like',
-          title: 'Answer with a like',
+          type: 'scratch',
+          title: 'Scratch out your choice',
           squares: [
             {
               title: 'Sport gives you purpose',
-              img: '/images/active-activist/objects/Play_Q4.png'
+              img: '/images/active-activist/objects/Play_Q4_background.png',
+              imgBack: '/images/logos/nike logo.svg'
             },
             {
               title: 'Sport gives you confidence',
-              img: '/images/active-activist/objects/Play_Q4.png'
+              img: '/images/active-activist/objects/Play_Q4_background.png',
+              imgBack: '/images/logos/nike logo.svg'
             }
           ],
           information: [

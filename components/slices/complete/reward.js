@@ -15,7 +15,7 @@ const Container = styled(motion.div)`
     justify-content: center;
     width: 100%;
     background: white;
-    padding: 60px 15px 45px 15px;   
+    padding: 60px 15px;   
 
     @media(max-width: 989px) {
         padding: 60px 15px 60px 15px;
@@ -31,17 +31,20 @@ const Image = styled.div`
     margin-bottom: 25px;
     
     img {
-        width: 100%;
+        display: block;
+        height: 211px;
+        margin: 0 auto;
     }
 `
 const Text = styled.p`
-    margin: var(--margin) 0;    
+    margin: 10px 0 0 0;    
     text-align: center;
     width: 80%;
 `
 
 const Title = styled.h2`
-    margin: var(--margin) 0;
+    text-align: center;
+    margin: 0;
 
     @media(max-width: 989px) {
         margin: 0;

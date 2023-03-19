@@ -1,8 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react"
+import ClientOnlyPortal from './clientOnlyPortal'
 import styled from "styled-components"
-
-import { Portal } from 'react-portal'
-import { render } from "react-dom";
 
 const Container = styled.div`
     position: relative;
@@ -87,24 +85,19 @@ const Cursor = styled.div`
 `
 
 const Replay = styled.div`
-    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    // bottom: -30px;
-    bottom: 40px;
-    // right: 0;
     right: 13px;
     z-index: 999;
     font-family: helvetica;
     color: white;
     font-size: 12px;
-    // padding: 5px 10px;
     height: 23px;
     width: 23px;
     border-radius: 999px;
     background: var(--background);
-    // backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     user-select: none;
 
     * {
@@ -142,9 +135,9 @@ const Replay = styled.div`
     }
 `
 
+let renderCount = 0
 
-
-export default function Component({ data, start, toggleFinishedFunc }) {
+export default function Component({ data, start, toggleFinishedFunc, portalRef }) {
 
     let [triggerInit, setTriggerInit] = useState(false);
     let containerRef = useRef();
@@ -159,7 +152,7 @@ export default function Component({ data, start, toggleFinishedFunc }) {
     let displayText = '';
     let sentenceIndex = 0;
     let letterIndex = 0;
-
+    
     let [renderPortal, setRenderPortal] = useState(false)
 
     let cursorActive = false;
@@ -338,25 +331,25 @@ export default function Component({ data, start, toggleFinishedFunc }) {
         </TextWrapper>
         <Cursor ref={cursorRef} className="hide" />
       </Container>
-        {
-            renderPortal ?
-            <Portal node={document.querySelector("#replay-portal")}>
-                <Replay onClick={() => replay()} ref={replayButtonRef}>
-                    {/* <span>Replay</span> */}
-                    <svg x="0px" y="0px"
-                        viewBox="0 0 561.1 561.1" xmlSpace="preserve">
-                    <g>
-                        <path d="M280.6,0c76.2,0,145,30.2,195.4,79.5l48.7-30.8l5,161.8l-142.2-76.2l48.7-30.8c-41.4-36.4-95.8-58.8-155.7-58.8
-                            c-65,0-123.8,26.3-166.9,68.9c-42.6,43.1-68.9,101.9-68.9,166.9c0,65,26.3,123.8,68.9,166.9c43.1,42.6,101.9,68.9,166.9,68.9
-                            c65,0,123.8-26.3,166.9-68.9c42-42.6,68.3-100.2,68.9-164.6l44.8-2.2c0,77.3-31.4,147.8-82.3,198.2c-50.4,51-121,82.3-198.2,82.3
-                            c-77.3,0-147.8-31.4-198.2-82.3C31.4,428.4,0,357.8,0,280.6c0-77.3,31.4-147.8,82.3-198.2C132.7,31.4,203.3,0,280.6,0L280.6,0z"/>
-                    </g>
-                    </svg>        
-                </Replay>
-            </Portal>
-            :
-            null
-        }
+      {
+        renderPortal ?
+        <ClientOnlyPortal selector={portalRef.current}>
+            <Replay onClick={() => replay()} ref={replayButtonRef}>
+                {/* <span>Replay</span> */}
+                <svg x="0px" y="0px"
+                    viewBox="0 0 561.1 561.1" xmlSpace="preserve">
+                <g>
+                    <path d="M280.6,0c76.2,0,145,30.2,195.4,79.5l48.7-30.8l5,161.8l-142.2-76.2l48.7-30.8c-41.4-36.4-95.8-58.8-155.7-58.8
+                        c-65,0-123.8,26.3-166.9,68.9c-42.6,43.1-68.9,101.9-68.9,166.9c0,65,26.3,123.8,68.9,166.9c43.1,42.6,101.9,68.9,166.9,68.9
+                        c65,0,123.8-26.3,166.9-68.9c42-42.6,68.3-100.2,68.9-164.6l44.8-2.2c0,77.3-31.4,147.8-82.3,198.2c-50.4,51-121,82.3-198.2,82.3
+                        c-77.3,0-147.8-31.4-198.2-82.3C31.4,428.4,0,357.8,0,280.6c0-77.3,31.4-147.8,82.3-198.2C132.7,31.4,203.3,0,280.6,0L280.6,0z"/>
+                </g>
+                </svg>        
+            </Replay>
+        </ClientOnlyPortal>        
+        :
+        null
+      }
       </>
     )
   }

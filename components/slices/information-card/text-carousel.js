@@ -68,38 +68,39 @@ const Component = ({ data }) => {
     let [selectedIndex, setSelectedIndex] = useState(1);
 
     useEffect(() => {
-        if(flickity !== null) return
+        // if(flickity !== null) return
 
-        flickity = new Flickity(gallery.current, {
-            prevNextButtons: false,
-            autoPlay: 3000,
-            pageDots: false,
-            cellAlign: "center",
-            percentPosition: true,
-            wrapAround: true,
-            // fade: true,
-            resize: true
-        })
+        // flickity = new Flickity(gallery.current, {
+        //     prevNextButtons: false,
+        //     autoPlay: 3000,
+        //     pageDots: false,
+        //     cellAlign: "center",
+        //     percentPosition: true,
+        //     wrapAround: true,
+        //     // fade: true,
+        //     resize: true
+        // })
 
 
-        flickity.on('staticClick', (cellIndex) => {
-            flickity.next()
-        })
+        // flickity.on('staticClick', (cellIndex) => {
+        //     flickity.next()
+        // })
 
-        flickity.on('change', (cellIndex) => {
-            setSelectedIndex(cellIndex + 1)
-        })
+        // flickity.on('change', (cellIndex) => {
+        //     setSelectedIndex(cellIndex + 1)
+        // })
     }, [])
 
     return (
         <Container colourOne={data.colourOne}>
             {/* <Number className='palatino-x-small'>{selectedIndex} / {data.complete.more.text.length}</Number> */}
             <Carousel ref={gallery}>
-                {data.map(item => 
+                {/* {data.map(item => 
                 <Slide>
                     <Text className='body-large'>{item}</Text>
                 </Slide>
-                )}
+                )} */}
+                <Text className='body-large'>{data[0]}</Text>
             </Carousel>
         </Container>
     )

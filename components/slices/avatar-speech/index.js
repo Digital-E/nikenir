@@ -65,7 +65,16 @@ const BubbleInner = styled.div`
     height: 100%;
 `
 
-const PortalReplay = styled.div``
+const PortalReplay = styled(motion.div)`
+    position: absolute;
+    bottom: calc(${props => props.data.intro.desktop.bottom}vw);
+    left: calc(${props => props.data.intro.desktop.left}vw + 405px);
+
+    @media(max-width: 989px) {
+        bottom: calc(${props => props.data.intro.mobile.bottom}vw + 5px);
+        left: calc(${props => props.data.intro.mobile.left}vw + 200px);
+    }
+`
 
 
 
@@ -87,6 +96,7 @@ let bubbleVariants = {
 
 export default function Component({ data, text, smallBubble, disableInView, activate, toggleFinished }) {
     let containerRef = useRef()
+    let portalRef = useRef()
     let isInView = useInView(containerRef)
     let [startType, setStartType] = useState(false)
 
@@ -115,7 +125,7 @@ export default function Component({ data, text, smallBubble, disableInView, acti
     return (
         <Container ref={containerRef}>
             <ImageWrapper data={data}><Image src={data.avatarCrop} priority={true} /></ImageWrapper>
-            <PortalReplay id='portal-replay'/>
+            <PortalReplay data={data} ref={portalRef} variants={bubbleVariants} initial='hide' animate={startType ? 'show' : 'hide'} />
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0">
                 <clipPath id="clipPathDesktop">
                     <path d="M0 27C0 12.0883 12.0883 0 27 0H400C414.912 0 427 12.0883 427 27V102.246C427 117.151 414.923 129.236 400.019 129.246L50.2326 129.493C44.0438 129.498 38.0443 131.628 33.2386 135.528L3.26022 159.854C1.95299 160.915 0 159.985 0 158.301V118.136V27Z" />
@@ -129,7 +139,7 @@ export default function Component({ data, text, smallBubble, disableInView, acti
             </svg>                           
             <Bubble className='avatar-speech-bubble' data={data} smallBubble={smallBubble} variants={bubbleVariants} initial='hide' animate={startType ? 'show' : 'hide'}>
                 <BubbleInner>
-                    <Typewriter data={text} start={startType} toggleFinishedFunc={() => toggleFinishedFunc()}/>
+                    <Typewriter data={text} start={startType} toggleFinishedFunc={() => toggleFinishedFunc()} portalRef={portalRef} />
                 </BubbleInner>
             </Bubble>
         </Container>

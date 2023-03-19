@@ -13,21 +13,18 @@ const Popup = styled.div`
     padding: 15px;
     z-index: 997;
     box-sizing: border-box;
+    opacity: 0;
 
     &&.show-notification {
+        opacity: 1;
         transform: translate(-50%, 0);
-        transition: transform ease-in-out 0.3s;
+        transition: transform ease-in-out 0.3s 0s, opacity 0.5s 0.2s;
     }
 
     &&.hide-notification {
         transform: translate(-50%, -200px);
-        transition: transform ease-in-out 0.3s;
+        transition: transform ease-in-out 0.3s 0s, opacity 0.2s;
     }
-
-    // @media(min-width: 1800px) {
-    //     right: calc((100vw - 1800px) / 2 + 20px);
-    //     width: calc(1800px / 2 - 20px);
-    // }
       
 
     @media(max-width: 989px) {
@@ -122,7 +119,7 @@ const Component = () => {
     return (
         <Container>
             {/* <Overlay onClick={() => setDisplayNotification(false)} className={displayNotification ? 'show-overlay' : 'hide-overlay'}/> */}
-            <Popup className={displayNotification ? 'show-notification container-background max-width' : 'hide-notification container-background max-width'}>
+            <Popup className={displayNotification ? 'show-notification container-background max-width-header' : 'hide-notification container-background max-width-header'}>
                 {/* <Close onClick={() => setDisplayNotification(false)} className='p'>Close</Close> */}
                 <Text>
                     <h2>Let's share!</h2>

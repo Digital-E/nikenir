@@ -73,6 +73,7 @@ const AvatarSpeechWrapper = styled(motion.div)`
 `
 
 const RewardWrapper = styled(motion.div)`
+    align-self: center;
 
     @media(max-width: 989px) {
         padding-top: 0;
@@ -108,12 +109,12 @@ const StickyWrapper = styled.div`
 const ArrowContainer = styled(motion.div)`
     position: absolute;
     left: 50%;
-    bottom: -20px;
+    bottom: 40px;
     transform: translateX(-50%);
     cursor: pointer;
 
     @media(max-width: 989px) {
-        bottom: 0;
+        bottom: 20px;
     }
 `
 
@@ -212,11 +213,14 @@ export default function Component({ data, unlock }) {
     useEffect(() => {
         if(isInView) {
             textAnimation.play();
+
+            setTimeout(() => {
+                setRewardReveal(true)
+            }, 2000)
         }
     }, [isInView])
 
     let toggleFinished = () => {
-        setRewardReveal(true)
 
         setTimeout(() => {
             setArrowReveal(true)

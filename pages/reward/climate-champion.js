@@ -16,7 +16,7 @@ const Container = styled.div`
   justify-content: center;
   height: 100%;
   width: 100%;
-  margin: 130px 0 50px 0;
+  margin: 100px 0 50px 0;
 `
 
 const InnerContainer = styled.div`
@@ -28,10 +28,10 @@ const Logo = styled.div`
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    padding: 40px 0;
+    padding: 20px 0;
 
     @media(max-width: 989px) {
-        padding: 30px 0;
+        padding: 20px 0;
     }
 `
 

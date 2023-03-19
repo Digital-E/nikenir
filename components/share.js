@@ -52,7 +52,8 @@ const Component = ({ link, children, currentPageLink }) => {
 
     useEffect(() => {
         if(currentPageLink) {
-            setShareLink(`${window.location.href}`)
+            // setShareLink(`${window.location.href}`)
+            setShareLink(`${window.location.origin}`)
         } else {
             setShareLink(`${window.location.origin}${link}`)
         }

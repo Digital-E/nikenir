@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useContext } from 'react'
 import { useRouter } from 'next/router'
+import { motion, useAnimationControls } from 'framer-motion'
 import styled from 'styled-components'
 
 import Link  from './link'
@@ -58,7 +59,6 @@ const Text = styled.div`
     top: calc(50% + 3px);
     transform: translate(-50%, -50%);
     opacity: 0;
-    // filter: blur(10px);
   }
 
   > span {
@@ -73,7 +73,7 @@ const ScrollIndicatorWrapper = styled.div`
 `
 
 
-const ScrollIndicator = styled.div`
+const ScrollIndicator = styled(motion.div)`
   position: relative;
   margin-left: auto;
 `
@@ -100,10 +100,8 @@ const Circle = styled.div`
   }
 
   svg .progress-bar {
-    // stroke: url(#grad);
     stroke: ${props => props.colour};
     transition: stroke 0.5s, stroke-dashoffset 0.3s ease-in-out; 
-    // filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.2));
   }
 `
 
@@ -118,7 +116,7 @@ export default function Header({}) {
   const context = useContext(store);
   const { state, dispatch } = context;
 
-  let router = useRouter();
+  const controls = useAnimationControls();
 
   let [colour, setColour] = useState('')
   let [messageOne, setMessageOne] = useState('')
@@ -128,22 +126,51 @@ export default function Header({}) {
   let headerTextRef = useRef();
   let progressBarRef = useRef();
   let transitionCount = useRef(0);
-  // const { scrollYProgress } = useScroll()
 
-  let setProgress = (latest) => {
-    // progressBarRef.current.style.strokeDashoffset = totalLength - latest * totalLength;
+
+  let setProgress = () => {
+
     let progress = state.progress / state.questionCount
     if(progress > 1) {
       progress = 1;
+
       progressBarRef.current.style.strokeDashoffset = totalLength - progress * totalLength
+
     } else {
       progressBarRef.current.style.strokeDashoffset = totalLength - progress * totalLength
+
+      if(progress === 1) {
+        setTimeout(() => {
+          document.querySelector('.progress-bar').style.transition = 'stroke 0.5s, stroke-dashoffset 0.7s ease-in-out'
+          
+          progressBarRef.current.style.strokeDashoffset = -totalLength
+    
+          controls.start({ scale: 1.2 })
+    
+          setTimeout(() => {
+              controls.start({ scale: 1 })
+          }, 200)
+    
+          setTimeout(() => {
+    
+            progressBarRef.current.style.strokeDashoffset = -totalLength * 2
+            
+    
+            setTimeout(() => {
+    
+              document.querySelector('.progress-bar').style.transition = 'stroke 0s, stroke-dashoffset 0s ease-in-out'
+    
+              progressBarRef.current.style.strokeDashoffset = 0
+    
+              setTimeout(() => {
+                document.querySelector('.progress-bar').style.transition = 'stroke 0.5s, stroke-dashoffset 0.3s ease-in-out'
+              }, 100)
+            }, 700)
+          }, 300)
+        }, 300)
+      }
     }
   }
-
-  // useMotionValueEvent(scrollYProgress, "change", (latest) => {
-  //   setProgress(latest)
-  // })
 
   useEffect(() => {
     progressBar = document.querySelector('.progress-bar');
@@ -151,8 +178,10 @@ export default function Header({}) {
 
     progressBarRef.current.style.strokeDasharray = totalLength;
     progressBarRef.current.style.strokeDashoffset = totalLength;
+    
+    // progressBarRef.current.style.strokeDashoffset = 0
 
-    // setProgress(scrollYProgress.prev)
+
   }, []);
 
   let changeFontClass = (el, message) => {
@@ -176,9 +205,7 @@ export default function Header({}) {
       setMessageTwo(state.message)
     
       changeFontClass(headerTextRef.current.children[1], state.message)
-      // headerTextRef.current.children[0].style.filter = 'blur(10px)'
       headerTextRef.current.children[0].style.opacity = 0
-      // headerTextRef.current.children[1].style.filter = 'blur(0px)'
       setTimeout(() => {
         headerTextRef.current.children[1].style.opacity = 1
       }, 300)
@@ -186,28 +213,13 @@ export default function Header({}) {
       setMessageOne(state.message)
 
       changeFontClass(headerTextRef.current.children[0], state.message)
-      // headerTextRef.current.children[0].style.filter = 'blur(0px)'
       setTimeout(() => {
         headerTextRef.current.children[0].style.opacity = 1
       }, 300)
-      // headerTextRef.current.children[1].style.filter = 'blur(10px)'
       headerTextRef.current.children[1].style.opacity = 0
     }
 
     setTimeout(() => {
-      // if(transitionCount.current % 2 === 0) {
-      //   headerTextRef.current.children[0].style.transition = 'top 0s'
-      //   headerTextRef.current.children[0].style.top = '150%'
-      //   setTimeout(() => {
-      //     headerTextRef.current.children[0].style.transition = 'top 1s'
-      //   }, 500)
-      // } else {
-      //   headerTextRef.current.children[1].style.transition = 'top 0s'
-      //   headerTextRef.current.children[1].style.top = '150%'
-      //   setTimeout(() => {
-      //     headerTextRef.current.children[1].style.transition = 'top 1s'
-      //   }, 500)
-      // }
       transitionCount.current += 1;
     }, 500)
     
@@ -225,22 +237,19 @@ export default function Header({}) {
 
   return (
     <>
-    <Container ref={headerRef} className='hide-header max-width'>
+    <Container ref={headerRef} className='hide-header max-width-header'>
       <Link href={state.backLink}><Arrow><img src='/images/icons/ui-arrow.svg' /></Arrow></Link>
       <Text ref={headerTextRef}>
         <span>{messageOne}</span>
         <span>{messageTwo}</span>
       </Text>
       <ScrollIndicatorWrapper>
-        <ScrollIndicator>
+        <ScrollIndicator 
+          transition={{ type: "spring", stiffness: 200, damping: 10 }}
+          animate={controls}
+        >
           <Circle colour={colour}>
             <svg class="complete" width="40" height="40" viewport="0 0 20 20" xmlns="https://www.w3.org/2000/svg">
-              {/* <defs>
-                <linearGradient id="grad">
-                <stop offset="0%" stop-color="#fbc2eb"></stop>
-                <stop offset="100%" stop-color="#a6c1ee"></stop>
-              </linearGradient>
-              </defs> */}
               <circle cx="20" cy="20" r="15"></circle>
               <circle class="progress-bar" cx="20" cy="20" r="15" ref={progressBarRef}></circle>
             </svg>      

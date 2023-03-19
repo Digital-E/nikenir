@@ -53,7 +53,7 @@ const RewardWrapperMobile = styled.div`
 
 
 export default function Component({ data }) {
-    let [unlocked, setUnlocked] = useState(true);
+    let [unlocked, setUnlocked] = useState(false);
 
     return (
         <Container>

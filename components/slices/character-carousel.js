@@ -131,35 +131,6 @@ const Card = styled(motion.div)`
     @media(max-height: 667px) and (max-width: 576px) {
         height: calc(85vw * 1.3);
     }
-
-
-    @media(min-width: 989px) {
-        :nth-child(1) > a > div:nth-child(4) > p:nth-child(2) {
-            width: 60%;
-        }
-
-        :nth-child(2) > a > div:nth-child(4) > p:nth-child(2) {
-            width: 90%;
-        }
-
-        :nth-child(3) > a > div:nth-child(4) > p:nth-child(2) {
-            width: 60%;
-        }
-    }
-
-    @media(max-width: 989px) {
-        :nth-child(1) > a > div:nth-child(4) > p:nth-child(2) {
-            width: 50%;
-        }
-
-        :nth-child(2) > a > div:nth-child(4) > p:nth-child(2) {
-            width: 70%;
-        }
-
-        :nth-child(3) > a > div:nth-child(4) > p:nth-child(2) {
-            width: 45%;
-        }
-    }
 `
 
 const Background = styled.div`
@@ -232,6 +203,7 @@ const ImageWrapper = styled.div`
 const Information = styled.div`
     margin-top: 10px;
     flex-basis: auto;
+    min-height: 64px;
 
     padding: 0px var(--margin);
 
@@ -245,6 +217,7 @@ const Information = styled.div`
 
     @media(min-width: 990px) {
         padding: 0 2.082vw;
+        min-height: 5.4vw;
 
         p:first-child {
             // font-size: 2.6372vw;
@@ -362,24 +335,6 @@ export default function Component() {
         })
     }, [])
 
-    let cardHoverVariants = {
-        'show': {
-            opacity: 1,
-            x: '-50%',
-            y: 0,
-            transition: {
-                duration: 0.2
-            }
-        },
-        'hide': {
-            opacity: 0,
-            x: '-50%',
-            y: '10%',
-            transition: {
-                duration: 0.2
-            }
-        }
-    }
     
     return (
         <Container>
