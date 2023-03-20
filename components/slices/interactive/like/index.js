@@ -95,7 +95,7 @@ export default function Component({ item, data }) {
             shapes: ["image"],
             shapeOptions: {
               image: [{
-                  src: '/images/like/heart-fill-red.png',
+                  src: `${process.env.basePath}/images/like/heart-fill-red.png`,
                   width: 32,
                   height: 32
                 }
@@ -118,7 +118,7 @@ export default function Component({ item, data }) {
             shapes: ["image"],
             shapeOptions: {
               image: [{
-                  src: '/images/like/heart-fill-red.png',
+                  src: `${process.env.basePath}/images/like/heart-fill-red.png`,
                   width: 32,
                   height: 32
                 }
