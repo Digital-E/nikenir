@@ -3,9 +3,9 @@ module.exports = {
     // images: {
     //   unoptimized: true
     // },
-    basePath: '/impact',
+    basePath: '/yourmove',
     env: {
-      basePath: '/impact'
+      basePath: '/yourmove'
     },
     compiler: {
       styledComponents: true,

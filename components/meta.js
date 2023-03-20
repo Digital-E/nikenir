@@ -8,31 +8,31 @@ export default function Meta({ title, content }) {
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href="/favicon/apple-touch-icon.png"
+        href={`${process.env.basePath}/favicon/apple-touch-icon.png`}
       />
       <link
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href="/favicon/favicon-32x32.png"
+        href={`${process.env.basePath}/favicon/favicon-32x32.png`}
       />
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href="/favicon/favicon-16x16.png"
+        href={`${process.env.basePath}/favicon/favicon-16x16.png`}
       />
-      <link rel="manifest" href="/favicon/site.webmanifest" />
+      <link rel="manifest" href={`${process.env.basePath}/favicon/site.webmanifest`} />
       <link
         rel="mask-icon"
-        href="/favicon/safari-pinned-tab.svg"
+        href={`${process.env.basePath}/favicon/safari-pinned-tab.svg`}
         color="#000000"
       />
-      <link rel="shortcut icon" href="/favicon/favicon.ico" />
+      <link rel="shortcut icon" href={`${process.env.basePath}/favicon/favicon.ico`} />
       <meta name="msapplication-TileColor" content="#000000" />
-      <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+      <meta name="msapplication-config" content={`${process.env.basePath}/favicon/browserconfig.xml`} />
       <meta name="theme-color" content="#000" />
-      <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+      <link rel="alternate" type="application/rss+xml" href={`${process.env.basePath}/feed.xml`} />
       <title>{title}</title>
       <meta
         name="description"

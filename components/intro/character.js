@@ -6,6 +6,8 @@ import Image from '../image'
 
 const Container = styled.div`
     position: absolute;
+    opacity: 0;
+
     top: ${props => props.data.desktop.y}%;
     left: ${props => props.data.desktop.x}%;
     width: ${props => props.data.desktop.width}px;
@@ -24,7 +26,7 @@ const Component = ({ data, index, bubbles, bubblesDisplayArray }) => {
 
 
     return (          
-        <Container data={data}>         
+        <Container data={data} className='index-character'>         
             <Image src={data.src} priority={true} />
             <Bubble data={data} index={index} bubbles={bubbles} bubblesDisplayArray={bubblesDisplayArray} />
         </Container>

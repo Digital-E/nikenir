@@ -58,11 +58,20 @@ const Center = styled(motion.div)`
 `
 
 const Title = styled.h1`
+    position: relative;
     text-align: center;
       
     &.ml15 .word {
+        position: relative;
         display: inline-block;
-        margin-left: 27px;
+        margin: 0 25px 0 0;
+        opacity: 0;
+    }
+
+    @media(max-width: 989px) {
+        &.ml15 .word {
+            margin: 0 15px 0 0;
+        }
     }
 `
 
@@ -315,12 +324,6 @@ let bubblesDisplayArrayInit =  [
     }
 ]
 
-let bubbleSwitchIndex = 0;
-let objectIndex = -1;
-
-let timeoutOne = null;
-let timeoutTwo = null;
-let timeoutThree = null;
 
 const Component = () => {
 
@@ -336,8 +339,28 @@ const Component = () => {
 
     let bubblesDisplayArrayRef = useRef(bubblesDisplayArrayInit)
 
+    let bubbleSwitchIndex = useRef(0);
+    let objectIndex = useRef(-1);
+    let timeoutOne = useRef(null);
+    let timeoutTwo = useRef(null);
+    let timeoutThree = useRef(null);
+
     let resize = () => {
         setScreenHeight(window.innerHeight)
+    }
+
+    let characterRevealTimeline = () => {
+        anime.timeline()
+        .add({
+            targets: '.index-character',
+            // scale: [14,1],
+            // translateY: [2, 0],
+            translateZ: 0,
+            opacity: [0,1],
+            easing: "easeInOutSine",
+            duration: 800,
+            delay: (el, i) => 200 * i
+        }) 
     }
 
     useEffect(() => {
@@ -346,91 +369,92 @@ const Component = () => {
 
         window.addEventListener('resize', resize)
 
-        // anime.timeline({loop: true})
-        // .add({
-        //     targets: '.ml15 .word',
-        //     scale: [14,1],
-        //     opacity: [0,1],
-        //     easing: "easeOutCirc",
-        //     duration: 800,
-        //     delay: (el, i) => 800 * i
-        // }).add({
-        //     targets: '.ml15',
-        //     opacity: 0,
-        //     duration: 1000,
-        //     easing: "easeOutExpo",
-        //     delay: 1000
-        // });        
+        // Bubbles Animation
+
+        timeoutOne.current = setTimeout(() => {
+            initTimeout();
+        }, 5000)
+     
+
+        setTimeout(() => {
+            anime.timeline({loop: false})
+            .add({
+                targets: '.ml15 .word',
+                // scale: [14,1],
+                // translateY: [2, 0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeInOutQuart",
+                duration: 700,
+                delay: (el, i) => 300 * i,
+                complete: function(anim) {
+                    characterRevealTimeline()
+                }
+            }) 
+        }, 1000) 
+        
 
         return () => {
             document.querySelector('body').classList.remove('lock-scroll')
             window.removeEventListener('resize', resize)
+
+            // Reinit Bubbles
+
+            bubbleSwitchIndex.current = 0;
+            objectIndex.current = -1;
+
+            setBubblesDisplayArray(JSON.parse(JSON.stringify(bubblesDisplayArrayInit)))
+            bubblesDisplayArrayRef.current = JSON.parse(JSON.stringify(bubblesDisplayArrayInit))
+            clearTimeout(timeoutOne.current)
+            clearTimeout(timeoutTwo.current)
+            clearTimeout(timeoutThree.current)
         }
     }, [])
 
     let initTimeout = () => {
 
-            let bubblesDisplayArrayCopy = bubblesDisplayArrayRef.current
+            let bubblesDisplayArrayCopy = JSON.parse(JSON.stringify(bubblesDisplayArrayRef.current))
 
-            if(objectIndex === bubbles.length - 1) {
-                objectIndex = -1
+            if(objectIndex.current === bubbles.length - 1) {
+                objectIndex.current = -1
             }
 
-            objectIndex += 1
+            objectIndex.current += 1
             
-            if(objectIndex < bubbles.length - 1) {
-                bubblesDisplayArrayCopy[bubbleSwitchIndex].src = bubbles[objectIndex]
+            if(objectIndex.current < bubbles.length - 1) {
+                bubblesDisplayArrayCopy[bubbleSwitchIndex.current].src = bubbles[objectIndex.current]
             } 
             else {
-                bubblesDisplayArrayCopy[bubbleSwitchIndex].src = bubbles[objectIndex]
+                bubblesDisplayArrayCopy[bubbleSwitchIndex.current].src = bubbles[objectIndex.current]
             }
 
             setBubblesDisplayArray(JSON.parse(JSON.stringify(bubblesDisplayArrayCopy)))
 
 
-            bubblesDisplayArrayCopy[bubbleSwitchIndex].show = true
+            bubblesDisplayArrayCopy[bubbleSwitchIndex.current].show = true
 
             setBubblesDisplayArray(JSON.parse(JSON.stringify(bubblesDisplayArrayCopy)))
 
-            timeoutTwo = setTimeout(() => {
+            timeoutTwo.current = setTimeout(() => {
                 let bubblesDisplayArrayCopyTwo = bubblesDisplayArrayRef.current
 
-                bubblesDisplayArrayCopyTwo[bubbleSwitchIndex].show = false
+                bubblesDisplayArrayCopyTwo[bubbleSwitchIndex.current].show = false
 
                 setBubblesDisplayArray(JSON.parse(JSON.stringify(bubblesDisplayArrayCopyTwo)))
 
-                if(bubbleSwitchIndex < bubblesDisplayArrayInit.length - 1) {
-                    bubbleSwitchIndex += 1
+                if(bubbleSwitchIndex.current < bubblesDisplayArrayInit.length - 1) {
+                    bubbleSwitchIndex.current += 1
                 } else {
-                    bubbleSwitchIndex = 0
+                    bubbleSwitchIndex.current = 0
                 }
 
-                timeoutThree = setTimeout(() => {
+                timeoutThree.current = setTimeout(() => {
                     initTimeout();
                 }, 1000)
     
             }, 5000)
    
     }
-
-    useEffect(() => {
-        // Bubbles Animation
-
-        timeoutOne = setTimeout(() => {
-            initTimeout();
-        }, 5000)
-
-        return () => {
-            bubbleSwitchIndex = 0;
-            objectIndex = -1;
-            setBubblesDisplayArray(JSON.parse(JSON.stringify(bubblesDisplayArrayInit)))
-            bubblesDisplayArrayRef.current = JSON.parse(JSON.stringify(bubblesDisplayArrayInit))
-            clearTimeout(timeoutOne)
-            clearTimeout(timeoutTwo)
-            clearTimeout(timeoutThree)
-        }
-
-    }, [])
 
 
     let triggerSlide = (direction) => {
@@ -536,6 +560,7 @@ const Component = () => {
                         <span class="word">CHANGEMAKER</span> 
                         <span class="word">ARE</span> 
                         <span class="word">YOU?</span> 
+                        {/* what kind of changemaker are you ? */}
                     </Title>
                     {
                         characters.map((item, index) => <Character data={item} index={index} bubbles={bubbles} bubblesDisplayArray={bubblesDisplayArray} />)
