@@ -99,16 +99,21 @@ export default function Component({ item, data }) {
 
     useEffect(() => {
 
+        if(window.scrollY === 0) {
+            document.addEventListener('wheel', disableScroll, {passive: false})
+            document.addEventListener('touchmove', disableScroll, { passive:false });
+        }
+
+        setScreenHeight(window.innerHeight)
+
+        window.addEventListener('resize', resize)
+
         setTimeout(() => {
-            if(window.scrollY === 0) {
-                document.addEventListener('wheel', disableScroll, {passive: false})
-                document.addEventListener('touchmove', disableScroll, { passive:false });
+            if(window.scrollY > 0) {
+                document.removeEventListener('wheel', disableScroll, {passive: false})
+                document.removeEventListener('touchmove', disableScroll, { passive:false });
             }
-    
-            setScreenHeight(window.innerHeight)
-    
-            window.addEventListener('resize', resize)
-        }, 10)
+        }, 250)
 
         setTimeout(() => {
             setShowSpeech(true)
