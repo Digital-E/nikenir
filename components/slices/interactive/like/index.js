@@ -151,7 +151,7 @@ export default function Component({ item, data }) {
 
             window.addEventListener("wheel", killScroll)
             window.addEventListener("touchmove", killScroll)
-        }, 400)
+        }, 500)
     }
 
     useEffect(() => {

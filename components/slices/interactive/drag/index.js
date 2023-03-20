@@ -173,7 +173,7 @@ export default function Component({ item, data }) {
             scrollTo = gsap.to(window, {duration: 1, ease: "power2.inOut", scrollTo: `+=${informationContainerBottom - window.innerHeight + 20 - informationMarginBottom}`, onComplete: () => killScroll()})
             window.addEventListener("wheel", killScroll)
             window.addEventListener("touchmove", killScroll)
-        }, 400)
+        }, 500)
         
     } else if (mouseOverIndex.current === 1) {
       setSelectedIndex(1)

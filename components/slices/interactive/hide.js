@@ -14,16 +14,16 @@ const InformationCardWrapper = styled(motion.div)``
 
 let hideVariants = {
   'show': {
-    maxHeight: '500px',
+    maxHeight: '600px',
     transition: {
-      duration: 0.5,
+      duration: 0.45,
       delayChildren: 0.2
     }
   },
   'hide': {
     maxHeight: '0px',
     transition: {
-      duration: 0.5
+      duration: 0.45
     }
   }
 }
