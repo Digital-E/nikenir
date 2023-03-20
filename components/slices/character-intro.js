@@ -79,7 +79,6 @@ let disableScroll = (e) => {
 }
 
 
-let hasResizedOnce = false
 
 export default function Component({ item, data }) {
     let containerRef = useRef();
@@ -88,24 +87,28 @@ export default function Component({ item, data }) {
     let [showButton, setShowButton] = useState(false);
     let [screenHeight, setScreenHeight] = useState(0);
 
+    let hasResizedOnce = useRef(false)
+
     let resize = () => {
-        if(window.innerWidth > 576 && hasResizedOnce) {
+        if(window.innerWidth > 576 && hasResizedOnce.current) {
             setScreenHeight(window.innerHeight)
         }
 
-        hasResizedOnce = true
+        hasResizedOnce.current = true
     }
 
     useEffect(() => {
-        // window.scrollTo(0, 0)
-        if(window.scrollY === 0) {
-            document.addEventListener('wheel', disableScroll, {passive: false})
-            document.addEventListener('touchmove', disableScroll, { passive:false });
-        }
 
-        setScreenHeight(window.innerHeight)
-
-        window.addEventListener('resize', resize)
+        setTimeout(() => {
+            if(window.scrollY === 0) {
+                document.addEventListener('wheel', disableScroll, {passive: false})
+                document.addEventListener('touchmove', disableScroll, { passive:false });
+            }
+    
+            setScreenHeight(window.innerHeight)
+    
+            window.addEventListener('resize', resize)
+        }, 10)
 
         setTimeout(() => {
             setShowSpeech(true)

@@ -131,6 +131,12 @@ const Card = styled(motion.div)`
     @media(max-height: 667px) and (max-width: 576px) {
         height: calc(85vw * 1.3);
     }
+
+    @media(min-width: 1690px) {
+        height: 647.82px;
+        padding: 0  0 49.9144px 0;
+    }
+    max-width: 472px;
 `
 
 const Background = styled.div`
@@ -167,6 +173,15 @@ const Title = styled.div`
             font-size: 2.91vw;
         }
     }
+
+    @media(min-width: 1690px) {
+        left: 35.18px;
+        top: 29.32px;
+
+        h2 {
+            font-size: 49.179px;
+        }
+    }
 `
 
 const ImageWrapper = styled.div`
@@ -180,7 +195,7 @@ const ImageWrapper = styled.div`
     bottom: ${props => props.data.bottom}%;
 
     img {
-        width: ${props => props.data.width}%  !important;
+        width: ${props => props.data.width}% !important;
     }
 
 
@@ -198,6 +213,15 @@ const ImageWrapper = styled.div`
             width: ${props => props.data.widthMobile - 25}%  !important;
         }
     }
+
+    @media(min-width: 1690px) {
+        bottom: calc(${props => props.data.bottom / 100} * 647.81px) !important;
+
+        img {
+            width: calc(${props => props.data.width / 100} * 472px) !important
+        }
+    }
+
 `
 
 const Information = styled.div`
@@ -227,6 +251,19 @@ const Information = styled.div`
         p:last-child {
             // font-size: 1.388vw;
             font-size: 1.1vw;
+        }
+    }
+
+    @media(min-width: 1690px) {
+        padding: 0 35.18px;
+        min-height: 91.26px;
+
+        p:first-child {
+            font-size: 42.25px;
+        }
+
+        p:last-child {
+            font-size: 18.59px;
         }
     }
 `

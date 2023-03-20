@@ -49,14 +49,14 @@ const Text = styled.div`
   > span:nth-child(1) {
     position: absolute;
     left: 50%;
-    top: calc(50% + 3px);
+    top: calc(50% + 2px);
     transform: translate(-50%, -50%);
   }
 
   > span:nth-child(2) {
     position: absolute;
     left: 50%;
-    top: calc(50% + 3px);
+    top: calc(50% + 2px);
     transform: translate(-50%, -50%);
     opacity: 0;
   }
@@ -101,7 +101,8 @@ const Circle = styled.div`
 
   svg .progress-bar {
     stroke: ${props => props.colour};
-    transition: stroke 0.5s, stroke-dashoffset 0.3s ease-in-out; 
+    transition: stroke 0.5s, stroke-dashoffset 0.3s ease-in-out, rotate 0.5s; 
+    transform-origin: center center;
   }
 `
 
@@ -141,9 +142,11 @@ export default function Header({}) {
 
       if(progress === 1) {
         setTimeout(() => {
-          document.querySelector('.progress-bar').style.transition = 'stroke 0.5s, stroke-dashoffset 0.7s ease-in-out'
+          document.querySelector('.progress-bar').style.transition = 'stroke 0.5s, stroke-dashoffset 0.7s ease-in-out, transform 1s'
           
-          progressBarRef.current.style.strokeDashoffset = -totalLength
+          progressBarRef.current.style.strokeDashoffset = totalLength
+          
+          document.querySelector('.progress-bar').style.transform = 'rotateZ(-360deg)'
     
           controls.start({ scale: 1.2 })
     
@@ -153,20 +156,12 @@ export default function Header({}) {
     
           setTimeout(() => {
     
-            progressBarRef.current.style.strokeDashoffset = -totalLength * 2
+            progressBarRef.current.style.strokeDashoffset = 0
             
-    
-            setTimeout(() => {
-    
-              document.querySelector('.progress-bar').style.transition = 'stroke 0s, stroke-dashoffset 0s ease-in-out'
-    
-              progressBarRef.current.style.strokeDashoffset = 0
-    
               setTimeout(() => {
-                document.querySelector('.progress-bar').style.transition = 'stroke 0.5s, stroke-dashoffset 0.3s ease-in-out'
-              }, 100)
-            }, 700)
-          }, 300)
+                document.querySelector('.progress-bar').style.transition = 'stroke 0.5s, stroke-dashoffset 0.3s ease-in-out, transform 1s'
+              }, 300)
+          }, 700)
         }, 300)
       }
     }
@@ -179,8 +174,6 @@ export default function Header({}) {
     progressBarRef.current.style.strokeDasharray = totalLength;
     progressBarRef.current.style.strokeDashoffset = totalLength;
     
-    // progressBarRef.current.style.strokeDashoffset = 0
-
 
   }, []);
 

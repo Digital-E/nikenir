@@ -104,6 +104,29 @@ export default function Component({ item, data }) {
           });     
     }
 
+    useEffect(() => {
+        // Preload confetti
+        confetti({
+            spread: 360,
+            ticks: 500,
+            gravity: 1,
+            decay: 0.94,
+            startVelocity: 30,
+            count: 0,
+            scalar: 3,
+            origin: { x: 0, y: 0 },
+            shapes: ["image"],
+            shapeOptions: {
+              image: [{
+                  src: '/images/like/heart-fill-red.png',
+                  width: 32,
+                  height: 32
+                }
+              ]
+            },
+        });
+    }, [])
+
     let hasClicked = (e, index) => {
         let items = JSON.parse(JSON.stringify(allItems))
 

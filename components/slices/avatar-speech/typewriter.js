@@ -135,8 +135,6 @@ const Replay = styled.div`
     }
 `
 
-let renderCount = 0
-
 export default function Component({ data, start, toggleFinishedFunc, portalRef }) {
 
     let [triggerInit, setTriggerInit] = useState(false);
@@ -145,13 +143,13 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
     let replayButtonRef = useRef();
     let cursorRef = useRef();
 
-    let interval = null;
-    let newSentenceTimeout = null;
-    let replayTimeout = null;
+    let interval = useRef(null);
+    let newSentenceTimeout = useRef(null);
+    let replayTimeout = useRef(null);
 
-    let displayText = '';
-    let sentenceIndex = 0;
-    let letterIndex = 0;
+    let displayText = useRef();
+    let sentenceIndex = useRef(0);
+    let letterIndex = useRef(0);
     
     let [renderPortal, setRenderPortal] = useState(false)
 
@@ -161,23 +159,23 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
 
     let initSentence = () => {
 
-        if(letterIndex === 0) {
-            let splitText = data[sentenceIndex].split('')
+        if(letterIndex.current === 0) {
+            let splitText = data[sentenceIndex.current].split('')
 
             let splitTextWithSpan = splitText.map(item => `<span class='letter'>${item}</span>`)
 
-            displayText = splitTextWithSpan.join('')
+            displayText.current = splitTextWithSpan.join('')
 
-            typeWriterRef.current.innerHTML = displayText
+            typeWriterRef.current.innerHTML = displayText.current
         }
     }
 
     let typeText = () => {
 
-        let sentence = data[sentenceIndex]
+        let sentence = data[sentenceIndex.current]
         let sentenceLength = sentence.length
 
-        if(sentenceIndex === data.length - 1 && letterIndex > sentenceLength && hasTriggeredAutoReset === false) {
+        if(sentenceIndex.current === data.length - 1 && letterIndex.current > sentenceLength && hasTriggeredAutoReset === false) {
             // setTimeout(() => {
             //     replay(true);
             //     hasTriggeredAutoReset = false;
@@ -189,47 +187,47 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
         initSentence();
 
 
-        if(letterIndex <= sentenceLength) {
+        if(letterIndex.current <= sentenceLength) {
 
-            if(typeWriterRef.current?.children[letterIndex] !== undefined) {
+            if(typeWriterRef.current?.children[letterIndex.current] !== undefined) {
                 
-                if(cursorActive) {
-                    cursorRef.current.style.left = `${typeWriterRef.current.children[letterIndex].getBoundingClientRect().x + typeWriterRef.current.children[letterIndex].getBoundingClientRect().width - typeWriterRef.current.children[0].getBoundingClientRect().x}px`
-                    cursorRef.current.style.top = `${typeWriterRef.current.children[letterIndex].getBoundingClientRect().y - typeWriterRef.current.children[0].getBoundingClientRect().y}px`
-                }
+                // if(cursorActive) {
+                //     cursorRef.current.style.left = `${typeWriterRef.current.children[letterIndex.current].getBoundingClientRect().x + typeWriterRef.current.children[letterIndex.current].getBoundingClientRect().width - typeWriterRef.current.children[0].getBoundingClientRect().x}px`
+                //     cursorRef.current.style.top = `${typeWriterRef.current.children[letterIndex.current].getBoundingClientRect().y - typeWriterRef.current.children[0].getBoundingClientRect().y}px`
+                // }
 
-                typeWriterRef.current.children[letterIndex].classList.add("reveal-letter")
+                typeWriterRef.current.children[letterIndex.current].classList.add("reveal-letter")
 
-                cursorRef.current?.classList.add("typing")
+                // cursorRef.current?.classList.add("typing")
 
             }
             
-            letterIndex +=1;
+            letterIndex.current +=1;
         } else {
-            cursorRef.current?.classList.remove("typing")
+            // cursorRef.current?.classList.remove("typing")
 
-            if(sentenceIndex === data.length - 1 ) {
-                clearInterval(interval)
+            if(sentenceIndex.current === data.length - 1 ) {
+                clearInterval(interval.current)
                 return toggleFinishedFunc()
             }
 
-            newSentenceTimeout = setTimeout(() => {
+            newSentenceTimeout.current = setTimeout(() => {
                 if(cursorRef.current === null && typeWriterRef.current === null) return
-                cursorRef.current.classList.add('hide');
+                // cursorRef.current.classList.add('hide');
 
                 typeWriterRef.current.classList.add('hide');
 
                 typeWriterRef.current.innerHTML = ''
-                displayText = ''
-                letterIndex = 0;
-                sentenceIndex += 1;
+                displayText.current = ''
+                letterIndex.current = 0;
+                sentenceIndex.current += 1;
                 
                 typeWriterRef.current.classList.remove('hide');
-                cursorRef.current.classList.remove('hide');
+                // cursorRef.current.classList.remove('hide');
 
-                newSentenceTimeout = null;
+                newSentenceTimeout.current = null;
 
-            }, 2300)
+            }, 1300)
         }
     }
 
@@ -245,35 +243,39 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
 
         if(!auto) bump();
 
-        cursorRef.current.classList.add('hide');
+        // cursorRef.current.classList.add('hide');
 
-        if(replayTimeout !== null) return;
+        if(replayTimeout.current !== null) return;
+
+        clearInterval(replayTimeout.current)
+
+        replayTimeout.current = null
 
         typeWriterRef.current.classList.add('hide');
 
-        clearInterval(interval);
+        clearInterval(interval.current);
 
-        interval = null;
+        interval.current = null;
 
-        clearTimeout(newSentenceTimeout);
+        clearTimeout(newSentenceTimeout.current);
         
-        newSentenceTimeout = null;
+        newSentenceTimeout.current = null;
 
-        displayText = '';
+        displayText.current = '';
         typeWriterRef.current.innerHTML = '';
-        sentenceIndex = 0;
-        letterIndex = 0;
+        sentenceIndex.current = 0;
+        letterIndex.current = 0;
         
-        replayTimeout = setTimeout(() => {
+        replayTimeout.current = setTimeout(() => {
 
             typeWriterRef.current.classList.remove('hide');
 
-            cursorRef.current.classList.remove('hide');
+            // cursorRef.current.classList.remove('hide');
 
             init();
 
-            replayTimeout = null;
-        }, 500);
+            replayTimeout.current = null;
+        }, 300);
     }
 
     let init = () => {
@@ -281,10 +283,10 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
 
         containerRef.current.style.height = `${containerRef.current.getBoundingClientRect().height}px`
 
-        interval = setInterval(() => {
-            if(newSentenceTimeout !== null) return
+        interval.current = setInterval(() => {
+            if(newSentenceTimeout.current !== null) return
             typeText();
-        }, 30);
+        }, 20);
     }
 
     useEffect(() => {
@@ -296,7 +298,7 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
     useEffect(() => {
         if(start) {
             setTriggerInit(true)
-            cursorRef.current.classList.remove('hide')
+            // cursorRef.current.classList.remove('hide')
         }
     }, [start])
 
@@ -309,16 +311,16 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
 
         window.addEventListener('resize', () => {
             if(typeWriterRef.current === null) return
-            if(typeWriterRef.current.children[letterIndex - 2] === undefined) return;
+            if(typeWriterRef.current.children[letterIndex.current - 2] === undefined) return;
 
-            cursorRef.current.style.left = `${typeWriterRef.current.children[letterIndex - 2].getBoundingClientRect().x + typeWriterRef.current.children[letterIndex - 2].getBoundingClientRect().width}px`
-            cursorRef.current.style.top = `${typeWriterRef.current.children[letterIndex - 2].getBoundingClientRect().y - typeWriterRef.current.children[letterIndex - 2].getBoundingClientRect().height / 2}px`
+            // cursorRef.current.style.left = `${typeWriterRef.current.children[letterIndex.current - 2].getBoundingClientRect().x + typeWriterRef.current.children[letterIndex.current - 2].getBoundingClientRect().width}px`
+            // cursorRef.current.style.top = `${typeWriterRef.current.children[letterIndex.current - 2].getBoundingClientRect().y - typeWriterRef.current.children[letterIndex.current - 2].getBoundingClientRect().height / 2}px`
         })
 
         setRenderPortal(true)
 
         return () => {
-            clearInterval(interval)
+            clearInterval(interval.current)
         }
     }, [])
 
@@ -329,7 +331,7 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
         <TextWrapper ref={containerRef}>
             <Text ref={typeWriterRef} />
         </TextWrapper>
-        <Cursor ref={cursorRef} className="hide" />
+        {/* <Cursor ref={cursorRef} className="hide" /> */}
       </Container>
       {
         renderPortal ?

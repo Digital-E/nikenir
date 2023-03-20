@@ -31,6 +31,8 @@ const Popup = styled.div`
         &&.hide-notification {
             transform: translate(-50%, -200px);
         }
+
+        width: calc(100% - 30px);
     }
 `;
 

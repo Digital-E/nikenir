@@ -388,7 +388,7 @@ const Component = () => {
                     initTimeout();
                 }, 1000)
     
-            }, 3000)
+            }, 5000)
    
     }
 

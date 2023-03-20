@@ -79,7 +79,7 @@ export default function Component() {
         <InnerContainer>
           <Reward data={data} share={false} />
           <ButtonWrapper>
-            <ButtonLink href={data.complete.reward.link}>Let's Play!</ButtonLink>
+            <ButtonLink href={'/'}>Let's Play!</ButtonLink>
           </ButtonWrapper>
         </InnerContainer>
       </Container>

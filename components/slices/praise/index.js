@@ -66,6 +66,11 @@ const AvatarSpeechWrapper = styled(motion.div)`
             left: ${props => props.data.complete.praise.bubblePosition.desktop.left}%;
         }
 
+        #portal-replay {
+            bottom: calc(${props => props.data.complete.praise.bubblePosition.desktop.bottom}% + 5px);
+            left: calc(${props => props.data.complete.praise.bubblePosition.desktop.left}% + 200px);
+        }
+
         img {
             width: 465px;
         }
