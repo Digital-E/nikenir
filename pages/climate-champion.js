@@ -19,7 +19,7 @@ let data = {
     role: 'Climate Champion',
     avatar: avatarImage,
     avatarCrop: avatarCrop,
-    avatarMiniature: '/images/avatars/miniature/theo.png',
+    avatarMiniature: `${process.env.basePath}/images/avatars/miniature/theo.png`,
     colourOne: '#C2BCEB',
     colourTwo: '#F05822',
     colourThree: '#C2BCEB',
@@ -51,7 +51,7 @@ let data = {
         {
             type: 'drag',
             title: 'Drag the shoe into the answer box',
-            img: '/images/climate-champion/objects/Planet_Q1.png',
+            img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q1.png`,
             squares: [
               {
                 title: 'Reduce your footprint'
@@ -88,11 +88,11 @@ let data = {
             squares: [
               {
                 title: 'Recycle your gear',
-                img: '/images/climate-champion/objects/Planet_Q2.png'
+                img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q2.png`
               },
               {
                 title: 'Regift your gear',
-                img: '/images/climate-champion/objects/Planet_Q2_02.png'
+                img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q2_02.png`
               }
             ],
             information: [
@@ -124,11 +124,11 @@ let data = {
             squares: [
               {
                 title: 'Ride your bike to practice',
-                img: '/images/climate-champion/objects/Planet_Q2.png'
+                img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q2.png`
               },
               {
                 title: 'Take the bus to practice',
-                img: '/images/climate-champion/objects/Planet_Q2_02.png'
+                img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q2_02.png`
               }
             ],
             information: [
@@ -160,13 +160,13 @@ let data = {
           squares: [
             {
               title: 'Time to clean this beach!',
-              img: '/images/climate-champion/objects/Planet_Q4_Background.png',
-              imgBack: '/images/logos/nike logo.svg'
+              img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q4_Background.png`,
+              imgBack: `${process.env.basePath}/images/logos/nike logo.svg`
             },
             {
               title: 'Time we reused our bottles!',
-              img: '/images/climate-champion/objects/Planet_Q4_02_Background.png',
-              imgBack: '/images/logos/nike logo.svg'
+              img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q4_02_Background.png`,
+              imgBack: `${process.env.basePath}/images/logos/nike logo.svg`
             }
           ],
           information: [
@@ -206,7 +206,7 @@ let data = {
         }
       },
       reward: {
-        image: '/images/rewards/2.png',
+        image: `${process.env.basePath}/images/rewards/2.png`,
         title: 'The earth minder',
         text: 'You believe in the small as well as big actions we can take for the planet we share, and in the people taking them.',
         link: '/reward/climate-champion'
@@ -225,7 +225,7 @@ let data = {
         next: {
           name: 'Ivy',
           role: 'Active Activist',
-          avatarMiniature: '/images/avatars/miniature/ivy.png',
+          avatarMiniature: `${process.env.basePath}/images/avatars/miniature/ivy.png`,
           link: '/active-activist'
         }
       }

@@ -15,6 +15,8 @@ import characterOne from '../../public/images/intro-characters/1.png'
 import characterTwo from '../../public/images/intro-characters/2.png'
 import characterThree from '../../public/images/intro-characters/3.png'
 
+const anime = require('animejs').default
+
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 const Container = styled.div`
@@ -57,10 +59,11 @@ const Center = styled(motion.div)`
 
 const Title = styled.h1`
     text-align: center;
-
-    // @media(min-width: 990px) {
-    //     font-size: 8.328vw;
-    // }
+      
+    &.ml15 .word {
+        display: inline-block;
+        margin-left: 27px;
+    }
 `
 
 const ArrowContainer = styled(motion.div)`
@@ -243,23 +246,25 @@ let characters = [
     }
 ]
 
+let basePath = process.env.basePath
+
 let bubbles = [
-    '/images/people-promoter/objects/People_Q1_02.png',
-    '/images/people-promoter/objects/People_Q1.png',
-    '/images/people-promoter/objects/People_Q2.png',
-    '/images/people-promoter/objects/People_Q3_02.png',
-    '/images/people-promoter/objects/People_Q3.png',
-    '/images/people-promoter/objects/People_Q4.png',
-    '/images/active-activist/objects/Play_Q1.png',
-    '/images/active-activist/objects/Play_Q2_02.png',
-    '/images/active-activist/objects/Play_Q2.png',
-    '/images/active-activist/objects/Play_Q3.png',
-    '/images/active-activist/objects/Play_Q4.png',
-    '/images/climate-champion/objects/Planet_Q1.png',
-    '/images/climate-champion/objects/Planet_Q2_02.png',
-    '/images/climate-champion/objects/Planet_Q2.png',
-    '/images/climate-champion/objects/Planet_Q4_02.png',
-    '/images/climate-champion/objects/Planet_Q4.png',
+    `${basePath}/images/people-promoter/objects/People_Q1_02.png`,
+    `${basePath}/images/people-promoter/objects/People_Q1.png`,
+    `${basePath}/images/people-promoter/objects/People_Q2.png`,
+    `${basePath}/images/people-promoter/objects/People_Q3_02.png`,
+    `${basePath}/images/people-promoter/objects/People_Q3.png`,
+    `${basePath}/images/people-promoter/objects/People_Q4.png`,
+    `${basePath}/images/active-activist/objects/Play_Q1.png`,
+    `${basePath}/images/active-activist/objects/Play_Q2_02.png`,
+    `${basePath}/images/active-activist/objects/Play_Q2.png`,
+    `${basePath}/images/active-activist/objects/Play_Q3.png`,
+    `${basePath}/images/active-activist/objects/Play_Q4.png`,
+    `${basePath}/images/climate-champion/objects/Planet_Q1.png`,
+    `${basePath}/images/climate-champion/objects/Planet_Q2_02.png`,
+    `${basePath}/images/climate-champion/objects/Planet_Q2.png`,
+    `${basePath}/images/climate-champion/objects/Planet_Q4_02.png`,
+    `${basePath}/images/climate-champion/objects/Planet_Q4.png`,
 ]
 
 let bubblesDisplayArrayInit =  [
@@ -340,6 +345,22 @@ const Component = () => {
         setScreenHeight(window.innerHeight)
 
         window.addEventListener('resize', resize)
+
+        // anime.timeline({loop: true})
+        // .add({
+        //     targets: '.ml15 .word',
+        //     scale: [14,1],
+        //     opacity: [0,1],
+        //     easing: "easeOutCirc",
+        //     duration: 800,
+        //     delay: (el, i) => 800 * i
+        // }).add({
+        //     targets: '.ml15',
+        //     opacity: 0,
+        //     duration: 1000,
+        //     easing: "easeOutExpo",
+        //     delay: 1000
+        // });        
 
         return () => {
             document.querySelector('body').classList.remove('lock-scroll')
@@ -501,15 +522,20 @@ const Component = () => {
         <Logo 
         // variants={slideOneAnimationBis}
         >
-            <img src='/images/logos/with purpose logo.svg' />
+            <img src={`${process.env.basePath}/images/logos/with purpose logo.svg`} />
         </Logo>            
         <Container ref={containerRef} className='margin'>         
             <Slide ref={slideOneRef} initial='show' animate={slideIndexState === 0 ? 'show' : 'hide'} height={screenHeight}>
                 <Center 
                 variants={slideOneAnimation} 
                 className='intro-center-one'>
-                    <Title className='large-headline'>
-                        WHAT KIND OF CHANGEMAKER ARE YOU?
+                    <Title className='large-headline ml15'>
+                        <span class="word">WHAT</span> 
+                        <span class="word">KIND</span>
+                        <span class="word">OF</span> 
+                        <span class="word">CHANGEMAKER</span> 
+                        <span class="word">ARE</span> 
+                        <span class="word">YOU?</span> 
                     </Title>
                     {
                         characters.map((item, index) => <Character data={item} index={index} bubbles={bubbles} bubblesDisplayArray={bubblesDisplayArray} />)
@@ -517,7 +543,7 @@ const Component = () => {
                 </Center>
                 <ArrowContainer variants={slideOneAnimation}>
                     <Arrow ref={arrowRef}>
-                        <img src='/images/icons/ui-arrow-20.svg' />
+                        <img src={`${process.env.basePath}/images/icons/ui-arrow-20.svg`} />
                     </Arrow>
                 </ArrowContainer> 
             </Slide>

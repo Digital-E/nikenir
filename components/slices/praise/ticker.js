@@ -89,7 +89,7 @@ export default function Component({ data, secondary }) {
                         {itemCount.map(item => (
                                 <div>
                                     <Text><span className='palatino-small'>A spring in your step</span></Text>
-                                    <Logo><img src='/images/logos/nike logo.svg'/></Logo>  
+                                    <Logo><img src={`${process.env.basePath}/images/logos/nike logo.svg`} /></Logo>  
                                 </div>              
                         ))}
                 </TickerItem>
@@ -97,7 +97,7 @@ export default function Component({ data, secondary }) {
                         {itemCount.map(item => (
                                 <div>
                                     <Text><span className='palatino-small'>A spring in your step</span></Text>
-                                    <Logo><img src='/images/logos/nike logo.svg'/></Logo>  
+                                    <Logo><img src={`${process.env.basePath}/images/logos/nike logo.svg`} /></Logo>  
                                 </div>              
                         ))}
                 </TickerItem>

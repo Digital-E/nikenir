@@ -4,7 +4,7 @@ import '../styles/flickity.css'
 import '../styles/flickity-fade.css'
 
 import { useEffect } from 'react'
-import styled from 'styled-components'
+import Script from 'next/script'
 import { motion, AnimatePresence } from "framer-motion"
 
 
@@ -156,6 +156,29 @@ function MyApp({ Component, pageProps, router }) {
 
   return (
     <StateProvider>
+      {/* Google Analytics */}
+      <Script strategy='afterInteractive' src='https://www.googletagmanager.com/gtag/js?id=G-ZLVSQKJ2S0' />
+
+      <Script
+        id='google-analytics'
+        strategy='afterInteractive'
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-ZLVSQKJ2S0');
+          `
+        }} 
+      />
+
+      {/* tsParticles Confetti New */}
+      <Script strategy='beforeInteractive' src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.9.3/tsparticles.confetti.bundle.min.js" />
+
+      {/* tsParticles */}
+      <Script strategy='beforeInteractive' src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js" />     
+
       <Header />
       <Sidebar />
       <Notification />

@@ -271,7 +271,7 @@ export default function Component({ data, unlock }) {
             animate={arrowReveal ? 'show' : 'hide'}
             onClick={() => scrollDown()}>
                 <Arrow ref={arrowRef}>
-                    <img src='/images/icons/ui-arrow-20.svg' />
+                    <img src={`${process.env.basePath}/images/icons/ui-arrow-20.svg`} />
                 </Arrow>
             </ArrowContainer> 
         </Container>

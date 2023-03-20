@@ -39,11 +39,14 @@ export default function Meta({ title, content }) {
         content={content}
       />
 
+      {/* Fonts */}
+      <link href="https://cdn.fonts.net/kit/50d84ed0-3292-11ec-a0c8-06f8b41bab72/50d84ed0-3292-11ec-a0c8-06f8b41bab72.css" rel="stylesheet" />
+
       {/* tsParticles Confetti New */}
-      <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.9.3/tsparticles.confetti.bundle.min.js" />
+      {/* <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.9.3/tsparticles.confetti.bundle.min.js" /> */}
       
       {/* tsParticles */}
-      <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js" />
+      {/* <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js" /> */}
 
     </Head>
   )

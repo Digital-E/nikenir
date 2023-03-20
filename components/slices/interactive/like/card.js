@@ -111,8 +111,8 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
             <InnerContainer             className={allItems[index].clicked &&  hasInteracted ? `liked` : ``}>
                 <Title>{data.title}</Title>
                 <Image>
-                    <img src='/images/like/heart.svg' />
-                    <img src='/images/like/heart-fill.svg' />
+                    <img src={`${process.env.basePath}/images/like/heart.svg`} />
+                    <img src={`${process.env.basePath}/images/like/heart-fill.svg`} />
                 </Image>
             </InnerContainer>
             <ImageTwo>

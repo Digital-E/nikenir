@@ -54,7 +54,7 @@ export default function Header({}) {
   return (
     <>
     <Container className='sidebar hide-sidebar'>
-      <Logo><img src='/images/logos/nikeimpact-side.svg'/></Logo>
+      <Logo><img src={`${process.env.basePath}/images/logos/nikeimpact-side.svg`} /></Logo>
       <Share currentPageLink={true} />
     </Container>
     </>

@@ -51,7 +51,7 @@ let data = {
     role: 'Climate Champion',
     complete: {
       reward: {
-        image: '/images/rewards/2.png',
+        image: `${process.env.basePath}/images/rewards/2.png`,
         title: 'The earth minder',
         text: 'You believe in the small as well as big actions we can take for the planet we share, and in the people taking them.',
         link: '/climate-champion'
@@ -74,7 +74,7 @@ export default function Component() {
     <Layout title={`${data.role} Reward | Nike Impact Report`} content={`${data.role} Reward | Nike Impact Report`}>
       <Container>
         <Logo >
-          <img src='/images/logos/with purpose logo.svg' />
+          <img src={`${process.env.basePath}/images/logos/with purpose logo.svg`} />
         </Logo>
         <InnerContainer>
           <Reward data={data} share={false} />

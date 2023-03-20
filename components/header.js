@@ -231,7 +231,7 @@ export default function Header({}) {
   return (
     <>
     <Container ref={headerRef} className='hide-header max-width-header'>
-      <Link href={state.backLink}><Arrow><img src='/images/icons/ui-arrow.svg' /></Arrow></Link>
+      <Link href={state.backLink}><Arrow><img src={`${process.env.basePath}/images/icons/ui-arrow.svg`} /></Arrow></Link>
       <Text ref={headerTextRef}>
         <span>{messageOne}</span>
         <span>{messageTwo}</span>
@@ -247,7 +247,7 @@ export default function Header({}) {
               <circle class="progress-bar" cx="20" cy="20" r="15" ref={progressBarRef}></circle>
             </svg>      
           </Circle>
-          <Logo><img src='/images/logos/nike logo.svg' /></Logo>
+          <Logo><img src={`${process.env.basePath}/images/logos/nike logo.svg`} /></Logo>
         </ScrollIndicator>
       </ScrollIndicatorWrapper>
     </Container>

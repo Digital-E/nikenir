@@ -19,7 +19,7 @@ let data = {
     role: 'Active Activist',
     avatar: avatarImage,
     avatarCrop: avatarCrop,
-    avatarMiniature: '/images/avatars/miniature/ivy.png',
+    avatarMiniature: `${process.env.basePath}/images/avatars/miniature/ivy.png`,
     colourOne: '#A2D8EF',
     colourTwo: '#F05822',
     colourThree: '#A2D8EF',
@@ -52,7 +52,7 @@ let data = {
         {
             type: 'drag',
             title: 'Drag the ball into a box',
-            img: '/images/active-activist/objects/Play_Q1.png',
+            img: `${process.env.basePath}/images/active-activist/objects/Play_Q1.png`,
             squares: [
               {
                 title: 'The simple joy of play'
@@ -90,11 +90,11 @@ let data = {
             squares: [
               {
                 title: 'Sport sees me',
-                img: '/images/active-activist/objects/Play_Q2.png',
+                img: `${process.env.basePath}/images/active-activist/objects/Play_Q2.png`,
               },
               {
                 title: 'Sport hears me',
-                img: '/images/active-activist/objects/Play_Q2_02.png',
+                img: `${process.env.basePath}/images/active-activist/objects/Play_Q2_02.png`,
               }
             ],
             information: [
@@ -126,11 +126,11 @@ let data = {
             squares: [
               {
                 title: 'My coach is my rock',
-                img: '/images/active-activist/objects/Play_Q3.png'
+                img: `${process.env.basePath}/images/active-activist/objects/Play_Q3.png`
               },
               {
                 title: 'Sport is what drives me',
-                img: '/images/active-activist/objects/Play_Q3.png'
+                img: `${process.env.basePath}/images/active-activist/objects/Play_Q3.png`
               }
             ],
             information: [
@@ -162,13 +162,13 @@ let data = {
           squares: [
             {
               title: 'Sport gives you purpose',
-              img: '/images/active-activist/objects/Play_Q4_background.png',
-              imgBack: '/images/logos/nike logo.svg'
+              img: `${process.env.basePath}/images/active-activist/objects/Play_Q4_background.png`,
+              imgBack: `${process.env.basePath}/images/logos/nike logo.svg`
             },
             {
               title: 'Sport gives you confidence',
-              img: '/images/active-activist/objects/Play_Q4_background.png',
-              imgBack: '/images/logos/nike logo.svg'
+              img: `${process.env.basePath}/images/active-activist/objects/Play_Q4_background.png`,
+              imgBack: `${process.env.basePath}/images/logos/nike logo.svg`
             }
           ],
           information: [
@@ -209,7 +209,7 @@ let data = {
       }
       },
       reward: {
-        image: '/images/rewards/3.png',
+        image: `${process.env.basePath}/images/rewards/3.png`,
         title: 'The move maker',
         text: 'You believe in the power of play to raise young people’s spirits and make them feel part of something bigger',
         link: '/reward/active-activist'
@@ -228,7 +228,7 @@ let data = {
         next: {
           name: 'Ines',
           role: 'People Promoter',
-          avatarMiniature: '/images/avatars/miniature/ines.png',
+          avatarMiniature: `${process.env.basePath}/images/avatars/miniature/ines.png`,
           link: '/people-promoter'
         }
       }

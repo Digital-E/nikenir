@@ -19,7 +19,7 @@ let data = {
     role: 'People Promoter',
     avatar: avatarImage,
     avatarCrop: avatarCrop,
-    avatarMiniature: '/images/avatars/miniature/ines.png',
+    avatarMiniature: `${process.env.basePath}/images/avatars/miniature/ines.png`,
     colourOne: '#FFB800',
     colourTwo: '#F05822',
     colourThree: '#FFB800',
@@ -56,11 +56,11 @@ let data = {
             squares: [
               {
                 title: 'Walk it out',
-                img: '/images/people-promoter/objects/People_Q1.png'
+                img: `${process.env.basePath}/images/people-promoter/objects/People_Q1.png`
               },
               {
                 title: 'Talk it out',
-                img: '/images/people-promoter/objects/People_Q1_02.png'
+                img: `${process.env.basePath}/images/people-promoter/objects/People_Q1_02.png`
               }
             ],
             information: [
@@ -89,7 +89,7 @@ let data = {
         {
             type: 'drag',
             title: 'Drag the roller-skate into the box',
-            img: '/images/people-promoter/objects/People_Q2.png',
+            img: `${process.env.basePath}/images/people-promoter/objects/People_Q2.png`,
             squares: [
               {
                 title: 'FIND STRENGTH IN TOGETHERNESS',
@@ -127,11 +127,11 @@ let data = {
             squares: [
               {
                 title: 'Be part of something bigger',
-                img: '/images/people-promoter/objects/People_Q3.png'
+                img: `${process.env.basePath}/images/people-promoter/objects/People_Q3.png`
               },
               {
                 title: 'Maximise your potential',
-                img: '/images/people-promoter/objects/People_Q3_02.png'
+                img: `${process.env.basePath}/images/people-promoter/objects/People_Q3_02.png`
               }
             ],
             information: [
@@ -163,13 +163,13 @@ let data = {
           squares: [
             {
               title: 'You see a place where you fit in',
-              img: '/images/people-promoter/objects/People_Q4_background.png',
-              imgBack: '/images/logos/nike logo.svg'
+              img: `${process.env.basePath}/images/people-promoter/objects/People_Q4_background.png`,
+              imgBack: `${process.env.basePath}/images/logos/nike logo.svg`
             },
             {
               title: 'You see a life that you aspire to',
-              img: '/images/people-promoter/objects/People_Q4_background.png',
-              imgBack: '/images/logos/nike logo.svg'
+              img: `${process.env.basePath}/images/people-promoter/objects/People_Q4_background.png`,
+              imgBack: `${process.env.basePath}/images/logos/nike logo.svg`
             }
           ],
           information: [
@@ -209,7 +209,7 @@ let data = {
         }
       },
       reward: {
-        image: '/images/rewards/1.png',
+        image: `${process.env.basePath}/images/rewards/1.png`,
         title: 'The people person',
         text: 'You believe that we’re all in this together, that if we can just keep listening and learning from one another, no one will feel left out.',
         link: '/reward/people-promoter'
@@ -230,7 +230,7 @@ let data = {
         next: {
           name: 'Theo',
           role: 'Climate Champion',
-          avatarMiniature: '/images/avatars/miniature/theo.png',
+          avatarMiniature: `${process.env.basePath}/images/avatars/miniature/theo.png`,
           link: '/climate-champion'
         }
       }

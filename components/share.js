@@ -53,7 +53,7 @@ const Component = ({ link, children, currentPageLink }) => {
     useEffect(() => {
         if(currentPageLink) {
             // setShareLink(`${window.location.href}`)
-            setShareLink(`${window.location.origin}`)
+            setShareLink(`${window.location.origin}${process.env.basePath}`)
         } else {
             setShareLink(`${window.location.origin}${link}`)
         }
@@ -68,7 +68,7 @@ const Component = ({ link, children, currentPageLink }) => {
                 whileHover={{scale: 1.02}}
                 animate={controls}
             >
-                <img src='/images/icons/share.svg' />
+                <img src={`${process.env.basePath}/images/icons/share.svg`} />
             </Container>
         </CopyToClipboard>
     )

@@ -51,7 +51,7 @@ let data = {
     role: 'People Promoter',
     complete: {
       reward: {
-        image: '/images/rewards/1.png',
+        image: `${process.env.basePath}/images/rewards/1.png`,
         title: 'The people person',
         text: 'You believe that we’re all in this together, that if we can just keep listening and learning from one another, no one will feel left out.',
         link: '/people-promoter'
@@ -74,7 +74,7 @@ export default function Component() {
     <Layout title={`${data.role} Reward | Nike Impact Report`} content={`${data.role} Reward | Nike Impact Report`}>
       <Container>
         <Logo >
-          <img src='/images/logos/with purpose logo.svg' />
+          <img src={`${process.env.basePath}/images/logos/with purpose logo.svg`} />
         </Logo>
         <InnerContainer>
           <Reward data={data} share={false} />

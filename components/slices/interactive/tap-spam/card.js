@@ -81,29 +81,6 @@ export default function Component({ data, index, allItems, hasClicked, dataAll }
     const controls = useAnimationControls();
 
 
-
-    let createConfetti = (e) => {
-        // confetti({
-        //     spread: 360,
-        //     ticks: 300,
-        //     gravity: 1,
-        //     decay: 0.94,
-        //     startVelocity: 30,
-        //     count: 1,
-        //     scalar: 10,
-        //     origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
-        //     shapes: ["image"],
-        //     shapeOptions: {
-        //       image: [{
-        //           src: "/images/tap-spam/Bag_01.png",
-        //           width: 32,
-        //           height: 32
-        //         }
-        //       ]
-        //     },
-        //   }); 
-    }
-
     useEffect(() => {
         if(hasTriggered) return
         hasTriggered = true
@@ -301,7 +278,7 @@ export default function Component({ data, index, allItems, hasClicked, dataAll }
             setTimeout(() => {
                 tsParticles.domItem(0).options.interactivity.events.onClick.enable = false
                 tsParticles.domItem(0).updateActualOptions()
-            }, 1000)
+            }, 100)
 
     }, [])
 
@@ -353,8 +330,6 @@ export default function Component({ data, index, allItems, hasClicked, dataAll }
     }, [allItems])
 
     let clicked = (e) => {
-
-        createConfetti(e)
 
         gaugeIncrement(e)
 
