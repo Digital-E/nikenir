@@ -110,12 +110,12 @@ export default function Component({ item, data }) {
 
         setTimeout(() => {
             setScreenHeight(window.innerHeight)
-            
+
             if(window.scrollY > 0) {
                 document.removeEventListener('wheel', disableScroll, {passive: false})
                 document.removeEventListener('touchmove', disableScroll, { passive:false });
             }
-        }, 500)
+        }, 0)
 
         setTimeout(() => {
             setShowSpeech(true)
