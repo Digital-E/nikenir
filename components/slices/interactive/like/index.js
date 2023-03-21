@@ -112,9 +112,9 @@ export default function Component({ item, data }) {
             gravity: 1,
             decay: 0.94,
             startVelocity: 30,
-            count: 0,
+            count: 1,
             scalar: 3,
-            origin: { x: 0, y: 0 },
+            origin: { x: window.innerWidth, y: window.innerHeight },
             shapes: ["image"],
             shapeOptions: {
               image: [{
