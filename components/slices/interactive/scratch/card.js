@@ -11,7 +11,6 @@ if(typeof window !== 'undefined') {
     ScratchCardVar = ScratchCard
     SCRATCH_TYPE_VAR = SCRATCH_TYPE
 }
-// import {ScratchCard, SCRATCH_TYPE} from 'scratchcard-js'
 
 const Container = styled(motion.div)`
     position: relative;
@@ -165,7 +164,7 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
 
             setTimeout(() => {
                 parent.removeChild(parent.children[0])
-            }, 10)
+            }, 1)
 
         }
     }, [prevScratch])
