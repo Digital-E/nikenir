@@ -115,7 +115,7 @@ export default function Component({ item, data }) {
                 document.removeEventListener('wheel', disableScroll, {passive: false})
                 document.removeEventListener('touchmove', disableScroll, { passive:false });
             }
-        }, 280)
+        }, 200)
 
         setTimeout(() => {
             setShowSpeech(true)

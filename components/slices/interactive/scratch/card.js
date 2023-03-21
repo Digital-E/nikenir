@@ -164,7 +164,7 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
 
             setTimeout(() => {
                 parent.removeChild(parent.children[0])
-            }, 1)
+            }, 500)
 
         }
     }, [prevScratch])
