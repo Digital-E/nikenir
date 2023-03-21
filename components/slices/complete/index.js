@@ -17,7 +17,11 @@ const Container = styled.div`
     }
 `
 
-const RowOne = styled.div``
+const RowOne = styled.div`
+    @media(max-width: 989px) {
+        height: calc(100vh - 120px);
+    }
+`
 
 
 const RowTwo = styled.div`

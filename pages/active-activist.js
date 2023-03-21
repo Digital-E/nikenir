@@ -8,8 +8,8 @@ import Layout from '../components/layout'
 import Slices from '../components/slices'
 
 // Images
-import avatarImage from '../public/images/avatars/character-intro/ivy.png'
-import avatarCrop from '../public/images/avatars/carousel/ivy.png'
+import avatarImage from '../public/images/avatars/carousel/ivy.png'
+import avatarImageTwo from '../public/images/avatars/praise/ivy.png'
 
 const Container = styled.div``
 
@@ -18,7 +18,6 @@ let data = {
     name: 'Ivy',
     role: 'Active Activist',
     avatar: avatarImage,
-    avatarCrop: avatarCrop,
     avatarMiniature: `${process.env.basePath}/images/avatars/miniature/ivy.png`,
     colourOne: '#A2D8EF',
     colourTwo: '#F05822',
@@ -32,14 +31,16 @@ let data = {
           'There are so many small but significant things that we can do as individuals, families and communities to move the climate dial!'
         ],
         desktop: {
-          bottom: 33,
-          left: 20,
-          width: 29
+          bubbleBottom: 33,
+          bubbleLeft: 18.5,
+          avatarWidth: 29
         },
         mobile: {
-          bottom: 80,
-          left: 27,
-          width: 70
+          bubbleBottom: 123,
+          bubbleLeft: 35,
+          avatarWidth: 110,
+          avatarLeft: -30,
+          avatarBottom: 0
         }
     },
     slices: [    
@@ -123,6 +124,7 @@ let data = {
         {
             type: 'like',
             title: 'Answer with a like',
+            heartImg: `${process.env.basePath}/images/like/heart-fill-ivy.png`,
             squares: [
               {
                 title: 'My coach is my rock',
@@ -130,7 +132,7 @@ let data = {
               },
               {
                 title: 'Sport is what drives me',
-                img: `${process.env.basePath}/images/active-activist/objects/Play_Q3.png`
+                img: `${process.env.basePath}/images/active-activist/objects/Play_Q3_01.png`
               }
             ],
             information: [
@@ -201,11 +203,16 @@ let data = {
         'That’s all us! Well all you, really.',
         'Goes to show. These personal choices can wind up meaning so much for future generations. Go empathy!'
       ],
-      bubblePosition: {
-        desktop: {
-          bottom: 82,
-          left: 68
-        }
+      avatar: avatarImageTwo,
+      desktop: {
+        bubbleBottom: 45,
+        bubbleLeft: 60,
+        avatarLeft: -250
+      },
+      mobile: {
+        bubbleBottom: 60,
+        bubbleLeft: 63,
+        avatarLeft: -35
       }
       },
       reward: {

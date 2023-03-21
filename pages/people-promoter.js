@@ -8,8 +8,8 @@ import Layout from '../components/layout'
 import Slices from '../components/slices'
 
 // Images
-import avatarImage from '../public/images/avatars/character-intro/ines.png'
-import avatarCrop from '../public/images/avatars/carousel/ines.png'
+import avatarImage from '../public/images/avatars/carousel/ines.png'
+import avatarImageTwo from '../public/images/avatars/praise/ines.png'
 
 const Container = styled.div``
 
@@ -18,7 +18,6 @@ let data = {
     name: 'Ines',
     role: 'People Promoter',
     avatar: avatarImage,
-    avatarCrop: avatarCrop,
     avatarMiniature: `${process.env.basePath}/images/avatars/miniature/ines.png`,
     colourOne: '#FFB800',
     colourTwo: '#F05822',
@@ -33,14 +32,16 @@ let data = {
           'Don’t worry, there’s no wrong answers. Only progress!'
         ],
         desktop: {
-          bottom: 34,
-          left: 21,
-          width: 29
+          bubbleBottom: 34,
+          bubbleLeft: 19.5,
+          avatarWidth: 29
         },
         mobile: {
-          bottom: 80,
-          left: 28,
-          width: 70
+          bubbleBottom: 110,
+          bubbleLeft: 35,
+          avatarWidth: 95,
+          avatarLeft: -30,
+          avatarBottom: 0
         }
     },
     slices: [    
@@ -53,6 +54,7 @@ let data = {
         {
             type: 'like',
             title: 'Answer with a like',
+            heartImg: `${process.env.basePath}/images/like/heart-fill-ines.png`,
             squares: [
               {
                 title: 'Walk it out',
@@ -127,11 +129,11 @@ let data = {
             squares: [
               {
                 title: 'Be part of something bigger',
-                img: `${process.env.basePath}/images/people-promoter/objects/People_Q3.png`
+                img: `${process.env.basePath}/images/people-promoter/objects/People_Q3_Object_01.png`
               },
               {
                 title: 'Maximise your potential',
-                img: `${process.env.basePath}/images/people-promoter/objects/People_Q3_02.png`
+                img: `${process.env.basePath}/images/people-promoter/objects/People_Q3_Object_02.png`
               }
             ],
             information: [
@@ -201,11 +203,16 @@ let data = {
               'That’s all us! Well all you, actually. Goes to show.',
               'These personal choices can wind up meaning so much for the bigger picture. Go integrity!'
             ],
-        bubblePosition: {
-          desktop: {
-            bottom: 85,
-            left: 70
-          }
+        avatar: avatarImageTwo,
+        desktop: {
+          bubbleBottom: 70,
+          bubbleLeft: 50,
+          avatarLeft: -210
+        },
+        mobile: {
+          bubbleBottom: 69,
+          bubbleLeft: 47,
+          avatarLeft: -20
         }
       },
       reward: {

@@ -31,7 +31,7 @@ const Avatar = styled.div`
     margin-top: -5px;
 
     img {
-        width: 140%;
+        width: 100%;
         max-width: auto;
         object-fit: cover;
         position: absolute;

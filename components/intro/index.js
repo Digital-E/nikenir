@@ -11,9 +11,9 @@ import ButtonLink from '../button-link'
 
 import Character from './character'
 
-import characterOne from '../../public/images/intro-characters/1.png'
-import characterTwo from '../../public/images/intro-characters/2.png'
-import characterThree from '../../public/images/intro-characters/3.png'
+import characterOne from '../../public/images/avatars/landing/ivy.png'
+import characterTwo from '../../public/images/avatars/landing/theo.png'
+import characterThree from '../../public/images/avatars/landing/ines.png'
 
 const anime = require('animejs').default
 
@@ -34,8 +34,13 @@ const Logo = styled.div`
     position: fixed;
     top: 0;
     left: 50%;
+    width: 50px;
     transform: translateX(-50%);
     padding: 40px 0;
+
+    img {
+        width: 100%;
+    }
 
     @media(max-width: 989px) {
         padding: 30px 0;
@@ -48,7 +53,7 @@ const Center = styled(motion.div)`
     top: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    max-width: 720px;
+    max-width: 820px;
 
     @media(max-width: 989px) {
         &.intro-center-one {
@@ -64,7 +69,7 @@ const Title = styled.h1`
     &.ml15 .word {
         position: relative;
         display: inline-block;
-        margin: 0 25px 0 0;
+        margin: 0 30px 0 0;
         opacity: 0;
     }
 
@@ -216,40 +221,40 @@ let slideTwoAnimation = {
 let characters = [
     {
         desktop: {
-            x: -8,
-            y: 20,
-            width: 100,
+            x: -25,
+            y: -25,
+            width: 400,
         },
         mobile: {
-            x: -5,
-            y: 50,
-            width: 100,
+            x: -20,
+            y: -20,
+            width: 190,
         },
         src: characterOne
     },
     {
         desktop: {
-            x: 90,
-            y: -10,
-            width: 200,
+            x: 37,
+            y: -92,
+            width: 380,
         },
         mobile: {
-            x: 60,
-            y: -70,
-            width: 150,
+            x: 33,
+            y: 75,
+            width: 175,
         },
         src: characterTwo
     },
     {
         desktop: {
-            x: 50,
-            y: 80,
-            width: 300,
+            x: 71.5,
+            y: 9,
+            width: 400,
         },
         mobile: {
-            x: 30,
-            y: 80,
-            width: 250
+            x: 60,
+            y: -41,
+            width: 175
         },
         src: characterThree
     }
@@ -262,16 +267,20 @@ let bubbles = [
     `${basePath}/images/people-promoter/objects/People_Q1.png`,
     `${basePath}/images/people-promoter/objects/People_Q2.png`,
     `${basePath}/images/people-promoter/objects/People_Q3_02.png`,
-    `${basePath}/images/people-promoter/objects/People_Q3.png`,
+    `${basePath}/images/people-promoter/objects/People_Q3_Object_01.png`,
+    `${basePath}/images/people-promoter/objects/People_Q3_Object_02.png`,
     `${basePath}/images/people-promoter/objects/People_Q4.png`,
     `${basePath}/images/active-activist/objects/Play_Q1.png`,
     `${basePath}/images/active-activist/objects/Play_Q2_02.png`,
     `${basePath}/images/active-activist/objects/Play_Q2.png`,
     `${basePath}/images/active-activist/objects/Play_Q3.png`,
+    `${basePath}/images/active-activist/objects/Play_Q3_01.png`,
     `${basePath}/images/active-activist/objects/Play_Q4.png`,
     `${basePath}/images/climate-champion/objects/Planet_Q1.png`,
-    `${basePath}/images/climate-champion/objects/Planet_Q2_02.png`,
-    `${basePath}/images/climate-champion/objects/Planet_Q2.png`,
+    `${basePath}/images/climate-champion/objects/Planet_Q2_Object_01_02.png`,
+    `${basePath}/images/climate-champion/objects/Planet_Q2_Object_02.png`,
+    `${basePath}/images/climate-champion/objects/Planet_Q3_Object_01.png`,
+    `${basePath}/images/climate-champion/objects/Planet_Q3_Object_02.png`,
     `${basePath}/images/climate-champion/objects/Planet_Q4_02.png`,
     `${basePath}/images/climate-champion/objects/Planet_Q4.png`,
 ]
@@ -282,13 +291,13 @@ let bubblesDisplayArrayInit =  [
         src: bubbles[0],
         index: 0,
         desktop: {
-            x: 100,
-            y: -20,
+            x: 66,
+            y: 0,
             flip: false
         },
         mobile: {
-            x: 90,
-            y: 0,
+            x: 73,
+            y: -10,
             flip: false
         },
     },
@@ -297,14 +306,14 @@ let bubblesDisplayArrayInit =  [
         src: bubbles[1],
         index: 1,
         desktop: {
-            x: -10,
-            y: -30,
-            flip: true
+            x: 87,
+            y: 10,
+            flip: false
         },
         mobile: {
-            x: -15,
-            y: -20,
-            flip: true
+            x: 92,
+            y: -5,
+            flip: false
         }
     },
     {
@@ -312,13 +321,13 @@ let bubblesDisplayArrayInit =  [
         src: bubbles[2],
         index: 2,
         desktop: {
-            x: 30,
-            y: -20,
+            x: 13,
+            y: -5,
             flip: true
         },
         mobile: {
-            x: 35,
-            y: -5,
+            x: -12,
+            y: -23,
             flip: true
         }
     }
@@ -546,7 +555,7 @@ const Component = () => {
         <Logo 
         // variants={slideOneAnimationBis}
         >
-            <img src={`${process.env.basePath}/images/logos/with purpose logo.svg`} />
+            <img src={`${process.env.basePath}/images/logos/nike logo.svg`} />
         </Logo>            
         <Container ref={containerRef} className='margin'>         
             <Slide ref={slideOneRef} initial='show' animate={slideIndexState === 0 ? 'show' : 'hide'} height={screenHeight}>
@@ -554,13 +563,11 @@ const Component = () => {
                 variants={slideOneAnimation} 
                 className='intro-center-one'>
                     <Title className='large-headline ml15'>
-                        <span class="word">WHAT</span> 
-                        <span class="word">KIND</span>
-                        <span class="word">OF</span> 
-                        <span class="word">CHANGEMAKER</span> 
                         <span class="word">ARE</span> 
-                        <span class="word">YOU?</span> 
-                        {/* what kind of changemaker are you ? */}
+                        <span class="word">YOU</span>
+                        <span class="word">GAME</span> 
+                        <span class="word">FOR</span> 
+                        <span class="word">CHANGE?</span> 
                     </Title>
                     {
                         characters.map((item, index) => <Character data={item} index={index} bubbles={bubbles} bubblesDisplayArray={bubblesDisplayArray} />)

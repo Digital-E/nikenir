@@ -18,17 +18,17 @@ const Container = styled.div`
 
 const ImageWrapper = styled.div`
     position: relative;
-    z-index: 999;
+    z-index: 0;
     width: fit-content;
 
     img {
-        width: ${props => props.data.intro.desktop.width}vw;
-        transform: rotateY(180deg);
+        width: ${props => props.data.intro.desktop.avatarWidth}vw;
     }
 
     @media(max-width: 989px) {
-        width: ${props => props.data.intro.mobile.width}vw;
-        margin-left: -30%;
+        width: ${props => props.data.intro.mobile.avatarWidth}vw;
+        margin-left: ${props => props.data.intro.mobile.avatarLeft}%;
+        bottom: ${props => props.data.intro.mobile.avatarBottom}vw;
         
         img {
             width: 100%;
@@ -44,16 +44,16 @@ const Bubble = styled(motion.div)`
     @media(min-width: 990px) {
         width: ${props => props.smallBubble ? '222px': '427px'};
         height: ${props => props.smallBubble ? '227.5px': '162.5px'};
-        bottom: ${props => props.data.intro.desktop.bottom}vw;
-        left: ${props => props.data.intro.desktop.left}vw;
+        bottom: ${props => props.data.intro.desktop.bubbleBottom}vw;
+        left: ${props => props.data.intro.desktop.bubbleLeft}vw;
         clip-path: ${props => props.smallBubble ? 'url(#clipPathMobile)' : 'url(#clipPathDesktop)'};
     }
 
     @media(max-width: 989px) {
         width: 222px;
         height: 227.5px;
-        bottom: ${props => props.data.intro.mobile.bottom}vw;
-        left: ${props => props.data.intro.mobile.left}vw;
+        bottom: ${props => props.data.intro.mobile.bubbleBottom}vw;
+        left: ${props => props.data.intro.mobile.bubbleLeft}vw;
         clip-path: url(#clipPathMobile);
     }
 `
@@ -67,12 +67,12 @@ const BubbleInner = styled.div`
 
 const PortalReplay = styled(motion.div)`
     position: absolute;
-    bottom: calc(${props => props.data.intro.desktop.bottom}vw);
-    left: calc(${props => props.data.intro.desktop.left}vw + 405px);
+    bottom: calc(${props => props.data.intro.desktop.bubbleBottom}vw);
+    left: calc(${props => props.data.intro.desktop.bubbleLeft}vw + 405px);
 
     @media(max-width: 989px) {
-        bottom: calc(${props => props.data.intro.mobile.bottom}vw + 5px);
-        left: calc(${props => props.data.intro.mobile.left}vw + 200px);
+        bottom: calc(${props => props.data.intro.mobile.bubbleBottom}vw + 5px);
+        left: calc(${props => props.data.intro.mobile.bubbleLeft}vw + 200px);
     }
 `
 
@@ -94,7 +94,7 @@ let bubbleVariants = {
 }
 
 
-export default function Component({ data, text, smallBubble, disableInView, activate, toggleFinished }) {
+export default function Component({ data, avatar, text, smallBubble, disableInView, activate, toggleFinished }) {
     let containerRef = useRef()
     let portalRef = useRef()
     let isInView = useInView(containerRef)
@@ -124,7 +124,7 @@ export default function Component({ data, text, smallBubble, disableInView, acti
 
     return (
         <Container ref={containerRef}>
-            <ImageWrapper data={data}><Image src={data.avatarCrop} priority={true} /></ImageWrapper>
+            <ImageWrapper data={data}><Image src={avatar} priority={true} /></ImageWrapper>
             <PortalReplay id="portal-replay" data={data} ref={portalRef} variants={bubbleVariants} initial='hide' animate={startType ? 'show' : 'hide'} />
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0">
                 <clipPath id="clipPathDesktop">

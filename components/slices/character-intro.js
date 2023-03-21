@@ -153,7 +153,7 @@ export default function Component({ item, data }) {
         <Container ref={containerRef} height={screenHeight}>
             <Title>{data.intro.title}</Title>
             <AvatarWrapper>
-                <AvatarSpeech data={data} text={data.intro.text} disableInView={true} activate={showSpeech} toggleFinished={() => {}}/>
+                <AvatarSpeech avatar={data.avatar} data={data} text={data.intro.text} disableInView={true} activate={showSpeech} toggleFinished={() => {}}/>
             </AvatarWrapper>
             <ButtonWrapper 
                 ref={buttonWrapperRef}

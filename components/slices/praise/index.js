@@ -16,6 +16,7 @@ const anime = require('animejs').default
 const Container = styled.div`
     position: relative;
     height: 100%;
+    margin-bottom: 150px;
 
     .ml2 .letter {
         display: inline-block;
@@ -53,26 +54,45 @@ const AvatarSpeechWrapper = styled(motion.div)`
     width: fit-content;
 
     @media(min-width: 990px) {
+        position: absolute;
         height: fit-content;
         width: fit-content;
-        position: relative;
-        left: -210px;
-    }
+        left: ${props => props.data.complete.praise.desktop.avatarLeft}px;
+        bottom: -180px;
 
+        > div > div {
+            transform: rotateY(${props => props.data.complete.praise.mobile.flip ? '-180deg' : '0'});
+        }
 
-    @media(min-width: 990px) {
         .avatar-speech-bubble {
-            bottom: ${props => props.data.complete.praise.bubblePosition.desktop.bottom}%;
-            left: ${props => props.data.complete.praise.bubblePosition.desktop.left}%;
+            bottom: ${props => props.data.complete.praise.desktop.bubbleBottom}%;
+            left: ${props => props.data.complete.praise.desktop.bubbleLeft}%;
         }
 
         #portal-replay {
-            bottom: calc(${props => props.data.complete.praise.bubblePosition.desktop.bottom}% + 5px);
-            left: calc(${props => props.data.complete.praise.bubblePosition.desktop.left}% + 200px);
+            bottom: calc(${props => props.data.complete.praise.desktop.bubbleBottom}% + 5px);
+            left: calc(${props => props.data.complete.praise.desktop.bubbleLeft}% + 200px);
         }
 
         img {
-            width: 465px;
+            width: 724px;
+        }
+    }
+
+    @media(max-width: 989px) {
+        > div > div {
+            margin-left: ${props => props.data.complete.praise.mobile.avatarLeft}%;
+            transform: rotateY(${props => props.data.complete.praise.mobile.flip ? '-180deg' : '0'});
+        }
+
+        .avatar-speech-bubble {
+            bottom: ${props => props.data.complete.praise.mobile.bubbleBottom}vw;
+            left: ${props => props.data.complete.praise.mobile.bubbleLeft}vw;
+        }
+
+        #portal-replay {
+            bottom: calc(${props => props.data.complete.praise.mobile.bubbleBottom}vw + 5px);
+            left: calc(${props => props.data.complete.praise.mobile.bubbleLeft}vw + 200px);
         }
     }
 `
@@ -114,7 +134,7 @@ const StickyWrapper = styled.div`
 const ArrowContainer = styled(motion.div)`
     position: absolute;
     left: 50%;
-    bottom: 40px;
+    bottom: -80px;
     transform: translateX(-50%);
     cursor: pointer;
 
@@ -221,7 +241,7 @@ export default function Component({ data, unlock }) {
 
             setTimeout(() => {
                 setRewardReveal(true)
-            }, 2000)
+            }, 4000)
         }
     }, [isInView])
 
@@ -253,7 +273,7 @@ export default function Component({ data, unlock }) {
                         // animate={avatarReveal ? 'show' : 'hide'}
                         data={data}
                         ref={avatarSpeechWrapperRef}>
-                        <AvatarSpeech data={data} text={data.complete.praise.text} smallBubble={true} disableInView={true} activate={avatarReveal} toggleFinished={() => toggleFinished()}/>
+                        <AvatarSpeech avatar={data.complete.praise.avatar} data={data} text={data.complete.praise.text} smallBubble={true} disableInView={true} activate={avatarReveal} toggleFinished={() => toggleFinished()}/>
                     </AvatarSpeechWrapper>
                     <RewardWrapper 
                         initial='hide'

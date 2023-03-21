@@ -134,8 +134,9 @@ const Card = styled(motion.div)`
 
     @media(min-width: 1690px) {
         height: 647.82px;
-        padding: 0  0 49.9144px 0;
+        padding: 0  0 45.9144px 0;
     }
+    
     max-width: 472px;
 `
 
@@ -191,7 +192,7 @@ const ImageWrapper = styled.div`
     overflow: hidden;
     align-items: center;
     justify-content: center;
-    left: 10%;
+    left: 0;
     bottom: ${props => props.data.bottom}%;
 
     img {
@@ -200,7 +201,7 @@ const ImageWrapper = styled.div`
 
 
     @media(max-width: 989px) {
-        left: 15%;
+        left: 0;
 
         img {
             width: ${props => props.data.widthMobile}%  !important;
@@ -297,8 +298,8 @@ let data = [
         link: '/people-promoter',
         backgroundSrc: gradientOne,
         width: 80,
-        widthMobile: 85,
-        bottom: -5
+        widthMobile: 88,
+        bottom: -4
     },
     {
         name: 'Theo',
@@ -308,8 +309,8 @@ let data = [
         link: '/climate-champion',
         backgroundSrc: gradientTwo,
         width: 85,
-        widthMobile: 90,
-        bottom: -3
+        widthMobile: 93,
+        bottom: -2.7
     },
     {
         name: 'Ivy',
@@ -318,9 +319,9 @@ let data = [
         img: characterThree,
         link: '/active-activist',
         backgroundSrc: gradientThree,
-        width: 93,
+        width: 91,
         widthMobile: 100,
-        bottom: -5
+        bottom: -3.7
     },    
 ]
 

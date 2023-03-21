@@ -27,11 +27,16 @@ const Logo = styled.div`
     position: fixed;
     top: 0;
     left: 50%;
+    width: 50px;
     transform: translateX(-50%);
-    padding: 20px 0;
+    padding: 40px 0;
+
+    img {
+      width: 100%;
+    }
 
     @media(max-width: 989px) {
-        padding: 20px 0;
+        padding: 30px 0;
     }
 `
 
@@ -74,7 +79,7 @@ export default function Component() {
     <Layout title={`${data.role} Reward | Nike Impact Report`} content={`${data.role} Reward | Nike Impact Report`}>
       <Container>
         <Logo >
-          <img src={`${process.env.basePath}/images/logos/with purpose logo.svg`} />
+          <img src={`${process.env.basePath}/images/logos/nike logo.svg`} />
         </Logo>
         <InnerContainer>
           <Reward data={data} share={false} />

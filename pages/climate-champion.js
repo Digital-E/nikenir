@@ -8,8 +8,8 @@ import Layout from '../components/layout'
 import Slices from '../components/slices'
 
 // Images
-import avatarImage from '../public/images/avatars/character-intro/theo.png'
-import avatarCrop from '../public/images/avatars/carousel/theo.png'
+import avatarImage from '../public/images/avatars/carousel/theo.png'
+import avatarImageTwo from '../public/images/avatars/praise/theo.png'
 
 const Container = styled.div``
 
@@ -18,7 +18,6 @@ let data = {
     name: 'Theo',
     role: 'Climate Champion',
     avatar: avatarImage,
-    avatarCrop: avatarCrop,
     avatarMiniature: `${process.env.basePath}/images/avatars/miniature/theo.png`,
     colourOne: '#C2BCEB',
     colourTwo: '#F05822',
@@ -31,14 +30,16 @@ let data = {
           'The decisions we take now can make a future where everyone belongs.'
         ],
         desktop: {
-          bottom: 34,
-          left: 22,
-          width: 29
+          bubbleBottom: 34,
+          bubbleLeft: 21,
+          avatarWidth: 29
         },
         mobile: {
-          bottom: 85,
-          left: 31,
-          width: 70
+          bubbleBottom: 130,
+          bubbleLeft: 35,
+          avatarWidth: 100,
+          avatarLeft: -35,
+          avatarBottom: 10,
         }
     },
     slices: [    
@@ -88,11 +89,11 @@ let data = {
             squares: [
               {
                 title: 'Recycle your gear',
-                img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q2.png`
+                img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q2_Object_01_02.png`
               },
               {
                 title: 'Regift your gear',
-                img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q2_02.png`
+                img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q2_Object_02.png`
               }
             ],
             information: [
@@ -121,14 +122,15 @@ let data = {
         {
             type: 'like',
             title: 'Answer with a like',
+            heartImg: `${process.env.basePath}/images/like/heart-fill-theo.png`,
             squares: [
               {
                 title: 'Ride your bike to practice',
-                img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q2.png`
+                img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q3_Object_01.png`
               },
               {
                 title: 'Take the bus to practice',
-                img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q2_02.png`
+                img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q3_Object_02.png`
               }
             ],
             information: [
@@ -198,11 +200,17 @@ let data = {
           'We safeguarded the world for those that will inherit it! Feel lighter somehow? Complete, like a circle? ',
           'That’s all us! Well all you, actually. Goes to show. How these small acts of thoughtfulness can come to mean so much. Go altruism!'
         ],
-        bubblePosition: {
-          desktop: {
-            bottom: 85,
-            left: 75
-          }
+        avatar: avatarImageTwo,
+        desktop: {
+          bubbleBottom: 50,
+          bubbleLeft: 65,
+          avatarLeft: -330
+        },
+        mobile: {
+          bubbleBottom: 69,
+          bubbleLeft: 63,
+          avatarLeft: -35,
+          flip: true
         }
       },
       reward: {

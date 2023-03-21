@@ -95,7 +95,7 @@ export default function Component({ item, data }) {
             shapes: ["image"],
             shapeOptions: {
               image: [{
-                  src: `${process.env.basePath}/images/like/heart-fill-red.png`,
+                  src: item.heartImg,
                   width: 32,
                   height: 32
                 }
