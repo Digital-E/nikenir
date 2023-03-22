@@ -1,8 +1,6 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import { useMediaQuery } from 'react-responsive'
 
-import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 
 import Image from '../../image'
