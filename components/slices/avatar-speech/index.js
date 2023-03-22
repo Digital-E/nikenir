@@ -134,7 +134,7 @@ export default function Component({ data, avatar, text, smallBubble, disableInVi
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0">
                 <clipPath id="clipPathMobile">
-                    <path d="M0 27C0 12.0883 12.0883 0 27 0H195C209.912 0 222 12.0883 222 27V165.735C222 180.632 209.935 192.714 195.038 192.735L36.2419 192.961C26.8596 192.974 18.1568 197.857 13.2562 205.858L3.70549 221.45C2.65101 223.172 0 222.425 0 220.406V181.096V27Z" fill="white" fill-opacity="0.6"/>
+                    <path d="M0 27C0 12.0883 12.0883 0 27 0H195C209.912 0 222 12.0883 222 27V165.735C222 180.632 209.935 192.714 195.038 192.735L36.2419 192.961C26.8596 192.974 18.1568 197.857 13.2562 205.858L3.70549 221.45C2.65101 223.172 0 222.425 0 220.406V181.096V27Z" fill="white" fillOpacity="0.6"/>
                 </clipPath>
             </svg>                           
             <Bubble className='avatar-speech-bubble' data={data} smallBubble={smallBubble} variants={bubbleVariants} initial='hide' animate={startType ? 'show' : 'hide'}>

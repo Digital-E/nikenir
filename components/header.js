@@ -242,9 +242,9 @@ export default function Header({}) {
           animate={controls}
         >
           <Circle colour={colour}>
-            <svg class="complete" width="40" height="40" viewport="0 0 20 20" xmlns="https://www.w3.org/2000/svg">
+            <svg className="complete" width="40" height="40" viewport="0 0 20 20" xmlns="https://www.w3.org/2000/svg">
               <circle cx="20" cy="20" r="15"></circle>
-              <circle class="progress-bar" cx="20" cy="20" r="15" ref={progressBarRef}></circle>
+              <circle className="progress-bar" cx="20" cy="20" r="15" ref={progressBarRef}></circle>
             </svg>      
           </Circle>
           <Logo><img src={`${process.env.basePath}/images/logos/nike logo.svg`} /></Logo>

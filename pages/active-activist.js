@@ -1,4 +1,5 @@
 import { useEffect, useContext } from "react"
+import Head from 'next/head'
 import styled from 'styled-components'
 
 import { store } from "../store"
@@ -287,6 +288,7 @@ export default function Component() {
 
   return (
     <Layout title={`${data.title} | Nike Impact Report`} content={`${data.title} | Nike Impact Report`}>
+      <Head><link rel="preload" href={avatarImageTwo.src} as="image" /></Head>
       <Container>
         <Slices data={data}/>
       </Container>
