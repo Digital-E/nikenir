@@ -9,7 +9,7 @@ import Layout from '../components/layout'
 import Slices from '../components/slices'
 
 // Images
-import avatarImage from '../public/images/avatars/carousel/ines.png'
+import avatarImage from '../public/images/avatars/carousel/ines/ines-0.png'
 import avatarImageTwo from '../public/images/avatars/praise/ines.png'
 
 const Container = styled.div``

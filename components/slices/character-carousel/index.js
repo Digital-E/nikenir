@@ -4,18 +4,38 @@ import { useMediaQuery } from 'react-responsive'
 
 import { motion } from 'framer-motion'
 
-import ButtonLink from '../button-link'
-import Link from '../link'
-import Image from '../image'
+import ButtonLink from '../../button-link'
+import Link from '../../link'
+import Image from '../../image'
+
+import ImageSequence from './image-sequence'
 
 // Images
-import characterOne from '../../public/images/avatars/carousel/ines.png'
-import characterTwo from '../../public/images/avatars/carousel/theo.png'
-import characterThree from '../../public/images/avatars/carousel/ivy.png'
+import characterOne1 from '../../../public/images/avatars/carousel/ines/ines-0.png'
+import characterOne2 from '../../../public/images/avatars/carousel/ines/ines-1.png'
+import characterOne3 from '../../../public/images/avatars/carousel/ines/ines-2.png'
+import characterOne4 from '../../../public/images/avatars/carousel/ines/ines-3.png'
+import characterOne5 from '../../../public/images/avatars/carousel/ines/ines-4.png'
+import characterOne6 from '../../../public/images/avatars/carousel/ines/ines-5.png'
 
-import gradientOne from '../../public/images/carousel-gradients/gradient1.png'
-import gradientTwo from '../../public/images/carousel-gradients/gradient3.png'
-import gradientThree from '../../public/images/carousel-gradients/gradient2.png'
+import characterTwo1 from '../../../public/images/avatars/carousel/theo/theo-0.png'
+import characterTwo2 from '../../../public/images/avatars/carousel/theo/theo-1.png'
+import characterTwo3 from '../../../public/images/avatars/carousel/theo/theo-2.png'
+import characterTwo4 from '../../../public/images/avatars/carousel/theo/theo-3.png'
+import characterTwo5 from '../../../public/images/avatars/carousel/theo/theo-4.png'
+import characterTwo6 from '../../../public/images/avatars/carousel/theo/theo-5.png'
+
+
+import characterThree1 from '../../../public/images/avatars/carousel/ivy/ivy-0.png'
+import characterThree2 from '../../../public/images/avatars/carousel/ivy/ivy-1.png'
+import characterThree3 from '../../../public/images/avatars/carousel/ivy/ivy-2.png'
+import characterThree4 from '../../../public/images/avatars/carousel/ivy/ivy-3.png'
+import characterThree5 from '../../../public/images/avatars/carousel/ivy/ivy-4.png'
+import characterThree6 from '../../../public/images/avatars/carousel/ivy/ivy-5.png'
+
+import gradientOne from '../../../public/images/carousel-gradients/gradient1.png'
+import gradientTwo from '../../../public/images/carousel-gradients/gradient3.png'
+import gradientThree from '../../../public/images/carousel-gradients/gradient2.png'
 
 let Flickity = null;
 
@@ -61,8 +81,6 @@ const Card = styled(motion.div)`
     margin: 40px 10px 40px 10px;
     padding: 0 0 30px 0;
     border-radius: 27px;
-    // background: ${props => props.data.background};
-    // background: url(${props => props.data.backgroundSrc});
 
     background-size: cover;
     background-repeat: no-repeat;
@@ -84,7 +102,7 @@ const Card = styled(motion.div)`
     transition: filter 0.7s;
 
     @media(min-width: 990px) {
-        padding: 0  0 2.776vw 0;
+        padding: 0 0 1.735vw 0;
 
         &.blur {
             filter: blur(10px);
@@ -217,10 +235,6 @@ const ImageWrapper = styled.div`
 
     @media(min-width: 1690px) {
         bottom: calc(${props => props.data.bottom / 100} * 647.81px) !important;
-
-        img {
-            width: calc(${props => props.data.width / 100} * 472px) !important
-        }
     }
 
 `
@@ -228,7 +242,7 @@ const ImageWrapper = styled.div`
 const Information = styled.div`
     margin-top: 10px;
     flex-basis: auto;
-    min-height: 64px;
+    min-height: 75px;
 
     padding: 0px var(--margin);
 
@@ -257,7 +271,7 @@ const Information = styled.div`
 
     @media(min-width: 1690px) {
         padding: 0 35.18px;
-        min-height: 91.26px;
+        min-height: 77.73px;
 
         p:first-child {
             font-size: 42.25px;
@@ -294,7 +308,14 @@ let data = [
         name: 'Ines',
         textOne: 'People Promoter',
         textTwo: 'Community hero inspiring togetherness',
-        img: characterOne,
+        images: [
+            characterOne1,
+            characterOne2,
+            characterOne3,
+            characterOne4,
+            characterOne5,
+            characterOne6,
+        ],
         link: '/people-promoter',
         backgroundSrc: gradientOne,
         width: 80,
@@ -305,7 +326,14 @@ let data = [
         name: 'Theo',
         textOne: 'Climate Champion',
         textTwo: 'Planet preserver empowering citizens to have a positive impact',
-        img: characterTwo,
+        images: [
+            characterTwo1,
+            characterTwo2,
+            characterTwo3,
+            characterTwo4,
+            characterTwo5,
+            characterTwo6,
+        ],
         link: '/climate-champion',
         backgroundSrc: gradientTwo,
         width: 85,
@@ -316,7 +344,14 @@ let data = [
         name: 'Ivy',
         textOne: 'Active Activist',
         textTwo: 'Trusted coach who really listens',
-        img: characterThree,
+        images: [
+            characterThree1,
+            characterThree2,
+            characterThree3,
+            characterThree4,
+            characterThree5,
+            characterThree6
+        ],
         link: '/active-activist',
         backgroundSrc: gradientThree,
         width: 91,
@@ -373,6 +408,14 @@ export default function Component() {
         })
     }, [])
 
+    useEffect(() => {
+        setTimeout(() => {
+            if(window.innerWidth < 990) {
+                setHoveredIndex(selectedIndex)
+            }
+        }, 200)
+    }, [selectedIndex])
+
     
     return (
         <Container>
@@ -382,8 +425,8 @@ export default function Component() {
                             <Card 
                                 // transition={{ type: "spring", stiffness: 200, damping: 10 }}
                                 // className={hoveredIndex !== null && hoveredIndex !== index ? 'blur' : ''}
-                                // onMouseEnter={() => setHoveredIndex(index)}
-                                // onMouseLeave={() => setHoveredIndex(null)}
+                                onMouseEnter={() => setHoveredIndex(index)}
+                                onMouseLeave={() => setHoveredIndex(null)}
                                 whileHover={isDesktop ? {scale: 1.05} : {}}
                                 transition={{ duration: 0.4 }}
                                 data={item}
@@ -396,7 +439,9 @@ export default function Component() {
                                         <h2>Play <br/> With:</h2>
                                         <h2>{item.name}</h2>
                                     </Title>
-                                    <ImageWrapper data={item}><Image src={item.img} priority={true} /></ImageWrapper>
+                                    <ImageWrapper data={item}>
+                                        <ImageSequence index={index} data={item.images} hoveredIndex={hoveredIndex}  />
+                                    </ImageWrapper>
                                     <Information>
                                         <p className='palatino-small'>{item.textOne}</p>
                                         <p className='body-large'>{item.textTwo}</p>
