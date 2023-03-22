@@ -8,7 +8,13 @@ import Image from '../../image'
 const Container = styled.div`
     position: relative;
 
+`
+
+const InnerContainer = styled.div`
     img {
+        position: absolute;
+        top: 0;
+        left: 0;
         display: none;
     }
 
@@ -17,6 +23,16 @@ const Container = styled.div`
     }
 `
 
+const Placeholder = styled.div`
+    position: relative;
+
+    img {
+        opacity: 0;
+    }
+`
+
+
+
 
 
 export default function Component({ data, index, hoveredIndex }) {
@@ -24,11 +40,13 @@ export default function Component({ data, index, hoveredIndex }) {
     let sequenceIndex = useRef(0);
     let animationRef = useRef();
 
-    function update() {
-        Array.from(containerRef.current.children).forEach(item => {
-            item.classList.remove('show-frame')
-        })
+    function update(action) {
 
+        if(action === 'forward') {
+            Array.from(containerRef.current.children)[Math.round(sequenceIndex.current - 1)]?.classList.remove('show-frame')
+        } else {
+            Array.from(containerRef.current.children)[Math.round(sequenceIndex.current + 1)]?.classList.remove('show-frame')
+        }
 
         Array.from(containerRef.current.children)[Math.round(sequenceIndex.current)]?.classList.add('show-frame')
     }
@@ -39,17 +57,38 @@ export default function Component({ data, index, hoveredIndex }) {
 
     useEffect(() => {
         if(hoveredIndex === index) {
-            animationRef.current = gsap.to(sequenceIndex, {current: 5, duration: 0.3, onUpdate: update})
-        } else if(sequenceIndex.current > 0) {
-            animationRef.current = gsap.to(sequenceIndex, {current: 0, duration: 0.3, onUpdate: update})
+            clearInterval(animationRef.current)
+            animationRef.current = setInterval(() => {
+                sequenceIndex.current += 1;
+                if(sequenceIndex.current === 6) {
+                    return clearInterval(animationRef.current)
+                }
+                update('forward');
+            }, 50)
+
+        } 
+        else if(sequenceIndex.current > 0) {
+            clearInterval(animationRef.current)
+            animationRef.current = setInterval(() => {
+                sequenceIndex.current -= 1;
+                if(sequenceIndex.current === 0) {
+                    return clearInterval(animationRef.current)
+                }
+                update('back');
+            }, 50)
         }
     }, [hoveredIndex])
 
     return (
-        <Container ref={containerRef}>
-            {
-                data.map(item => <Image src={item} priority={true} />)
-            }
+        <Container>
+            <Placeholder>
+                <Image src={data[0]} priority={true} />
+            </Placeholder>
+            <InnerContainer ref={containerRef}>
+                {
+                    data.map(item => <img src={item.src}  />)
+                }
+            </InnerContainer>
         </Container>
     )
 }

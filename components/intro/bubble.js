@@ -130,14 +130,6 @@ const Component = ({ data, index, bubbles, bubblesDisplayArray }) => {
     let animationRef = useRef();
     let mainBubbleRef = useRef();
 
-    useEffect(() => {
-        // animationRef.current = gsap.fromTo(mainBubbleRef.current,{top: 0}, { top: -30 , duration: 1, yoyo: true, ease: "power3.inOut", repeat: -1});
-        // if(bubblesDisplayArray[index].show) {
-        //     animationRef.current = gsap.fromTo(mainBubbleRef.current,{top: 0}, { top: -3 , duration: 1, yoyo: true, ease: "power3.inOut", repeat: -1});
-        // } else {
-        //     animationRef.current?.kill()
-        // }
-    }, [])
 
     return (          
         <Container initial='hide' variants={mainBubbleVariants} animate={bubblesDisplayArray[index].show ? 'show' : 'hide'} ref={containerRef} data={bubblesDisplayArray[index]}>  

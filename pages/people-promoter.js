@@ -38,11 +38,11 @@ let data = {
           avatarWidth: 29
         },
         mobile: {
-          bubbleBottom: 110,
-          bubbleLeft: 35,
-          avatarWidth: 95,
+          bubbleBottom: 80,
+          bubbleLeft: 25,
+          avatarWidth: 70,
           avatarLeft: -30,
-          avatarBottom: 0
+          avatarBottom: -5,
         }
     },
     slices: [    
@@ -213,7 +213,8 @@ let data = {
         mobile: {
           bubbleBottom: 69,
           bubbleLeft: 47,
-          avatarLeft: -20
+          avatarLeft: -20,
+          avatarWidth: 100
         }
       },
       reward: {

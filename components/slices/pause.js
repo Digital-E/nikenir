@@ -11,7 +11,7 @@ const Container = styled.div`
     height: calc(100vh - 55px);
 
     @media(max-width: 989px) {
-        height: calc(100vh - 120px);
+        height: calc(100vh - 100px);
     }
 `
 

@@ -124,7 +124,7 @@ export default function Component({ data, avatar, text, smallBubble, disableInVi
 
     return (
         <Container ref={containerRef}>
-            <ImageWrapper data={data}><Image src={avatar} priority={true} /></ImageWrapper>
+            <ImageWrapper className='avatar-image-wrapper' data={data}><Image src={avatar} priority={true} /></ImageWrapper>
             <PortalReplay id="portal-replay" data={data} ref={portalRef} variants={bubbleVariants} initial='hide' animate={startType ? 'show' : 'hide'} />
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0">
                 <clipPath id="clipPathDesktop">

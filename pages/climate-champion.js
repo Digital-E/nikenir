@@ -36,11 +36,11 @@ let data = {
           avatarWidth: 29
         },
         mobile: {
-          bubbleBottom: 130,
-          bubbleLeft: 35,
-          avatarWidth: 100,
+          bubbleBottom: 80,
+          bubbleLeft: 25,
+          avatarWidth: 70,
           avatarLeft: -35,
-          avatarBottom: 10,
+          avatarBottom: -5,
         }
     },
     slices: [    
@@ -208,9 +208,10 @@ let data = {
           avatarLeft: -330
         },
         mobile: {
-          bubbleBottom: 69,
+          bubbleBottom: 49,
           bubbleLeft: 63,
           avatarLeft: -35,
+          avatarWidth: 100,
           flip: true
         }
       },

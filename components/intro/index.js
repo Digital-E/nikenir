@@ -65,19 +65,20 @@ const Center = styled(motion.div)`
 const Title = styled.h1`
     position: relative;
     text-align: center;
+    opacity: 0;
       
-    &.ml15 .word {
-        position: relative;
-        display: inline-block;
-        margin: 0 30px 0 0;
-        opacity: 0;
-    }
+    // &.ml15 .word {
+    //     position: relative;
+    //     display: inline-block;
+    //     margin: 0 30px 0 0;
+    //     opacity: 0;
+    // }
 
-    @media(max-width: 989px) {
-        &.ml15 .word {
-            margin: 0 15px 0 0;
-        }
-    }
+    // @media(max-width: 989px) {
+    //     &.ml15 .word {
+    //         margin: 0 15px 0 0;
+    //     }
+    // }
 `
 
 const ArrowContainer = styled(motion.div)`
@@ -362,13 +363,16 @@ const Component = () => {
         anime.timeline()
         .add({
             targets: '.index-character',
-            // scale: [14,1],
-            // translateY: [2, 0],
             translateZ: 0,
             opacity: [0,1],
             easing: "easeInOutSine",
             duration: 800,
-            delay: (el, i) => 200 * i
+            delay: (el, i) => 200 * i,
+            complete: function() {
+                setTimeout(() => {
+                    initTimeout();
+                }, 4000)
+            }
         }) 
     }
 
@@ -381,26 +385,35 @@ const Component = () => {
         // Bubbles Animation
 
         timeoutOne.current = setTimeout(() => {
-            initTimeout();
-        }, 5000)
+                anime.timeline()
+                .add({
+                    targets: '.large-headline',
+                    opacity: [0,1],
+                    easing: "easeInOutSine",
+                    duration: 800,
+                    complete: function() {
+                        characterRevealTimeline();
+                    }
+                })
+        }, 1500)
      
 
-        setTimeout(() => {
-            anime.timeline({loop: false})
-            .add({
-                targets: '.ml15 .word',
-                // scale: [14,1],
-                // translateY: [2, 0],
-                translateZ: 0,
-                opacity: [0,1],
-                easing: "easeInOutQuart",
-                duration: 700,
-                delay: (el, i) => 300 * i,
-                complete: function(anim) {
-                    characterRevealTimeline()
-                }
-            }) 
-        }, 1000) 
+        // setTimeout(() => {
+        //     anime.timeline({loop: false})
+        //     .add({
+        //         targets: '.ml15 .word',
+        //         // scale: [14,1],
+        //         // translateY: [2, 0],
+        //         translateZ: 0,
+        //         opacity: [0,1],
+        //         easing: "easeInOutQuart",
+        //         duration: 700,
+        //         delay: (el, i) => 10 * i,
+        //         complete: function(anim) {
+        //             characterRevealTimeline()
+        //         }
+        //     }) 
+        // }, 1000) 
         
 
         return () => {
@@ -429,27 +442,28 @@ const Component = () => {
             }
 
             objectIndex.current += 1
-            
+
             if(objectIndex.current < bubbles.length - 1) {
                 bubblesDisplayArrayCopy[bubbleSwitchIndex.current].src = bubbles[objectIndex.current]
             } 
             else {
                 bubblesDisplayArrayCopy[bubbleSwitchIndex.current].src = bubbles[objectIndex.current]
             }
-
-            setBubblesDisplayArray(JSON.parse(JSON.stringify(bubblesDisplayArrayCopy)))
-
+            
 
             bubblesDisplayArrayCopy[bubbleSwitchIndex.current].show = true
 
-            setBubblesDisplayArray(JSON.parse(JSON.stringify(bubblesDisplayArrayCopy)))
+            setBubblesDisplayArray(bubblesDisplayArrayCopy)
+            bubblesDisplayArrayRef.current = bubblesDisplayArrayCopy
+
 
             timeoutTwo.current = setTimeout(() => {
-                let bubblesDisplayArrayCopyTwo = bubblesDisplayArrayRef.current
+                let bubblesDisplayArrayCopyTwo = JSON.parse(JSON.stringify(bubblesDisplayArrayRef.current))
 
                 bubblesDisplayArrayCopyTwo[bubbleSwitchIndex.current].show = false
 
-                setBubblesDisplayArray(JSON.parse(JSON.stringify(bubblesDisplayArrayCopyTwo)))
+                setBubblesDisplayArray(bubblesDisplayArrayCopyTwo)
+                bubblesDisplayArrayRef.current = bubblesDisplayArrayCopyTwo
 
                 if(bubbleSwitchIndex.current < bubblesDisplayArrayInit.length - 1) {
                     bubbleSwitchIndex.current += 1
@@ -459,7 +473,7 @@ const Component = () => {
 
                 timeoutThree.current = setTimeout(() => {
                     initTimeout();
-                }, 1000)
+                }, 3000)
     
             }, 5000)
    
@@ -563,11 +577,12 @@ const Component = () => {
                 variants={slideOneAnimation} 
                 className='intro-center-one'>
                     <Title className='large-headline ml15'>
-                        <span class="word">ARE</span> 
+                        {/* <span class="word">ARE</span> 
                         <span class="word">YOU</span>
                         <span class="word">GAME</span> 
                         <span class="word">FOR</span> 
-                        <span class="word">CHANGE?</span> 
+                        <span class="word">CHANGE?</span>  */}
+                        ARE YOU GAME FOR CHANGE?
                     </Title>
                     {
                         characters.map((item, index) => <Character data={item} index={index} bubbles={bubbles} bubblesDisplayArray={bubblesDisplayArray} />)

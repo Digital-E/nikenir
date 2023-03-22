@@ -85,6 +85,10 @@ const AvatarSpeechWrapper = styled(motion.div)`
             transform: rotateY(${props => props.data.complete.praise.mobile.flip ? '-180deg' : '0'});
         }
 
+        .avatar-image-wrapper {
+            width: ${props => props.data.complete.praise.mobile.avatarWidth}vw;
+        }
+
         .avatar-speech-bubble {
             bottom: ${props => props.data.complete.praise.mobile.bubbleBottom}vw;
             left: ${props => props.data.complete.praise.mobile.bubbleLeft}vw;
