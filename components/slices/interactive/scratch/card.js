@@ -26,6 +26,7 @@ const Container = styled(motion.div)`
         position: absolute;
         width: 100% !important;
         height: 100% !important;
+        transform: translate3d(0px, 0px, 0px);
     }
 `
 
