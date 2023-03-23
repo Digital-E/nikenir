@@ -7,7 +7,7 @@ let ScratchCardVar = null;
 let SCRATCH_TYPE_VAR = null;
 
 if(typeof window !== 'undefined') {
-    let {ScratchCard , SCRATCH_TYPE} = require('scratchcard-js')
+    let {ScratchCard , SCRATCH_TYPE} = require('../../../../public/scripts/scratchcard.min.js')
     ScratchCardVar = ScratchCard
     SCRATCH_TYPE_VAR = SCRATCH_TYPE
 }
@@ -59,7 +59,6 @@ const Title = styled.h3`
     transform: translateX(-50%);
     width: 100%;
     margin: 0;
-    // padding: var(--padding);
     padding: 20px;
     text-transform: uppercase;
     text-align: center;
@@ -116,13 +115,7 @@ const BackgroundImage = styled.div`
 
 
 
-let hasTriggered = false
-let tsParticlesInstance = null
-
-
 export default function Component({ data, index, allItems, hasClicked, hasInteracted, dataAll, prevScratch, prevScratchToggle }) {
-    let scratchContainerRef = useRef();
-
     let percentRef = useRef(0)
 
     let allItemsRef = useRef(allItems);
@@ -136,23 +129,6 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
     let scContainer = null;
     let sc = null;
 
-
-    // useEffect(() => {
-    //     allItemsRef.current = allItems
-
-    //     let selectedIndex = null;
-
-    //     allItems.forEach((item, index) => {
-    //         if(item.clicked === true) {
-    //             selectedIndex = index
-    //         }
-    //     })
-        
-    //     if(selectedIndex !== index && selectedIndex !== null) {
-    //         // document.querySelector(`#scratch-container-${index}`).innerHTML = ''
-    //         // percentRef.current = 0
-    //     }
-    // }, [allItems])
 
     useEffect(() => {
         prevScratchRef.current = prevScratch
@@ -184,7 +160,7 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
             // imageForwardSrc: 'https://masth0.github.io/ScratchCard/images/result.png',
             imageBackgroundSrc: '',
             // htmlBackground: '<p class="test"><strong>Hello i am HTML content !</strong></p>',
-            clearZoneRadius: 20,
+            clearZoneRadius: 80,
             percentToFinish: 100,
             // nPoints: 30,
             // pointSize: 4,

@@ -177,7 +177,9 @@ function MyApp({ Component, pageProps, router }) {
       <Script strategy='beforeInteractive' src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.9.3/tsparticles.confetti.bundle.min.js" />
 
       {/* tsParticles */}
-      <Script strategy='beforeInteractive' src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js" />     
+      <Script strategy='beforeInteractive' src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js" />   
+
+      <Script strategy='beforeInteractive' src="/scripts/scratchcard.min.js" />  
 
       <Header />
       <Sidebar />

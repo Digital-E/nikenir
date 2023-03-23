@@ -413,7 +413,7 @@ export default function Component() {
             if(window.innerWidth < 990) {
                 setHoveredIndex(selectedIndex)
             }
-        }, 200)
+        }, 250)
     }, [selectedIndex])
 
     
