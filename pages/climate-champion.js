@@ -31,9 +31,9 @@ let data = {
           'The decisions we take now can make a future where everyone belongs.'
         ],
         desktop: {
-          bubbleBottom: 34,
-          bubbleLeft: 21,
-          avatarWidth: 29
+          bubbleBottom: 29,
+          bubbleLeft: 17,
+          avatarWidth: 24
         },
         mobile: {
           bubbleBottom: 80,
@@ -46,7 +46,7 @@ let data = {
     slices: [    
         {
             type: 'question',
-            number: '1 / 4',
+            number: '1/4',
             title: 'The good buy',
             text: 'You care about your planet but also kind of need a new pair of sneakers.'
         },
@@ -81,7 +81,7 @@ let data = {
         },
         {
             type: 'question',
-            number: '2 / 4',
+            number: '2/4',
             title: 'MOVE TO CIRCULAR',
             text: 'You decide to pare down your wardrobe, but don’t want to add to the landfill. Instead you'
         },
@@ -116,7 +116,7 @@ let data = {
         },   
         {
             type: 'question',
-            number: '3 / 4',
+            number: '3/4',
             title: 'FRESH WHEELS',
             text: 'You wake up early on Saturday for soccer practice. You open the curtains, and the sky has never looked so blue. You see at the car in the driveway and decide to make a change.'
         },  
@@ -153,7 +153,7 @@ let data = {
         },
         {
           type: 'question',
-          number: '4 / 4',
+          number: '4/4',
           title: 'BEACHCOMBER',
           text: 'You and your team flop on the sand after a great practice on the beach. You sit and watch the gentle waves. A plastic bottle floats to shore. The next words from your mouth are:'
         },
@@ -230,8 +230,8 @@ let data = {
         link: 'https://nike.com'
       },
       continue: {
-        title: 'Fancy another round?',
-        text: 'Don’t go anywhere, there are still decisions to be made.',
+        title: 'Pick another path?',
+        text: 'Don’t go anywhere, there are still plenty of positive choices to be made!',
         next: {
           name: 'Ivy',
           role: 'Active Activist',

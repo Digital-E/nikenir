@@ -32,9 +32,9 @@ let data = {
           'There are so many small but significant things that we can do as individuals, families and communities to move the climate dial!'
         ],
         desktop: {
-          bubbleBottom: 33,
-          bubbleLeft: 18.5,
-          avatarWidth: 29
+          bubbleBottom: 28,
+          bubbleLeft: 15,
+          avatarWidth: 24
         },
         mobile: {
           bubbleBottom: 80,
@@ -47,7 +47,7 @@ let data = {
     slices: [    
         {
             type: 'question',
-            number: '1 / 4',
+            number: '1/4',
             title: 'MOVE AS ONE',
             text: 'You never thought of yourself as into sports. But a friend had you join her one time and something made you want to come back'
         },
@@ -82,7 +82,7 @@ let data = {
         },
         {
             type: 'question',
-            number: '2 / 4',
+            number: '2/4',
             title: 'SEEN AND HEARD',
             text: 'You were always interested in sport and an active lifestyle, but until now, it’s never felt set up for someone with your background. Today you saw something that gave you courage…'
         },
@@ -118,7 +118,7 @@ let data = {
         },   
         {
             type: 'question',
-            number: '3 / 4',
+            number: '3/4',
             title: 'THANKS TO SPORT',
             text: 'You decide it’s time to give something back to your community, make yourself useful somehow. Something sports related because…'
         },  
@@ -155,7 +155,7 @@ let data = {
         },
         {
           type: 'question',
-          number: '4 / 4',
+          number: '4/4',
           title: 'MOVE TO HERO',
           text: 'You didn’t think you’d ever last more than a minute playing sports. But a year on from joining the team it’s become such an important part of your life. And that’s because:'
         },
@@ -232,8 +232,8 @@ let data = {
         link: 'https://nike.com'
       },
       continue: {
-        title: 'Fancy another round?',
-        text: 'Don’t go anywhere, there are still decisions to be made.',
+        title: 'Pick another path?',
+        text: 'Don’t go anywhere, there are still plenty of positive choices to be made!',
         next: {
           name: 'Ines',
           role: 'People Promoter',

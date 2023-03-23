@@ -18,6 +18,7 @@ const Container = styled.div`
     height: 100%;
     margin-bottom: 150px;
 
+
     .ml2 .letter {
         display: inline-block;
     } 
@@ -45,6 +46,10 @@ const Text = styled.div`
     @media(min-width: 990px) {
         span {
             font-size: 18vw;
+        }
+
+        .br-mobile {
+            display: none;
         }
     }
 `
@@ -205,7 +210,16 @@ export default function Component({ data, unlock }) {
 
     let initTextEffect = () => {
         var textWrapper = document.querySelector('.ml2');
-        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");   
+        var textWrapperReplace = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        var textWrapperSplit = textWrapperReplace.split('')
+
+        textWrapperSplit.splice(58, 0, '<br class="br-mobile" />')
+        
+        var textWrapperJoin = textWrapperSplit.join('')
+
+        textWrapper.innerHTML = textWrapperJoin
+        
 
         textAnimation = anime.timeline({
             loop: false,

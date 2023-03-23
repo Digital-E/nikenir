@@ -33,9 +33,9 @@ let data = {
           'Don’t worry, there’s no wrong answers. Only progress!'
         ],
         desktop: {
-          bubbleBottom: 34,
-          bubbleLeft: 19.5,
-          avatarWidth: 29
+          bubbleBottom: 29,
+          bubbleLeft: 16,
+          avatarWidth: 24
         },
         mobile: {
           bubbleBottom: 80,
@@ -48,7 +48,7 @@ let data = {
     slices: [    
         {
             type: 'question',
-            number: '1 / 4',
+            number: '1/4',
             title: 'Walk and talk',
             text: 'You feel a little lost in your feelings. Isolated, even. You want to feel connected to the world again, find a way back to being yourself. Do you...'
         },
@@ -85,7 +85,7 @@ let data = {
         },
         {
             type: 'question',
-            number: '2 / 4',
+            number: '2/4',
             title: 'Win win',
             text: 'Time to pick a new roller derby team. You wonder if there’s a winning formula. Is this about team spirit or team balance?'
         },
@@ -120,7 +120,7 @@ let data = {
         },   
         {
             type: 'question',
-            number: '3 / 4',
+            number: '3/4',
             title: 'All about progress',
             text: 'You love the teamwork of volleyball and the pure purpose of tennis. But it’s time to choose where to put more of your time and energy. Will you...'
         },  
@@ -156,7 +156,7 @@ let data = {
         },
         {
           type: 'question',
-          number: '4 / 4',
+          number: '4/4',
           title: 'THIS IS YOUR TIME',
           text: 'You’ve been thinking about your future, but it’s hard because people that look like you aren’t always represented in the worlds of work you’re interested in. Something gives you hope…'
         },
@@ -234,8 +234,8 @@ let data = {
         link: 'https://nike.com'
       },
       continue: {
-        title: 'Fancy another round?',
-        text: 'Don’t go anywhere, there are still decisions to be made.',
+        title: 'Pick another path?',
+        text: 'Don’t go anywhere, there are still plenty of positive choices to be made!',
         next: {
           name: 'Theo',
           role: 'Climate Champion',

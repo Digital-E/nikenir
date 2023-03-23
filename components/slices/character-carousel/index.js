@@ -117,7 +117,7 @@ const Card = styled(motion.div)`
 
     @media(max-width: 989px) {
         position: absolute;
-        height: calc(50vw * 1.8);
+        height: calc(50vw * 1.5);
         width: 50%;
         margin: 40px 10px 30px 10px;
 
@@ -130,7 +130,7 @@ const Card = styled(motion.div)`
 
     @media(max-width: 768px) {
         width: 50vw;
-        height: calc(50vw * 1.8);
+        height: calc(50vw * 1.6);
     }
 
     @media(max-width: 539px) {
@@ -227,9 +227,11 @@ const ImageWrapper = styled.div`
     }
 
     @media(max-height: 667px) and (max-width: 576px) {
+        left: 15%;
+        bottom: -7%;
 
         img {
-            width: ${props => props.data.widthMobile - 25}%  !important;
+            width: ${props => props.data.widthMobile - 20}%  !important;
         }
     }
 
@@ -338,7 +340,7 @@ let data = [
         backgroundSrc: gradientTwo,
         width: 85,
         widthMobile: 93,
-        bottom: -2.7
+        bottom: -4
     },
     {
         name: 'Ivy',
@@ -355,8 +357,8 @@ let data = [
         link: '/active-activist',
         backgroundSrc: gradientThree,
         width: 91,
-        widthMobile: 100,
-        bottom: -3.7
+        widthMobile: 93,
+        bottom: -6
     },    
 ]
 

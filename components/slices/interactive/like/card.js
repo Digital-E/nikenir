@@ -62,6 +62,27 @@ const InnerContainer = styled.div`
 `
 
 
+const ImageTwo = styled.div`
+    position: absolute;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+
+    img {
+        width: 100%;
+        opacity: 0;
+        transform: scale(0);
+        transition: 0.5s;
+    }
+
+    &.liked img {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+`
+
+
 const Title = styled.h3`
     position: absolute;
     top: 50%;
@@ -74,19 +95,8 @@ const Title = styled.h3`
     padding: var(--padding);
 `
 
-const ImageTwo = styled.div`
-    position: absolute;
-    bottom: -70px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
 
-    img {
-        width: 100%;
-    }
-`
-
-
+let imageVariants
 
 export default function Component({ data, index, allItems, hasClicked, hasInteracted }) {
 
@@ -108,14 +118,18 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
             whileHover={{scale: 1.02}}
             animate={controls}
             >
-            <InnerContainer             className={allItems[index].clicked &&  hasInteracted ? `liked` : ``}>
+            <InnerContainer className={allItems[index].clicked && hasInteracted ? `liked` : ``}>
                 <Title>{data.title}</Title>
                 <Image>
                     <img src={`${process.env.basePath}/images/like/heart.svg`} />
                     <img src={`${process.env.basePath}/images/like/heart-fill.svg`} />
                 </Image>
             </InnerContainer>
-            <ImageTwo>
+            <ImageTwo
+                className={allItems[index].clicked && hasInteracted ? `liked` : ``}
+                // animate={allItems[index].clicked && hasInteracted ? 'show' : 'hide'}
+                // variants={imageVariants}
+            >
                 <img src={data.img} />
             </ImageTwo>
         </Container>

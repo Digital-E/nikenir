@@ -54,7 +54,7 @@ const Title = styled.h1`
     margin: 0 var(--margin);
 
     @media(min-width: 989px) {
-        max-width: 40%;
+        max-width: 50%;
     }
 `
 

@@ -15,11 +15,7 @@ const Container = styled(motion.div)`
     justify-content: center;
     width: 100%;
     background: white;
-    padding: 60px 15px;   
-
-    @media(max-width: 989px) {
-        padding: 60px 15px 60px 15px;
-    }
+    padding: 60px 15px 30px 15px; 
 
     @media(min-width: 990px) {
         min-width: 425px;

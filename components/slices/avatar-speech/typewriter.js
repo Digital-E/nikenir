@@ -227,7 +227,7 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
 
                 newSentenceTimeout.current = null;
 
-            }, 1300)
+            }, 2000)
         }
     }
 
@@ -286,7 +286,7 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
         interval.current = setInterval(() => {
             if(newSentenceTimeout.current !== null) return
             typeText();
-        }, 20);
+        }, 30);
     }
 
     useEffect(() => {

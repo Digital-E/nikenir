@@ -2,6 +2,8 @@ import { useEffect, useState, useRef, useContext } from 'react'
 import styled from 'styled-components'
 import { motion, useAnimationControls, useInView } from 'framer-motion'
 
+import { useMediaQuery } from 'react-responsive'
+
 import { gsap } from 'gsap'
 import { ScrollToPlugin } from "gsap/dist/ScrollToPlugin"
 gsap.registerPlugin(ScrollToPlugin)
@@ -92,6 +94,10 @@ export default function Component({ item, data }) {
     let mouseOverIndex = useRef(0);
     let [selectedIndex, setSelectedIndex] = useState(0)
 
+    const isDesktop = useMediaQuery({
+        query: '(min-width: 990px)'
+    })
+
     let containerRef = useRef();
 
     let isInView = useInView(containerRef, {
@@ -113,7 +119,7 @@ export default function Component({ item, data }) {
 
     useEffect(() => {
       setAllItems(item.squares)
-      controls.start({ x: '-50%', y: '-50%'})
+      controls.start({ x: '-45%', y: '-50%'})
 
       gsap.fromTo(dragElementRef.current.children[0],{y: 0}, {y: -5 , duration: 0.5, yoyo: true, ease: "power1.inOut", repeat: -1});
     }, [])
@@ -164,7 +170,7 @@ export default function Component({ item, data }) {
       setSelectedIndex(0)
 
       hasClicked(null, 0)
-      controls.start({ x: '-85%', y: '-50%'})
+      controls.start({ x: isDesktop ? '-90%' : '-85%', y: '-50%'})
 
         // Scroll To Bottom of Info Card
         setTimeout(() => {
@@ -179,7 +185,7 @@ export default function Component({ item, data }) {
       setSelectedIndex(1)
 
       hasClicked(null, 1)
-      controls.start({ x: '-5%', y: '-50%'})
+      controls.start({ x: isDesktop ? '5%' : '-5%', y: '-50%'})
 
         // Scroll To Bottom of Info Card
         setTimeout(() => {
@@ -191,7 +197,7 @@ export default function Component({ item, data }) {
         }, 400)
 
     } else if(mouseOverIndex.current === null) {
-      controls.start({ x: '-50%', y: '-50%'})
+      controls.start({ x: '-45%', y: '-50%'})
         setHasInteracted(false)
     }
   }

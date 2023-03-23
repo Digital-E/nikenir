@@ -71,9 +71,9 @@ const Close = styled.div`
 `
 
 const Text = styled.div`
-    h2 {
-        font-size: 40px;
-        color: black;
+
+    .palatino-small {
+        margin-top: 15px;
     }
 
     p {
@@ -124,10 +124,10 @@ const Component = () => {
             <Popup className={displayNotification ? 'show-notification container-background max-width-header' : 'hide-notification container-background max-width-header'}>
                 {/* <Close onClick={() => setDisplayNotification(false)} className='p'>Close</Close> */}
                 <Text>
-                    <h2>Let's share!</h2>
                     <p className='medium-text' 
                         dangerouslySetInnerHTML={{__html: notificationMessage}}
                     />
+                    <p className='palatino-small'>Link copied to your clipboard</p>
                 </Text>
             </Popup>
         </Container>

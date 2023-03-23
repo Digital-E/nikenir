@@ -89,13 +89,14 @@ export default function Component({ item, data }) {
             gravity: 1,
             decay: 0.94,
             startVelocity: 30,
-            count: 100,
-            scalar: 3,
+            count: 20,
+            scalar: 15,
             origin: { x: e.clientX / window.innerWidth, y: e.clientY / window.innerHeight },
             shapes: ["image"],
             shapeOptions: {
               image: [{
-                  src: item.heartImg,
+                //   src: item.heartImg,
+                  src: item.squares[index].img,
                   width: 32,
                   height: 32
                 }
@@ -118,7 +119,27 @@ export default function Component({ item, data }) {
             shapes: ["image"],
             shapeOptions: {
               image: [{
-                  src: item.heartImg,
+                  src: item.squares[0].img,
+                  width: 32,
+                  height: 32
+                }
+              ]
+            },
+        });
+
+        confetti({
+            spread: 360,
+            ticks: 500,
+            gravity: 1,
+            decay: 0.94,
+            startVelocity: 30,
+            count: 1,
+            scalar: 3,
+            origin: { x: window.innerWidth, y: window.innerHeight },
+            shapes: ["image"],
+            shapeOptions: {
+              image: [{
+                  src: item.squares[1].img,
                   width: 32,
                   height: 32
                 }

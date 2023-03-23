@@ -47,7 +47,11 @@ const Component = ({ link, children, currentPageLink }) => {
     }
 
     let copied = () => {
-        dispatch({type: "update notification message", value: 'Link copied to your clipboard.<br />Let’s spread the word and share with rest of the world.'})
+        if(currentPageLink) {
+            dispatch({type: "update notification message", value: 'Share the awareness!<br />We all have the power to make positive changes for the world we share.'})
+        } else {
+            dispatch({type: "update notification message", value: 'Shared victory!<br />Actions for a greater good are wins for the world!'})
+        }
     }
 
     useEffect(() => {
@@ -55,7 +59,7 @@ const Component = ({ link, children, currentPageLink }) => {
             // setShareLink(`${window.location.href}`)
             setShareLink(`${window.location.origin}${process.env.basePath}`)
         } else {
-            setShareLink(`${window.location.origin}${link}`)
+            setShareLink(`${window.location.origin}${process.env.basePath}${link}`)
         }
     }, [])
 

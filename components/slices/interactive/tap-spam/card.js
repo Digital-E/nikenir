@@ -45,10 +45,10 @@ const Title = styled.h3`
 
 const Image = styled.div`
     position: absolute;
-    bottom: -80px;
+    bottom: -120px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80%;
+    width: 100%;
 
     img {
         width: 100%;

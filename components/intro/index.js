@@ -235,8 +235,8 @@ let characters = [
     },
     {
         desktop: {
-            x: 37,
-            y: -92,
+            x: 43,
+            y: -99,
             width: 380,
         },
         mobile: {
@@ -395,7 +395,7 @@ const Component = () => {
                         characterRevealTimeline();
                     }
                 })
-        }, 1500)
+        }, 1000)
      
 
         // setTimeout(() => {
