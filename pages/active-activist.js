@@ -215,10 +215,13 @@ let data = {
       },
       mobile: {
         bubbleBottom: 95,
-        bubbleLeft: 67.7,
+        bubbleLeft: 75,
         bubbleRight: 43,
         avatarLeft: -20,
         avatarWidth: 140
+      },
+      tablet: {
+        bubbleBottom: 85,
       }
       },
       reward: {

@@ -217,6 +217,9 @@ let data = {
           bubbleRight: 43,
           avatarLeft: -20,
           avatarWidth: 140
+        },
+        tablet: {
+          bubbleBottom: 95,
         }
       },
       reward: {

@@ -223,6 +223,9 @@ let data = {
           avatarLeft: -20,
           avatarWidth: 140
           // flip: true
+        },
+        tablet: {
+          bubbleBottom: 95,
         }
       },
       reward: {

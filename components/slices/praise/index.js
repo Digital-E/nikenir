@@ -113,6 +113,35 @@ const AvatarSpeechWrapper = styled(motion.div)`
         }
 
         .avatar-speech-bubble {
+            bottom: ${props => props.data.complete.praise.tablet.bubbleBottom}vw;
+            left: ${props => props.data.complete.praise.mobile.bubbleLeft}vw;
+        }
+
+        #portal-replay {
+            bottom: calc(${props => props.data.complete.praise.tablet.bubbleBottom}vw + 5px);
+            left: calc(${props => props.data.complete.praise.mobile.bubbleLeft}vw + 200px);
+        }
+    }
+
+    @media(max-width: 576px) {
+        > div {
+            bottom: -15vw;
+        }
+
+        > div > div {
+            margin-left: ${props => props.data.complete.praise.mobile.avatarLeft}%;
+            transform: rotateY(${props => props.data.complete.praise.mobile.flip ? '-180deg' : '0'});
+        }
+
+        > div > div:nth-child(1) {
+            bottom: 0;
+        }
+
+        .avatar-image-wrapper {
+            width: ${props => props.data.complete.praise.mobile.avatarWidth}vw;
+        }
+
+        .avatar-speech-bubble {
             bottom: ${props => props.data.complete.praise.mobile.bubbleBottom}vw;
             // left: ${props => props.data.complete.praise.mobile.bubbleLeft}vw;
             left: auto;

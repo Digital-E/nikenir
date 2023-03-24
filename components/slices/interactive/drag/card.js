@@ -13,13 +13,8 @@ const Container = styled(motion.div)`
     margin: 0 calc(var(--margin) / 2);
     border: 1px dashed #1A1A1A;
     border-radius: 27px;
-    cursor: pointer;
     overflow: hidden;
     box-sizing: border-box;
-
-    * {
-        cursor: pointer;
-    }
 `
 
 const Title = styled.h3`

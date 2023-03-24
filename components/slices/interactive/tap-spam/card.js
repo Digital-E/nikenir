@@ -9,6 +9,11 @@ const Container = styled(motion.div)`
     padding-bottom: calc(50% - calc(var(--margin) * 2 - 8px));
     margin: 0 calc(var(--margin) / 2);
     z-index: 0;
+    cursor: pointer;
+
+    * {
+        cursor: pointer; 
+    }
 `
 
 

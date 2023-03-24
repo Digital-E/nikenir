@@ -30,6 +30,7 @@ const Title = styled.h2`
 
     @media(min-width: 990px) {
         font-size: 50px;
+        max-width: 70%;
     }
 `
 
