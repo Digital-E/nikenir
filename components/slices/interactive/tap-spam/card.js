@@ -45,7 +45,7 @@ const Title = styled.h3`
 
 const Image = styled.div`
     position: absolute;
-    bottom: -120px;
+    bottom: -90px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
@@ -82,6 +82,7 @@ export default function Component({ data, index, allItems, hasClicked, dataAll }
 
 
     useEffect(() => {
+        if(window.tsParticles === undefined) return
         if(hasTriggered) return
         hasTriggered = true
 

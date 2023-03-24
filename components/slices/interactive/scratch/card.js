@@ -104,10 +104,10 @@ const ScratchContainer = styled.div`
 
 const BackgroundImage = styled.div`
     position: absolute;
-    top: 65%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
+    width: 40%;
 
     img {
         width: 100%;
@@ -137,7 +137,7 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
         if(prevScratchRef.current !== index && prevScratchRef.current !== null) {
             initSc();
 
-            let parent = document.querySelector(`#scratch-container-${index}`)
+            let parent = document.querySelector(`#scratch-container-${data.id}-${index}`)
 
             setTimeout(() => {
                 parent.removeChild(parent.children[0])
@@ -146,14 +146,15 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
         }
     }, [prevScratch])
 
+
     let initSc = () => {
 
         scContainer = null;
         sc = null;
 
-        scContainer = document.getElementById(`scratch-container-${index}`)
+        scContainer = document.getElementById(`scratch-container-${data.id}-${index}`)
 
-        sc = new ScratchCardVar(`#scratch-container-${index}`, {
+        sc = new ScratchCardVar(`#scratch-container-${data.id}-${index}`, {
             scratchType: SCRATCH_TYPE_VAR.LINE,
             containerWidth: scContainer.offsetWidth,
             containerHeight: scContainer.offsetHeight,
@@ -270,7 +271,7 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
             <InnerContainer>
                 <Title>{data.title}</Title>
             </InnerContainer>
-            <ScratchContainer id={`scratch-container-${index}`} />
+            <ScratchContainer id={`scratch-container-${data.id}-${index}`} />
             {/* <Image>
                 <img src={data.img} />
             </Image> */}

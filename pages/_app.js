@@ -20,6 +20,8 @@ import Notification from '../components/notification'
 
 import BackgroundGradient from '../components/background-gradient-code-canvas'
 
+import DeviceRotation from '../components/device-rotation'
+
 import { credits } from "../lib/credits"
 
 
@@ -185,6 +187,7 @@ function MyApp({ Component, pageProps, router }) {
       <Sidebar />
       <Notification />
       <BackgroundGradient data={dataAll}/>
+      <DeviceRotation />
       {/* <CookieConsent
         buttonText={pageProps.data?.menuData.cookieaccept}
         declineButtonText={pageProps.data?.menuData.cookierefuse}

@@ -44,8 +44,14 @@ const AvatarWrapper = styled.div`
     }
 
     @media(max-width: 989px) {
+        position: absolute;
+        bottom: 0;
         width: fit-content;
         margin-bottom: 50px;
+    }
+
+    @media(max-height: 663px) and (max-width: 576px) {
+        bottom: -30vw
     }
 `
 
@@ -55,6 +61,10 @@ const Title = styled.h1`
 
     @media(min-width: 989px) {
         max-width: 50%;
+    }
+
+    @media(max-width: 989px) {
+        position: absolute;
     }
 `
 

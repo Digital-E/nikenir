@@ -185,7 +185,7 @@ export default function Component({ item, data }) {
       setSelectedIndex(1)
 
       hasClicked(null, 1)
-      controls.start({ x: isDesktop ? '5%' : '-5%', y: '-50%'})
+      controls.start({ x: isDesktop ? '5%' : '-10%', y: '-50%'})
 
         // Scroll To Bottom of Info Card
         setTimeout(() => {

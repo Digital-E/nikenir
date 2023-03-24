@@ -106,6 +106,8 @@ export default function Component({ item, data }) {
     }
 
     useEffect(() => {
+        if(window.confetti === undefined) return
+        
         // Preload confetti
         confetti({
             spread: 360,

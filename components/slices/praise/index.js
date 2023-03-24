@@ -34,9 +34,9 @@ const InnerContainer = styled.div`
 `
 
 const Text = styled.div`
-    position: relative;
+    position: absolute;
     text-align: center;
-    margin: 0 var(--margin);
+    margin: 100px var(--margin) 0 var(--margin);
     z-index: -1;
 
     span {
@@ -44,6 +44,9 @@ const Text = styled.div`
     }
 
     @media(min-width: 990px) {
+        position: relative;
+        margin: 0 var(--margin);
+
         span {
             font-size: 18vw;
         }
@@ -51,6 +54,13 @@ const Text = styled.div`
         .br-mobile {
             display: none;
         }
+    }
+
+    @media(max-width: 989px) {
+        margin: 100px 0 0 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
     }
 `
 
@@ -85,9 +95,17 @@ const AvatarSpeechWrapper = styled(motion.div)`
     }
 
     @media(max-width: 989px) {
+        > div {
+            bottom: -15vw;
+        }
+
         > div > div {
             margin-left: ${props => props.data.complete.praise.mobile.avatarLeft}%;
             transform: rotateY(${props => props.data.complete.praise.mobile.flip ? '-180deg' : '0'});
+        }
+
+        > div > div:nth-child(1) {
+            bottom: 0;
         }
 
         .avatar-image-wrapper {
@@ -96,12 +114,16 @@ const AvatarSpeechWrapper = styled(motion.div)`
 
         .avatar-speech-bubble {
             bottom: ${props => props.data.complete.praise.mobile.bubbleBottom}vw;
-            left: ${props => props.data.complete.praise.mobile.bubbleLeft}vw;
+            // left: ${props => props.data.complete.praise.mobile.bubbleLeft}vw;
+            left: auto;
+            right: ${props => props.data.complete.praise.mobile.bubbleRight}vw
         }
 
         #portal-replay {
             bottom: calc(${props => props.data.complete.praise.mobile.bubbleBottom}vw + 5px);
-            left: calc(${props => props.data.complete.praise.mobile.bubbleLeft}vw + 200px);
+            // left: calc(${props => props.data.complete.praise.mobile.bubbleLeft}vw + 200px);
+            left: auto;
+            right: calc(${props => props.data.complete.praise.mobile.bubbleRight}vw + 0px);
         }
     }
 `
@@ -129,7 +151,7 @@ const RewardWrapper = styled(motion.div)`
 const StickyWrapper = styled.div`
     position: relative;
     z-index: 1;
-    margin: -50px 0 0 0;
+    // margin: -50px 0 0 0;
 
     @media(min-width: 990px) {
         margin: -200px auto 0 auto;
@@ -137,6 +159,13 @@ const StickyWrapper = styled.div`
         align-items: flex-end;
         width: 100%;
         max-width: 890px;
+    }
+
+    @media(max-width: 989px) {
+        bottom: 0;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
     }
 `
 

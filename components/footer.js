@@ -20,6 +20,7 @@ let ColLeft = styled.div`
   > a {
     margin-right: 20px;
     cursor: pointer;
+    width: fit-content;
   }
 
   @media(max-width: 989px) {

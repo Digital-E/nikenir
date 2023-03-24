@@ -26,11 +26,12 @@ let data = {
     tickerColourOne: 'rgba(255, 184, 0, 0.5)',
     questionCount: 4,
     intro: {
-        title: 'A CREATIVE AND HAPPY SOCIETY IS ONE THAT IS DIVERSE AND INCLUSIVE.',
+        title: 'A CREATIVE AND HARMONIOUS SOCIETY IS ONE THAT IS DIVERSE AND INCLUSIVE.',
         text: [
           'The choices we make now can help shape a fairer society.',
-          'It won’t be long before we know exactly what kind of changemaker you are!',
-          'Don’t worry, there’s no wrong answers. Only progress!'
+          'Hi, I’m Ines, and I genuinely believe that if we can each think of ourselves as part of a greater whole, fewer people are going to feel left out!',
+          'In fact, how about we make some positive choices right now? Let’s imagine three scenarios. Then you decide what you would do in each case.',
+          'Don’t worry, there are no wrong answers. Only progress!'
         ],
         desktop: {
           bubbleBottom: 29,
@@ -38,7 +39,7 @@ let data = {
           avatarWidth: 24
         },
         mobile: {
-          bubbleBottom: 80,
+          bubbleBottom: 75,
           bubbleLeft: 25,
           avatarWidth: 70,
           avatarLeft: -30,
@@ -50,11 +51,11 @@ let data = {
             type: 'question',
             number: '1/4',
             title: 'Walk and talk',
-            text: 'You feel a little lost in your feelings. Isolated, even. You want to feel connected to the world again, find a way back to being yourself. Do you...'
+            text: 'You feel a little lost in your feelings. Isolated, even. You want to feel connected to the world again, find a way back to being yourself. Do you…'
         },
         {
-            type: 'like',
-            title: 'Answer with a like',
+            type: 'tap spam',
+            title: 'Tap spam to make your choice',
             heartImg: `${process.env.basePath}/images/like/heart-fill-ines.png`,
             squares: [
               {
@@ -71,14 +72,14 @@ let data = {
                 title: 'Walk it out',
                 text: 'Nothing like stepping out into the fresh air, noticing the birds in the trees and the ground under your feet.',
                 textCarousel: [
-                  'We encourage our employees to practice sport and movement as a way of maintaining their wellbeing.',
+                  'We encourage our employees all around the world to practice sport and movement as a way of maintaining their well-being.',
                 ]
               },
               {
                 title: 'Talk it out',
                 text: 'Knowing there are other people out there facing similar struggles helps you feel more in control.',
                 textCarousel: [
-                  'We’re investing in our employees’ ongoing wellbeing by providing mental health support, and in doing so helping redefine the scope of traditional workplace benefits.'
+                  'We’re investing in our employees’ ongoing wellbeing by providing mental health support, for themselves and their families. In doing so we want to help redefine traditional American workplace benefits.'
                 ]
               }
             ]
@@ -104,16 +105,16 @@ let data = {
             information: [
               {
                 title: 'FIND STRENGTH IN TOGETHERNESS',
-                text: 'You want to be part of a team where you feel you can make a difference. Where everyone is counted and accountable.',
+                text: 'A team where everyone feels included, is a team that could make anything happen. That sense of belonging will help us dream and move as one.',
                 textCarousel: [
-                  'We’re accelerating the career trajectory of women in the workplace by investing in programs that increase a sense of belonging.',
+                  'We’re working to break down barriers so everyone has the chance to be the best they can be. Our Employee Resource Groups – through which teammates gather and connect around identity – strengthens our commitment to inclusion goals.',
                 ]
               },
               {
                 title: 'FIND BALANCE IN OUR DIFFERENCES',
-                text: 'A diverse team means news ideas, fresh plays and great balance. Our combined skills will give us the edge.',
+                text: 'A diverse team means new ideas, fresh plays, and great balance. Our combined skills will give us the edge.',
                 textCarousel: [
-                  'We’re building more diverse teams, check out our Serena Williams Design Crew program.'
+                  'Through inclusive hiring practices we’re building more diverse teams, which is leading to break through design and innovation. Check out our Serena Williams Design Crew program, for example.'
                 ]
               }
             ]
@@ -122,7 +123,7 @@ let data = {
             type: 'question',
             number: '3/4',
             title: 'All about progress',
-            text: 'You love the teamwork of volleyball and the pure purpose of tennis. But it’s time to choose where to put more of your time and energy. Will you...'
+            text: 'You love the teamwork of volleyball and the pure focus of tennis. But it’s time to choose where to put more of your time and energy. Will you...'
         },  
         {
             type: 'tap spam',
@@ -130,7 +131,7 @@ let data = {
             squares: [
               {
                 title: 'Be part of something bigger',
-                img: `${process.env.basePath}/images/people-promoter/objects/People_Q3_Object_01.png`
+                img: `${process.env.basePath}/images/people-promoter/objects/People_Q3.png`
               },
               {
                 title: 'Maximise your potential',
@@ -142,14 +143,14 @@ let data = {
                 title: 'Be part of something bigger',
                 text: 'You want to be part of a team where you feel you can make a difference. Where everyone is counted and accountable.',
                 textCarousel: [
-                  'We’re accelerating the career trajectory of women in the workplace by investing in programs that increase a sense of belonging.',
+                  'We’re accelerating the career trajectory of women in the workplace – check out our WIN and Valari Fellowship programs, for example.',
                 ]
               },
               {
                 title: 'Maximise your potential',
-                text: 'You’re looking for a sport that rewards your ambition with the progression you deserve. You want to be judged on what you bring, not who you are.',
+                text: 'You’re looking for a sport that rewards your ambition with the progression you deserve. You want to be judged on what you bring to the table, not where you sit.',
                 textCarousel: [
-                  'We’re committed to reaching 50% representation of women in leadership positions. Since last year, we’ve increased the number of women at the Director level to 43%.',
+                  'We have a target of reaching 50% representation of women globally in leadership positions. Since last year, we’ve increased the number of women in our corporate teams – at the director level and above – to 43%.',
                 ]
               }
             ]
@@ -161,33 +162,34 @@ let data = {
           text: 'You’ve been thinking about your future, but it’s hard because people that look like you aren’t always represented in the worlds of work you’re interested in. Something gives you hope…'
         },
         {
-          type: 'scratch',
-          title: 'Scratch out your choice',
+          type: 'drag',
+          title: 'Drag the medal into the box',
+          img: `${process.env.basePath}/images/people-promoter/objects/People_Q4.png`,
           squares: [
             {
               title: 'You see a place where you fit in',
               img: `${process.env.basePath}/images/people-promoter/objects/People_Q4_background.png`,
-              imgBack: `${process.env.basePath}/images/logos/nike logo.svg`
+              imgBack: `${process.env.basePath}/images/logos/MOVE_TO_ZERO.png`
             },
             {
               title: 'You see a life that you aspire to',
               img: `${process.env.basePath}/images/people-promoter/objects/People_Q4_background.png`,
-              imgBack: `${process.env.basePath}/images/logos/nike logo.svg`
+              imgBack: `${process.env.basePath}/images/logos/MOVE_TO_ZERO.png`
             }
           ],
           information: [
             {
               title: 'You see a place where you fit in',
-              text: 'A visit to your sister at college fills you with optimism. You’re surrounded by people just like you expanding their horizons and defining their place in the world.',
+              text: 'A visit to your sister at college fills you with optimism. You’re surrounded by people just like you, expanding their horizons and defining their place in the world.',
               textCarousel: [
-                'We continue to support of Historically Black Colleges and Universities (HBCUs) and Hispanic-Serving Institutions (HSIs) – through storytelling, recruitment, and investments.'
+                'n the US we continue our support of Historically Black Colleges and Universities (HBCUs) and Hispanic-Serving Institutions (HSIs) – through storytelling, recruitment, and financial investments.'
               ]
             },
             {
               title: 'You see a life that you aspire to',
               text: 'While searching for a new pair of sneakers you get sidetracked watching a bunch of inspiring videos of people from your community telling the story of how they pursued their dream.',
               textCarousel: [
-                'Nike, Converse, Jordan Brand and Michael Jordan have committed a combined $140 million over 10 years to invest in and support organizations focused on economic empowerment, education and social justice to address racial inequality for Black Americans.',
+                'ike, Converse, Jordan Brand and Michael Jordan have committed a combined $140 million over 10 years to invest in and support organizations focused on economic empowerment, education, and social justice to address racial inequality for Black Americans.',
               ]
             }
           ]
@@ -200,9 +202,8 @@ let data = {
     complete: {
       praise: {
         title: 'WE DID IT!',
-        text: ['We did it! We made the world a fairer place!',
-              'That’s all us! Well all you, actually. Goes to show.',
-              'These personal choices can wind up meaning so much for the bigger picture. Go integrity!'
+        text: ['We did it! Feel that spring in your step? That warm glow of belonging?',
+              'Goes to show. These personal choices can wind up meaning so much for the bigger picture.'
             ],
         avatar: avatarImageTwo,
         desktop: {
@@ -211,10 +212,11 @@ let data = {
           avatarLeft: -210
         },
         mobile: {
-          bubbleBottom: 69,
-          bubbleLeft: 47,
+          bubbleBottom: 95,
+          bubbleLeft: 67.7,
+          bubbleRight: 43,
           avatarLeft: -20,
-          avatarWidth: 100
+          avatarWidth: 140
         }
       },
       reward: {

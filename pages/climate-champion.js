@@ -26,9 +26,12 @@ let data = {
     tickerColourOne: 'rgba(194, 188, 235, 0.5)',
     questionCount: 4,
     intro: {
-        title: 'TO PROTECT THE PLANET AND THOSE WHO WILL INHERIT IT IS A PROMISE WE CAN MAKE TOGETHER.',
+        title: 'TO PROTECT THE PLANET AND THOSE WHO WILL INHERIT IT IS A MOVE WE CAN MAKE TOGETHER.',
         text: [
-          'The decisions we take now can make a future where everyone belongs.'
+          'The choices and actions we take right now will make all the difference for the next generation.',
+          'Oh, hey, I’m Theo, I really care about our big blue ball! There are so many significant things we can do as individuals, families, and communities to help move the climate dial.',
+          'No time like the present! Let’s imagine three scenarios. Then you decide what you would do in each case.',
+          'Don’t worry, there are no wrong answers. Only progress!'
         ],
         desktop: {
           bubbleBottom: 29,
@@ -36,7 +39,7 @@ let data = {
           avatarWidth: 24
         },
         mobile: {
-          bubbleBottom: 80,
+          bubbleBottom: 75,
           bubbleLeft: 25,
           avatarWidth: 70,
           avatarLeft: -35,
@@ -48,7 +51,7 @@ let data = {
             type: 'question',
             number: '1/4',
             title: 'The good buy',
-            text: 'You care about your planet but also kind of need a new pair of sneakers.'
+            text: 'You care about your planet a lot but also kind of need a new pair of sneakers. You choose to…'
         },
         {
             type: 'drag',
@@ -65,16 +68,16 @@ let data = {
             information: [
               {
                 title: 'Reduce your footprint',
-                text: 'You’re all about the lighter weight, longer lasting materials. Efficient patterns and smart design decisions. More recycling, less carbon. No extra boxes and needless toe stuffing.',
+                text: 'You’re all about the lighter weight, longer lasting materials. Efficient patterns and smart design decisions. More recycling, less carbon. No extra boxes or added paper toe stuffing.',
                 textCarousel: [
                   'Our Move To Zero collection helps reduce our overall carbon footprint through environmentally preferred materials.',
                 ]
               },
               {
                 title: 'Buy it for life',
-                text: 'You want this pair to last, so you’re looking for those materials that are durable but lightweight at the same time.',
+                text: 'You want this pair to last, so you’re looking for those materials and designs that are durable and timeless at the same time.',
                 textCarousel: [
-                  '50% of our key materials are environmentally-preferred. This includes rubber, which is also known for its flexibility and durability.'
+                  'To create products that last longer and are designed with the end in mind we created ‘Circularity: Guiding the Future of Design’, a resource for designers around the world.'
                 ]
               }
             ]
@@ -83,33 +86,38 @@ let data = {
             type: 'question',
             number: '2/4',
             title: 'MOVE TO CIRCULAR',
-            text: 'You decide to pare down your wardrobe, but don’t want to add to the landfill. Instead you'
+            text: 'You decide it’s time to curate your wardrobe, but don’t want to add to the landfill. Will you…'
         },
         {
-            type: 'tap spam',
+            type: 'scratch',
+            title: 'Scratch out your choice',
             squares: [
               {
+                id: 1,
                 title: 'Recycle your gear',
-                img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q2_Object_01_02.png`
+                img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q2_Object_01_02_background.png`,
+                imgBack: `${process.env.basePath}/images/logos/MOVE_TO_ZERO.png`
               },
               {
+                id: 1,
                 title: 'Regift your gear',
-                img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q2_Object_02.png`
+                img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q2_Object_02_background.png`,
+                imgBack: `${process.env.basePath}/images/logos/MOVE_TO_ZERO.png`
               }
             ],
             information: [
               {
                 title: 'RECYCLE YOUR GEAR',
-                text: 'You realise that there are more lucky shirts and shoes here than not, and it’s time to let some of these treasures serve a new purpose. Time to recycle and give something back.',
+                text: 'You realize that there are more lucky shirts and shoes here than not, and it’s time to let some of these treasures serve a new purpose. Time to recycle and give something back.',
                 textCarousel: [
-                  'We clean and donate or recycle your used athletic gear to make sure it lives on, even when you’re done wearing it.',
+                  'In selected locations, through our Recycling + Donation program, we clean and donate or recycle your used athletic gear to make sure it lives on, even when you’re done wearing it.',
                 ]
               },
               {
                 title: 'Regift your gear',
-                text: 'You forgot you had these sneakers. You loved them like some people love their cat. Your sister was jealous. Hey, it’s her birthday coming up. You decide to repair and regift.',
+                text: 'You forgot you had these sneakers. You loved them like some people love their cat. Your sister was jealous…and your same size. Hey, it’s her birthday coming up. You decide to repair and regift.',
                 textCarousel: [
-                  'B.I.L.L. (Bot Initiated Longevity Lab) is a robot-augmented system that cleans and repairs shoes. An inspiration to us all to think twice before throwing our treasures in the trash!'
+                  'B.I.L.L. (Bot Initiated Longevity Lab) is a robot-augmented system that cleans and repairs shoes in London. An inspiration to us all to care for and repair our clothes so they can have a longer useful life.'
                 ]
               }
             ]
@@ -118,11 +126,10 @@ let data = {
             type: 'question',
             number: '3/4',
             title: 'FRESH WHEELS',
-            text: 'You wake up early on Saturday for soccer practice. You open the curtains, and the sky has never looked so blue. You see at the car in the driveway and decide to make a change.'
+            text: 'You wake up early on Saturday for football practice. You open the curtains, and the sky has never looked so blue. You see the car in the driveway and decide to make a change. Do you…'
         },  
         {
-            type: 'like',
-            title: 'Answer with a like',
+            type: 'tap spam',
             heartImg: `${process.env.basePath}/images/like/heart-fill-theo.png`,
             squares: [
               {
@@ -139,12 +146,12 @@ let data = {
                 title: 'Ride your bike to practice',
                 text: 'You dig your bike out of the garage and set off. The warm breeze in your face brings a smile, and by the time you arrive at practice you’ve had the perfect warm-up!',
                 textCarousel: [
-                  'Our Nike Forward collection – with its ultra-thin, needle-punched fabrics – is made to do more with less process energy. Meaning less emissions.',
+                  'Our Nike Forward collection – with its ultra-thin, needle-punched layers – is made to do more with less process energy. Meaning smaller carbon footprint, like riding a bike.',
                 ]
               },
               {
                 title: 'Take the bus to practice',
-                text: 'Something about this bus, the cool silence of the electric motor, the people and trees outside the window, makes this journey the perfect time to ponder your strategy for today’s game.',
+                text: 'Something about this bus, the cool silence of the electric motor, the people, and trees outside the window, makes this journey the perfect time to ponder your strategy for your next game.',
                 textCarousel: [
                   'All Nike operated facilities in North America and Europe are running on 100% renewable energy, like wind and solar farms.',
                 ]
@@ -162,29 +169,31 @@ let data = {
           title: 'Scratch out your choice',
           squares: [
             {
+              id: 2,
               title: 'Time to clean this beach!',
               img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q4_Background.png`,
-              imgBack: `${process.env.basePath}/images/logos/nike logo.svg`
+              imgBack: `${process.env.basePath}/images/logos/MOVE_TO_ZERO.png`
             },
             {
+              id: 2,
               title: 'Time we reused our bottles!',
               img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q4_02_Background.png`,
-              imgBack: `${process.env.basePath}/images/logos/nike logo.svg`
+              imgBack: `${process.env.basePath}/images/logos/MOVE_TO_ZERO.png`
             }
           ],
           information: [
             {
               title: 'Time to clean this beach!',
-              text: 'With plenty of adrenaline left over from the game, you jump to your feet, pluck the bottle from the shoreline and give a rousing speech about recycling that spurs your team to action.',
+              text: 'With plenty of adrenaline left over from the practice, you jump to your feet, pluck the bottle from the shoreline, and give a rousing speech about recycling that spurs your team to action.',
               textCarousel: [
-                'Nike Grind is moving us towards a more circular future by turning waste products into playgrounds and running tracks.'
+                'Nike Grind is moving us towards a more circular future by recycling material waste and turning it into new products, playgrounds and running tracks.'
               ]
             },
             {
               title: 'Time we reused our bottles!',
-              text: 'You pick up the plastic bottle, and on the walk back across the beach talk to your coach about the possibility of issuing everyone on the team with a reusable bottle.',
+              text: 'You pick up the plastic bottle, and on the walk back across the beach talk to your coach about the possibility of issuing everyone on the team a reusable bottle.',
               textCarousel: [
-                'We are diverting 100% of Nike’s manufacturing scraps at our Tier 1 finished goods footwear suppliers from landfills through increased recycling and reuse.',
+                'We are diverting 100% of Nike’s manufacturing scraps at our Tier 1 finished goods footwear suppliers from landfills through increased reuse.',
               ]
             }
           ]
@@ -198,8 +207,8 @@ let data = {
       praise: {
         title: 'WE DID IT!',
         text: [
-          'We safeguarded the world for those that will inherit it! Feel lighter somehow? Complete, like a circle? ',
-          'That’s all us! Well all you, actually. Goes to show. How these small acts of thoughtfulness can come to mean so much. Go altruism!'
+          'We did it! Feel lighter somehow? Complete, like a circle?',
+          'Goes to show. How these acts of thoughtfulness can come to mean so much.'
         ],
         avatar: avatarImageTwo,
         desktop: {
@@ -208,11 +217,12 @@ let data = {
           avatarLeft: -330
         },
         mobile: {
-          bubbleBottom: 49,
-          bubbleLeft: 63,
-          avatarLeft: -35,
-          avatarWidth: 100,
-          flip: true
+          bubbleBottom: 95,
+          bubbleLeft: 67.7,
+          bubbleRight: 43,
+          avatarLeft: -20,
+          avatarWidth: 140
+          // flip: true
         }
       },
       reward: {

@@ -28,8 +28,10 @@ let data = {
     intro: {
         title: 'EVERYONE SHOULD EXPERIENCE THE JOY OF MOVEMENT. GIRLS INCLUDED.',
         text: [
-          'Oh, hey, I’m Ivy, sorry, I just really care about our big blue ball!',
-          'There are so many small but significant things that we can do as individuals, families and communities to move the climate dial!'
+          'The decisions we make now can shape a future where everyone belongs.',
+          'Oh, hey, I’m Ivy, I just love to move! Did you know, girls drop out of sports at twice the rate of boys? And it just doesn’t need to be this way. There’s so much we can do to level the playing field.',
+          'Hey, why not start right now? Let’s imagine three scenarios. Then you decide what you would do in each case.',
+          'Don’t worry, there are no wrong answers. Only progress!'
         ],
         desktop: {
           bubbleBottom: 28,
@@ -37,7 +39,7 @@ let data = {
           avatarWidth: 24
         },
         mobile: {
-          bubbleBottom: 80,
+          bubbleBottom: 75,
           bubbleLeft: 25,
           avatarWidth: 73,
           avatarLeft: -28,
@@ -49,7 +51,7 @@ let data = {
             type: 'question',
             number: '1/4',
             title: 'MOVE AS ONE',
-            text: 'You never thought of yourself as into sports. But a friend had you join her one time and something made you want to come back'
+            text: 'You never thought of yourself as into sports. But a friend invited you to play one time and something made you want to come back. Was it…'
         },
         {
             type: 'drag',
@@ -66,16 +68,16 @@ let data = {
             information: [
               {
                 title: 'The simple joy of play',
-                text: 'At first even the thought of all the running and jumping made you tired. But by the time the game was over, you never felt more energized!',
+                text: 'At first, even the thought of running and jumping made you tired. But by the time the game was over, you never felt more energized!',
                 textCarousel: [
-                  'Play fights against the chemicals released when young people face excessive stress in their lives.',
+                  'Research shows that active people are healthier, happier, and more successful in school and life. That’s why last year alone, Nike helped more than 375K girls around the world to find joy in movement.',
                 ]
               },
               {
                 title: 'Being part of a team',
-                text: 'Before, the thought of ‘team spirit’ made you cringe, but before you knew it these people were like a second family.',
+                text: 'The thought of ‘team spirit’ used to make you cringe, but before you knew it your teammates were like a second family.',
                 textCarousel: [
-                  'Through Made to Play, we’re investing in inclusive play and sport-based programs that break barriers, expand opportunities and build a strong community for girls. Last year, Nike helped more than 375K girls to find joy in movement.'
+                  'Through Made to Play, we’re investing across the globe in inclusive play and sport-based programs that break barriers, expand opportunities, and help build a strong community for girls.'
                 ]
               }
             ]
@@ -102,16 +104,16 @@ let data = {
             information: [
               {
                 title: 'Sport sees me',
-                text: 'You see one of your classmates wearing an item of sports gear you didn’t even know existed. Right away it makes you feel less on the outside, looking in. You sign up for try-outs.',
+                text: 'For the first time, you see one of your classmates wearing an item of sports gear you didn’t even know existed. Right away it makes you feel like you are no longer on the outside, looking in. You sign up for try-outs.',
                 textCarousel: [
-                  'We provide our non-profit partners with sportswear – like sports bras and hijabs – …',
+                  'We provide our non-profit partners globally with sportswear – like sports bras and hijabs – and the resources they need to help coaches and program leaders provide a safe and supportive environment.',
                 ]
               },
               {
                 title: 'Sport hears me',
                 text: 'You’re hearing stories of people like you feeling like they belong, not just by being part of a team, but because they have people who really listen.',
                 textCarousel: [
-                  'The number one influence in a kid’s sport experience is their coach. Positive role models can welcome more kids into play. + resources like ‘how to coach kids’ and ‘coaching girls guide’.'
+                  'We’re increasing the quality, quantity, and diversity of youth coaches around the world, because we know that having a well-trained, caring coach is critical to helping people see their potential. Check it out: How to Coach Girls, Made to Play Coaching Girls Guide and Coaching for Belonging.'
                 ]
               }
             ]
@@ -123,8 +125,8 @@ let data = {
             text: 'You decide it’s time to give something back to your community, make yourself useful somehow. Something sports related because…'
         },  
         {
-            type: 'like',
-            title: 'Answer with a like',
+            type: 'tap spam',
+            title: 'Tap spam to make your choice',
             heartImg: `${process.env.basePath}/images/like/heart-fill-ivy.png`,
             squares: [
               {
@@ -141,14 +143,14 @@ let data = {
                 title: 'My coach is my rock',
                 text: 'You want to give someone else the same time and space your coach gave you. The confidence you gained from being really seen and heard still carries you to this day.',
                 textCarousel: [
-                  'We’re investing in helping coaches (9K of them last year) become game-changing mentors to kids, both on and off the field.',
+                  'We’re investing in helping coaches (9K of them, globally, last year) become game-changing mentors to kids, both on and off the field.',
                 ]
               },
               {
                 title: 'Sport is what drives me',
                 text: 'The joy of movement, the sense of belonging, and of shared purpose. Sport was always the brightest star in your sky.',
                 textCarousel: [
-                  'Play builds confidence and problem-solving skills in girls. Proof: 94% of women at the Nike C-suite played a sport growing up.',
+                  'We support our employees’ desire to give back through Give Your Best, our platform for employees to make donations to a wide range of community organizations around the world and track their volunteer hours.',
                 ]
               }
             ]
@@ -164,22 +166,24 @@ let data = {
           title: 'Scratch out your choice',
           squares: [
             {
+              id: 1,
               title: 'Sport gives you purpose',
               img: `${process.env.basePath}/images/active-activist/objects/Play_Q4_background.png`,
-              imgBack: `${process.env.basePath}/images/logos/nike logo.svg`
+              imgBack: `${process.env.basePath}/images/logos/MOVE_TO_ZERO.png`
             },
             {
+              id: 1,
               title: 'Sport gives you confidence',
               img: `${process.env.basePath}/images/active-activist/objects/Play_Q4_background.png`,
-              imgBack: `${process.env.basePath}/images/logos/nike logo.svg`
+              imgBack: `${process.env.basePath}/images/logos/MOVE_TO_ZERO.png`
             }
           ],
           information: [
             {
               title: 'Sport gives you purpose',
-              text: 'Structure. That’s the word you’ve heard your coach use but it’s true: sport is your every day. It’s your social life. It’s what you think about when you wake up and dream about at night.',
+              text: 'Sport is your every day. It’s your social life. It’s what you think about when you wake up and dream about at night.',
               textCarousel: [
-                'We support organisations like Legacy Volleyball Club, which brings young female athletes – particularly girls of colour – into sport, providing year-round programming.'
+                'Because we know that play is innate and necessary for kids to help build stronger, more inclusive communities, we support organizations like Sport dans la Ville, which brings young people from low-income neighborhoods into sport, providing year-round programming.'
               ]
             },
             {
@@ -199,10 +203,9 @@ let data = {
     complete: {
       praise: {
         title: 'WE DID IT!',
-        text: ['We did it! We made the world a fairer place!',
-        'Feel that fresh air in your lungs? That new-found confidence? The satisfaction of giving back to the community?',
-        'That’s all us! Well all you, really.',
-        'Goes to show. These personal choices can wind up meaning so much for future generations. Go empathy!'
+        text: [
+        'We did it! Feel that fresh air in your lungs? That new-found confidence?',
+        'Goes to show. These personal choices can wind up meaning so much for future generations.',
       ],
       avatar: avatarImageTwo,
       desktop: {
@@ -211,16 +214,17 @@ let data = {
         avatarLeft: -250
       },
       mobile: {
-        bubbleBottom: 50,
-        bubbleLeft: 55,
-        avatarLeft: -35,
-        avatarWidth: 100,
+        bubbleBottom: 95,
+        bubbleLeft: 67.7,
+        bubbleRight: 43,
+        avatarLeft: -20,
+        avatarWidth: 140
       }
       },
       reward: {
         image: `${process.env.basePath}/images/rewards/3.png`,
         title: 'The move maker',
-        text: 'You believe in the power of play to raise young people’s spirits and make them feel part of something bigger',
+        text: 'You believe in the power of play to help more young people feel included in sport and want to keep moving.',
         link: '/reward/active-activist'
       },
       more: {
