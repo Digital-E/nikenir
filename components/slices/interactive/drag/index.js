@@ -62,6 +62,10 @@ const DragElement = styled(motion.div)`
     &.dragging {
       pointer-events: none;
     }
+
+    @media(max-width: 989px) {
+        width: 150px;
+    }
 `
 
 let variants = {
@@ -171,7 +175,7 @@ export default function Component({ item, data }) {
       setSelectedIndex(0)
 
       hasClicked(null, 0)
-      controls.start({ x: isDesktop ? '-105%' : '-85%', y: '-50%'})
+      controls.start({ x: isDesktop ? '-105%' : '-110%', y: '-50%'})
 
         // Scroll To Bottom of Info Card
         setTimeout(() => {
@@ -186,7 +190,7 @@ export default function Component({ item, data }) {
       setSelectedIndex(1)
 
       hasClicked(null, 1)
-      controls.start({ x: isDesktop ? '5%' : '-10%', y: '-50%'})
+      controls.start({ x: isDesktop ? '5%' : '10%', y: '-50%'})
 
         // Scroll To Bottom of Info Card
         setTimeout(() => {
