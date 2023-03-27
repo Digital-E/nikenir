@@ -47,7 +47,7 @@ const DragElement = styled(motion.div)`
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 250px;
+    width: 200px;
     margin: 0 auto;
     cursor: pointer;
     touch-action: none;
@@ -55,6 +55,7 @@ const DragElement = styled(motion.div)`
 
     img {
       cursor: pointer;
+      pointer-events: none;
       width: 100%;
     }
 
@@ -149,7 +150,7 @@ export default function Component({ item, data }) {
 
     let clicked = (e) => {
 
-      controls.start({ scale: 2 })
+      controls.start({ scale: 1.5 })
 
       setTimeout(() => {
           controls.start({ scale: 1.1 })
@@ -170,7 +171,7 @@ export default function Component({ item, data }) {
       setSelectedIndex(0)
 
       hasClicked(null, 0)
-      controls.start({ x: isDesktop ? '-90%' : '-85%', y: '-50%'})
+      controls.start({ x: isDesktop ? '-105%' : '-85%', y: '-50%'})
 
         // Scroll To Bottom of Info Card
         setTimeout(() => {
@@ -236,7 +237,7 @@ export default function Component({ item, data }) {
                   onPointerDown={(e) => e.target.releasePointerCapture(e.pointerId)}
                   transition={{ type: "spring", stiffness: 200, damping: 10 }}
                   whileHover={{scale: 1.1 }}
-                  whileTap={{ scale: 2 }}
+                  whileTap={{ scale: 1.5 }}
                   animate={controls}
                   onDragStart={() => onDragStart()}
                   onDragEnd={() => onDragEnd()}

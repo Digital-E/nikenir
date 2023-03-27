@@ -98,7 +98,7 @@ let data = {
         {
             type: 'drag',
             title: 'Drag the roller-skate into the box',
-            img: `${process.env.basePath}/images/people-promoter/objects/People_Q2.png`,
+            img: `${process.env.basePath}/images/people-promoter/objects/People_Q2_crop.png`,
             squares: [
               {
                 title: 'FIND STRENGTH IN TOGETHERNESS',
@@ -169,7 +169,7 @@ let data = {
         {
           type: 'drag',
           title: 'Drag the medal into the box',
-          img: `${process.env.basePath}/images/people-promoter/objects/People_Q4.png`,
+          img: `${process.env.basePath}/images/people-promoter/objects/People_Q4_crop.png`,
           squares: [
             {
               title: 'You see a place where you fit in',

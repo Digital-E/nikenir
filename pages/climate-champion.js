@@ -61,7 +61,7 @@ let data = {
         {
             type: 'drag',
             title: 'Drag the shoe into the answer box',
-            img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q1.png`,
+            img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q1_crop.png`,
             squares: [
               {
                 title: 'Reduce your footprint'

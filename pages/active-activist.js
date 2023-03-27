@@ -61,7 +61,7 @@ let data = {
         {
             type: 'drag',
             title: 'Drag the ball into a box',
-            img: `${process.env.basePath}/images/active-activist/objects/Play_Q1.png`,
+            img: `${process.env.basePath}/images/active-activist/objects/Play_Q1_crop.png`,
             squares: [
               {
                 title: 'The simple joy of play'
@@ -95,7 +95,6 @@ let data = {
         },
         {
             type: 'tap spam',
-            title: 'Drag the roller-skate into a box',
             squares: [
               {
                 title: 'Sport sees me',
