@@ -115,7 +115,7 @@ export default function Component({ data, avatar, text, smallBubble, disableInVi
             if(instantReveal === true) return setStartType(true)
             setTimeout(() => {
                 setStartType(true)
-            }, 3000)
+            }, 2000)
         }
     }, [isInView])
 

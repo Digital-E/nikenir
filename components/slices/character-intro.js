@@ -133,7 +133,7 @@ export default function Component({ item, data }) {
             setTimeout(() => {
                 setShowButton(true)
             }, 1000)
-        }, 2000)
+        }, 3000)
 
         return () => {
             document.removeEventListener('wheel', disableScroll, {passive: false})
