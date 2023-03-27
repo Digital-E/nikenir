@@ -41,6 +41,7 @@ const Text = styled.div`
 
     span {
         font-size: 120px;
+        padding: 0 5px;
     }
 
     @media(min-width: 990px) {
@@ -61,6 +62,10 @@ const Text = styled.div`
         left: 50%;
         transform: translateX(-50%);
         width: 100%;
+
+         span {
+            padding: 0 2px;
+        }
     }
 `
 

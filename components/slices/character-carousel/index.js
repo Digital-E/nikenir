@@ -231,7 +231,7 @@ const ImageWrapper = styled.div`
         bottom: -7%;
 
         img {
-            width: ${props => props.data.widthMobile - 20}%  !important;
+            width: ${props => props.data.widthMobile - 17}%  !important;
         }
     }
 

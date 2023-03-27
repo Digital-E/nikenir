@@ -152,6 +152,14 @@ function MyApp({ Component, pageProps, router }) {
         }
 
         window.sessionStorage.setItem('prevUrl', router.asPath)
+
+        // Disable pinch zoom
+
+        document.addEventListener('touchmove', function(event) {
+          if(event.scale !== 1) {
+            event.preventDefault()
+          }
+        }, {passive: false})
     }, 500)
   }, [router.asPath])
   
@@ -187,7 +195,7 @@ function MyApp({ Component, pageProps, router }) {
       <Sidebar />
       <Notification />
       <BackgroundGradient data={dataAll}/>
-      {/* <DeviceRotation /> */}
+      <DeviceRotation />
       {/* <CookieConsent
         buttonText={pageProps.data?.menuData.cookieaccept}
         declineButtonText={pageProps.data?.menuData.cookierefuse}

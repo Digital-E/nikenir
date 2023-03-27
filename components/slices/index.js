@@ -22,6 +22,14 @@ const Container = styled.div`
         > div:first-child {
             margin-top: 105px;
         }
+
+        // > div:nth-last-child(2) {
+        //     margin-bottom: 0 !important;
+        // }
+
+        // > div:nth-last-child(2) .container-background {
+        //     margin-bottom: 0 !important;
+        // }
     }
 `
 

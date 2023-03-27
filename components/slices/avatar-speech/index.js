@@ -22,7 +22,9 @@ const ImageWrapper = styled.div`
     width: fit-content;
 
     img {
-        width: ${props => props.data.intro.desktop.avatarWidth}vw;
+        // width: ${props => props.data.intro.desktop.avatarWidth}vw;
+        height:  ${props => props.data.intro.desktop.avatarHeight}vh;
+        width: auto;
     }
 
     @media(max-width: 989px) {
@@ -31,6 +33,7 @@ const ImageWrapper = styled.div`
         bottom: ${props => props.data.intro.mobile.avatarBottom}vw;
         
         img {
+            height: auto;
             width: 100%;
         }
     }
@@ -44,8 +47,10 @@ const Bubble = styled(motion.div)`
     @media(min-width: 990px) {
         width: ${props => props.smallBubble ? '222px': '427px'};
         height: ${props => props.smallBubble ? '227.5px': '162.5px'};
-        bottom: ${props => props.data.intro.desktop.bubbleBottom}vw;
-        left: ${props => props.data.intro.desktop.bubbleLeft}vw;
+        // bottom: ${props => props.data.intro.desktop.bubbleBottom}vw;
+        // left: ${props => props.data.intro.desktop.bubbleLeft}vw;
+        bottom: ${props => props.data.intro.desktop.bubbleBottom}%;
+        left: ${props => props.data.intro.desktop.bubbleLeft}%;
         clip-path: ${props => props.smallBubble ? 'url(#clipPathMobile)' : 'url(#clipPathDesktop)'};
     }
 
@@ -94,7 +99,7 @@ let bubbleVariants = {
 }
 
 
-export default function Component({ data, avatar, text, smallBubble, disableInView, activate, toggleFinished }) {
+export default function Component({ data, avatar, text, smallBubble, disableInView, activate, toggleFinished, instantReveal }) {
     let containerRef = useRef()
     let portalRef = useRef()
     let isInView = useInView(containerRef)
@@ -104,6 +109,7 @@ export default function Component({ data, avatar, text, smallBubble, disableInVi
         if(disableInView) return
 
         if(isInView) {
+            if(instantReveal) return setStartType(true)
             setTimeout(() => {
                 setStartType(true)
             }, 3000)

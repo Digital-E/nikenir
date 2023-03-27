@@ -599,11 +599,7 @@ const Component = () => {
             <Slide initial='hide' variants={slideTwoAnimationParent} animate={slideIndexState === 1 ? 'show' : 'hide'} height={screenHeight}>
                 <Center>
                     <Text className='palatino-medium' variants={slideTwoAnimation}>
-                        A champion of your community?<br/>
-                        A guardian of our planet?<br/>
-                        A mentor to the many?<br/><br/>
-                        The world is your answer!<br/><br/>
-                        Your Move is a game that lets you plot a path to a fairer, greener and healthier future.
+                        Your Move lets you plot a path to a fairer, greener, and healthier future.
                     </Text>
                     <ButtonWrapper variants={slideTwoAnimation}>
                         <ButtonLink href='/pick-your-player'>Let's Play!</ButtonLink>

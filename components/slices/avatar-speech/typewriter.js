@@ -227,7 +227,7 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
 
                 newSentenceTimeout.current = null;
 
-            }, 2000)
+            }, 4000)
         }
     }
 

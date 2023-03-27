@@ -34,9 +34,13 @@ let data = {
           'Don’t worry, there are no wrong answers. Only progress!'
         ],
         desktop: {
-          bubbleBottom: 28,
-          bubbleLeft: 15,
-          avatarWidth: 24
+          // bubbleBottom: 28,
+          // bubbleLeft: 15,
+          bubbleBottom: 84,
+          bubbleLeft: 62,
+          // avatarWidth: 24
+          avatarHeight: 77,
+          avatarBottom: 0
         },
         mobile: {
           bubbleBottom: 75,

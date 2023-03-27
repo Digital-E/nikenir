@@ -42,7 +42,7 @@ export default function Component({ data }) {
                 <Title>{data.pause.title}</Title>
             </TitleWrapper>
             <AvatarSpeechWrapper>
-                <AvatarSpeech avatar={data.avatar} data={data} text={data.pause.text} />
+                <AvatarSpeech avatar={data.avatar} data={data} text={data.pause.text} instantReveal={true} />
             </AvatarSpeechWrapper>
         </Container>
     )

@@ -34,9 +34,13 @@ let data = {
           'Don’t worry, there are no wrong answers. Only progress!'
         ],
         desktop: {
-          bubbleBottom: 29,
-          bubbleLeft: 16,
-          avatarWidth: 24
+          // bubbleBottom: 29,
+          // bubbleLeft: 16,
+          bubbleBottom: 85,
+          bubbleLeft: 65,
+          avatarWidth: 24,
+          avatarHeight: 70,
+          avatarBottom: 50
         },
         mobile: {
           bubbleBottom: 75,
@@ -131,7 +135,7 @@ let data = {
             squares: [
               {
                 title: 'Be part of something bigger',
-                img: `${process.env.basePath}/images/people-promoter/objects/People_Q3.png`
+                img: `${process.env.basePath}/images/people-promoter/objects/People_Q3_Object_01.png`
               },
               {
                 title: 'Maximise your potential',

@@ -40,7 +40,7 @@ const AvatarWrapper = styled.div`
         display: flex;
         justify-content: center;
         width: 100%;
-        margin: 0 auto 50px auto;
+        margin: 0 auto ${props => props.data.intro.desktop.avatarBottom}px auto;
     }
 
     @media(max-width: 989px) {
@@ -50,7 +50,7 @@ const AvatarWrapper = styled.div`
         margin-bottom: 50px;
     }
 
-    @media(max-height: 663px) and (max-width: 576px) {
+    @media(max-height: 600px) and (max-width: 576px) {
         bottom: -30vw
     }
 `
@@ -162,7 +162,7 @@ export default function Component({ item, data }) {
     return (
         <Container ref={containerRef} height={screenHeight}>
             <Title>{data.intro.title}</Title>
-            <AvatarWrapper>
+            <AvatarWrapper data={data}>
                 <AvatarSpeech avatar={data.avatar} data={data} text={data.intro.text} disableInView={true} activate={showSpeech} toggleFinished={() => {}}/>
             </AvatarWrapper>
             <ButtonWrapper 
