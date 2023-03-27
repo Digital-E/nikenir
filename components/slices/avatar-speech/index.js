@@ -59,6 +59,7 @@ const Bubble = styled(motion.div)`
         height: 227.5px;
         bottom: ${props => props.data.intro.mobile.bubbleBottom}vw;
         left: ${props => props.data.intro.mobile.bubbleLeft}vw;
+        // right: ${props => props.data.intro.mobile.bubbleRight}vw;
         clip-path: url(#clipPathMobile);
     }
 `
@@ -72,12 +73,14 @@ const BubbleInner = styled.div`
 
 const PortalReplay = styled(motion.div)`
     position: absolute;
-    bottom: calc(${props => props.data.intro.desktop.bubbleBottom}vw);
-    left: calc(${props => props.data.intro.desktop.bubbleLeft}vw + 405px);
+    // bottom: calc(${props => props.data.intro.desktop.bubbleBottom}vw);
+    // left: calc(${props => props.data.intro.desktop.bubbleLeft}vw + 405px);
+    bottom: ${props => props.data.intro.desktop.bubbleBottom}%;
+    left: calc(${props => props.data.intro.desktop.bubbleLeft}% + 405px);
 
     @media(max-width: 989px) {
-        bottom: calc(${props => props.data.intro.mobile.bubbleBottom}vw + 5px);
-        left: calc(${props => props.data.intro.mobile.bubbleLeft}vw + 200px);
+        bottom: calc(${props => props.data.intro.mobile.bubbleBottom}% + 5px);
+        left: calc(${props => props.data.intro.mobile.bubbleLeft}% + 227px);
     }
 `
 
@@ -109,7 +112,7 @@ export default function Component({ data, avatar, text, smallBubble, disableInVi
         if(disableInView) return
 
         if(isInView) {
-            if(instantReveal) return setStartType(true)
+            if(instantReveal === true) return setStartType(true)
             setTimeout(() => {
                 setStartType(true)
             }, 3000)

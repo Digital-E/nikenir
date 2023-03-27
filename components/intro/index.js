@@ -100,10 +100,12 @@ const Arrow = styled.div`
 const Text = styled(motion.div)`
     text-align: center;
     font-size: 32px;
-    margin-bottom: 30px;
+    max-width: 350px;
+    margin: 0 auto;
 
     @media(max-width: 989px) {
         font-size: 25px;
+        max-width: 275px;
     }
 `
 

@@ -230,7 +230,7 @@ export default function Header({}) {
 
   return (
     <>
-    <Container ref={headerRef} className='hide-header max-width-header'>
+    <Container ref={headerRef} className='hide-header max-width-header hide-on-rotate'>
       <Link href={state.backLink}><Arrow><img src={`${process.env.basePath}/images/icons/ui-arrow.svg`} /></Arrow></Link>
       <Text ref={headerTextRef}>
         <span>{messageOne}</span>

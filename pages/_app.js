@@ -211,7 +211,7 @@ function MyApp({ Component, pageProps, router }) {
         <Body content={pageProps.data?.menuData.cookietext} />
       </CookieConsent> */}
         <AnimatePresence mode='wait'>   
-          <motion.div key={router.asPath} initial="pageInitial" animate="pageAnimate" exit="pageExit" variants={desktopVariants}>             
+          <motion.div key={router.asPath} initial="pageInitial" animate="pageAnimate" exit="pageExit" variants={desktopVariants} className='hide-on-rotate'>             
             <Component {...pageProps} />
           </motion.div>
         </AnimatePresence>

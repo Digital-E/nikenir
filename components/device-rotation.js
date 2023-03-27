@@ -10,7 +10,7 @@ const Container = styled.div`
     left: 0;
     height: 100%;
     width: 100%;
-    background: black;
+    // background: black;
     z-index: 999;
 
     &.show {
@@ -22,61 +22,10 @@ const Container = styled.div`
     }
 
     p {
-        color: white;
+        color: black;
     }
 `;
 
-
-const Overlay = styled.div`
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 1;
-
-    &&.show-overlay {
-        opacity: 1;
-        transition: opacity ease-in-out 0.3s 0s, transform linear 0s 0s;  
-        transform: translateX(0);
-    }
-
-    &&.hide-overlay {
-        opacity: 0;
-        transition: opacity ease-in-out 0.3s, transform linear 0s 0.3s;
-        transform: translateX(-100%);
-    }
-`
-
-
-
-const Close = styled.div`
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: black;
-    cursor: pointer;
-    width: fit-content;
-    font-size: 14px;
-`
-
-const Text = styled.div`
-
-    .palatino-small {
-        margin-top: 15px;
-    }
-
-    p {
-        color: black;
-    }
-
-    @media(max-width: 989px) {
-        p {
-            margin-bottom: 0;
-        }
-    }
-`
 
 const Component = () => {
     let [displayNotification, setDisplayNotification] = useState(false)
@@ -90,8 +39,10 @@ const Component = () => {
         window.addEventListener('orientationchange', function() {
             if(window.orientation === 90 || window.orientation === -90) {
                 setDisplayNotification(true)
+                document.querySelectorAll('.hide-on-rotate').forEach(item => item.style.opacity = 0)
             } else {
                 setDisplayNotification(false)
+                document.querySelectorAll('.hide-on-rotate').forEach(item => item.style.opacity = 1)
             }
         }, false)
     }, [])

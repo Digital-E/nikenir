@@ -45,6 +45,7 @@ let data = {
         mobile: {
           bubbleBottom: 75,
           bubbleLeft: 25,
+          bubbleRight: -25,
           avatarWidth: 73,
           avatarLeft: -28,
           avatarBottom: -7,
@@ -129,8 +130,8 @@ let data = {
             text: 'You decide it’s time to give something back to your community, make yourself useful somehow. Something sports related because…'
         },  
         {
-            type: 'tap spam',
-            title: 'Tap spam to make your choice',
+            type: 'like',
+            title: 'Like to make your choice',
             heartImg: `${process.env.basePath}/images/like/heart-fill-ivy.png`,
             squares: [
               {
@@ -166,20 +167,18 @@ let data = {
           text: 'You didn’t think you’d ever last more than a minute playing sports. But a year on from joining the team it’s become such an important part of your life. And that’s because:'
         },
         {
-          type: 'scratch',
-          title: 'Scratch out your choice',
+          type: 'like',
+          title: 'Like to make your choice',
           squares: [
             {
               id: 1,
               title: 'Sport gives you purpose',
-              img: `${process.env.basePath}/images/active-activist/objects/Play_Q4_background.png`,
-              imgBack: `${process.env.basePath}/images/logos/MOVE_TO_ZERO.png`
+              img: `${process.env.basePath}/images/active-activist/objects/Play_Q4.png`,
             },
             {
               id: 1,
               title: 'Sport gives you confidence',
-              img: `${process.env.basePath}/images/active-activist/objects/Play_Q4_background.png`,
-              imgBack: `${process.env.basePath}/images/logos/MOVE_TO_ZERO.png`
+              img: `${process.env.basePath}/images/active-activist/objects/Play_Q4.png`,
             }
           ],
           information: [

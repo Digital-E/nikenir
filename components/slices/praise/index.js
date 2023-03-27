@@ -96,6 +96,7 @@ const AvatarSpeechWrapper = styled(motion.div)`
 
         img {
             width: 724px;
+            height: auto;
         }
     }
 

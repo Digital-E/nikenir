@@ -45,6 +45,7 @@ let data = {
         mobile: {
           bubbleBottom: 75,
           bubbleLeft: 25,
+          bubbleRight: -26.3,
           avatarWidth: 70,
           avatarLeft: -30,
           avatarBottom: -5,
