@@ -374,7 +374,7 @@ const Component = () => {
             complete: function() {
                 setTimeout(() => {
                     initTimeout();
-                }, 4000)
+                }, 1000)
             }
         }) 
     }

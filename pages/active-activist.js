@@ -234,11 +234,20 @@ let data = {
       },
       more: {
         title: 'Want to know more?',
-        text: [
-          'Discover the B.I.L.L. programfrom Niketown London',
-          'Explore'
+        links: [
+          {
+            label: 'Made to Play:',
+            url: 'https://www.nike.com/made-to-play'
+          },
+          {
+            label: 'Find out how Nike is helping more girls find joy and belonging in sport:',
+            url: 'https://www.nike.com/made-to-play/coach'
+          },
+          {
+            label: 'Give Your Best:',
+            url: 'https://about.nike.com/en/impact/initiatives/matching-our-employees-impact'
+          }
         ],
-        link: 'https://nike.com'
       },
       continue: {
         title: 'Pick another path?',

@@ -32,7 +32,7 @@ const Component = ({ data }) => {
 
     return (
         <Container className='max-width center'>
-            <a href={data.complete.more.link} target='_blank'>
+            <a href='https://about.nike.com/en/newsroom/reports/fy22-nike-inc-impact-report' target='_blank'>
                 <InnerContainer className='container-background'>
                     <Logo><img src={`${process.env.basePath}/images/logos/nikeimpact.svg`} /></Logo>
                     <Text className='palatino-x-small'>Click to read more...</Text>

@@ -82,8 +82,6 @@ const ButtonWrapper = styled.div`
 
 
 
-
-
 const Component = ({ data }) => {
     let gallery = useRef();
     let flickity = null;
@@ -119,16 +117,16 @@ const Component = ({ data }) => {
 
     return (
         <Container className='container-background' colourOne={data.colourOne}>
-            <Number className='palatino-x-small'>{selectedIndex} / {data.complete.more.text.length}</Number>
+            <Number className='palatino-x-small'>{selectedIndex} / {data.complete.more.links.length}</Number>
             <Carousel ref={gallery}>
-                {data.complete.more.text.map(item => 
+                {data.complete.more.links.map(item => 
                 <Slide>
-                    <Text className='body-x-large'>{item}</Text>
+                    <Text className='body-x-large'>{item.label}</Text>
                 </Slide>
                 )}
             </Carousel>
             <ButtonWrapper>
-                <a href='https://nike.com' target='_blank'><Button>Read More</Button></a>
+                <a href={data.complete.more.links[selectedIndex - 1].url} target='_blank'><Button>Read More</Button></a>
             </ButtonWrapper>
         </Container>
     )

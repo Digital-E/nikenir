@@ -235,13 +235,28 @@ let data = {
       },
       more: {
         title: 'Want to know more?',
-        text: [
-          'Explore the Serena Williams Design Crew',
-          'Explore',
-          'Explore the Serena Williams Design Crew',
-          'Explore ',
+        links: [
+          {
+            label: 'Read more about Nike’s diversity, equity, and inclusion work:',
+            url: 'https://about.nike.com/en/impact/focus-areas/diversity-equity-inclusion'
+          },
+          {
+            label: 'Mental Health Program:',
+            url: 'https://about.nike.com/en/impact/initiatives/building-and-investing-in-our-teams'
+          },
+          {
+            label: 'Employee Resource Groups:',
+            url: 'https://jobs.nike.com/diversity-and-inclusion'
+          },
+          {
+            label: 'Serena Williams Design Crew:',
+            url: 'https://www.nike.com/a/serena-williams-design-crew-origin'
+          },
+          {
+            label: 'Nike Inc. Black Community Commitment:',
+            url: 'https://about.nike.com/en/newsroom/releases/nike-inc-black-community-commitment-2023'
+          },
         ],
-        link: 'https://nike.com'
       },
       continue: {
         title: 'Pick another path?',

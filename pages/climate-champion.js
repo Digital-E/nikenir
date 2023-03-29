@@ -241,11 +241,28 @@ let data = {
       },
       more: {
         title: 'Want to know more?',
-        text: [
-          'Discover the B.I.L.L. program from Niketown London',
-          'Explore'
+        links: [
+          {
+            label: 'Discover more about Nike’s work to help protect the planet:',
+            url: 'https://about.nike.com/en/impact/focus-areas/protecting-the-planet'
+          },
+          {
+            label: 'Circular Design Guide:',
+            url: 'https://www.nikecirculardesign.com'
+          },
+          {
+            label: 'Recycling + Donation:',
+            url: 'https://www.nike.com/sustainability/recycling-donation'
+          },
+          {
+            label: 'Repair & Care',
+            url: 'https://www.nike.com/product-advice/product-care'
+          },
+          {
+            label: 'Nike Move To Zero Product:',
+            url: 'https://www.nike.com/sustainability/materials'
+          },
         ],
-        link: 'https://nike.com'
       },
       continue: {
         title: 'Pick another path?',

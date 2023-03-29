@@ -212,10 +212,10 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
             }
 
             newSentenceTimeout.current = setTimeout(() => {
-                if(cursorRef.current === null && typeWriterRef.current === null) return
+                if(cursorRef.current === null || typeWriterRef.current === null ) return
                 // cursorRef.current.classList.add('hide');
 
-                typeWriterRef.current?.classList.add('hide');
+                typeWriterRef.current.classList.add('hide');
 
                 typeWriterRef.current.innerHTML = ''
                 displayText.current = ''
