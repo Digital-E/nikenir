@@ -231,7 +231,7 @@ let data = {
         image: `${process.env.basePath}/images/rewards/3.png`,
         title: 'The move maker',
         text: 'You believe in the power of play to help more young people feel included in sport and want to keep moving.',
-        link: '/reward/active-activist'
+        link: '/reward/active-advocate'
       },
       more: {
         title: 'Want to know more?',
