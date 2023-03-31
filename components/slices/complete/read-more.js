@@ -25,6 +25,11 @@ const Text = styled.p`
 `
 const Logo = styled.div`
     margin-bottom: 10px;
+    height: 23px;
+
+    img {
+        height: 100%;
+    }
 `
 
 
@@ -34,7 +39,7 @@ const Component = ({ data }) => {
         <Container className='max-width center'>
             <a href='https://about.nike.com/en/newsroom/reports/fy22-nike-inc-impact-report' target='_blank'>
                 <InnerContainer className='container-background'>
-                    <Logo><img src={`${process.env.basePath}/images/logos/nikeimpact.svg`} /></Logo>
+                    <Logo><img src={`${process.env.basePath}/images/logos/nikeimpact-noswoosh.svg`} /></Logo>
                     <Text className='palatino-x-small'>Click to read more...</Text>
                 </InnerContainer>
             </a>
