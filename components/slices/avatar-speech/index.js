@@ -107,14 +107,14 @@ const PortalReplay = styled(motion.div)`
     left: calc(${props => props.data.intro.desktop.bubbleLeft}% + 405px);
 
     @media(max-width: 989px) and (min-height: 1000px) {
-        bottom: calc(${props => props.data.intro.mobile.bubbleBottom}% + 5px);
-        left: calc(${props => props.data.intro.mobile.bubbleLeft}% + 227px);
+        bottom: calc(${props => props.data.intro.mobile.bubbleBottom}vw + 5px);
+        left: calc(${props => props.data.intro.mobile.bubbleLeft}vw + 200px);
     }
     
 
     @media(max-width: 576px) {
-        bottom: calc(${props => props.data.intro.mobile.bubbleBottom}% + 5px);
-        left: calc(${props => props.data.intro.mobile.bubbleLeft}% + 227px);
+        bottom: calc(${props => props.data.intro.mobile.bubbleBottom}vw + 5px);
+        left: calc(${props => props.data.intro.mobile.bubbleLeft}vw + 200px);
     }
 `
 
