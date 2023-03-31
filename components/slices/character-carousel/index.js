@@ -379,6 +379,7 @@ export default function Component() {
         flickity = new Flickity(gallery.current, {
             prevNextButtons: false,
             pageDots: false,
+            // friction: 0.25,
             cellAlign: "center",
             percentPosition: true,
             wrapAround: true,
