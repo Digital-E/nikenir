@@ -142,7 +142,7 @@ export default function Component({ data }) {
 
             let initPosition = new Vector2D(Math.random() * (window.innerWidth), Math.random() * (window.innerHeight))
 
-            let initVelocity = new Vector2D(Math.random() > 0.5 ? 2 : -2, Math.random() > 0.5 ? 2 : -2)
+            let initVelocity = new Vector2D(Math.random() > 0.5 ? 1 : -1, Math.random() > 0.5 ? 1 : -1)
 
             let circle = new Circle(
                 initPosition, 

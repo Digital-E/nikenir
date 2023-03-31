@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import {SITE_NAME} from '../lib/constants'
 
 export default function Meta({ title, content }) {
   return (

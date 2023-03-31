@@ -100,6 +100,8 @@ const AvatarSpeechWrapper = styled(motion.div)`
         }
     }
 
+
+
     @media(max-width: 989px) {
         > div {
             bottom: -15vw;
@@ -128,6 +130,8 @@ const AvatarSpeechWrapper = styled(motion.div)`
             left: calc(${props => props.data.complete.praise.mobile.bubbleLeft}vw + 200px);
         }
     }
+
+
 
     @media(max-width: 576px) {
         > div {
@@ -166,7 +170,7 @@ const AvatarSpeechWrapper = styled(motion.div)`
 const RewardWrapper = styled(motion.div)`
     align-self: center;
 
-    @media(max-width: 989px) {
+    @media(max-width: 989px)  {
         padding-top: 0;
         margin: calc(var(--margin) * 4) var(--margin) 0 var(--margin);
         display: none;
@@ -196,7 +200,7 @@ const StickyWrapper = styled.div`
         max-width: 890px;
     }
 
-    @media(max-width: 989px) {
+    @media(max-width: 989px)  {
         bottom: 0;
         height: 100%;
         display: flex;
@@ -211,7 +215,7 @@ const ArrowContainer = styled(motion.div)`
     transform: translateX(-50%);
     cursor: pointer;
 
-    @media(max-width: 989px) {
+    @media(max-width: 989px)  {
         bottom: 20px;
     }
 `
@@ -350,6 +354,7 @@ export default function Component({ data, unlock }) {
                 <Text><span className='large-headline ml2'>{data.complete.praise.title}</span></Text>
                 <StickyWrapper>
                     <AvatarSpeechWrapper 
+                        smallBubble={true}
                         // initial='hide'
                         // variants={variants}
                         // animate={avatarReveal ? 'show' : 'hide'}

@@ -15,9 +15,9 @@ import avatarImageTwo from '../public/images/avatars/praise/ivy.png'
 const Container = styled.div``
 
 let data = {
-    title: 'Active Activist',
+    title: 'Active Advocate',
     name: 'Ivy',
-    role: 'Active Activist',
+    role: 'Active Advocate',
     avatar: avatarImage,
     avatarMiniature: `${process.env.basePath}/images/avatars/miniature/ivy.png`,
     colourOne: '#A2D8EF',
@@ -223,7 +223,8 @@ let data = {
         avatarWidth: 140
       },
       tablet: {
-        bubbleBottom: 85,
+        bubbleLeft: 42.7,
+        bubbleBottom: 96,
       }
       },
       reward: {
@@ -306,7 +307,7 @@ export default function Component() {
   }, [])
 
   return (
-    <Layout title={`${data.title} | Nike Impact Report`} content={`${data.title} | Nike Impact Report`}>
+    <Layout title={`${data.title} | Nike Impact Game - Your Move`} content={`${data.title} | Nike Impact Game - Your Move`}>
       <Head><link rel="preload" href={avatarImageTwo.src} as="image" /></Head>
       <Container>
         <Slices data={data}/>

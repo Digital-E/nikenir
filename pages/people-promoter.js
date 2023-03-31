@@ -37,14 +37,14 @@ let data = {
           // bubbleBottom: 29,
           // bubbleLeft: 16,
           bubbleBottom: 85,
-          bubbleLeft: 65,
+          bubbleLeft: 73,
           avatarWidth: 24,
           avatarHeight: 70,
           avatarBottom: 50
         },
         mobile: {
           bubbleBottom: 75,
-          bubbleLeft: 25,
+          bubbleLeft: 30,
           bubbleRight: -26.3,
           avatarWidth: 70,
           avatarLeft: -30,
@@ -187,14 +187,14 @@ let data = {
               title: 'You see a place where you fit in',
               text: 'A visit to your sister at college fills you with optimism. You’re surrounded by people just like you, expanding their horizons and defining their place in the world.',
               textCarousel: [
-                'n the US we continue our support of Historically Black Colleges and Universities (HBCUs) and Hispanic-Serving Institutions (HSIs) – through storytelling, recruitment, and financial investments.'
+                'In the US we continue our support of Historically Black Colleges and Universities (HBCUs) and Hispanic-Serving Institutions (HSIs) – through storytelling, recruitment, and financial investments.'
               ]
             },
             {
               title: 'You see a life that you aspire to',
               text: 'While searching for a new pair of sneakers you get sidetracked watching a bunch of inspiring videos of people from your community telling the story of how they pursued their dream.',
               textCarousel: [
-                'ike, Converse, Jordan Brand and Michael Jordan have committed a combined $140 million over 10 years to invest in and support organizations focused on economic empowerment, education, and social justice to address racial inequality for Black Americans.',
+                'Nike, Converse, Jordan Brand and Michael Jordan have committed a combined $140 million over 10 years to invest in and support organizations focused on economic empowerment, education, and social justice to address racial inequality for Black Americans.',
               ]
             }
           ]
@@ -224,7 +224,12 @@ let data = {
           avatarWidth: 140
         },
         tablet: {
-          bubbleBottom: 95,
+          bubbleLeft: 42.7,
+          bubbleBottom: 96,
+        },
+        tabletIntermediate: {
+          bubbleLeft: 42.7,
+          bubbleBottom: 60,
         }
       },
       reward: {
@@ -315,7 +320,7 @@ export default function Component() {
   }, [])
 
   return (
-    <Layout title={`${data.title} | Nike Impact Report`} content={`${data.title} | Nike Impact Report`}>
+    <Layout title={`${data.title} | Nike Impact Game - Your Move`} content={`${data.title} | Nike Impact Game - Your Move`}>
       <Head><link rel="preload" href={avatarImageTwo.src} as="image" /></Head>
       <Container>
         <Slices data={data}/>

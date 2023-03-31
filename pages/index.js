@@ -85,7 +85,8 @@ export default function Home() {
   }, [])
 
   return (
-    <Layout title={`Nike Impact Report`} content={`Nike Impact Report`}>
+    // <Layout title={`Nike Impact Report`} content={`Nike Impact Report`}>
+    <Layout title={`Nike Impact Game - Your Move`} content={`Alongside the publishing of Nike’s 2022 Impact Report, this is a digital experience that invites youth to engage and imagine a path to a fairer, greener, and healthier future while learning more about how we are creating bigger change.`}>
       <Head>
         {
           preloadAssets.map(item => (

@@ -115,7 +115,7 @@ let data = {
                 title: 'RECYCLE YOUR GEAR',
                 text: 'You realize that there are more lucky shirts and shoes here than not, and it’s time to let some of these treasures serve a new purpose. Time to recycle and give something back.',
                 textCarousel: [
-                  'In selected locations, through our Recycling + Donation program, we clean and donate or recycle your used athletic gear to make sure it lives on, even when you’re done wearing it.',
+                  'In select locations, through our Recycling + Donation program, we clean and donate or recycle your used athletic gear to make sure it lives on, even when you’re done wearing it.',
                 ]
               },
               {
@@ -230,7 +230,8 @@ let data = {
           // flip: true
         },
         tablet: {
-          bubbleBottom: 95,
+          bubbleLeft: 42.7,
+          bubbleBottom: 96,
         }
       },
       reward: {
@@ -269,9 +270,9 @@ let data = {
         text: 'Don’t go anywhere, there are still plenty of positive choices to be made!',
         next: {
           name: 'Ivy',
-          role: 'Active Activist',
+          role: 'Active Advocate',
           avatarMiniature: `${process.env.basePath}/images/avatars/miniature/ivy.png`,
-          link: '/active-activist'
+          link: '/active-advocate'
         }
       }
     }
@@ -321,7 +322,7 @@ export default function Component() {
   }, [])
 
   return (
-    <Layout title={`${data.title} | Nike Impact Report`} content={`${data.title} | Nike Impact Report`}>
+    <Layout title={`${data.title} | Nike Impact Game - Your Move`} content={`${data.title} | Nike Impact Game - Your Move`}>
       <Head><link rel="preload" href={avatarImageTwo.src} as="image" /></Head>
       <Container>
         <Slices data={data}/>

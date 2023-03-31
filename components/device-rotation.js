@@ -34,15 +34,16 @@ const Component = () => {
 
         if(window.orientation === 90 || window.orientation === -90) {
             setDisplayNotification(true)
+            document.querySelectorAll('.hide-on-rotate').forEach(item => item.style.visibility = 'hidden')
         }
 
         window.addEventListener('orientationchange', function() {
             if(window.orientation === 90 || window.orientation === -90) {
                 setDisplayNotification(true)
-                document.querySelectorAll('.hide-on-rotate').forEach(item => item.style.opacity = 0)
+                document.querySelectorAll('.hide-on-rotate').forEach(item => item.style.visibility = 'hidden')
             } else {
                 setDisplayNotification(false)
-                document.querySelectorAll('.hide-on-rotate').forEach(item => item.style.opacity = 1)
+                document.querySelectorAll('.hide-on-rotate').forEach(item => item.style.visibility = 'visible')
             }
         }, false)
     }, [])

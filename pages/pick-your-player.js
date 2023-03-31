@@ -65,7 +65,7 @@ export default function Component() {
   }, [])
 
   return (
-    <Layout title={`Pick Your Player | Nike Impact Report`} content={`Pick Your Player | Nike Impact Report`}>
+    <Layout title={`Pick Your Player | Nike Impact Game - Your Move`} content={`Pick Your Player | Nike Impact Game - Your Move`}>
       <Container>
         <CharacterCarousel />
         {/* <FooterWrapper>

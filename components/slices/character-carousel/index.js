@@ -327,7 +327,7 @@ let data = [
     {
         name: 'Theo',
         textOne: 'Climate Champion',
-        textTwo: 'Planet preserver empowering citizens to have a positive impact',
+        textTwo: 'Planet preserver inspiring citizens to have a positive impact',
         images: [
             characterTwo1,
             characterTwo2,
@@ -344,7 +344,7 @@ let data = [
     },
     {
         name: 'Ivy',
-        textOne: 'Active Activist',
+        textOne: 'Active Advocate',
         textTwo: 'Trusted coach who really listens',
         images: [
             characterThree1,
@@ -354,7 +354,7 @@ let data = [
             characterThree5,
             characterThree6
         ],
-        link: '/active-activist',
+        link: '/active-advocate',
         backgroundSrc: gradientThree,
         width: 91,
         widthMobile: 93,
