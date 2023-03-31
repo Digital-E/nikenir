@@ -73,6 +73,10 @@ const AvatarSpeechWrapper = styled(motion.div)`
     height: fit-content;
     width: fit-content;
 
+    img {
+        height: auto;
+    }
+
     @media(min-width: 990px) {
         position: absolute;
         height: fit-content;
