@@ -3,13 +3,22 @@ import styled from "styled-components"
 
 import { store } from "../store";
 
-const Container = styled.div``;
+const Container = styled.div`
+    > div {
+        margin-bottom: 0px;
+    }
+
+    &&.lift-notification > div {
+        margin-bottom: 30px;
+    }
+`;
 
 const Popup = styled.div`
     position: fixed;    
-    width: 100%;
-    top: 95px;
-    left: 50%;
+    width: ${props => props.position === 'left' ? '190px' : '100%'};
+    top: ${props => props.position === 'left' ? 'auto' : '95px'};
+    left: ${props => props.position === 'left' ? '70px' : '50%'};
+    bottom: ${props => props.position === 'left' ? '20px' : 'auto'};
     padding: 15px;
     z-index: 997;
     box-sizing: border-box;
@@ -17,17 +26,28 @@ const Popup = styled.div`
 
     &&.show-notification {
         opacity: 1;
-        transform: translate(-50%, 0);
-        transition: transform ease-in-out 0.3s 0s, opacity 0.5s 0.2s;
+        transform: ${props => props.position === 'left' ? 'translate(0, 0)' : 'translate(-50%, 0)'};
+        transition: transform ease-in-out 0s 0s, opacity 0.5s 0.2s, margin-bottom 0.1s;
     }
 
     &&.hide-notification {
-        transform: translate(-50%, -200px);
-        transition: transform ease-in-out 0.3s 0s, opacity 0.2s;
+        transform: ${props => props.position === 'left' ? 'translate(0, 0)' : 'translate(-50%, -200px)'};
+        transition: transform ease-in-out 0s 0.3s, opacity 0.3s, margin-bottom 0.1s;
     }
       
 
     @media(max-width: 989px) {
+        width: 100%;
+        top: 95px;
+        left: 50%;
+        bottom: auto;
+
+        &&.show-notification {
+            opacity: 1;
+            transform: translate(-50%, 0);
+            transition: transform ease-in-out 0s 0s, opacity 0.5s 0.2s, margin-bottom 0.1s;
+        }
+
         &&.hide-notification {
             transform: translate(-50%, -200px);
         }
@@ -72,7 +92,7 @@ const Close = styled.div`
 
 const Text = styled.div`
 
-    .palatino-small {
+    .palatino-x-small {
         margin-top: 15px;
     }
 
@@ -92,6 +112,7 @@ let timeout = null
 const Component = () => {
     let [displayNotification, setDisplayNotification] = useState(false)
     let [notificationMessage, setNotificationMessage] = useState('')
+    let [notificationPosiition, setNotificationPosition] = useState('left')
 
     //Context
     const context = useContext(store);
@@ -103,7 +124,14 @@ const Component = () => {
         if(state.notificationMessage === '') {
             setDisplayNotification(false)
         } else {
+            if(state.notificationMessage === 'Share the awareness!<br />We all have the power to make positive changes for the world we share.') {
+                setNotificationPosition('left')
+            } else {
+                setNotificationPosition('top')
+            }
+
             setNotificationMessage(state.notificationMessage)
+
             setDisplayNotification(true)
 
             timeout = setTimeout(() => {
@@ -119,15 +147,15 @@ const Component = () => {
     
 
     return (
-        <Container>
+        <Container className='notification'>
             {/* <Overlay onClick={() => setDisplayNotification(false)} className={displayNotification ? 'show-overlay' : 'hide-overlay'}/> */}
-            <Popup className={displayNotification ? 'show-notification container-background max-width-header' : 'hide-notification container-background max-width-header'}>
+            <Popup position={notificationPosiition} className={displayNotification ? 'show-notification container-background max-width-header' : 'hide-notification container-background max-width-header'}>
                 {/* <Close onClick={() => setDisplayNotification(false)} className='p'>Close</Close> */}
                 <Text>
                     <p className='medium-text' 
                         dangerouslySetInnerHTML={{__html: notificationMessage}}
                     />
-                    <p className='palatino-small'>Link copied to your clipboard</p>
+                    <p className='palatino-x-small'>Link copied to your clipboard</p>
                 </Text>
             </Popup>
         </Container>

@@ -127,6 +127,8 @@ export default function Component({ item, data }) {
       controls.start({ x: '-45%', y: '-50%'})
 
       gsap.fromTo(dragElementRef.current.children[0],{y: 0}, {y: -5 , duration: 0.5, yoyo: true, ease: "power1.inOut", repeat: -1});
+
+      dragElementRef.current.removeAttribute('tabindex')
     }, [])
 
     useEffect(() => {
@@ -213,6 +215,11 @@ export default function Component({ item, data }) {
     }, 30)
   }
 
+  let mouseOverForce = (index) => {
+    mouseOverIndex.current = index
+    onDragEnd()
+  }
+
   useEffect(() => {
       if(hasInteracted) {
           dispatch({type: "update progress", value: state.progress += 1})
@@ -236,6 +243,7 @@ export default function Component({ item, data }) {
             </Text>
             <InnerContainer className='inner-container'>
                 <DragElement
+                  aria-hidden='true'
                   ref={dragElementRef}
                   onClick={(e) => {clicked(e)}}
                   onPointerDown={(e) => e.target.releasePointerCapture(e.pointerId)}
@@ -267,6 +275,7 @@ export default function Component({ item, data }) {
                       hasInteracted={hasInteracted} 
                       isDragging={isDragging}
                       mouseOver={(index) => toggleMouseOver(index)}
+                      mouseOverForce={(index) => mouseOverForce(index)}
                       />)
                 }
             </InnerContainer>

@@ -47,7 +47,7 @@ const AvatarWrapper = styled.div`
         position: absolute;
         bottom: 0;
         width: fit-content;
-        margin-bottom: 50px;
+        margin-bottom: 10px;
     }
 
     @media(max-height: 600px) and (max-width: 576px) {
@@ -60,7 +60,7 @@ const Title = styled.h1`
     margin: 0 var(--margin);
 
     @media(min-width: 989px) {
-        max-width: 45%;
+        max-width: 50%;
     }
 
     @media(max-width: 989px) {
@@ -163,7 +163,7 @@ export default function Component({ item, data }) {
         <Container ref={containerRef} height={screenHeight}>
             <Title>{data.intro.title}</Title>
             <AvatarWrapper data={data}>
-                <AvatarSpeech avatar={data.avatar} data={data} text={data.intro.text} disableInView={true} activate={showSpeech} toggleFinished={() => {}}/>
+                <AvatarSpeech avatarCrop={data.avatarCrop} avatar={data.avatar} data={data} text={data.intro.text} disableInView={true} activate={showSpeech} toggleFinished={() => {}}/>
             </AvatarWrapper>
             <ButtonWrapper 
                 ref={buttonWrapperRef}

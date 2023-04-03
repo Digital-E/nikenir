@@ -194,7 +194,6 @@ const RewardWrapper = styled(motion.div)`
 const StickyWrapper = styled.div`
     position: relative;
     z-index: 1;
-    // margin: -50px 0 0 0;
 
     @media(min-width: 990px) {
         margin: -200px auto 0 auto;
@@ -224,7 +223,7 @@ const ArrowContainer = styled(motion.div)`
     }
 `
 
-const Arrow = styled.div`
+const Arrow = styled.button             `
     text-align: center;
     cursor: pointer;
 
@@ -381,7 +380,7 @@ export default function Component({ data, unlock }) {
             variants={arrowVariants}
             animate={arrowReveal ? 'show' : 'hide'}
             onClick={() => scrollDown()}>
-                <Arrow ref={arrowRef}>
+                <Arrow ref={arrowRef} aria-label='press the arrow button to move forward'>
                     <img src={`${process.env.basePath}/images/icons/ui-arrow-20.svg`} />
                 </Arrow>
             </ArrowContainer> 

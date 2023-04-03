@@ -10,6 +10,7 @@ import Slices from '../components/slices'
 
 // Images
 import avatarImage from '../public/images/avatars/carousel/ines/ines-0.png'
+import avatarImageCrop from '../public/images/avatars/character-intro/ines.png'
 import avatarImageTwo from '../public/images/avatars/praise/ines.png'
 
 const Container = styled.div``
@@ -19,6 +20,7 @@ let data = {
     name: 'Ines',
     role: 'People Promoter',
     avatar: avatarImage,
+    avatarCrop: avatarImageCrop,
     avatarMiniature: `${process.env.basePath}/images/avatars/miniature/ines.png`,
     colourOne: '#FFB800',
     colourTwo: '#F05822',
@@ -46,8 +48,8 @@ let data = {
           bubbleBottom: 75,
           bubbleLeft: 30,
           bubbleRight: -26.3,
-          avatarWidth: 70,
-          avatarLeft: -30,
+          avatarWidth: 68,
+          avatarLeft: -15,
           avatarBottom: -5,
         }
     },
@@ -93,11 +95,11 @@ let data = {
             type: 'question',
             number: '2/4',
             title: 'Win win',
-            text: 'Time to pick a new roller derby team. You wonder if there’s a winning formula. Is this about team spirit or team balance?'
+            text: 'Time to pick a new dance squad. You wonder if there’s a winning formula. Is this about team spirit or team balance?'
         },
         {
             type: 'drag',
-            title: 'Drag the roller-skate into the box',
+            title: 'Drag the boombox into the box',
             img: `${process.env.basePath}/images/people-promoter/objects/People_Q2_crop.png`,
             squares: [
               {
@@ -242,23 +244,23 @@ let data = {
         title: 'Want to know more?',
         links: [
           {
-            label: 'Read more about Nike’s diversity, equity, and inclusion work:',
+            label: 'Read more about Nike’s diversity, equity, and inclusion work',
             url: 'https://about.nike.com/en/impact/focus-areas/diversity-equity-inclusion'
           },
           {
-            label: 'Mental Health Program:',
+            label: 'Read more about Nike’s Mental Health Program',
             url: 'https://about.nike.com/en/impact/initiatives/building-and-investing-in-our-teams'
           },
           {
-            label: 'Employee Resource Groups:',
+            label: 'Find out about Nike’s Employee Resource Groups',
             url: 'https://jobs.nike.com/diversity-and-inclusion'
           },
           {
-            label: 'Serena Williams Design Crew:',
+            label: 'Learn more about the Serena Williams Design Crew',
             url: 'https://www.nike.com/a/serena-williams-design-crew-origin'
           },
           {
-            label: 'Nike Inc. Black Community Commitment:',
+            label: 'Read about the Nike Inc. Black Community Commitment',
             url: 'https://about.nike.com/en/newsroom/releases/nike-inc-black-community-commitment-2023'
           },
         ],
@@ -293,8 +295,10 @@ export default function Component() {
 
     if(window.scrollY > height - window.innerHeight - 55) {
       document.querySelector('.sidebar').classList.add('lift-sidebar')
+      document.querySelector('.notification').classList.add('lift-notification')
     } else {
       document.querySelector('.sidebar').classList.remove('lift-sidebar')
+      document.querySelector('.notification').classList.remove('lift-notification')
     }         
   }  
 

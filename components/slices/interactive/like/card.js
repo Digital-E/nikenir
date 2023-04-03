@@ -21,7 +21,7 @@ const Image = styled.div`
     }
 `
 
-const Container = styled(motion.div)`
+const Container = styled(motion.button)`
     position: relative;
     display: flex;
     flex-direction: column;
@@ -30,6 +30,7 @@ const Container = styled(motion.div)`
     width: calc(50% - calc(var(--margin) * 2 - 8px));
     padding-bottom: calc(50% - calc(var(--margin) * 2 - 6px));
     margin: 0 calc(var(--margin) / 2);
+    background: transparent;
 
     * {
         cursor: pointer;
@@ -95,15 +96,12 @@ const Title = styled.h3`
     padding: var(--padding);
 `
 
-
-let imageVariants
-
 export default function Component({ data, index, allItems, hasClicked, hasInteracted }) {
 
     const controls = useAnimationControls();
 
     let clicked = (e) => {
-        controls.start({ scale: 2 })
+        controls.start({ scale: 1.3 })
         setTimeout(() => {
             controls.start({ scale: 1.02 })
             hasClicked(e, index);
@@ -113,6 +111,7 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
 
     return (
         <Container 
+            aria-label='select a box'
             onClick={(e) => {clicked(e)}} 
             transition={{ type: "spring", stiffness: 200, damping: 10 }}
             whileHover={{scale: 1.02}}

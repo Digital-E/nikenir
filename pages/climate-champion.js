@@ -10,6 +10,7 @@ import Slices from '../components/slices'
 
 // Images
 import avatarImage from '../public/images/avatars/carousel/theo/theo-0.png'
+import avatarImageCrop from '../public/images/avatars/character-intro/theo.png'
 import avatarImageTwo from '../public/images/avatars/praise/theo.png'
 
 const Container = styled.div``
@@ -19,6 +20,7 @@ let data = {
     name: 'Theo',
     role: 'Climate Champion',
     avatar: avatarImage,
+    avatarCrop: avatarImageCrop,
     avatarMiniature: `${process.env.basePath}/images/avatars/miniature/theo.png`,
     colourOne: '#C2BCEB',
     colourTwo: '#F05822',
@@ -46,8 +48,9 @@ let data = {
           bubbleBottom: 75,
           bubbleLeft: 25,
           bubbleRight: -25,
-          avatarWidth: 70,
-          avatarLeft: -35,
+          avatarWidth: 63,
+          // avatarLeft: -35,
+          avatarLeft: -16,
           avatarBottom: -5,
         }
     },
@@ -244,23 +247,23 @@ let data = {
         title: 'Want to know more?',
         links: [
           {
-            label: 'Discover more about Nike’s work to help protect the planet:',
+            label: 'Discover more about Nike’s work to help protect the planet',
             url: 'https://about.nike.com/en/impact/focus-areas/protecting-the-planet'
           },
           {
-            label: 'Circular Design Guide:',
+            label: 'Learn more about sustainable design in our Circular Design Guide',
             url: 'https://www.nikecirculardesign.com'
           },
           {
-            label: 'Recycling + Donation:',
+            label: 'Find out more about recycling + donation at Nike',
             url: 'https://www.nike.com/sustainability/recycling-donation'
           },
           {
-            label: 'Repair & Care',
+            label: 'Learn how to maintain and care for your Nike shoes and apparel',
             url: 'https://www.nike.com/product-advice/product-care'
           },
           {
-            label: 'Nike Move To Zero Product:',
+            label: 'Discover Nike Move To Zero Products',
             url: 'https://www.nike.com/sustainability/materials'
           },
         ],
@@ -295,9 +298,11 @@ export default function Component() {
 
     if(window.scrollY > height - window.innerHeight - 55) {
       document.querySelector('.sidebar').classList.add('lift-sidebar')
+      document.querySelector('.notification').classList.add('lift-notification')
     } else {
       document.querySelector('.sidebar').classList.remove('lift-sidebar')
-    }         
+      document.querySelector('.notification').classList.remove('lift-notification')
+    }           
   }  
 
   useEffect(() => {

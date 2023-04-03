@@ -9,6 +9,7 @@ import Layout from '../components/layout'
 import Intro from '../components/intro'
 
 // Images
+import characterOneIntro from '../public/images/avatars/character-intro/ines.png'
 import characterOne1 from '../public/images/avatars/carousel/ines/ines-0.png'
 import characterOne2 from '../public/images/avatars/carousel/ines/ines-1.png'
 import characterOne3 from '../public/images/avatars/carousel/ines/ines-2.png'
@@ -16,6 +17,7 @@ import characterOne4 from '../public/images/avatars/carousel/ines/ines-3.png'
 import characterOne5 from '../public/images/avatars/carousel/ines/ines-4.png'
 import characterOne6 from '../public/images/avatars/carousel/ines/ines-5.png'
 
+import characterTwoIntro from '../public/images/avatars/character-intro/theo.png'
 import characterTwo1 from '../public/images/avatars/carousel/theo/theo-0.png'
 import characterTwo2 from '../public/images/avatars/carousel/theo/theo-1.png'
 import characterTwo3 from '../public/images/avatars/carousel/theo/theo-2.png'
@@ -24,6 +26,7 @@ import characterTwo5 from '../public/images/avatars/carousel/theo/theo-4.png'
 import characterTwo6 from '../public/images/avatars/carousel/theo/theo-5.png'
 
 
+import characterThreeIntro from '../public/images/avatars/character-intro/ivy.png'
 import characterThree1 from '../public/images/avatars/carousel/ivy/ivy-0.png'
 import characterThree2 from '../public/images/avatars/carousel/ivy/ivy-1.png'
 import characterThree3 from '../public/images/avatars/carousel/ivy/ivy-2.png'
@@ -36,18 +39,21 @@ import gradientTwo from '../public/images/carousel-gradients/gradient3.png'
 import gradientThree from '../public/images/carousel-gradients/gradient2.png'
 
 let preloadAssets = [
+  characterOneIntro,
   characterOne1,
   characterOne2,
   characterOne3,
   characterOne4,
   characterOne5,
   characterOne6,
+  characterTwoIntro,
   characterTwo1,
   characterTwo2,
   characterTwo3,
   characterTwo4,
   characterTwo5,
   characterTwo6,
+  characterThreeIntro,
   characterThree1,
   characterThree2,
   characterThree3,
@@ -85,7 +91,6 @@ export default function Home() {
   }, [])
 
   return (
-    // <Layout title={`Nike Impact Report`} content={`Nike Impact Report`}>
     <Layout title={`Nike Impact Game - Your Move`} content={`Alongside the publishing of Nike’s 2022 Impact Report, this is a digital experience that invites youth to engage and imagine a path to a fairer, greener, and healthier future while learning more about how we are creating bigger change.`}>
       <Head>
         {

@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { motion, useAnimationControls } from "framer-motion"
 import styled from 'styled-components'
 
-const Container = styled(motion.div)`
+const Container = styled(motion.button)`
     position: relative;
     height: 100%;
     width: calc(50% - calc(var(--margin) * 2 - 8px));
@@ -19,6 +19,7 @@ const Container = styled(motion.div)`
 
 const InnerContainer = styled(motion.div)`
     position: absolute;
+    left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -359,6 +360,7 @@ export default function Component({ data, index, allItems, hasClicked, dataAll }
 
     return (
         <Container 
+            aria-label='select a box'
             className='max-width'
             onClick={(e) => {clicked(e)}} 
             onPointerDown={(e) => e.target.releasePointerCapture(e.pointerId)}

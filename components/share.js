@@ -8,7 +8,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { store } from '../store'
 
 
-const Container = styled(motion.div)`
+const Container = styled(motion.button)`
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -71,6 +71,7 @@ const Component = ({ link, children, currentPageLink }) => {
                 transition={{ type: "spring", stiffness: 200, damping: 10 }}
                 whileHover={{scale: 1.02}}
                 animate={controls}
+                aria-label="click to copy link to clipboard"
             >
                 <img src={`${process.env.basePath}/images/icons/share.svg`} />
             </Container>

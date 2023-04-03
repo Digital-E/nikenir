@@ -10,6 +10,7 @@ import Slices from '../components/slices'
 
 // Images
 import avatarImage from '../public/images/avatars/carousel/ivy/ivy-0.png'
+import avatarImageCrop from '../public/images/avatars/character-intro/ivy.png'
 import avatarImageTwo from '../public/images/avatars/praise/ivy.png'
 
 const Container = styled.div``
@@ -19,6 +20,7 @@ let data = {
     name: 'Ivy',
     role: 'Active Advocate',
     avatar: avatarImage,
+    avatarCrop: avatarImageCrop,
     avatarMiniature: `${process.env.basePath}/images/avatars/miniature/ivy.png`,
     colourOne: '#A2D8EF',
     colourTwo: '#F05822',
@@ -46,8 +48,8 @@ let data = {
           bubbleBottom: 75,
           bubbleLeft: 25,
           bubbleRight: -25,
-          avatarWidth: 73,
-          avatarLeft: -28,
+          avatarWidth: 68,
+          avatarLeft: -15,
           avatarBottom: -7,
         }
     },
@@ -237,15 +239,15 @@ let data = {
         title: 'Want to know more?',
         links: [
           {
-            label: 'Made to Play:',
+            label: 'Discover more about the power of coaching through Nike’s Made to Play',
             url: 'https://www.nike.com/made-to-play'
           },
           {
-            label: 'Find out how Nike is helping more girls find joy and belonging in sport:',
+            label: 'Find out how Nike is helping more girls find joy and belonging in sport',
             url: 'https://www.nike.com/made-to-play/coach'
           },
           {
-            label: 'Give Your Best:',
+            label: 'Discover more about how Nike support their employees with Give Your Best',
             url: 'https://about.nike.com/en/impact/initiatives/matching-our-employees-impact'
           }
         ],
@@ -280,9 +282,11 @@ export default function Component() {
 
     if(window.scrollY > height - window.innerHeight - 55) {
       document.querySelector('.sidebar').classList.add('lift-sidebar')
+      document.querySelector('.notification').classList.add('lift-notification')
     } else {
       document.querySelector('.sidebar').classList.remove('lift-sidebar')
-    }         
+      document.querySelector('.notification').classList.remove('lift-notification')
+    }          
   }  
 
   useEffect(() => {

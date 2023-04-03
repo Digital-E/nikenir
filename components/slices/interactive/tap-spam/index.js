@@ -145,7 +145,7 @@ export default function Component({ item, data }) {
             className={hasInteracted ? 'clicked mtb-2 max-width-2' : 'mtb-2 max-width-2'}
         >
             <Text className='text-one mtb-2 palatino-x-small'>
-                <span>Tap spam to make your choice</span>
+                <span>Multiple tap to make your choice</span>
             </Text>
             <InnerContainer className='inner-container'>
                 {

@@ -68,6 +68,9 @@ export default function Component({ data }) {
             // canvas.width = window.innerWidth * window.devicePixelRatio
             // canvas.height = window.innerHeight * window.devicePixelRatio
 
+            let copyAllCircles = allCircles.current
+            copyAllCircles.forEach((item, index) => item.rad = (window.innerWidth > 989 ? window.innerWidth / 7 : 200))
+
             canvas.width = innerWidth;
             canvas.height = innerHeight;
             canvas.style.width = window.innerWidth + 'px'
@@ -147,7 +150,7 @@ export default function Component({ data }) {
             let circle = new Circle(
                 initPosition, 
                 initVelocity, 
-                200,
+                window.innerWidth > 989 ? window.innerWidth / 7 : 200,
                 item.color
             );
 

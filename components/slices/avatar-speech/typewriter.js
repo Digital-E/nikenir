@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react"
 import ClientOnlyPortal from './clientOnlyPortal'
 import styled from "styled-components"
 
+import DotTyping from './dot-typing'
+
 const Container = styled.div`
     position: relative;
     box-sizing: border-box;
@@ -84,10 +86,27 @@ const Cursor = styled.div`
     }
 `
 
-const Replay = styled.div`
+const CursorWrapper = styled.div`
+    position: absolute;
+    transition: opacity 0.3s;
+
+    &.typing {
+        opacity: 0;
+        transition: opacity 0s;
+    }
+
+    &.hide {
+        opacity: 0;
+        transition: opacity 0s;
+    }
+`
+
+
+const Replay = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
     right: 13px;
     z-index: 999;
     font-family: helvetica;
@@ -153,7 +172,7 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
     
     let [renderPortal, setRenderPortal] = useState(false)
 
-    let cursorActive = false;
+    let cursorActive = true;
 
     let hasTriggeredAutoReset = false;
 
@@ -191,29 +210,30 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
 
             if(typeWriterRef.current?.children[letterIndex.current] !== undefined) {
                 
-                // if(cursorActive) {
-                //     cursorRef.current.style.left = `${typeWriterRef.current.children[letterIndex.current].getBoundingClientRect().x + typeWriterRef.current.children[letterIndex.current].getBoundingClientRect().width - typeWriterRef.current.children[0].getBoundingClientRect().x}px`
-                //     cursorRef.current.style.top = `${typeWriterRef.current.children[letterIndex.current].getBoundingClientRect().y - typeWriterRef.current.children[0].getBoundingClientRect().y}px`
-                // }
+                if(cursorActive) {
+                    cursorRef.current.style.left = `${typeWriterRef.current.children[letterIndex.current].getBoundingClientRect().x + typeWriterRef.current.children[letterIndex.current].getBoundingClientRect().width - typeWriterRef.current.children[0].getBoundingClientRect().x}px`
+                    cursorRef.current.style.top = `${typeWriterRef.current.children[letterIndex.current].getBoundingClientRect().y - typeWriterRef.current.children[0].getBoundingClientRect().y}px`
+                }
 
                 typeWriterRef.current.children[letterIndex.current].classList.add("reveal-letter")
 
-                // cursorRef.current?.classList.add("typing")
+                cursorRef.current?.classList.add("typing")
 
             }
             
             letterIndex.current +=1;
         } else {
-            // cursorRef.current?.classList.remove("typing")
+            cursorRef.current?.classList.remove("typing")
 
             if(sentenceIndex.current === data.length - 1 ) {
+                cursorRef.current?.classList.add("typing")
                 clearInterval(interval.current)
                 return toggleFinishedFunc()
             }
 
             newSentenceTimeout.current = setTimeout(() => {
                 if(cursorRef.current === null || typeWriterRef.current === null ) return
-                // cursorRef.current.classList.add('hide');
+                cursorRef.current.classList.add('hide');
 
                 typeWriterRef.current.classList.add('hide');
 
@@ -223,7 +243,7 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
                 sentenceIndex.current += 1;
                 
                 typeWriterRef.current.classList.remove('hide');
-                // cursorRef.current.classList.remove('hide');
+                cursorRef.current.classList.remove('hide');
 
                 newSentenceTimeout.current = null;
 
@@ -243,7 +263,7 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
 
         if(!auto) bump();
 
-        // cursorRef.current.classList.add('hide');
+        cursorRef.current.classList.add('hide');
 
         if(replayTimeout.current !== null) return;
 
@@ -270,7 +290,7 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
 
             typeWriterRef.current.classList.remove('hide');
 
-            // cursorRef.current.classList.remove('hide');
+            cursorRef.current.classList.remove('hide');
 
             init();
 
@@ -298,7 +318,7 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
     useEffect(() => {
         if(start) {
             setTriggerInit(true)
-            // cursorRef.current.classList.remove('hide')
+            cursorRef.current.classList.remove('hide')
         }
     }, [start])
 
@@ -313,8 +333,8 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
             if(typeWriterRef.current === null) return
             if(typeWriterRef.current.children[letterIndex.current - 2] === undefined) return;
 
-            // cursorRef.current.style.left = `${typeWriterRef.current.children[letterIndex.current - 2].getBoundingClientRect().x + typeWriterRef.current.children[letterIndex.current - 2].getBoundingClientRect().width}px`
-            // cursorRef.current.style.top = `${typeWriterRef.current.children[letterIndex.current - 2].getBoundingClientRect().y - typeWriterRef.current.children[letterIndex.current - 2].getBoundingClientRect().height / 2}px`
+            cursorRef.current.style.left = `${typeWriterRef.current.children[letterIndex.current - 2].getBoundingClientRect().x + typeWriterRef.current.children[letterIndex.current - 2].getBoundingClientRect().width}px`
+            cursorRef.current.style.top = `${typeWriterRef.current.children[letterIndex.current - 2].getBoundingClientRect().y - typeWriterRef.current.children[letterIndex.current - 2].getBoundingClientRect().height / 2}px`
         })
 
         setRenderPortal(true)
@@ -331,6 +351,9 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
         <TextWrapper ref={containerRef}>
             <Text ref={typeWriterRef} />
         </TextWrapper>
+        <CursorWrapper ref={cursorRef} className="hide">
+            <DotTyping />
+        </CursorWrapper>
         {/* <Cursor ref={cursorRef} className="hide" /> */}
       </Container>
       {

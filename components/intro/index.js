@@ -92,20 +92,36 @@ const ArrowContainer = styled(motion.div)`
     }
 `
 
-const Arrow = styled.div`
+const Arrow = styled.button`
     text-align: center;
     cursor: pointer;
+
+    > img {
+        cursor: pointer; 
+    }
+`
+
+const TextWrapper = styled(motion.div)`
+    text-align: center;
+    max-width: 370px;
+    margin: 0 auto;
+
+    @media(max-width: 989px) {
+        max-width: 275px;
+    }
+`
+
+const TitleTwo = styled(motion.h2)`
+    font-size: 50px;
+    margin-bottom: 30px;
 `
 
 const Text = styled(motion.div)`
     text-align: center;
     font-size: 32px;
-    max-width: 350px;
-    margin: 0 auto;
 
     @media(max-width: 989px) {
         font-size: 25px;
-        max-width: 275px;
     }
 `
 
@@ -580,11 +596,6 @@ const Component = () => {
                 variants={slideOneAnimation} 
                 className='intro-center-one'>
                     <Title className='large-headline ml15'>
-                        {/* <span class="word">ARE</span> 
-                        <span class="word">YOU</span>
-                        <span class="word">GAME</span> 
-                        <span class="word">FOR</span> 
-                        <span class="word">CHANGE?</span>  */}
                         ARE YOU GAME FOR CHANGE?
                     </Title>
                     {
@@ -592,17 +603,20 @@ const Component = () => {
                     }
                 </Center>
                 <ArrowContainer variants={slideOneAnimation}>
-                    <Arrow ref={arrowRef}>
+                    <Arrow onClick={() => triggerSlide("down")} ref={arrowRef} aria-label='press the arrow button to move forward'>
                         <img src={`${process.env.basePath}/images/icons/ui-arrow-20.svg`} />
                     </Arrow>
                 </ArrowContainer> 
             </Slide>
             <Slide initial='hide' variants={slideTwoAnimationParent} animate={slideIndexState === 1 ? 'show' : 'hide'} height={screenHeight}>
                 <Center>
-                    <Text className='palatino-medium' variants={slideTwoAnimation}>
-                        Your Move lets you plot a path to a fairer, greener, and healthier future.
-                    </Text>
-                    <ButtonWrapper variants={slideTwoAnimation}>
+                    <TextWrapper>
+                        <TitleTwo>YOUR MOVE</TitleTwo>
+                        <Text className='palatino-medium'>
+                            Plot a path to a fairer, greener, and healthier future.
+                        </Text>
+                    </TextWrapper>
+                    <ButtonWrapper>
                         <ButtonLink href='/pick-your-player'>Let's Play!</ButtonLink>
                     </ButtonWrapper>
                 </Center>

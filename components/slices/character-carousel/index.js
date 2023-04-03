@@ -79,7 +79,6 @@ const Card = styled(motion.div)`
     height: calc(33.333vw * 1.15);
     width: 100%;
     margin: 40px 10px 40px 10px;
-    padding: 0 0 30px 0;
     border-radius: 27px;
 
     background-size: cover;
@@ -97,12 +96,17 @@ const Card = styled(motion.div)`
         justify-content: space-between;
         align-items: space-between;
         width: 100%;
+        padding: 0 0 30px 0;
+        outline-offset: -10px;
     }
 
     transition: filter 0.7s;
 
     @media(min-width: 990px) {
-        padding: 0 0 1.735vw 0;
+
+        a {
+            padding: 0 0 1.735vw 0;  
+        }
 
         &.blur {
             filter: blur(10px);
@@ -152,7 +156,10 @@ const Card = styled(motion.div)`
 
     @media(min-width: 1690px) {
         height: 647.82px;
-        padding: 0  0 45.9144px 0;
+
+        a {
+            padding: 0  0 45.9144px 0;
+        }
     }
     
     max-width: 472px;
@@ -175,7 +182,7 @@ const Title = styled.div`
     top: 30px;
 
     > h2:first-child {
-        color: gray;
+        color: #707070;
     }
 
     h2 {

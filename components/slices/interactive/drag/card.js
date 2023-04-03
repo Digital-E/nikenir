@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { motion, useAnimationControls } from "framer-motion"
 import styled from 'styled-components'
 
-const Container = styled(motion.div)`
+const Container = styled(motion.button)`
     position: relative;
     display: flex;
     flex-direction: column;
@@ -29,12 +29,14 @@ const Title = styled.h3`
     text-align: center;
 `
 
-export default function Component({ data, index, allItems, hasClicked, hasInteracted, isDragging, mouseOver }) {
+export default function Component({ data, index, allItems, hasClicked, hasInteracted, isDragging, mouseOver, mouseOverForce }) {
 
     return (
         <Container
             onPointerEnter={() => mouseOver(index)}
             onPointerLeave={() => mouseOver(null)}
+            onClick={() => mouseOverForce(index)}
+            aria-label='select a box'
             // onPointerEnter={() => console.log("enter")}
             // onPointerLeave={() => console.log("leave")}
         >
