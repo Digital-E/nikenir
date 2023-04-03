@@ -5,17 +5,17 @@ const Container = styled.div`
     #wave {
         position:relative;
         text-align:center;
-        width:40px;
+        width:30px;
         height:20px;
         margin-left: auto;
         margin-right: auto;
 
         .dot {
             display:inline-block;
-            width:5px;
-            height:5px;
-            border-radius:50%;
-            margin-right:3px;
+            width:2px;
+            height:2px;
+            // border-radius:50%;
+            margin-right:2px;
             background:#303131;
             animation: wave 1.3s linear infinite;
 

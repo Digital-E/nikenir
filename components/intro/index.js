@@ -93,8 +93,10 @@ const ArrowContainer = styled(motion.div)`
 `
 
 const Arrow = styled.button`
+    position: relative;
     text-align: center;
     cursor: pointer;
+    left: 50%;
 
     > img {
         cursor: pointer; 
