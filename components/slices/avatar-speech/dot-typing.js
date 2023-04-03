@@ -17,14 +17,22 @@ const Container = styled.div`
             // border-radius:50%;
             margin-right:2px;
             background:#303131;
-            animation: wave 1.3s linear infinite;
+            // animation: wave 1.3s linear infinite;
+            animation: wave 1.5s linear infinite;
+
+            &:nth-child(1) {
+                // animation-delay: -1.1s;
+                animation-delay: 0s;
+            }
 
             &:nth-child(2) {
-                animation-delay: -1.1s;
+                // animation-delay: -1.1s;
+                animation-delay: 0.5s;
             }
 
             &:nth-child(3) {
-                animation-delay: -0.9s;
+                // animation-delay: 2s;
+                animation-delay: 1s;
             }
         }
     }
@@ -35,7 +43,7 @@ const Container = styled.div`
         }
 
         30% {
-            transform: translateY(-8px);
+            transform: translateY(-4px);
         }
     }
 `
