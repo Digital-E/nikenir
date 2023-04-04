@@ -11,10 +11,15 @@ const Image = styled.div`
 
     img {
         position: absolute;
+        left: 0;
+        top: 0;
         width: 100%;
     }
 
     img:nth-child(2) {
+        position: absolute;
+        left: 0;
+        top: 0;
         opacity: 0;
         transform: scale(0);
         transition: transform 0.5s, opacity 0.3s;
