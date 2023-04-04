@@ -65,9 +65,9 @@ export default function Component({ item, data }) {
         </RowOne>
 
         <RowTwo>
-            <Text className='body-large'>
-                {item.text}
-            </Text>
+            <Text className='body-large' 
+                dangerouslySetInnerHTML={{__html: item.text}}
+            />
         </RowTwo>
         </Container>
     )

@@ -51,7 +51,7 @@ const AvatarWrapper = styled.div`
     }
 
     @media(max-height: 600px) and (max-width: 576px) {
-        bottom: -30vw
+        // bottom: -30vw
     }
 `
 

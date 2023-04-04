@@ -5,9 +5,9 @@ const Container = styled.div`
     #wave {
         position:relative;
         text-align:center;
-        width:30px;
+        width:20px;
         height:20px;
-        margin-left: auto;
+        margin-left: -1px;
         margin-right: auto;
 
         .dot {
@@ -38,12 +38,16 @@ const Container = styled.div`
     }
 
     @keyframes wave {
-        0%, 60%, 100% {
-            transform: initial;
+        0% {
+            opacity: 0
         }
 
-        30% {
-            transform: translateY(-4px);
+        50% {
+            opacity: 1
+        }
+
+        100% {
+            opacity: 0
         }
     }
 `

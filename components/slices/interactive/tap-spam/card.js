@@ -10,6 +10,7 @@ const Container = styled(motion.button)`
     margin: 0 calc(var(--margin) / 2);
     z-index: 0;
     cursor: pointer;
+    border-radius: 27px;
 
     * {
         cursor: pointer; 

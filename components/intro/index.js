@@ -114,7 +114,7 @@ const TextWrapper = styled(motion.div)`
 `
 
 const TitleTwo = styled(motion.h2)`
-    font-size: 50px;
+    // font-size: 50px;
     margin-bottom: 30px;
 `
 
@@ -286,25 +286,24 @@ let characters = [
 let basePath = process.env.basePath
 
 let bubbles = [
-    `${basePath}/images/people-promoter/objects/People_Q1_02.png`,
-    `${basePath}/images/people-promoter/objects/People_Q1.png`,
-    `${basePath}/images/people-promoter/objects/People_Q2.png`,
-    `${basePath}/images/people-promoter/objects/People_Q3_Object_01.png`,
-    `${basePath}/images/people-promoter/objects/People_Q3_Object_02.png`,
-    `${basePath}/images/people-promoter/objects/People_Q4.png`,
+    // Football
     `${basePath}/images/active-activist/objects/Play_Q1.png`,
-    `${basePath}/images/active-activist/objects/Play_Q2_02.png`,
+    // Boombox
+    `${basePath}/images/people-promoter/objects/People_Q2.png`,    
+    // Air Force
+    `${basePath}/images/people-promoter/objects/People_Q1.png`,    
+    // Sportsbra
     `${basePath}/images/active-activist/objects/Play_Q2.png`,
-    `${basePath}/images/active-activist/objects/Play_Q3.png`,
+    // Vest
+    `${basePath}/images/active-activist/objects/Play_Q2_02.png`, 
+    // Flag
+    `${basePath}/images/active-activist/objects/Play_Q4.png`,       
+    // Whistle
     `${basePath}/images/active-activist/objects/Play_Q3_01.png`,
-    `${basePath}/images/active-activist/objects/Play_Q4.png`,
-    `${basePath}/images/climate-champion/objects/Planet_Q1.png`,
-    `${basePath}/images/climate-champion/objects/Planet_Q2_Object_01_02.png`,
-    `${basePath}/images/climate-champion/objects/Planet_Q2_02.png`,
-    `${basePath}/images/climate-champion/objects/Planet_Q3_Object_01.png`,
-    `${basePath}/images/climate-champion/objects/Planet_Q3_Object_02.png`,
-    `${basePath}/images/climate-champion/objects/Planet_Q4_02.png`,
-    `${basePath}/images/climate-champion/objects/Planet_Q4.png`,
+    // Trail
+    `${basePath}/images/climate-champion/objects/Planet_Q1.png`,    
+    // Medal
+    `${basePath}/images/people-promoter/objects/People_Q4.png`,
 ]
 
 let bubblesDisplayArrayInit =  [

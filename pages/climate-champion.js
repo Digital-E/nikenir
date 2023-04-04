@@ -30,23 +30,24 @@ let data = {
     intro: {
         title: 'TO PROTECT THE PLANET AND THOSE WHO WILL INHERIT IT IS A MOVE WE CAN MAKE TOGETHER.',
         text: [
-          'The choices and actions we take right now will make all the difference for the next generation.',
-          'Oh, hey, I’m Theo, I really care about our big blue ball! There are so many significant things we can do as individuals, families, and communities to help move the climate dial.',
-          'No time like the present! Let’s imagine three scenarios. Then you decide what you would do in each case.',
+          'The choices and actions we take right now will make all the difference for the next generation',
+          'Oh, hey, I’m Theo, I really care about our big blue ball!',
+          'There are so many significant things we can do as individuals, families, and communities to help move the climate dial',
+          'No time like the present! Let’s imagine three scenarios. Then you decide what you would do in each case',
           'Don’t worry, there are no wrong answers. Only progress!'
         ],
         desktop: {
           // bubbleBottom: 29,
           // bubbleLeft: 17,
-          bubbleBottom: 85,
+          bubbleBottom: 83,
           bubbleLeft: 70,
           avatarWidth: 24,
           avatarHeight: 70,
           avatarBottom: 50
         },
         mobile: {
-          bubbleBottom: 75,
-          bubbleLeft: 25,
+          bubbleBottom: 34,
+          bubbleLeft: 35,
           bubbleRight: -25,
           avatarWidth: 63,
           // avatarLeft: -35,
@@ -59,11 +60,11 @@ let data = {
             type: 'question',
             number: '1/4',
             title: 'The good buy',
-            text: 'You care about your planet a lot but also kind of need a new pair of sneakers. You choose to…'
+            text: 'You care about your planet a lot but also kind of need a new pair of sneakers.<br/>You choose to…'
         },
         {
             type: 'drag',
-            title: 'Drag the shoe into the answer box',
+            title: 'Drag the sneaker into a box',
             img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q1_crop.png`,
             squares: [
               {
@@ -94,7 +95,7 @@ let data = {
             type: 'question',
             number: '2/4',
             title: 'MOVE TO CIRCULAR',
-            text: 'You decide it’s time to curate your wardrobe, but don’t want to add to the landfill. Will you…'
+            text: 'You decide it’s time to curate your wardrobe, but don’t want to add to the landfill.<br/>Will you…'
         },
         {
             type: 'scratch',
@@ -134,7 +135,7 @@ let data = {
             type: 'question',
             number: '3/4',
             title: 'FRESH WHEELS',
-            text: 'You wake up early on Saturday for football practice. You open the curtains, and the sky has never looked so blue. You see the car in the driveway and decide to make a change. Do you…'
+            text: 'You wake up early on Saturday for football practice. You open the curtains, and the sky has never looked so blue. You see the car in the driveway and decide to make a change.<br/>Do you…'
         },  
         {
             type: 'tap spam',
@@ -170,7 +171,7 @@ let data = {
           type: 'question',
           number: '4/4',
           title: 'BEACHCOMBER',
-          text: 'You and your team flop on the sand after a great practice on the beach. You sit and watch the gentle waves. A plastic bottle floats to shore. The next words from your mouth are:'
+          text: 'You and your team flop on the sand after a great practice on the beach. You sit and watch the gentle waves. A plastic bottle floats to shore.<br/>The next words from your mouth are:'
         },
         {
           type: 'scratch',
@@ -209,13 +210,13 @@ let data = {
     ],
     pause: {
       title: 'Not so quick !',
-      text: ['Answer all the questions to advance!']
+      text: ['Answer all the questions to advance! ']
     },
     complete: {
       praise: {
         title: 'WE DID IT!',
         text: [
-          'We did it! Feel lighter somehow? Complete, like a circle?',
+          'We did it! Feel lighter somehow? Complete, like a circle? ',
           'Goes to show. How these acts of thoughtfulness can come to mean so much.'
         ],
         avatar: avatarImageTwo,

@@ -30,23 +30,24 @@ let data = {
     intro: {
         title: 'EVERYONE SHOULD EXPERIENCE THE JOY OF MOVEMENT. GIRLS INCLUDED.',
         text: [
-          'The decisions we make now can shape a future where everyone belongs.',
-          'Oh, hey, I’m Ivy, I just love to move! Did you know, girls drop out of sports at twice the rate of boys? And it just doesn’t need to be this way. There’s so much we can do to level the playing field.',
-          'Hey, why not start right now? Let’s imagine three scenarios. Then you decide what you would do in each case.',
+          'The decisions we make now can shape a future where everyone belongs',
+          'Oh, hey, I’m Ivy, I just love to move! Did you know, girls drop out of sports at twice the rate of boys? ',
+          'And it just doesn’t need to be this way. There’s so much we can do to level the playing field',
+          'Hey, why not start right now? Let’s imagine three scenarios. Then you decide what you would do in each case',
           'Don’t worry, there are no wrong answers. Only progress!'
         ],
         desktop: {
           // bubbleBottom: 28,
           // bubbleLeft: 15,
-          bubbleBottom: 84,
+          bubbleBottom: 80,
           bubbleLeft: 62,
           // avatarWidth: 24
           avatarHeight: 77,
           avatarBottom: 0
         },
         mobile: {
-          bubbleBottom: 75,
-          bubbleLeft: 25,
+          bubbleBottom: 40,
+          bubbleLeft: 35,
           bubbleRight: -25,
           avatarWidth: 68,
           avatarLeft: -15,
@@ -58,7 +59,7 @@ let data = {
             type: 'question',
             number: '1/4',
             title: 'MOVE AS ONE',
-            text: 'You never thought of yourself as into sports. But a friend invited you to play one time and something made you want to come back. Was it…'
+            text: 'You never thought of yourself as into sports. But a friend invited you to play one time and something made you want to come back.<br/>Was it…'
         },
         {
             type: 'drag',
@@ -128,7 +129,7 @@ let data = {
             type: 'question',
             number: '3/4',
             title: 'THANKS TO SPORT',
-            text: 'You decide it’s time to give something back to your community, make yourself useful somehow. Something sports related because…'
+            text: 'You decide it’s time to give something back to your community, make yourself useful somehow.<br/>Something sports related because…'
         },  
         {
             type: 'like',
@@ -165,7 +166,7 @@ let data = {
           type: 'question',
           number: '4/4',
           title: 'MOVE TO HERO',
-          text: 'You didn’t think you’d ever last more than a minute playing sports. But a year on from joining the team it’s become such an important part of your life. And that’s because:'
+          text: 'You didn’t think you’d ever last more than a minute playing sports. But a year on from joining the team it’s become such an important part of your life.<br/>And that’s because:'
         },
         {
           type: 'like',
@@ -202,13 +203,13 @@ let data = {
     ],
     pause: {
       title: 'Not so quick !',
-      text: ['Answer all the questions to advance!']
+      text: ['Answer all the questions to advance! ']
     },
     complete: {
       praise: {
         title: 'WE DID IT!',
         text: [
-        'We did it! Feel that fresh air in your lungs? That new-found confidence?',
+        'We did it! Feel that fresh air in your lungs? That new-found confidence? ',
         'Goes to show. These personal choices can wind up meaning so much for future generations.',
       ],
       avatar: avatarImageTwo,

@@ -143,7 +143,7 @@ export default function Component({ item, data }) {
             </Text>
             <InnerContainer className='inner-container'>
                 {
-                    item.squares.map((item, index) => <Card data={item} index={index} allItems={allItems} hasClicked={(index) => hasClicked(index)} hasInteracted={hasInteracted} dataAll={data} prevScratch={prevScratch} prevScratchToggle={(i) => setPrevScratch(i)}/>)
+                    item.squares.map((item, index) => <Card selectedIndex={selectedIndex} data={item} index={index} allItems={allItems} hasClicked={(index) => hasClicked(index)} hasInteracted={hasInteracted} dataAll={data} prevScratch={prevScratch} prevScratchToggle={(i) => setPrevScratch(i)}/>)
                 }
             </InnerContainer>
             <TextTwo className='text-two mtb-2 palatino-x-small'>You picked</TextTwo>

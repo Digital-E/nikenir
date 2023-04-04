@@ -99,7 +99,7 @@ const AvatarSpeechWrapper = styled(motion.div)`
         }
 
         img {
-            width: 724px;
+            width: 724px !important;
             height: auto;
         }
     }
@@ -107,6 +107,10 @@ const AvatarSpeechWrapper = styled(motion.div)`
 
 
     @media(max-width: 989px) {
+        > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) {
+            display: block !important;
+        }
+
         > div {
             bottom: -15vw;
         }
@@ -223,7 +227,7 @@ const ArrowContainer = styled(motion.div)`
     }
 `
 
-const Arrow = styled.button             `
+const Arrow = styled.button`
     text-align: center;
     cursor: pointer;
 

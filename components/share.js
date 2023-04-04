@@ -2,7 +2,6 @@ import { useEffect, useState, useContext } from 'react'
 import { motion, useAnimationControls } from 'framer-motion'
 import styled from 'styled-components'
 
-import { useRouter } from 'next/router'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 import { store } from '../store'
@@ -22,6 +21,7 @@ const Container = styled(motion.button)`
     border-radius: 12px;
     cursor: pointer;
     user-select: none;
+    padding: 0;
 
     img {
         cursor: pointer;

@@ -3,6 +3,8 @@ import styled from 'styled-components'
 
 import { store } from "../../store"
 
+import OGImage from '../../public/images/og/3.jpeg'
+
 // Components
 import Layout from '../../components/layout'
 import ButtonLink from '../../components/button-link'
@@ -76,7 +78,7 @@ export default function Component() {
   }, [])
 
   return (
-    <Layout title={`${data.role} Reward | Nike Impact Game - Your Move`} content={`${data.role} Reward | Nike Impact Game - Your Move`}>
+    <Layout title={`${data.role} Reward | Nike Impact Game - Your Move`} content={`${data.role} Reward | Nike Impact Game - Your Move`} OGImage={OGImage}>
       <Container>
         <Logo >
           <img src={`${process.env.basePath}/images/logos/nike logo.svg`} />

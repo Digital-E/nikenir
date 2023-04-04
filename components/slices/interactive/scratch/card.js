@@ -12,7 +12,7 @@ if(typeof window !== 'undefined') {
     SCRATCH_TYPE_VAR = SCRATCH_TYPE
 }
 
-const Container = styled(motion.div)`
+const Container = styled(motion.button)`
     position: relative;
     height: 100%;
     width: calc(50% - calc(var(--margin) * 2 - 8px));
@@ -24,6 +24,8 @@ const Container = styled(motion.div)`
 
     canvas {
         position: absolute;
+        top: 0;     
+        left: 0;
         width: 100% !important;
         height: 100% !important;
         transform: translate3d(0px, 0px, 0px);
@@ -33,6 +35,8 @@ const Container = styled(motion.div)`
 
 const InnerContainer = styled(motion.div)`
     position: absolute;
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -116,7 +120,7 @@ const BackgroundImage = styled.div`
 
 
 
-export default function Component({ data, index, allItems, hasClicked, hasInteracted, dataAll, prevScratch, prevScratchToggle }) {
+export default function Component({ data, index, allItems, hasClicked, hasInteracted, dataAll, prevScratch, prevScratchToggle, selectedIndex }) {
     let percentRef = useRef(0)
 
     let allItemsRef = useRef(allItems);
@@ -250,19 +254,34 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
         }
     }
 
+    let hasClickedKey = (e) => {
+        if(e.code === "Enter" || e.code === "Space") {
+            hasClicked(index)
+        }
+    }
+
+    let hasClickedEvent = (e) => {
+        if(window.innerWidth < 990) {
+            hasClicked(index)
+        }
+    }
+
 
     return (
         <Container 
+            aria-label='select a box'
+            aria-checked={index === selectedIndex ? 'true' : 'false'}
             className='max-width'
             transition={{ type: "spring", stiffness: 200, damping: 10 }}
             onMouseMove={(e) => triggerConfetti(e)}
             onMouseDown={() => enableConfetti(true)}
             onMouseUp={() => enableConfetti(false)}
-            // onMouseLeave={() => enableConfetti(false)}
+            // onMouseLeave={() => setTimeout(() => {enableConfetti(false)}, 100)}
             onTouchMove={(e) => triggerConfetti(e)}
             onTouchStart={() => enableConfetti(true)}
             onTouchEnd={() => enableConfetti(false)}
-            transition={{ type: "spring", stiffness: 200, damping: 10 }}
+            onKeyUp={(e) => hasClickedKey(e)}
+            // onClick={(e) => hasClickedEvent(e)}
             animate={controls}
             >
             <BackgroundImage>

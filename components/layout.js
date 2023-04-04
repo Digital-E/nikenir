@@ -5,12 +5,12 @@ import Meta from './meta'
 const Container = styled.div``
 
 
-export default function Layout({ preview, children, title, content }) {
+export default function Layout({ preview, children, title, content, OGImage }) {
 
 
   return (
     <>
-      <Meta title={title} content={content}/>
+      <Meta title={title} content={content} OGImage={OGImage}/>
       <Container>
         <main>{children}</main>
       </Container>

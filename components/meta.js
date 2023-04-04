@@ -1,6 +1,7 @@
 import Head from 'next/head'
+import OGImageDefault from '../public/images/og/OG_Image_main.jpeg'
 
-export default function Meta({ title, content }) {
+export default function Meta({ title, content, OGImage }) {
   return (
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"></meta>
@@ -34,8 +35,15 @@ export default function Meta({ title, content }) {
       <link rel="alternate" type="application/rss+xml" href={`${process.env.basePath}/feed.xml`} />
       <title>{title}</title>
       <meta
+        name="og:title"
+        content={title}
+      />
+      <meta
         name="description"
         content={content}
+      />
+      <meta property="og:image"
+      content={OGImage ? OGImage.src : OGImageDefault.src} 
       />
 
       {/* Fonts */}

@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import { motion, useInView } from 'framer-motion'
 import Image from '../../image'
 
-import Bowser from "bowser";
-
 import Typewriter from './typewriter'
 
 
@@ -31,7 +29,7 @@ const ImageWrapper = styled.div`
 
 
         
-    @media(max-width: 989px) and (min-height: 1000px) {
+    @media(max-width: 989px) {
         width: ${props => props.data.intro.mobile.avatarWidth}vw;
         margin-left: ${props => props.data.intro.mobile.avatarLeft}%;
         bottom: ${props => props.data.intro.mobile.avatarBottom}vw;
@@ -41,18 +39,6 @@ const ImageWrapper = styled.div`
             width: 100%;
         }
     }
-
-    @media(max-width: 576px) {
-        width: ${props => props.data.intro.mobile.avatarWidth}vw;
-        margin-left: ${props => props.data.intro.mobile.avatarLeft}%;
-        bottom: ${props => props.data.intro.mobile.avatarBottom}vw;
-        
-        img {
-            height: auto;
-            width: 100%;
-        }
-    }
-
 `
 
 const ImageWrapperDesktop = styled.div`
@@ -79,7 +65,7 @@ const Bubble = styled(motion.div)`
 
     // @media(min-width: 990px) {
         width: ${props => props.smallBubble ? '222px': '427px'};
-        height: ${props => props.smallBubble ? '227.5px': '162.5px'};
+        height: ${props => props.smallBubble ? '250px': '162.5px'};
         // bottom: ${props => props.data.intro.desktop.bubbleBottom}vw;
         // left: ${props => props.data.intro.desktop.bubbleLeft}vw;
         bottom: ${props => props.data.intro.desktop.bubbleBottom}%;
@@ -88,18 +74,9 @@ const Bubble = styled(motion.div)`
     // }
 
 
-    @media(max-width: 989px) and (min-height: 1000px) {
+    @media(max-width: 989px) {
         width: 222px;
-        height: 227.5px;
-        bottom: ${props => props.data.intro.mobile.bubbleBottom}vw;
-        left: ${props => props.data.intro.mobile.bubbleLeft}vw;
-        // right: ${props => props.data.intro.mobile.bubbleRight}vw;
-        clip-path: url(#clipPathMobile);
-    }
-
-    @media(max-width: 576px) {
-        width: 222px;
-        height: 227.5px;
+        height: 250px;
         bottom: ${props => props.data.intro.mobile.bubbleBottom}vw;
         left: ${props => props.data.intro.mobile.bubbleLeft}vw;
         // right: ${props => props.data.intro.mobile.bubbleRight}vw;
@@ -123,13 +100,7 @@ const PortalReplay = styled(motion.div)`
     bottom: ${props => props.data.intro.desktop.bubbleBottom}%;
     left: calc(${props => props.data.intro.desktop.bubbleLeft}% + 405px);
 
-    @media(max-width: 989px) and (min-height: 1000px) {
-        bottom: calc(${props => props.data.intro.mobile.bubbleBottom}vw + 5px);
-        left: calc(${props => props.data.intro.mobile.bubbleLeft}vw + 200px);
-    }
-    
-
-    @media(max-width: 576px) {
+    @media(max-width: 989px) {
         bottom: calc(${props => props.data.intro.mobile.bubbleBottom}vw + 5px);
         left: calc(${props => props.data.intro.mobile.bubbleLeft}vw + 200px);
     }
@@ -208,7 +179,7 @@ export default function Component({ data, avatar, avatarCrop, text, smallBubble,
             
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0">
                 <clipPath id="clipPathMobile">
-                    <path d="M0 27C0 12.0883 12.0883 0 27 0H195C209.912 0 222 12.0883 222 27V165.735C222 180.632 209.935 192.714 195.038 192.735L36.2419 192.961C26.8596 192.974 18.1568 197.857 13.2562 205.858L3.70549 221.45C2.65101 223.172 0 222.425 0 220.406V181.096V27Z" fill="white" fillOpacity="0.6"/>
+                    <path d="M0 27C0 12.0883 12.0883 0 27 0H195C209.912 0 222 12.0883 222 27V187.842C222 202.739 209.935 214.821 195.039 214.842L36.3304 215.07C26.9001 215.084 18.1603 220.016 13.2748 228.082L3.71069 243.873C2.6621 245.605 0 244.861 0 242.837V203.071V27Z"/>
                 </clipPath>
             </svg>                           
             <Bubble className='avatar-speech-bubble' data={data} smallBubble={smallBubble} variants={bubbleVariants} initial='hide' animate={startType ? 'show' : 'hide'}>

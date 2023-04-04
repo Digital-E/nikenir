@@ -30,23 +30,23 @@ let data = {
     intro: {
         title: 'A CREATIVE AND HARMONIOUS SOCIETY IS ONE THAT IS DIVERSE AND INCLUSIVE.',
         text: [
-          'The choices we make now can help shape a fairer society.',
-          'Hi, I’m Ines, and I genuinely believe that if we can each think of ourselves as part of a greater whole, fewer people are going to feel left out!',
-          'In fact, how about we make some positive choices right now? Let’s imagine three scenarios. Then you decide what you would do in each case.',
+          'The choices we make now can help shape a fairer society',
+          'Hi, I’m Ines, and I genuinely believe that if we can each think of ourselves as part of a greater whole, fewer people are going to feel left out! ',
+          'In fact, how about we make some positive choices right now? Let’s imagine three scenarios. Then you decide what you would do in each case',
           'Don’t worry, there are no wrong answers. Only progress!'
         ],
         desktop: {
           // bubbleBottom: 29,
           // bubbleLeft: 16,
-          bubbleBottom: 85,
+          bubbleBottom: 82,
           bubbleLeft: 73,
           avatarWidth: 24,
           avatarHeight: 70,
           avatarBottom: 50
         },
         mobile: {
-          bubbleBottom: 75,
-          bubbleLeft: 30,
+          bubbleBottom: 40,
+          bubbleLeft: 35,
           bubbleRight: -26.3,
           avatarWidth: 68,
           avatarLeft: -15,
@@ -58,7 +58,7 @@ let data = {
             type: 'question',
             number: '1/4',
             title: 'Walk and talk',
-            text: 'You feel a little lost in your feelings. Isolated, even. You want to feel connected to the world again, find a way back to being yourself. Do you…'
+            text: 'You feel a little lost in your feelings. Isolated, even. You want to feel connected to the world again, find a way back to being yourself.<br/>Do you…'
         },
         {
             type: 'tap spam',
@@ -141,7 +141,7 @@ let data = {
                 img: `${process.env.basePath}/images/people-promoter/objects/People_Q3_Object_01.png`
               },
               {
-                title: 'Maximise your potential',
+                title: 'Maximize your potential',
                 img: `${process.env.basePath}/images/people-promoter/objects/People_Q3_Object_02.png`
               }
             ],
@@ -154,7 +154,7 @@ let data = {
                 ]
               },
               {
-                title: 'Maximise your potential',
+                title: 'Maximize your potential',
                 text: 'You’re looking for a sport that rewards your ambition with the progression you deserve. You want to be judged on what you bring to the table, not where you sit.',
                 textCarousel: [
                   'We have a target of reaching 50% representation of women globally in leadership positions. Since last year, we’ve increased the number of women in our corporate teams – at the director level and above – to 43%.',
@@ -209,13 +209,13 @@ let data = {
     complete: {
       praise: {
         title: 'WE DID IT!',
-        text: ['We did it! Feel that spring in your step? That warm glow of belonging?',
+        text: ['We did it! Feel that spring in your step? That warm glow of belonging? ',
               'Goes to show. These personal choices can wind up meaning so much for the bigger picture.'
             ],
         avatar: avatarImageTwo,
         desktop: {
           bubbleBottom: 70,
-          bubbleLeft: 50,
+          bubbleLeft: 48,
           avatarLeft: -210
         },
         mobile: {
