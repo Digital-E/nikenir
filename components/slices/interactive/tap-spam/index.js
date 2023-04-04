@@ -68,7 +68,7 @@ export default function Component({ item, data }) {
 
     let [hasInteracted, setHasInteracted] = useState(false)
     let [allItems, setAllItems] = useState(item.squares)
-    let [selectedIndex, setSelectedIndex] = useState(0)
+    let [selectedIndex, setSelectedIndex] = useState(null)
 
     let containerRef = useRef();
 
@@ -134,7 +134,7 @@ export default function Component({ item, data }) {
             }
         }
     }, [hasInteracted])
-    
+
 
     return (
         <Container
@@ -149,13 +149,13 @@ export default function Component({ item, data }) {
             </Text>
             <InnerContainer className='inner-container'>
                 {
-                    item.squares.map((item, index) => <Card data={item} index={index} allItems={allItems} hasClicked={(e, index) => hasClicked(e, index)} hasInteracted={hasInteracted} dataAll={data} />)
+                    item.squares.map((item, index) => <Card data={item} index={index} allItems={allItems} hasClicked={(e, index) => hasClicked(e, index)} hasInteracted={hasInteracted} dataAll={data} selectedIndex={selectedIndex} />)
                 }
             </InnerContainer>
             <TextTwo className='text-two mtb-2 palatino-x-small'>You picked</TextTwo>
             <HideWrapper ref={hideWrapperRef}>
                 <Hide hasInteracted={hasInteracted}>
-                    <InformationCard item={item} data={data} selectedIndex={selectedIndex} />
+                    <InformationCard item={item} data={data} selectedIndex={selectedIndex !== null ? selectedIndex : 0} />
                 </Hide>
             </HideWrapper>
         </Container>

@@ -276,6 +276,7 @@ export default function Component({ item, data }) {
                       isDragging={isDragging}
                       mouseOver={(index) => toggleMouseOver(index)}
                       mouseOverForce={(index) => mouseOverForce(index)}
+                      selectedIndex={selectedIndex}
                       />)
                 }
             </InnerContainer>

@@ -29,14 +29,20 @@ const Title = styled.h3`
     text-align: center;
 `
 
-export default function Component({ data, index, allItems, hasClicked, hasInteracted, isDragging, mouseOver, mouseOverForce }) {
+export default function Component({ data, index, allItems, hasClicked, hasInteracted, isDragging, mouseOver, mouseOverForce, selectedIndex }) {
 
+    let onClickToggle = (e) => {
+        if(document.activeElement === e.target) {
+            mouseOverForce(index) 
+        }
+    }
     return (
         <Container
             onPointerEnter={() => mouseOver(index)}
             onPointerLeave={() => mouseOver(null)}
-            onClick={() => mouseOverForce(index)}
+            onClick={(e) => onClickToggle(e)}
             aria-label='select a box'
+            aria-checked={index === selectedIndex ? 'true' : 'false'}
             // onPointerEnter={() => console.log("enter")}
             // onPointerLeave={() => console.log("leave")}
         >

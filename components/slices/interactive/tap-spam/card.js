@@ -80,7 +80,7 @@ const Background = styled.div`
 
 let hasTriggered = false
 
-export default function Component({ data, index, allItems, hasClicked, dataAll }) {
+export default function Component({ data, index, allItems, hasClicked, dataAll, selectedIndex }) {
     let [gauge, setGauge] = useState(0);
     let gaugeRef = useRef(0);
     let gaugeTimeout = useRef(null);
@@ -298,17 +298,26 @@ export default function Component({ data, index, allItems, hasClicked, dataAll }
                 selectedIndex = index
             }
         })
+        
 
         if(selectedIndex !== index && selectedIndex !== null) {
             setGauge(0)
             gaugeRef.current = 0
-            hasClicked(e, null)
+            return hasClicked(e, null)
+        }
+
+        if(document.activeElement === e.target) {
+            setGauge(100)
+            gaugeRef.current = 100
+            return hasClicked(e, index)
         }
 
 
         clearTimeout(gaugeTimeout.current)
         setGauge(gaugeRef.current + 10)
         gaugeRef.current = gaugeRef.current + 10
+
+
 
         if(gaugeRef.current === 100) {
             hasClicked(e, index); 
@@ -362,6 +371,7 @@ export default function Component({ data, index, allItems, hasClicked, dataAll }
     return (
         <Container 
             aria-label='select a box'
+            aria-checked={index === selectedIndex ? 'true' : 'false'}
             className='max-width'
             onClick={(e) => {clicked(e)}} 
             onPointerDown={(e) => e.target.releasePointerCapture(e.pointerId)}

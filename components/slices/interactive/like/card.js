@@ -101,7 +101,7 @@ const Title = styled.h3`
     padding: var(--padding);
 `
 
-export default function Component({ data, index, allItems, hasClicked, hasInteracted }) {
+export default function Component({ data, index, allItems, hasClicked, hasInteracted, selectedIndex }) {
 
     const controls = useAnimationControls();
 
@@ -117,6 +117,7 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
     return (
         <Container 
             aria-label='select a box'
+            aria-checked={index === selectedIndex ? 'true' : 'false'}
             onClick={(e) => {clicked(e)}} 
             transition={{ type: "spring", stiffness: 200, damping: 10 }}
             whileHover={{scale: 1.02}}
