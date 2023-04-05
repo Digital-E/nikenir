@@ -67,6 +67,16 @@ const Title = styled.h3`
     padding: 20px;
     text-transform: uppercase;
     text-align: center;
+
+    ${props => props.reduceBackgroundSize ?
+        `
+        @media(max-width: 576px) {
+            padding: 15px 7px;
+        }
+        `
+        :
+        null
+    }
 `
 
 const Image = styled.div`
@@ -115,17 +125,6 @@ const BackgroundImage = styled.div`
 
     img {
         width: 100%;
-    }
-    
-    ${props => props.reduceBackgroundSize ?
-    `
-    @media(max-width: 989px) {
-        top: 80%;
-        width: 30%;
-    }
-    `
-    :
-    null
     }
 `
 
@@ -295,11 +294,11 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
             // onClick={(e) => hasClickedEvent(e)}
             animate={controls}
             >
-            <BackgroundImage reduceBackgroundSize={data.reduceBackgroundSize}>
+            <BackgroundImage>
                 <img src={data.imgBack} />
             </BackgroundImage>
             <InnerContainer>
-                <Title>{data.title}</Title>
+                <Title reduceBackgroundSize={data.reduceBackgroundSize}>{data.title}</Title>
             </InnerContainer>
             <ScratchContainer id={`scratch-container-${data.id}-${index}`} />
             {/* <Image>

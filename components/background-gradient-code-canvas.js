@@ -8,7 +8,7 @@ const Container = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
+    height: 100vh;
     width: 100vw;
     overflow: hidden;
 	  background: white;
@@ -62,11 +62,12 @@ export default function Component({ data }) {
     useEffect(() => {
         let canvas = document.getElementById("canvas");
 
-        resize();
+        resize("init");
 
-        function resize() {
+        function resize(action) {
             // canvas.width = window.innerWidth * window.devicePixelRatio
             // canvas.height = window.innerHeight * window.devicePixelRatio
+            if(window.innerWidth < 576 && action !== "init") return
 
             let copyAllCircles = allCircles.current
             copyAllCircles.forEach((item, index) => item.rad = (window.innerWidth > 989 ? window.innerWidth / 7 : 200))

@@ -56,6 +56,7 @@ const Image = styled.div`
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
+    pointer-events: none;
 
     img {
         width: 100%;
@@ -306,7 +307,7 @@ export default function Component({ data, index, allItems, hasClicked, dataAll, 
             return hasClicked(e, null)
         }
 
-        if(document.activeElement === e.target) {
+        if(document.activeElement === e.currentTarget) {
             setGauge(100)
             gaugeRef.current = 100
             return hasClicked(e, index)

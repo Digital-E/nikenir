@@ -125,17 +125,18 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
             >
             <InnerContainer className={allItems[index].clicked && hasInteracted ? `liked` : ``}>
                 <Title>{data.title}</Title>
-                <Image>
-                    <img src={`${process.env.basePath}/images/like/heart.svg`} />
-                    <img src={`${process.env.basePath}/images/like/heart-fill.svg`} />
+                <Image aria-hidden="true">
+                    <img aria-hidden="true" src={`${process.env.basePath}/images/like/heart.svg`} />
+                    <img aria-hidden="true" src={`${process.env.basePath}/images/like/heart-fill.svg`} />
                 </Image>
             </InnerContainer>
             <ImageTwo
+                aria-hidden="true"
                 className={allItems[index].clicked && hasInteracted ? `liked` : ``}
                 // animate={allItems[index].clicked && hasInteracted ? 'show' : 'hide'}
                 // variants={imageVariants}
             >
-                <img src={data.img} />
+                <img aria-hidden="true" src={data.img} />
             </ImageTwo>
         </Container>
     )

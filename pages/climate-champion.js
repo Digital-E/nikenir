@@ -96,7 +96,7 @@ let data = {
             type: 'question',
             number: '2/4',
             title: 'MOVE TO CIRCULAR',
-            text: 'You decide it’s time to curate your wardrobe, but don’t want to add to the landfill.<br/>Will you…'
+            text: 'You decide it’s time to curate your wardrobe, but don’t want to add to the landfill. Will you…'
         },
         {
             type: 'scratch',
@@ -136,7 +136,7 @@ let data = {
             type: 'question',
             number: '3/4',
             title: 'FRESH WHEELS',
-            text: 'You wake up early on Saturday for football practice. You open the curtains, and the sky has never looked so blue. You see the car in the driveway and decide to make a change.<br/>Do you…'
+            text: 'You wake up early on Saturday for football practice. You open the curtains, and the sky has never looked so blue. You see the car in the driveway and decide to make a change. Do you…'
         },  
         {
             type: 'tap spam',
@@ -181,13 +181,14 @@ let data = {
             {
               id: 2,
               title: 'Let’s clean the beach!',
+              reduceBackgroundSize: true,
               img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q4_Background.png`,
               imgBack: `${process.env.basePath}/images/logos/MOVE_TO_ZERO.png`
             },
             {
               id: 2,
               title: 'Time for reusable water bottles!',
-              // reduceBackgroundSize: true,
+              reduceBackgroundSize: true,
               img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q4_02_Background.png`,
               imgBack: `${process.env.basePath}/images/logos/MOVE_TO_ZERO.png`
             }

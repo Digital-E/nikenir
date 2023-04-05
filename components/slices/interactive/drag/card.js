@@ -32,7 +32,7 @@ const Title = styled.h3`
 export default function Component({ data, index, allItems, hasClicked, hasInteracted, isDragging, mouseOver, mouseOverForce, selectedIndex }) {
 
     let onClickToggle = (e) => {
-        if(document.activeElement === e.target) {
+        if(document.activeElement === e.currentTarget) {
             mouseOverForce(index) 
         }
     }
