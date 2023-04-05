@@ -231,7 +231,7 @@ export default function Header({}) {
   return (
     <>
     <Container ref={headerRef} className='hide-header max-width-header hide-on-rotate'>
-      <Link href={state.backLink} aria-label="click link to move back"><Arrow><img src={`${process.env.basePath}/images/icons/ui-arrow.svg`} /></Arrow></Link>
+      <Link href={state.backLink}><Arrow><img aria-label="click link to move back" src={`${process.env.basePath}/images/icons/ui-arrow.svg`} /></Arrow></Link>
       <Text ref={headerTextRef}>
         <span>{messageOne}</span>
         <span>{messageTwo}</span>
@@ -242,12 +242,12 @@ export default function Header({}) {
           animate={controls}
         >
           <Circle colour={colour}>
-            <svg className="complete" width="40" height="40" viewport="0 0 20 20" xmlns="https://www.w3.org/2000/svg">
+            <svg aria-hidden='true' className="complete" width="40" height="40" viewport="0 0 20 20" xmlns="https://www.w3.org/2000/svg">
               <circle cx="20" cy="20" r="15"></circle>
               <circle className="progress-bar" cx="20" cy="20" r="15" ref={progressBarRef}></circle>
             </svg>      
           </Circle>
-          <Logo><img src={`${process.env.basePath}/images/logos/nike logo.svg`} /></Logo>
+          <Logo><img aria-hidden='true' src={`${process.env.basePath}/images/logos/nike logo.svg`} /></Logo>
         </ScrollIndicator>
       </ScrollIndicatorWrapper>
     </Container>

@@ -147,7 +147,7 @@ const Component = () => {
     
 
     return (
-        <Container className='notification'>
+        <Container className='notification' aria-hidden='true'>
             {/* <Overlay onClick={() => setDisplayNotification(false)} className={displayNotification ? 'show-overlay' : 'hide-overlay'}/> */}
             <Popup position={notificationPosiition} className={displayNotification ? 'show-notification container-background max-width-header' : 'hide-notification container-background max-width-header'}>
                 {/* <Close onClick={() => setDisplayNotification(false)} className='p'>Close</Close> */}
