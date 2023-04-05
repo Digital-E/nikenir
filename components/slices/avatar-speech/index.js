@@ -39,6 +39,11 @@ const ImageWrapper = styled.div`
             width: 100%;
         }
     }
+
+    @media(max-width: 989px) and (max-height: 400px) {
+        width: ${props => props.data.intro.mobile.avatarWidth - 40}vw;
+        left: 40vw;
+    }
 `
 
 const ImageWrapperDesktop = styled.div`
@@ -63,15 +68,14 @@ const Bubble = styled(motion.div)`
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(10px);
 
-    // @media(min-width: 990px) {
-        width: ${props => props.smallBubble ? '222px': '427px'};
-        height: ${props => props.smallBubble ? '250px': '162.5px'};
-        // bottom: ${props => props.data.intro.desktop.bubbleBottom}vw;
-        // left: ${props => props.data.intro.desktop.bubbleLeft}vw;
-        bottom: ${props => props.data.intro.desktop.bubbleBottom}%;
-        left: ${props => props.data.intro.desktop.bubbleLeft}%;
-        clip-path: ${props => props.smallBubble ? 'url(#clipPathMobile)' : 'url(#clipPathDesktop)'};
-    // }
+
+    width: ${props => props.smallBubble ? '222px': '427px'};
+    height: ${props => props.smallBubble ? '250px': '162.5px'};
+    // bottom: ${props => props.data.intro.desktop.bubbleBottom}vw;
+    // left: ${props => props.data.intro.desktop.bubbleLeft}vw;
+    bottom: ${props => props.data.intro.desktop.bubbleBottom}%;
+    left: ${props => props.data.intro.desktop.bubbleLeft}%;
+    clip-path: ${props => props.smallBubble ? 'url(#clipPathMobile)' : 'url(#clipPathDesktop)'};
 
 
     @media(max-width: 989px) {
@@ -83,6 +87,9 @@ const Bubble = styled(motion.div)`
         clip-path: url(#clipPathMobile);
     }
 
+    @media(max-width: 989px) and (max-height: 400px) {
+        bottom: ${props => props.data.intro.mobile.bubbleBottom - 35}vw;
+        left: ${props => props.data.intro.mobile.bubbleLeft + 30}vw;
     }
 `
 
@@ -103,6 +110,11 @@ const PortalReplay = styled(motion.div)`
     @media(max-width: 989px) {
         bottom: calc(${props => props.data.intro.mobile.bubbleBottom}vw + 5px);
         left: calc(${props => props.data.intro.mobile.bubbleLeft}vw + 200px);
+    }
+
+    @media(max-width: 989px) and (max-height: 400px) {
+        bottom: calc(${props => props.data.intro.mobile.bubbleBottom - 35}vw + 5px);
+        left: calc(${props => props.data.intro.mobile.bubbleLeft + 30}vw + 200px);
     }
 `
 

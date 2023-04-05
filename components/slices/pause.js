@@ -13,6 +13,10 @@ const Container = styled.div`
     @media(max-width: 989px) {
         height: calc(100vh - 100px);
     }
+
+    @media(max-width: 989px) and (max-height: 400px) {
+        height: auto;
+    }
 `
 
 const Title = styled.h2`

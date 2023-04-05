@@ -139,6 +139,22 @@ const AvatarSpeechWrapper = styled(motion.div)`
         }
     }
 
+    @media(max-width: 989px) and (max-height: 400px) {
+        .avatar-image-wrapper {
+            width: ${props => props.data.complete.praise.mobile.avatarWidth - 100}vw;
+        }
+
+        .avatar-speech-bubble {
+            bottom: ${props => props.data.complete.praise.tablet.bubbleBottom - 75}vw;
+            left: ${props => props.data.complete.praise.mobile.bubbleLeft}vw;
+        }
+
+        #portal-replay {
+            bottom: calc(${props => props.data.complete.praise.tablet.bubbleBottom - 75}vw + 5px);
+            left: calc(${props => props.data.complete.praise.mobile.bubbleLeft}vw + 200px);
+        }
+    }
+
 
 
     @media(max-width: 576px) {

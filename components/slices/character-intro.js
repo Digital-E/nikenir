@@ -49,10 +49,6 @@ const AvatarWrapper = styled.div`
         width: fit-content;
         margin-bottom: 10px;
     }
-
-    @media(max-height: 600px) and (max-width: 576px) {
-        // bottom: -30vw
-    }
 `
 
 
@@ -65,6 +61,7 @@ const Title = styled.h1`
 
     @media(max-width: 989px) {
         position: absolute;
+        max-width: 500px;
     }
 `
 
@@ -100,11 +97,18 @@ export default function Component({ item, data }) {
     let hasResizedOnce = useRef(false)
 
     let resize = () => {
-        if(window.innerWidth > 576 && hasResizedOnce.current) {
+
+        if(window.innerWidth > 576 
+            // && hasResizedOnce.current
+            ) {
             setScreenHeight(window.innerHeight)
         }
 
-        hasResizedOnce.current = true
+        if(window.innerHeight < 400) {
+            setScreenHeight(window.innerHeight)
+        }
+
+        // hasResizedOnce.current = true
     }
 
     useEffect(() => {
