@@ -78,7 +78,7 @@ export default function Component() {
   }, [])
 
   return (
-    <Layout title={`${data.role} Reward | Nike Impact Game - Your Move`} content={`${data.reward.text}`} OGImage={OGImage}>
+    <Layout title={`${data.role} Reward | Nike Impact Game - Your Move`} content={`${data.complete.reward.text}`} OGImage={OGImage}>
       <Container>
         <Logo >
           <img src={`${process.env.basePath}/images/logos/nike logo.svg`} />
