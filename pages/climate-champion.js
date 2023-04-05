@@ -61,7 +61,7 @@ let data = {
             type: 'question',
             number: '1/4',
             title: 'The good buy',
-            text: 'You care about your planet a lot, but also kind of need a new pair of sneakers.<br/>You choose to…'
+            text: 'You care about your planet a lot, but also kind of need a new pair of sneakers.You choose to…'
         },
         {
             type: 'drag',
@@ -172,7 +172,7 @@ let data = {
           type: 'question',
           number: '4/4',
           title: 'BEACHCOMBER',
-          text: 'You and your team flop on the sand after a great practice on the beach. You sit and watch the gentle waves. A plastic bottle floats to shore.The next words from your<br/>mouth are:'
+          text: 'You and your team flop on the sand after a great practice on the beach. You sit and watch the gentle waves. A plastic bottle floats to shore.The next words from your mouth are:'
         },
         {
           type: 'scratch',
@@ -187,6 +187,7 @@ let data = {
             {
               id: 2,
               title: 'Time for reusable water bottles!',
+              // reduceBackgroundSize: true,
               img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q4_02_Background.png`,
               imgBack: `${process.env.basePath}/images/logos/MOVE_TO_ZERO.png`
             }

@@ -116,6 +116,17 @@ const BackgroundImage = styled.div`
     img {
         width: 100%;
     }
+    
+    ${props => props.reduceBackgroundSize ?
+    `
+    @media(max-width: 989px) {
+        top: 80%;
+        width: 30%;
+    }
+    `
+    :
+    null
+    }
 `
 
 
@@ -284,7 +295,7 @@ export default function Component({ data, index, allItems, hasClicked, hasIntera
             // onClick={(e) => hasClickedEvent(e)}
             animate={controls}
             >
-            <BackgroundImage>
+            <BackgroundImage reduceBackgroundSize={data.reduceBackgroundSize}>
                 <img src={data.imgBack} />
             </BackgroundImage>
             <InnerContainer>
