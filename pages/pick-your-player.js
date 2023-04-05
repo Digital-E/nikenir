@@ -28,6 +28,10 @@ const Container = styled.div`
     overflow: hidden;
     min-height: 100vh;
 
+    &.overflow-visible {
+      overflow: visible;
+  }
+
     @media(max-width: 989px) {
         margin-top: 65px;
     }
@@ -66,7 +70,7 @@ export default function Component() {
 
   return (
     <Layout title={`Pick Your Player | Nike Impact Game - Your Move`} content={`Pick Your Player | Nike Impact Game - Your Move`}>
-      <Container>
+      <Container className='pick-your-player-container'>
         <CharacterCarousel />
         {/* <FooterWrapper>
             <Footer />

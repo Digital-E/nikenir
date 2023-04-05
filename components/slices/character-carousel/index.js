@@ -381,7 +381,34 @@ export default function Component() {
 
     const isDesktop = useMediaQuery({
         query: '(min-width: 990px)'
-      })
+    })
+
+    let orientationChange = () => {
+        if(window.orientation === 90 || window.orientation === -90) {
+            document.querySelector('body').classList.remove('lock-scroll')
+            document.querySelector('.pick-your-player-container').classList.add('overflow-visible')
+        } else {
+            document.querySelector('body').classList.add('lock-scroll')
+            document.querySelector('.pick-your-player-container').classList.remove('overflow-visible')
+        }
+    }
+
+    useEffect(() => {
+        // Mobile Landscape
+
+        setTimeout(() => {
+            if(window.orientation === 90 || window.orientation === -90) {
+                document.querySelector('body').classList.remove('lock-scroll')
+                document.querySelector('.pick-your-player-container').classList.add('overflow-visible')
+            }
+        }, 300)
+
+        window.addEventListener('orientationchange', orientationChange, false)
+
+        return () => {
+            window.removeEventListener('orientationchange', orientationChange, false)
+        }
+    }, [])
 
 
     let init = () => {

@@ -195,7 +195,7 @@ function MyApp({ Component, pageProps, router }) {
       <Sidebar />
       <Notification />
       <BackgroundGradient data={dataAll}/>
-      <DeviceRotation />
+      {/* <DeviceRotation /> */}
       {/* <CookieConsent
         buttonText={pageProps.data?.menuData.cookieaccept}
         declineButtonText={pageProps.data?.menuData.cookierefuse}
