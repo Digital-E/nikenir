@@ -60,7 +60,7 @@ let data = {
       reward: {
         image: `${process.env.basePath}/images/rewards/2.png`,
         title: 'The earth minder',
-        text: 'You believe in the small as well as big actions we can take for the planet we share, and in the people taking them.',
+        text: 'Believe in the small as well as big actions we can take for the planet we share, and in the people taking them.',
         link: '/climate-champion'
       }
     }
@@ -78,7 +78,7 @@ export default function Component() {
   }, [])
 
   return (
-    <Layout title={`${data.role} Reward | Nike Impact Game - Your Move`} content={`${data.role} Reward | Nike Impact Game - Your Move`} OGImage={OGImage}>
+    <Layout title={`${data.role} Reward | Nike Impact Game - Your Move`} content={`${data.reward.text}`} OGImage={OGImage}>
       <Container>
         <Logo >
           <img src={`${process.env.basePath}/images/logos/nike logo.svg`} />

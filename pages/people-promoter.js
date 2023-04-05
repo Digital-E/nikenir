@@ -79,7 +79,7 @@ let data = {
                 title: 'Walk it out',
                 text: 'Nothing like stepping out into the fresh air, noticing the birds in the trees and the ground under your feet.',
                 textCarousel: [
-                  'We encourage our employees all around the world to practice sport and movement as a way of maintaining their well-being.',
+                  'We encourage our employees all around the world to practice sport and movement as a way of maintaining their wellbeing.',
                 ]
               },
               {
@@ -99,7 +99,7 @@ let data = {
         },
         {
             type: 'drag',
-            title: 'Drag the boombox into the box',
+            title: 'Drag the boombox into the box to choose',
             img: `${process.env.basePath}/images/people-promoter/objects/People_Q2_crop.png`,
             squares: [
               {
@@ -114,14 +114,14 @@ let data = {
                 title: 'FIND STRENGTH IN TOGETHERNESS',
                 text: 'A team where everyone feels included, is a team that could make anything happen. That sense of belonging will help us dream and move as one.',
                 textCarousel: [
-                  'We’re working to break down barriers so everyone has the chance to be the best they can be. Our Employee Resource Groups – through which teammates gather and connect around identity – strengthens our commitment to inclusion goals.',
+                  'We’re working to break down barriers so everyone has the chance to be the best they can be. Our Employee Resource Groups – through which teammates gather and connect around identity – strengthen our commitment to inclusion goals.',
                 ]
               },
               {
                 title: 'FIND BALANCE IN OUR DIFFERENCES',
                 text: 'A diverse team means new ideas, fresh plays, and great balance. Our combined skills will give us the edge.',
                 textCarousel: [
-                  'Through inclusive hiring practices we’re building more diverse teams, which is leading to break through design and innovation. Check out our Serena Williams Design Crew program, for example.'
+                  'Through inclusive hiring practices, we’re building more diverse teams, which is leading to breakthrough design and innovation. Our Serena Williams Design Crew program is a perfect example.'
                 ]
               }
             ]
@@ -150,7 +150,7 @@ let data = {
                 title: 'Be part of something bigger',
                 text: 'You want to be part of a team where you feel you can make a difference. Where everyone is counted and accountable.',
                 textCarousel: [
-                  'We’re accelerating the career trajectory of women in the workplace – check out our WIN and Valari Fellowship programs, for example.',
+                  'We’re accelerating the career trajectory of women in the workplace. Our WIN and Valari Fellowship programs are good examples.',
                 ]
               },
               {
@@ -166,11 +166,11 @@ let data = {
           type: 'question',
           number: '4/4',
           title: 'THIS IS YOUR TIME',
-          text: 'You’ve been thinking about your future, but it’s hard because people that look like you aren’t always represented in the worlds of work you’re interested in. Something gives you hope…'
+          text: 'You’ve been thinking about your future, but it’s hard because people that look like you aren’t always represented in the worlds of work you’re interested in. You observe something in your daily life that gives you hope because…'
         },
         {
           type: 'drag',
-          title: 'Drag the medal into the box',
+          title: 'Drag the medal into the box to choose',
           img: `${process.env.basePath}/images/people-promoter/objects/People_Q4_crop.png`,
           squares: [
             {
@@ -237,30 +237,30 @@ let data = {
       reward: {
         image: `${process.env.basePath}/images/rewards/1.png`,
         title: 'The people person',
-        text: 'You believe that we’re all in this together, that if we can just keep listening and learning from one another, no one will feel left out.',
+        text: 'Believe that we’re all in this together, that if we can just keep listening and learning from one another, no one will feel left out.',
         link: '/reward/people-promoter'
       },
       more: {
         title: 'Want to know more?',
         links: [
           {
-            label: 'Read more about Nike’s diversity, equity, and inclusion work',
+            label: 'Find out about Nike’s diversity, equity, and inclusion work',
             url: 'https://about.nike.com/en/impact/focus-areas/diversity-equity-inclusion'
           },
           {
-            label: 'Read more about Nike’s Mental Health Program',
+            label: 'Hear how Nike is supporting its employees’ overall wellbeing',
             url: 'https://about.nike.com/en/impact/initiatives/building-and-investing-in-our-teams'
           },
           {
-            label: 'Find out about Nike’s Employee Resource Groups',
+            label: 'Get the latest on Nike’s employee-led communities',
             url: 'https://jobs.nike.com/diversity-and-inclusion'
           },
           {
-            label: 'Learn more about the Serena Williams Design Crew',
+            label: 'See how the Serena Williams Design Crew is pushing the limits',
             url: 'https://www.nike.com/a/serena-williams-design-crew-origin'
           },
           {
-            label: 'Read about the Nike Inc. Black Community Commitment',
+            label: 'Learn about the Nike, Inc. Black Community commitment',
             url: 'https://about.nike.com/en/newsroom/releases/nike-inc-black-community-commitment-2023'
           },
         ],

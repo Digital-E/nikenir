@@ -213,6 +213,13 @@ export default function Component({ data, start, toggleFinishedFunc, portalRef }
                 if(cursorActive) {
                     cursorRef.current.style.left = `${typeWriterRef.current.children[letterIndex.current].getBoundingClientRect().x + typeWriterRef.current.children[letterIndex.current].getBoundingClientRect().width - typeWriterRef.current.children[0].getBoundingClientRect().x}px`
                     cursorRef.current.style.top = `${typeWriterRef.current.children[letterIndex.current].getBoundingClientRect().y - typeWriterRef.current.children[0].getBoundingClientRect().y}px`
+
+                    if(
+                        window.innerWidth < 990 && (typeWriterRef.current.children[letterIndex.current].getBoundingClientRect().x + typeWriterRef.current.children[letterIndex.current].getBoundingClientRect().width - typeWriterRef.current.children[0].getBoundingClientRect().x > 180)
+                        ) {
+                        cursorRef.current.style.left = `0px`
+                        cursorRef.current.style.top = `${typeWriterRef.current.children[letterIndex.current].getBoundingClientRect().y - typeWriterRef.current.children[0].getBoundingClientRect().y + typeWriterRef.current.children[letterIndex.current].getBoundingClientRect().height}px`   
+                    }
                 }
 
                 typeWriterRef.current.children[letterIndex.current].classList.add("reveal-letter")

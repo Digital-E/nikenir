@@ -30,6 +30,7 @@ let data = {
     intro: {
         title: 'TO PROTECT THE PLANET AND THOSE WHO WILL INHERIT IT IS A MOVE WE CAN MAKE TOGETHER.',
         text: [
+          // 'There are so many significant things we can do as individuals, families, and communities to help move the climate dial',
           'The choices and actions we take right now will make all the difference for the next generation',
           'Oh, hey, I’m Theo, I really care about our big blue ball!',
           'There are so many significant things we can do as individuals, families, and communities to help move the climate dial',
@@ -60,7 +61,7 @@ let data = {
             type: 'question',
             number: '1/4',
             title: 'The good buy',
-            text: 'You care about your planet a lot but also kind of need a new pair of sneakers.<br/>You choose to…'
+            text: 'You care about your planet a lot, but also kind of need a new pair of sneakers.<br/>You choose to…'
         },
         {
             type: 'drag',
@@ -79,7 +80,7 @@ let data = {
                 title: 'Reduce your footprint',
                 text: 'You’re all about the lighter weight, longer lasting materials. Efficient patterns and smart design decisions. More recycling, less carbon. No extra boxes or added paper toe stuffing.',
                 textCarousel: [
-                  'Our Move To Zero collection helps reduce our overall carbon footprint through environmentally preferred materials.',
+                  'Our Move To Zero product helps reduce our overall carbon footprint through environmentally preferred materials.',
                 ]
               },
               {
@@ -155,12 +156,12 @@ let data = {
                 title: 'Ride your bike to practice',
                 text: 'You dig your bike out of the garage and set off. The warm breeze in your face brings a smile, and by the time you arrive at practice you’ve had the perfect warm-up!',
                 textCarousel: [
-                  'Our Nike Forward collection – with its ultra-thin, needle-punched layers – is made to do more with less process energy. Meaning smaller carbon footprint, like riding a bike.',
+                  'Our Nike Forward collection – with its ultra-thin, needle-punched layers – is made to do more with less process energy. Meaning a smaller carbon footprint, like riding a bike.',
                 ]
               },
               {
                 title: 'Take the bus to practice',
-                text: 'Something about this bus, the cool silence of the electric motor, the people, and trees outside the window, makes this journey the perfect time to ponder your strategy for your next game.',
+                text: 'Something about this bus – the cool silence of the electric motor, the people and trees outside the window – makes this journey the perfect time to ponder your strategy for your next game.',
                 textCarousel: [
                   'All Nike operated facilities in North America and Europe are running on 100% renewable energy, like wind and solar farms.',
                 ]
@@ -171,7 +172,7 @@ let data = {
           type: 'question',
           number: '4/4',
           title: 'BEACHCOMBER',
-          text: 'You and your team flop on the sand after a great practice on the beach. You sit and watch the gentle waves. A plastic bottle floats to shore.<br/>The next words from your mouth are:'
+          text: 'You and your team flop on the sand after a great practice on the beach. You sit and watch the gentle waves. A plastic bottle floats to shore.The next words from your<br/>mouth are:'
         },
         {
           type: 'scratch',
@@ -179,30 +180,30 @@ let data = {
           squares: [
             {
               id: 2,
-              title: 'Time to clean this beach!',
+              title: 'Let’s clean the beach!',
               img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q4_Background.png`,
               imgBack: `${process.env.basePath}/images/logos/MOVE_TO_ZERO.png`
             },
             {
               id: 2,
-              title: 'Time we reused our bottles!',
+              title: 'Time for reusable water bottles!',
               img: `${process.env.basePath}/images/climate-champion/objects/Planet_Q4_02_Background.png`,
               imgBack: `${process.env.basePath}/images/logos/MOVE_TO_ZERO.png`
             }
           ],
           information: [
             {
-              title: 'Time to clean this beach!',
+              title: 'Let’s clean the beach!',
               text: 'With plenty of adrenaline left over from the practice, you jump to your feet, pluck the bottle from the shoreline, and give a rousing speech about recycling that spurs your team to action.',
               textCarousel: [
                 'Nike Grind is moving us towards a more circular future by recycling material waste and turning it into new products, playgrounds and running tracks.'
               ]
             },
             {
-              title: 'Time we reused our bottles!',
+              title: 'Time for reusable water bottles!',
               text: 'You pick up the plastic bottle, and on the walk back across the beach talk to your coach about the possibility of issuing everyone on the team a reusable bottle.',
               textCarousel: [
-                'We are diverting 100% of Nike’s manufacturing scraps at our Tier 1 finished goods footwear suppliers from landfills through increased reuse.',
+                'Through increased reuse, we are diverting 100% of Nike’s manufacturing scraps at our Tier 1 finished goods footwear suppliers from landfills.',
               ]
             }
           ]
@@ -241,30 +242,30 @@ let data = {
       reward: {
         image: `${process.env.basePath}/images/rewards/2.png`,
         title: 'The earth minder',
-        text: 'You believe in the small as well as big actions we can take for the planet we share, and in the people taking them.',
+        text: 'Believe in the small as well as big actions we can take for the planet we share, and in the people taking them.',
         link: '/reward/climate-champion'
       },
       more: {
         title: 'Want to know more?',
         links: [
           {
-            label: 'Discover more about Nike’s work to help protect the planet',
+            label: 'See what moves Nike are making to protect the planet we share',
             url: 'https://about.nike.com/en/impact/focus-areas/protecting-the-planet'
           },
           {
-            label: 'Learn more about sustainable design in our Circular Design Guide',
+            label: 'Discover what Nike is doing to make its designs more sustainable',
             url: 'https://www.nikecirculardesign.com'
           },
           {
-            label: 'Find out more about recycling + donation at Nike',
+            label: 'Find out how Nike is helping people give their gear a second life',
             url: 'https://www.nike.com/sustainability/recycling-donation'
           },
           {
-            label: 'Learn how to maintain and care for your Nike shoes and apparel',
+            label: 'Get tips on how to extend the life of your beloved shoes and apparel',
             url: 'https://www.nike.com/product-advice/product-care'
           },
           {
-            label: 'Discover Nike Move To Zero Products',
+            label: 'Learn how innovative materials are helping Nike Move To Zero',
             url: 'https://www.nike.com/sustainability/materials'
           },
         ],

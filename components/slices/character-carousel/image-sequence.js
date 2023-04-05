@@ -42,6 +42,8 @@ export default function Component({ data, index, hoveredIndex }) {
 
     function update(action) {
 
+        if(containerRef.current === null) return
+
         if(action === 'forward') {
             Array.from(containerRef.current.children)[Math.round(sequenceIndex.current - 1)]?.classList.remove('show-frame')
         } else {

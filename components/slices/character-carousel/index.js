@@ -49,6 +49,10 @@ const Container = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
 
+    .flickity-button {
+        opacity: 0;
+    }
+
     overflow: hidden;
     width: 100%;
 
@@ -384,7 +388,7 @@ export default function Component() {
         if(flickity !== null) return
 
         flickity = new Flickity(gallery.current, {
-            prevNextButtons: false,
+            // prevNextButtons: false,
             pageDots: false,
             selectedAttraction: 0.07,
             friction: 0.42,
@@ -430,12 +434,16 @@ export default function Component() {
     
     return (
         <Container>
-            <Carousel ref={gallery}>
+            <Carousel ref={gallery} aria-live="polite" aria-label="pick your player carousel">
                 {
                     data.map((item, index) => 
                             <Card 
                                 // transition={{ type: "spring", stiffness: 200, damping: 10 }}
                                 // className={hoveredIndex !== null && hoveredIndex !== index ? 'blur' : ''}
+                                role="group"
+                                aria-roledescription="slide"
+                                aria-label={`${index + 1} of ${data.length}`}
+                                aria-current={selectedIndex === index ? true : false}
                                 onMouseEnter={() => setHoveredIndex(index)}
                                 onMouseLeave={() => setHoveredIndex(null)}
                                 whileHover={isDesktop ? {scale: 1.05} : {}}

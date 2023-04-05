@@ -94,7 +94,7 @@ let data = {
             type: 'question',
             number: '2/4',
             title: 'SEEN AND HEARD',
-            text: 'You were always interested in sport and an active lifestyle, but until now, it’s never felt set up for someone with your background. Today you saw something that gave you courage…'
+            text: 'You were always interested in sport and an active lifestyle, but until now, it’s never felt set up for someone with your background. Today you saw something that gave you<br/>courage because…'
         },
         {
             type: 'tap spam',
@@ -120,7 +120,7 @@ let data = {
                 title: 'Sport hears me',
                 text: 'You’re hearing stories of people like you feeling like they belong, not just by being part of a team, but because they have people who really listen.',
                 textCarousel: [
-                  'We’re increasing the quality, quantity, and diversity of youth coaches around the world, because we know that having a well-trained, caring coach is critical to helping people see their potential. Check it out: How to Coach Girls, Made to Play Coaching Girls Guide and Coaching for Belonging.'
+                  'We’re increasing the quality, quantity, and diversity of youth coaches around the world, because we know that having a well-trained, caring coach is critical to helping people see their potential.'
                 ]
               }
             ]
@@ -129,7 +129,7 @@ let data = {
             type: 'question',
             number: '3/4',
             title: 'THANKS TO SPORT',
-            text: 'You decide it’s time to give something back to your community, make yourself useful somehow.<br/>Something sports related because…'
+            text: 'You decide it’s time to give something back to your community. Something sports<br/>related because…'
         },  
         {
             type: 'like',
@@ -141,7 +141,7 @@ let data = {
                 img: `${process.env.basePath}/images/active-activist/objects/Play_Q3.png`
               },
               {
-                title: 'Sport is what drives me',
+                title: 'My team are like family',
                 img: `${process.env.basePath}/images/active-activist/objects/Play_Q3_01.png`
               }
             ],
@@ -154,7 +154,7 @@ let data = {
                 ]
               },
               {
-                title: 'Sport is what drives me',
+                title: 'My team are like family',
                 text: 'The joy of movement, the sense of belonging, and of shared purpose. Sport was always the brightest star in your sky.',
                 textCarousel: [
                   'We support our employees’ desire to give back through Give Your Best, our platform for employees to make donations to a wide range of community organizations around the world and track their volunteer hours.',
@@ -193,9 +193,9 @@ let data = {
             },
             {
               title: 'Sport gives you confidence',
-              text: 'Confidence. That’s what I feel when I’m out there with my friends, and I’m doing what I’m doing and they’re doing their thing and together we can do anything!',
+              text: 'Confidence. That’s what you feel when you’re out there with your friends, and you’re doing what you’re doing and they’re doing their thing, and together you can do anything!',
               textCarousel: [
-                'Grow Our Game is about empowering young girls to become fierce, formidable leaders through passion, teamwork and sisterhood – all while learning the art of basketball.',
+                'Grow Our Game is about empowering young girls to become fierce, formidable leaders through passion, teamwork, and sisterhood – all while learning the art of basketball.',
               ]
             }
           ]
@@ -233,14 +233,14 @@ let data = {
       reward: {
         image: `${process.env.basePath}/images/rewards/3.png`,
         title: 'The move maker',
-        text: 'You believe in the power of play to help more young people feel included in sport and want to keep moving.',
+        text: 'Believe in the power of play to help more young people feel included in sport and want to keep moving.',
         link: '/reward/active-advocate'
       },
       more: {
         title: 'Want to know more?',
         links: [
           {
-            label: 'Discover more about the power of coaching through Nike’s Made to Play',
+            label: 'Discover more about the power and importance of sports coaching',
             url: 'https://www.nike.com/made-to-play'
           },
           {
@@ -248,7 +248,7 @@ let data = {
             url: 'https://www.nike.com/made-to-play/coach'
           },
           {
-            label: 'Discover more about how Nike support their employees with Give Your Best',
+            label: 'See how Nike’s employees form the heart of the company’s community impact',
             url: 'https://about.nike.com/en/impact/initiatives/matching-our-employees-impact'
           }
         ],
