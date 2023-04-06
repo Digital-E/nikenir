@@ -58,7 +58,7 @@ let data = {
             type: 'question',
             number: '1/4',
             title: 'Walk and talk',
-            text: 'You feel a little lost in your feelings. Isolated, even. You want to feel connected to the world again, find a way back to being yourself.<br/>Do you…'
+            text: 'You feel a little lost in your feelings. Isolated, even. You want to feel connected to the world again, find a way back to being yourself. Do you…'
         },
         {
             type: 'tap spam',

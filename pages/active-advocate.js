@@ -59,7 +59,7 @@ let data = {
             type: 'question',
             number: '1/4',
             title: 'MOVE AS ONE',
-            text: 'You never thought of yourself as into sports. But a friend invited you to play one time and something made you want to come back.<br/>Was it…'
+            text: 'You never thought of yourself as into sports. But a friend invited you to play one time and something made you want to come back. Was it…'
         },
         {
             type: 'drag',
@@ -94,7 +94,7 @@ let data = {
             type: 'question',
             number: '2/4',
             title: 'SEEN AND HEARD',
-            text: 'You were always interested in sport and an active lifestyle, but until now, it’s never felt set up for someone with your background. Today you saw something that gave you<br/>courage because…'
+            text: 'You were always interested in sport and an active lifestyle, but until now, it’s never felt set up for someone with your background. Today you saw something that gave you courage because…'
         },
         {
             type: 'tap spam',
@@ -129,7 +129,7 @@ let data = {
             type: 'question',
             number: '3/4',
             title: 'THANKS TO SPORT',
-            text: 'You decide it’s time to give something back to your community. Something sports<br/>related because…'
+            text: 'You decide it’s time to give something back to your community. Something sports related because…'
         },  
         {
             type: 'like',
@@ -166,7 +166,7 @@ let data = {
           type: 'question',
           number: '4/4',
           title: 'MOVE TO HERO',
-          text: 'You didn’t think you’d ever last more than a minute playing sports. But a year on from joining the team it’s become such an important part of your life.<br/>And that’s because:'
+          text: 'You didn’t think you’d ever last more than a minute playing sports. But a year on from joining the team it’s become such an important part of your life. And that’s because:'
         },
         {
           type: 'like',
