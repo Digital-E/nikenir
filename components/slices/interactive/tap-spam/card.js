@@ -307,7 +307,7 @@ export default function Component({ data, index, allItems, hasClicked, dataAll, 
             return hasClicked(e, null)
         }
 
-        if(document.activeElement === e.currentTarget) {
+        if(document.activeElement === e.currentTarget && window.innerWidth < 990) {
             setGauge(100)
             gaugeRef.current = 100
             return hasClicked(e, index)
